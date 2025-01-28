@@ -1,0 +1,381 @@
+@import "components/main";
+
+/* ------------------  Hero ---------------- */
+
+.hero {
+  position: relative;
+  padding-top: 100px;
+  height: 100svh;
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+    }
+
+    h1 {
+      padding: 0 20px;
+    }
+
+    p {
+      font-size: 1.333rem; /* 24px */
+      line-height: 1.666rem; /* 30px */
+      font-weight: 700;
+      color: white;
+      padding-left: 5%;
+      padding-top: 20px;
+      padding-bottom: 100px;
+
+      span {
+        display: block;
+        padding-top: 10px;
+        padding-left: 35px;
+        font-size: 0.888rem; /* 16px */
+        line-height: 1.111rem; /* 20px */
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+/* ------------------  About ---------------- */
+
+.about {
+  display: grid;
+  grid-template-columns: 6fr 6fr;
+  gap: 60px;
+  align-items: center;
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h3 {
+      font-size: 1.666rem; /* 30px */
+      line-height: 2.083rem; /* 37.5px */
+    }
+  }
+
+  .swiper-slide {
+    aspect-ratio: 700 / 430;
+    width: 100%;
+    user-select: none;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -1;
+    }
+
+    .swiper-text {
+      font-size: 1.666rem; /* 30px */
+      line-height: 2.083rem; /* 37.5px */
+      font-weight: 800;
+      text-align: center;
+    }
+  }
+}
+
+/* ------------------  Swiper ---------------- */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.swiper-container {
+  width: 100%;
+  display: grid;
+
+  .swiper-pagination {
+    position: relative;
+    margin-top: 15px;
+  }
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .swiper-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.swiper-scrollbar {
+  top: 300%;
+  position: static !important;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+/* ------------------ Wir bringen Ihre Prozesse in Bewegung /  Grid 3 ---------------- */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 80px;
+  padding-top: 40px;
+  margin-bottom: 60px;
+
+  .grid-3-item {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: 1.666rem; /* 30px */
+      line-height: 2.083rem; /* 37.5px */
+      margin-bottom: 30px;
+    }
+
+    p {
+      margin-bottom: 30px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      color: var(--primary-color);
+      font-weight: 700;
+      text-decoration: none;
+      gap: 5px;
+      font-size: 18px;
+      line-height: 22.5px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+/* ------------------ Unser Team / Team ---------------- */
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  padding-bottom: 40px;
+  align-items: center;
+
+  .team-img-box {
+    position: relative;
+
+    .team-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .team-img-points {
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 63px;
+    }
+  }
+
+  .team-text {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: start;
+
+    h3 {
+      font-size: 2rem; /* 36px */
+      line-height: 2.5rem; /* 45px */
+      margin-top: 10px;
+    }
+
+    .btn {
+      margin-top: auto;
+    }
+  }
+}
+
+/* ------------------ Neuigkeiten ---------------- */
+
+.neuigkeiten {
+  .neuigkeit {
+    height: 100%;
+    position: relative;
+  }
+
+  .swiper-slide {
+    aspect-ratio: 438 / 234;
+    border-radius: 10px;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .neuigkeit-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+  }
+
+  .neuigkeit-text {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    height: 100%;
+    gap: 5px;
+    text-align: end;
+    background: linear-gradient(
+      180deg,
+      rgba(44, 44, 44, 0.25) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    padding: 20px;
+
+    h4 {
+      color: white;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      color: var(--light-blue);
+      font-weight: 700;
+      text-decoration: none;
+      gap: 5px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+/* ------------------ Partners ---------------- */
+
+.partners {
+  .swiper-wrapper {
+    align-items: center;
+    user-select: none;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+
+    img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+    }
+  }
+}
+
+/* ------------------  Media Queries ---------------- */
+
+@media only screen and (max-width: 1440px) {
+}
+
+@media only screen and (max-width: 1200px) {
+}
+
+@media only screen and (max-width: 992px) {
+  .about {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .team {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-bottom: 0;
+
+    .team-img-box {
+      order: 1;
+      .team-img-points {
+        position: absolute;
+        bottom: -12px;
+        left: -14px;
+        width: 35px;
+      }
+    }
+
+    .team-text {
+      br {
+        display: none;
+      }
+    }
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-top: 20px;
+    margin-bottom: 10px;
+
+    .grid-3-item {
+      h3,
+      p {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .swiper-scrollbar {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+}
