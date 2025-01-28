@@ -794,10 +794,21 @@ footer {
   gap: 5px;
   font-size: 18px;
   line-height: 22.5px;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+}
+.grid-3 .grid-3-item a:hover img {
+  transform: translateX(5px);
+}
+.grid-3 .grid-3-item a:hover .link  {
+  transform: translateX(10px);
 }
 .grid-3 .grid-3-item a img {
   width: 24px;
   height: 24px;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+}
+.grid-3 .grid-3-item a .link {
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
 }
 
 /* ------------------ Unser Team / Team ---------------- */
