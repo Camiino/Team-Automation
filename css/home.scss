@@ -1,7 +1,7 @@
 @import "components/main";
+@import "components/grid-3";
 
 /* ------------------  Hero ---------------- */
-
 .hero {
   position: relative;
   padding-top: 100px;
@@ -144,47 +144,6 @@
   width: 100%;
   margin: 0 auto;
   margin-top: 50px;
-}
-
-/* ------------------ Wir bringen Ihre Prozesse in Bewegung /  Grid 3 ---------------- */
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 80px;
-  padding-top: 40px;
-  margin-bottom: 60px;
-
-  .grid-3-item {
-    display: flex;
-    flex-direction: column;
-
-    h3 {
-      font-size: 1.666rem; /* 30px */
-      line-height: 2.083rem; /* 37.5px */
-      margin-bottom: 30px;
-    }
-
-    p {
-      margin-bottom: 30px;
-    }
-
-    a {
-      display: flex;
-      align-items: center;
-      color: var(--primary-color);
-      font-weight: 700;
-      text-decoration: none;
-      gap: 5px;
-      font-size: 18px;
-      line-height: 22.5px;
-
-      img {
-        width: 24px;
-        height: 24px;
-      }
-    }
-  }
 }
 
 /* ------------------ Unser Team / Team ---------------- */
@@ -351,27 +310,9 @@
       }
     }
   }
-
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media only screen and (max-width: 768px) {
-  .grid-3 {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    padding-top: 20px;
-    margin-bottom: 10px;
-
-    .grid-3-item {
-      h3,
-      p {
-        margin-bottom: 15px;
-      }
-    }
-  }
-
   .swiper-scrollbar {
     margin-top: 20px;
   }

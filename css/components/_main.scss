@@ -2,6 +2,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-margin-top: 72px;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -56,12 +58,62 @@ header {
           filter: brightness(0) saturate(100%);
         }
       }
-
-      #hamburger {
-        filter: brightness(0) saturate(100%);
-      }
     }
   }
+}
+
+.hamburger {
+  cursor: pointer;
+  position: relative;
+  top: 0.25rem;
+  z-index: 1001;
+  position: fixed;
+  top: 24px;
+  left: 30px;
+}
+
+#hamburger {
+  &.scrolled {
+    filter: brightness(0) saturate(100%);
+  }
+
+  &.checked {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(7500%)
+      hue-rotate(206deg) brightness(101%) contrast(106%) !important;
+  }
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  height: clamp(23px, 4vh, 4vh);
+  height: 34px;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
 }
 
 .header-content {
@@ -92,6 +144,7 @@ header {
 
     &.left {
       justify-content: flex-start;
+      margin-left: 60px;
     }
 
     &.right {
@@ -113,34 +166,48 @@ header {
       width: 100%;
     }
   }
+}
 
-  .language-box {
-    position: relative;
-    cursor: pointer;
-    user-select: none;
+header a,
+.language-box .language,
+.search-box {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.language-box {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 150%;
+  background-color: white;
+  width: 130px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  z-index: -10;
+  opacity: 0;
+
+  a {
+    padding: 5px 10px;
+    color: black !important;
+    font-weight: 400;
   }
 
-  .language-dropdown {
-    position: absolute;
-    top: 150%;
-    background-color: white;
-    width: 130px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    z-index: -10;
-    opacity: 0;
-
-    a {
-      padding: 5px 10px;
-      color: black !important;
-      font-weight: 400;
-    }
-
-    &.active {
-      z-index: 10;
-      opacity: 1;
-    }
+  &.active {
+    z-index: 10;
+    opacity: 1;
   }
 }
 
@@ -169,10 +236,12 @@ header {
   }
 
   .search {
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+
+    grid-template-columns: auto 30px;
+    align-items: center;
     background-color: white;
     margin: 0 auto;
     border-radius: 8px;
@@ -180,10 +249,10 @@ header {
     padding: 0 10px;
 
     input {
-      flex: 1;
       padding: 10px;
       outline: none;
       border: none;
+      width: 100%;
       font-size: 22px;
     }
 
@@ -255,6 +324,20 @@ header {
         margin-bottom: 10px;
         width: 100%;
       }
+
+      &.quick-actions {
+        top: 20px;
+        position: absolute;
+        right: 14px;
+        display: none;
+        height: 34px;
+        align-items: center;
+
+        .language,
+        .search-box {
+          gap: 10px;
+        }
+      }
     }
   }
 }
@@ -274,6 +357,10 @@ header {
 
   &.bg-grey {
     background-color: #ebf0f0;
+  }
+
+  &.bg-tabs {
+    background-color: #e5e5e5;
   }
 }
 
@@ -424,7 +511,6 @@ footer {
     font-size: 11px; /* 11px */
     line-height: 13.75px; /* 13.75px */
     font-weight: 400;
-
     text-align: left;
   }
 
@@ -497,10 +583,34 @@ footer {
 
   header {
     padding: 7px 14px;
+
+    .header-content {
+      display: grid;
+      grid-template-columns: 20px 40% 20px;
+      gap: 20px;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      height: 58px;
+      justify-content: space-between;
+
+      .logo {
+        max-width: 150px;
+      }
+    }
+  }
+
+  .hamburger {
+    left: 14px;
+    top: 20px;
   }
 
   .hide-mobile {
     display: none !important;
+  }
+
+  .quick-actions {
+    display: flex !important;
   }
 }
 

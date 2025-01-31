@@ -1,34 +1,53 @@
-/* ------------- Header ------------- */
+const hamburger = document.getElementById("hamburger");
 
 window.addEventListener("scroll", function () {
-  const header = document.querySelector("header");
-  header.classList.toggle("scrolled", window.scrollY > 0);
+  closeDropdown();
 });
 
 /* ------------- Menu ------------- */
 
-const hamburger = document.getElementById("hamburger");
+const burger = document.getElementById("burger");
 const menu = document.getElementById("menu");
-const close = document.getElementById("close");
 
-hamburger.addEventListener("click", () => {
-  menu.classList.add("open");
+burger.addEventListener("change", () => {
+  if (menu.classList.contains("open")) {
+    menu.classList.remove("open");
+    document.body.style.overflow = "auto";
+  } else {
+    menu.classList.add("open");
+    document.body.style.overflow = "hidden";
+
+    if (searchContainer.classList.contains("active")) {
+      searchContainer.classList.remove("active");
+    }
+  }
+  closeDropdown();
 });
 
-close.addEventListener("click", () => {
-  menu.classList.remove("open");
+burger.addEventListener("change", () => {
+  if (burger.checked) {
+    hamburger.classList.add("checked");
+  } else {
+    hamburger.classList.remove("checked");
+  }
 });
 
 /* ------------- Search ------------- */
 
-const searchBox = document.querySelector(".search-box");
+const searchBox = document.querySelectorAll(".search-box");
 const searchContainer = document.querySelector(".search-container");
-searchBox.addEventListener("click", () => {
-  if (searchContainer.classList.contains("active")) {
-    searchContainer.classList.remove("active");
-  } else {
-    searchContainer.classList.add("active");
-  }
+
+searchBox.forEach((box) => {
+  box.addEventListener("click", () => {
+    if (searchContainer.classList.contains("active")) {
+      searchContainer.classList.remove("active");
+    } else {
+      searchContainer.classList.add("active");
+      if (menu.classList.contains("open")) {
+        burger.click();
+      }
+    }
+  });
 });
 
 searchContainer.addEventListener("mousedown", (e) => {
@@ -39,9 +58,22 @@ searchContainer.addEventListener("mousedown", (e) => {
 
 /* ------------- Language ------------- */
 
-const language = document.querySelector(".language");
-const languageDropdown = document.querySelector(".language-dropdown");
+const language = document.querySelectorAll(".language");
+const languageDropdown = document.querySelectorAll(".language-dropdown");
 
-language.addEventListener("click", () => {
-  languageDropdown.classList.toggle("active");
+language.forEach((lang) => {
+  lang.addEventListener("click", () => {
+    languageDropdown.forEach((dropdown) => {
+      if (dropdown !== lang.nextElementSibling) {
+        dropdown.classList.remove("active");
+      }
+    });
+    lang.nextElementSibling.classList.toggle("active");
+  });
 });
+
+function closeDropdown() {
+  languageDropdown.forEach((dropdown) => {
+    dropdown.classList.remove("active");
+  });
+}
