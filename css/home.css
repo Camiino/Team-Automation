@@ -47,6 +47,7 @@ header {
 }
 header.scrolled {
   background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .1)
 }
 header.scrolled .header-links a,
 header.scrolled .header-links .language,
