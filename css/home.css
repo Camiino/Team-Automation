@@ -439,10 +439,16 @@ h4 {
 } */
 /* ------------------  Typography ---------------- */
 h1 {
+<<<<<<< HEAD
   font-size: 2.25rem; /* 36px */
   font-weight: 800;
+=======
+  font-size: 2.7rem; /* 36px */
+  font-weight: bolder;
+>>>>>>> 3d5b86ee4df5510c90513849903d107c8e10b346
   line-height: 2.8125rem; /* 45px */
   color: white;
+  letter-spacing: 2px;
 }
 
 h2 {
@@ -848,11 +854,11 @@ footer {
   z-index: 1;
   font-size: 1.333rem; /* 24px */
   line-height: 1.666rem; /* 30px */
-  font-weight: 700;
   color: white;
   padding-left: 5%;
   padding-top: 20px;
   padding-bottom: 100px;
+  letter-spacing: 1px;
 }
 .hero .hero-content p span {
   display: block;
@@ -860,7 +866,6 @@ footer {
   padding-left: 35px;
   font-size: 0.888rem; /* 16px */
   line-height: 1.111rem; /* 20px */
-  font-weight: 700;
 }
 
 /* ------------------  About ---------------- */
