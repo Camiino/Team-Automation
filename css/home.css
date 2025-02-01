@@ -62,17 +62,18 @@ header.scrolled .header-links .search-box img {
 
 .hamburger {
   cursor: pointer;
-  position: relative;
-  top: 0.25rem;
   z-index: 1001;
   position: fixed;
-  top: 24px;
+  top: 20px;
   left: 30px;
 }
 
 #hamburger.scrolled {
   -webkit-filter: brightness(0) saturate(100%);
           filter: brightness(0) saturate(100%);
+}
+#hamburger.scrolled svg path {
+  stroke-width: 2.5;
 }
 #hamburger.checked {
   -webkit-filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(7500%) hue-rotate(206deg) brightness(101%) contrast(106%) !important;
@@ -175,6 +176,8 @@ header.scrolled .header-links .search-box img {
   display: flex;
   margin: 0 auto;
   max-width: 183px;
+  position: relative;
+  top: 0.3rem;
 }
 .header-content .logo img {
   width: 100%;
@@ -219,6 +222,7 @@ header a,
   transition: 0.3s;
   z-index: -10;
   opacity: 0;
+  display: none;
 }
 .language-dropdown a {
   padding: 5px 10px;
@@ -228,6 +232,12 @@ header a,
 .language-dropdown.active {
   z-index: 10;
   opacity: 1;
+  display: initial;
+  animation: show;
+}
+
+@keyframes show {
+
 }
 
 /* ------------------  Search ---------------- */
