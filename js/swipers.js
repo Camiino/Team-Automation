@@ -9,7 +9,7 @@ var swiper = new Swiper(".swiper-about", {
 var swiper2 = new Swiper(".swiper-neuigkeiten", {
   slidesPerView: 3,
   spaceBetween: 60,
-  autoplay: true,
+  autoplay: false,
   delay: 5000,
   freeMode: true,
   momentum: true,
@@ -38,7 +38,7 @@ var swiper2 = new Swiper(".swiper-neuigkeiten", {
 });
 
 var swiper3 = new Swiper(".swiper-partners", {
-  autoplay: true,
+  autoplay: false,
   delay: 2000,
   freeMode: true,
   momentum: true,
