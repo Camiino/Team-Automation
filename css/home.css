@@ -20,6 +20,9 @@ html {
 body {
   font-size: 1rem; /* 18px */
   line-height: 1.25; /* 22.5px */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* ------------------  Scrollbar ---------------- */
@@ -425,8 +428,8 @@ h4 {
 } */
 /* ------------------  Typography ---------------- */
 h1 {
-  font-size: 2.25rem; /* 36px */
-  font-weight: 800;
+  font-size: 2.7rem; /* 36px */
+  font-weight: 1300;
   line-height: 2.8125rem; /* 45px */
   color: white;
 }
