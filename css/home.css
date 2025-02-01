@@ -906,7 +906,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 20px;
+  gap: 35px;
 }
 .about .about-text p b, .about .about-text h3, .about .about-text h4 {
   letter-spacing: 1px;
