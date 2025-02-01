@@ -332,6 +332,10 @@ header a,
   width: 100%;
   font-size: 22px;
 }
+.search-container .search input::-webkit-input-placeholder { 
+  font-family: "Lexend Deca";
+  font-weight: 500;
+}
 .search-container .search img {
   width: 30px;
   aspect-ratio: 1/1;
