@@ -583,9 +583,9 @@ footer {
 .footer-bottom {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 20px;
   gap: 20px;
 }
