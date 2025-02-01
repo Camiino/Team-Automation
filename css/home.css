@@ -20,6 +20,9 @@ html {
 body {
   font-size: 1rem; /* 18px */
   line-height: 1.25; /* 22.5px */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* ------------------  Scrollbar ---------------- */
@@ -164,7 +167,7 @@ header.scrolled .header-links .search-box img {
 .header-content .header-links.left a{
   font-size: 16px;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 .header-content .header-links.right {
   -webkit-box-pack: end;
@@ -172,7 +175,7 @@ header.scrolled .header-links .search-box img {
           justify-content: flex-end;
 }
 .header-content .header-links.right a, .header-content .header-links.right span{
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 .header-content .header-links #hamburger {
   margin-right: 10px;
@@ -425,8 +428,8 @@ h4 {
 } */
 /* ------------------  Typography ---------------- */
 h1 {
-  font-size: 2.25rem; /* 36px */
-  font-weight: 800;
+  font-size: 2.7rem; /* 36px */
+  font-weight: 1300;
   line-height: 2.8125rem; /* 45px */
   color: white;
 }
