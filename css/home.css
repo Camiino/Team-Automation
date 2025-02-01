@@ -164,7 +164,7 @@ header.scrolled .header-links .search-box img {
 .header-content .header-links.left a{
   font-size: 16px;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 .header-content .header-links.right {
   -webkit-box-pack: end;
@@ -172,7 +172,7 @@ header.scrolled .header-links .search-box img {
           justify-content: flex-end;
 }
 .header-content .header-links.right a, .header-content .header-links.right span{
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 .header-content .header-links #hamburger {
   margin-right: 10px;
