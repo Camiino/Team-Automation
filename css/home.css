@@ -250,14 +250,38 @@ header a,
   fill: white;
   stroke: white;
 }
+.header-content .changer2{
+  fill: white;
+}
+.header-content .changer3{
+  fill: white;
+  stroke: white;
+}
+.header-content .changer4{
+  stroke: white;
+}
 .scrolled .changer{
   fill: #9d9d9f;
 }
 .scrolled .changer1{
   fill: #9d9d9f;
   stroke: #9d9d9f;
+}
+.scrolled .changer2{
+  fill: #01509f;
+}
+.scrolled .changer3{
+  fill: #01509f;
+  stroke: #01509f;
+}
+.scrolled .changer4{
+  stroke: #01509f;
+}
+
+.changer, .changer1, .changer2, .changer3, .changer4{
   transition: 0.25s ease-in;
 }
+
 @keyframes show {
 
 }
@@ -439,13 +463,8 @@ h4 {
 } */
 /* ------------------  Typography ---------------- */
 h1 {
-<<<<<<< HEAD
-  font-size: 2.25rem; /* 36px */
-  font-weight: 800;
-=======
   font-size: 2.7rem; /* 36px */
   font-weight: bolder;
->>>>>>> 3d5b86ee4df5510c90513849903d107c8e10b346
   line-height: 2.8125rem; /* 45px */
   color: white;
   letter-spacing: 2px;
