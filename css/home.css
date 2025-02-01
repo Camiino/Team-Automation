@@ -64,7 +64,7 @@ header.scrolled .header-links .search-box img {
   cursor: pointer;
   z-index: 1001;
   position: fixed;
-  top: 20px;
+  top: 18px;
   left: 30px;
 }
 
@@ -161,10 +161,18 @@ header.scrolled .header-links .search-box img {
           justify-content: flex-start;
   margin-left: 60px;
 }
+.header-content .header-links.left a{
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 .header-content .header-links.right {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+.header-content .header-links.right a, .header-content .header-links.right span{
+  letter-spacing: 1px;
 }
 .header-content .header-links #hamburger {
   margin-right: 10px;
@@ -460,6 +468,10 @@ p {
   line-height: 1.389rem; /* 25px */
 }
 
+.btn:hover {
+  filter: brightness(1.2);
+}
+
 /* ------------------  Footer ---------------- */
 footer {
   color: #1c1c1c;
@@ -686,7 +698,7 @@ footer {
   font-size: 18px;
   font-weight: 300;
   line-height: 22.5px;
-  margin-bottom: 30px;
+  height: 100px;
 }
 .grid-3 a {
   display: -webkit-box;
@@ -986,6 +998,11 @@ footer {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+  filter: brightness(0.8);
+}
+.neuigkeiten .swiper-slide:hover {
+  filter: brightness(1);
 }
 .neuigkeiten .neuigkeit-img {
   position: absolute;
@@ -1034,10 +1051,19 @@ footer {
   font-weight: 700;
   text-decoration: none;
   gap: 5px;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+}
+.neuigkeiten .swiper-slide:hover .neuigkeit-text a {
+  transform: translateX(2px);
 }
 .neuigkeiten .neuigkeit-text a img {
   width: 24px;
   height: 24px;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+  transform: translateY(-0.5px);
+}
+.neuigkeiten .swiper-slide:hover .neuigkeit-text a img{
+  transform: translateX(2px);
 }
 
 /* ------------------ Partners ---------------- */
