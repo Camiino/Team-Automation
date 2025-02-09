@@ -22,6 +22,7 @@ body {
   line-height: 1.25; /* 22.5px */
 }
 
+
 /* ------------------  Scrollbar ---------------- */
 ::-webkit-scrollbar {
   width: 10px;
@@ -853,7 +854,7 @@ header .header-links .search-box img {
 
 /* ------------------ Subpage  Slider ---------------- */
 .swiper .swiper-slide img {
-  aspect-ratio: 16/9;
+  aspect-ratio: 16/8;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -1136,7 +1137,6 @@ header .header-links .search-box img {
   font-size: 20px;
   font-weight: 700;
   line-height: 25px;
-  letter-spacing: 0.08em;
   text-decoration: none;
   color: black;
   display: block;
