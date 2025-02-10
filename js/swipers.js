@@ -1,11 +1,3 @@
-var swiper = new Swiper(".swiper-about", {
-  loop: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
-
 var swiper2 = new Swiper(".swiper-neuigkeiten", {
   slidesPerView: 3,
   spaceBetween: 60,
@@ -38,34 +30,22 @@ var swiper2 = new Swiper(".swiper-neuigkeiten", {
 });
 
 var swiper3 = new Swiper(".swiper-partners", {
-  autoplay: false,
-  delay: 2000,
+  loop: true, 
   freeMode: true,
-  momentum: true,
-  scrollbar: {
-    el: ".swiper-scrollbar",
-    draggable: true,
-    dragSize: 100,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false, // Prevents pausing on touch
   },
+  speed: 6000,
+  slidesPerView: "auto",
+  spaceBetween: 30,
+  allowTouchMove: false,
+
   breakpoints: {
-    320: {
-      slidesPerView: 2,
-      spaceBetween: 10,
-    },
-
-    480: {
-      slidesPerView: 3,
-      spaceBetween: 20,
-    },
-
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 30,
-    },
-
-    1024: {
-      slidesPerView: 5,
-      spaceBetween: 30,
-    },
+    320: { slidesPerView: 2, spaceBetween: 10 },
+    480: { slidesPerView: 3, spaceBetween: 20 },
+    768: { slidesPerView: 4, spaceBetween: 30 },
+    1024: { slidesPerView: 5, spaceBetween: 30 },
   },
 });
+

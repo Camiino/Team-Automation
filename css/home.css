@@ -1149,7 +1149,7 @@ footer {
 }
 
 /* ------------------ Partners ---------------- */
-.partners .swiper-wrapper {
+.partners .swiper-wrapper, .partners .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1157,6 +1157,7 @@ footer {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+          pointer-events: none;
 }
 .partners .swiper-slide {
   display: -webkit-box;
