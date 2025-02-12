@@ -1268,4 +1268,9 @@ header .header-links .search-box img {
     min-width: 50px;
     width: 5vw;
   }
+}
+@media only screen and (max-width: 480px) {
+  .footer-bottom .footer-logo{
+    width: initial !important;
+  }
 }/*# sourceMappingURL=subpage.css.map */

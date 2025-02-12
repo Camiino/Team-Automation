@@ -1209,4 +1209,9 @@ footer {
   .swiper-scrollbar {
     margin-top: 20px;
   }
+}
+@media only screen and (max-width: 480px) {
+  .footer-bottom .footer-logo{
+    width: initial !important;
+  }
 }/*# sourceMappingURL=home.css.map */
