@@ -67,7 +67,7 @@ header.scrolled .header-links .search-box img {
   top: 0.25rem;
   z-index: 1001;
   position: fixed;
-  top: 24px;
+  top: 20px;
   left: 30px;
 }
 
@@ -176,6 +176,8 @@ header.scrolled .header-links .search-box img {
   display: flex;
   margin: 0 auto;
   max-width: 183px;
+  position: relative;
+  top: 4px;
 }
 .header-content .logo img {
   width: 100%;
@@ -692,10 +694,15 @@ footer {
   gap: 5px;
   font-size: 18px;
   line-height: 22.5px;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
 }
 .grid-3 a img {
   width: 24px;
   height: 24px;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+}
+.grid-3 a .link {
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
 }
 .grid-3 a.centered {
   grid-column: span 3;
@@ -703,6 +710,13 @@ footer {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.grid-3 a.centered:hover img {
+  transform: translateX(5px);
+}
+.grid-3 a.centered:hover .link {
+  transform: translateX(10px);
+}
+
 
 /* ------------------  Media Queries ---------------- */
 @media only screen and (max-width: 992px) {
@@ -772,7 +786,10 @@ header .header-links .search-box img {
   text-decoration: none;
   color: black;
 }
-.subpage-top .subpage-top-img {
+.subpage-top .breadcrumb a:hover {
+  text-decoration: underline;
+}
+  .subpage-top .subpage-top-img {
   width: 100%;
   margin: 20px 0;
   border-radius: 10px;
