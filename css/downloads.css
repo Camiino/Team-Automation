@@ -1,0 +1,81 @@
+.breadcrumb {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--primary-color);
+  }
+.breadcrumb a {
+    text-decoration: none;
+    color: black;
+  }
+.breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+.sub-content{
+    padding-top: 5rem;
+    min-height: 80vh;
+}
+
+.downloads-grid{
+    padding-top: 5rem;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    margin-bottom: 5rem;
+}
+
+.downloads-grid .row {
+    padding: 1rem 3rem;
+    background-color: #e5e5e5;
+    border-bottom: 2px solid #2c2c2c;
+    border-left: 2px solid #2c2c2c;
+    border-right: 2px solid #2c2c2c;
+    display: flex;
+    align-items: center;
+}
+
+.downloads-grid .row:first-child {
+    padding: 1rem 3rem;
+    background-color: #e5e5e5;
+    border-top: 2px solid #2c2c2c;
+}
+
+.downloads-grid .row span{
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.downloads-grid .row a{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.downloads-grid .row a img{
+    width: 20px;
+    aspect-ratio: 1;
+    margin-left: 10px;
+}
+
+.downloads-grid .row a img:hover{
+    filter: brightness(0) saturate(100%) invert(17%) sepia(95%) saturate(2000%) hue-rotate(195deg) brightness(90%) contrast(100%);
+}
+
+.email{
+    text-decoration: underline;
+    color: #2a7af3;
+
+}
+
+
+
