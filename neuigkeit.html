@@ -187,17 +187,17 @@
           <a href="index.html">Home</a> > <a href=""> Aktuelles </a>
         </div>
 
-        <img id="top"
+        <img
           class="subpage-top-img"
-          src="assets/images/projekte.webp"
+          src="assets/images/news.webp"
           alt=""
         />
       </div>
     </div>
 
     <div class="mini-nav">
-      <a href="#top">Aktuelles</a>
-      <a href="">Ihr Neues Projekt</a>
+      <a href="#top"  onclick="goPageOne(event)">Aktuelles</a>
+      <a href="#neuesP">Ihr Neues Projekt</a>
       <img class="mini-nav-scroll" src="assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="assets/icons/arrow-top.svg" alt="" />
     </div>
@@ -207,9 +207,9 @@
     <div class="container-full" id="project-container">
       <div class="container">
         <div class="project-page project-page-active" id="project-page-1">
-          <div class="project">
+          <div class="project" id="top">
             <img
-              src="assets/images/home/B5.webp"
+              src="assets/images/news-tüv.webp"
               alt=""
               class="project-img"
             />
@@ -217,10 +217,10 @@
             <div class="project-text">
               <h4>29. Juli 2017</h4>
 
-              <h3>Kooperationspartner in China</h3>
+              <h3>Überwachungsauditierung 2024 gemäß der Qualitätsnorm DIN EN ISO 9001:2015 durch die TÜV SÜD Management Service GmbH</h3>
 
               <p>
-                Die TEAM Automation Berlin GmbH hat am 29.06.2017 eine enge Kooperation für Service und Vertrieb auf dem chinesischen Markt mit seinem Partner der Shanghai Conbot Automation Technology Co. Ltd. vereinbart. (Herr Guohua Zhang (CONBOT) und Herr Reiner W. Schulz (TEAM) 2017 in Shanghai)
+                TEAM Automation Berlin GmbH hat sich im  Juni 2024 erneut und erfolgreich die Überwachungsauditierung im Rahmen der Qualitätsnorm DIN EN ISO 9001:2015 gestellt. Im Jahr 2025 findet das nächste Wiederholungsaudit statt.
               </p>
             </div>
           </div>
@@ -232,7 +232,7 @@
 
           <div class="project project-reverse">
             <img
-              src="assets/images/home/B1.webp"
+              src="assets/images/news-schweiz.webp"
               alt=""
               class="project-img"
             />
@@ -243,11 +243,7 @@
               <h3>Deutsche Ingenieurtechnik – gepaart mit Schweizer Präzision</h3>
 
               <p>
-                Angefangen vom Bewickeln von Ventilspulen mit
-                Kupferlackdraht/Aluminiumlackdraht mit unserem Schweizer Partner
-                METEOR bis hin zur vollautomatischen Montageanlage können wir
-                Ihnen das komplette Spektrum zur Herstellung von Ventilen
-                entsprechend anbieten.
+                gemeinsam mit den Spezialisten auf dem Gebiet der Draht-Wickeltechnik, der METEOR AG aus der Schweiz  erstellt  TEAM Automation Berlin komplette vollautomatische Einzel- und Gesamtlösungen  
               </p>
             </div>
           </div>
@@ -259,22 +255,19 @@
 
           <div class="project">
             <img
-              src="assets/images/home/B2.webp"
+              src="assets/images/strategischePartnerschaften.png"
               alt=""
               class="project-img"
+              style="object-fit: contain;"
             />
 
             <div class="project-text">
               <h4>01. November 2024</h4>
 
-              <h3>Projekt 3</h3>
+              <h3>Strategische Partnerschaften</h3>
 
               <p>
-                Angefangen vom Bewickeln von Ventilspulen mit
-                Kupferlackdraht/Aluminiumlackdraht mit unserem Schweizer Partner
-                METEOR bis hin zur vollautomatischen Montageanlage können wir
-                Ihnen das komplette Spektrum zur Herstellung von Ventilen
-                entsprechend anbieten.
+                Die KEYENCE Deutschland GmbH und TEAM Automation Berlin GmbH gehen für die Gebiete Berlin/Brandburg und Mecklenburg/Vorpommern eine strategische Partnerschaft ein. Im Rahmen dieser Partnerschaft sollen zukünftig gemeinsame und anspruchsvolle Hochtechnologieprojekte für unsere Kunden realisiert werden
               </p>
             </div>
           </div>
@@ -283,22 +276,18 @@
         <div class="project-page" id="project-page-2">
           <div class="project">
             <img
-              src="assets/images/home/B4.webp"
+              src="assets/images/china-kooperation1.webp"
               alt=""
               class="project-img"
             />
 
             <div class="project-text">
-              <h4>01. November 2024</h4>
+              <h4>29. Juli 2017</h4>
 
-              <h3>Projekt 4</h3>
+              <h3>Kooperationspartner in China</h3>
 
               <p>
-                Angefangen vom Bewickeln von Ventilspulen mit
-                Kupferlackdraht/Aluminiumlackdraht mit unserem Schweizer Partner
-                METEOR bis hin zur vollautomatischen Montageanlage können wir
-                Ihnen das komplette Spektrum zur Herstellung von Ventilen
-                entsprechend anbieten.
+                Die TEAM Automation Berlin GmbH hat am 29.06.2017 eine enge Kooperation für Service und Vertrieb auf dem chinesischen Markt mit seinem Partner der Shanghai Conbot Automation Technology Co. Ltd. vereinbart. (Herr Guohua Zhang (CONBOT) und Herr Reiner W. Schulz (TEAM) 2017 in Shanghai)
               </p>
             </div>
           </div>
@@ -595,7 +584,7 @@
         <div class="project-pagination">
           <hr />
           <div class="project-pagination-pages">
-            <a
+            <a id="first"
               onclick="changePage(event, 'project-page-1')"
               class="project-pagination-pages-current"
               >1</a
@@ -615,7 +604,7 @@
             class="project-img"
           />
 
-          <div class="project-text">
+          <div class="project-text" id="neuesP">
             <h4>Heute</h4>
 
             <h3>Ihr Neues Projekt</h3>
@@ -627,7 +616,7 @@
               -ketten. Lassen Sie uns Ihre Vision Realität werden lassen!
             </p>
 
-            <a href="" class="btn"> Jetzt Starten </a>
+            <a href="./contact.html" class="btn"> Jetzt Starten </a>
           </div>
         </div>
       </div>
@@ -637,21 +626,18 @@
       <div class="footer-content footer-cols">
         <div class="footer-col">
           <p class="footer-col-title">Navigieren</p>
-          <a href="">Anlagen</a>
-          <a href="">Branchen</a>
-          <a href="">Leistungsportfolio</a>
-          <a href="">Unternehmen</a>
-          <a href="">Partner</a>
-          <a href="">Prozesse</a>
+          <a href="./anlagen.html">Anlagen</a>
+          <a href="./prozesse.html">Prozesse</a>
+          <a href="./branchen.html">Branchen</a>
+          <a href="./beispiele.html">Beispiele</a>
+          <a href="./partner.html">Partner</a>
         </div>
 
         <div class="footer-col">
           <p class="footer-col-title">Information</p>
-          <a href="">Aktuelles</a>
-          <a href="">AGB</a>
-          <a href="">Downloads</a>
-          <a href="">Impressum</a>
-          <a href="">Downloads</a>
+          <a href="./neuigkeit.html">Aktuelles</a>
+          <a href="./impressum.html">Impressum</a>
+          <a href="./downloads.html">Downloads</a>
         </div>
 
         <div class="footer-col">
@@ -659,22 +645,9 @@
           <a href="">Telefon +49 30 / 60 90 294 - 0</a>
           <a href="">Fax +49 30 / 60 90 294 - 09</a>
           <a href="mailto:info@team-automation-berlin.de" class="email">info@team-automation-berlin.de</a>
-          <a href="">Kontakt Aufnehmen</a>
+          <a href="contact">Kontakt Aufnehmen</a>
         </div>
 
-        <div class="footer-col">
-          <p class="footer-col-title">Geschäft</p>
-          <p>
-            Geschäftsführer: <br />
-            <span class="leaders">
-              Reiner W. Schulz - Diplom Ingeniuer (FH)<br />
-              Andreas Nowak - Diplom Ingeniuer (TH)</span
-            >
-          </p>
-          <p>Handelsregister: <span>HR B 63.983 B</span></p>
-          <p>Registergericht: <span>Amtsgericht Berlin-Charlottenburg</span></p>
-          <p>USt- ID-Nr. : <span>DE 189 127 293</span></p>
-        </div>
       </div>
 
       <hr />
@@ -747,6 +720,10 @@
           paginationPage.classList.remove("project-pagination-pages-current");
         });
         event.target.classList.add("project-pagination-pages-current");
+      }
+
+      function goPageOne(event) {
+        document.getElementById("first").click();
       }
     </script>
   </body>
