@@ -670,6 +670,8 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+.grid-3 .grid-3-item.multiple {
   height: 500px;
 }
 .grid-3 .grid-3-item h3 {
