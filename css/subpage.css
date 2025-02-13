@@ -660,6 +660,7 @@ footer {
   gap: 80px;
   padding-top: 40px;
   margin-bottom: 60px;
+  position: relative;
 }
 .grid-3 .grid-3-item {
   display: -webkit-box;
@@ -669,6 +670,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 500px;
 }
 .grid-3 .grid-3-item h3 {
   font-size: 1.666rem; /* 30px */
@@ -711,13 +713,26 @@ footer {
           justify-content: center;
   transform: translateX(-15px);
 }
+.grid-3 a.sublink {
+  grid-column: span 3;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  bottom: 0;
+}
 .grid-3 a.centered:hover img {
   transform: translateX(5px);
 }
 .grid-3 a.centered:hover .link {
   transform: translateX(10px);
 }
-
+.grid-3 a.sublink:hover img {
+  transform: translateX(5px);
+}
+.grid-3 a.sublink:hover .link {
+  transform: translateX(10px);
+}
 
 /* ------------------  Media Queries ---------------- */
 @media only screen and (max-width: 992px) {
@@ -871,6 +886,10 @@ header .header-links .search-box img {
 }
 
 /* ------------------ Subpage  Slider ---------------- */
+.swiper {
+  height: 85vh;
+  user-select: none;
+}
 .swiper .swiper-slide img {
   aspect-ratio: 16/8;
   -o-object-fit: cover;
