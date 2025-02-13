@@ -1066,6 +1066,18 @@ footer {
 .team .team-text .btn {
   margin-top: auto;
 }
+.team .team-text .actionBtns a.btn:nth-child(2) {
+  background-color: #213343!important;
+}
+
+.actionBtns {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 /* ------------------ Neuigkeiten ---------------- */
 .neuigkeiten .neuigkeit {
