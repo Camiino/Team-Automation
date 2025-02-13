@@ -1,0 +1,95 @@
+.breadcrumb {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--primary-color);
+  }
+.breadcrumb a {
+    text-decoration: none;
+    color: black;
+  }
+.breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+.sub-content{
+    padding-top: 5rem;
+    min-height: 80vh;
+}
+.content-grid{
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+.map-container iframe{
+    border-radius: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+}
+
+.form-container {
+    border-radius: 8px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+}
+.form-container label {
+    font-weight: bold;
+    display: block;
+}
+.form-container input,
+.form-container textarea,
+.form-container select,
+.form-container button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.form-container textarea {
+    height: 10rem;
+    resize: none;
+}
+.form-container .row {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 1rem;
+}
+.form-container button {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.form-container button:hover {
+    background-color: var(--light-blue);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .form-container .row {
+        flex-direction: column;
+    }
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .content-grid{
+        grid-template-columns: 1fr;
+    }
+}
