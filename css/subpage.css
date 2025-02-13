@@ -887,7 +887,6 @@ header .header-links .search-box img {
 
 /* ------------------ Subpage  Slider ---------------- */
 .swiper {
-  height: 85vh;
   user-select: none;
 }
 .swiper .swiper-slide img {
@@ -897,6 +896,7 @@ header .header-links .search-box img {
   -o-object-position: center;
      object-position: center;
   width: 100%;
+  height: 85vh;
 }
 
 .swiper-button-next,
