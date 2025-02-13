@@ -709,6 +709,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  transform: translateX(-15px);
 }
 .grid-3 a.centered:hover img {
   transform: translateX(5px);
