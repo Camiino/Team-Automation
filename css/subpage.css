@@ -680,7 +680,7 @@ footer {
   font-size: 18px;
   font-weight: 300;
   line-height: 22.5px;
-  margin-bottom: 30px;
+  margin-bottom: 0.5rem;
 }
 .grid-3 a {
   display: -webkit-box;
@@ -718,6 +718,7 @@ footer {
       -ms-flex-pack: left;
           justify-content: left;
   margin-top: auto;
+  padding-top: 1rem;
 }
 .grid-3 a.centered:hover img {
   transform: translateX(5px);
@@ -730,6 +731,10 @@ footer {
 }
 .grid-3 a.sublink:hover .link {
   transform: translateX(10px);
+}
+.grid-3 .grid-3-item ul{
+  margin-bottom: 1rem;
+  margin-left: 2rem;
 }
 
 /* ------------------  Media Queries ---------------- */
