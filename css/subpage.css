@@ -671,9 +671,6 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.grid-3 .grid-3-item.multiple {
-  height: 500px;
-}
 .grid-3 .grid-3-item h3 {
   font-size: 1.666rem; /* 30px */
   line-height: 2.083rem; /* 37.5px */
@@ -717,11 +714,10 @@ footer {
 }
 .grid-3 a.sublink {
   grid-column: span 3;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
-  bottom: 0;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  margin-top: auto;
 }
 .grid-3 a.centered:hover img {
   transform: translateX(5px);
@@ -740,6 +736,9 @@ footer {
 @media only screen and (max-width: 992px) {
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .anlagen-grid {
+    display: block;
   }
   .grid-3 a.centered {
     grid-column: span 2;
