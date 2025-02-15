@@ -1065,9 +1065,17 @@ footer {
 }
 .team .team-text .btn {
   margin-top: auto;
+  border: 3px solid var(--primary-color);
 }
 .team .team-text .actionBtns a.btn:nth-child(2) {
-  background-color: #213343!important;
+  background: none!important;
+  color: var(--primary-color);
+}
+.team .team-text .actionBtns a.btn:nth-child(2):hover {
+  background: var(--primary-color)!important;
+  filter: none !important;
+  color: white;
+  transition: 0.1s ease-in-out;
 }
 
 .actionBtns {
