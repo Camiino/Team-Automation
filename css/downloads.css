@@ -79,6 +79,44 @@
     color: #2a7af3;
 }
 
+.impressum-grid{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    width: 100%;
+    gap: 3rem;
+}
+.impressum-data{
+    background-color: #e5e5e5;
+    border-radius: 1rem;
+    padding: 1rem 3rem;
+    text-align: left !important;
+}
+.impressum-data h2, .geschaeftsfuehrung-data h2{
+    font-size: 1.5rem;
+}
+.impressum-data h3, .geschaeftsfuehrung-data h3{
+    font-size: 1rem;
+}
+.geschaeftsfuehrung-data h4{
+    font-size: 1rem;
+    text-align: left;
+    color: var(--primary-color);
+}
+.geschaeftsfuehrung-data p{
+    font-size: 0.75rem;
+    line-height: normal;
+    text-align: left !important;
+}
+.impressum-data p{
+    font-size: 0.75rem;
+    line-height: normal;
+    text-align: left !important;
+}
+.impressum-data ul{
+    margin-left: 2rem;
+    font-size: 0.75rem;
+}
+
 
 
 
