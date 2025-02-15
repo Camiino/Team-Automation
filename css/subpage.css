@@ -22,7 +22,6 @@ body {
   line-height: 1.25; /* 22.5px */
 }
 
-
 /* ------------------  Scrollbar ---------------- */
 ::-webkit-scrollbar {
   width: 10px;
@@ -718,6 +717,7 @@ footer {
       -ms-flex-pack: left;
           justify-content: left;
   margin-top: auto;
+  margin-bottom: 2rem;
   padding-top: 1rem;
 }
 .grid-3 a.centered:hover img {
@@ -751,7 +751,7 @@ footer {
 }
 @media only screen and (max-width: 768px) {
   .grid-3 {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 25px;
     padding-top: 20px;
     margin-bottom: 10px;
@@ -983,6 +983,9 @@ header .header-links .search-box img {
   margin: 2rem 1rem 1.25rem 1rem;
   font-size: 1.1rem;
 }
+.sub-anlagen-grid-2 .details h2{
+  font-size: 2rem;
+}
 .sub-anlagen-grid-2 .details ul ul{
   margin: 1rem 1rem 1.25rem 1rem;
   font-size: 1.1rem;
@@ -991,6 +994,12 @@ header .header-links .search-box img {
   margin: 0.75rem 0;
 }
 .sub-anlagen-grid-2 .details .double-list{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+.grid-2er-special{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }

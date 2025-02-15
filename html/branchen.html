@@ -3,26 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TEAM Automation Berlin</title>
+    <title>Branchens</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="shortcut icon" href="./assets/icons/logoAlt.ico" type="image/x-icon" />
-  
+    <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
 
     <style>
       @font-face {
         font-family: "Lexend Deca";
-        src: url(assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
+        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
       }
 
       @font-face {
         font-family: "Lexend LexendDeca-Bold";
-        src: url(assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
+        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
       }
 
       @font-face {
         font-family: "Mukta_Mahee";
-        src: url(assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
+        src: url(../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
       }
 
       body {
@@ -34,21 +33,20 @@
         letter-spacing: 1.5px;
       }
     </style>
-
-    <link rel="stylesheet" href="css/home.css" />
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/subpage.css" />
   </head>
   <body>
-    <header>
+    <header class="sticky">
       <div class="header-content">
         <div class="header-links left">
-          <!--   <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
+          <!--   <img id="hamburger" src="../assets/icons/menu.svg" alt="" /> -->
 
-          <a class="hide-mobile" href="./html/neuigkeit.html">Aktuelles</a>
-          <a class="hide-mobile" href="./html/karriere.html">Karriere</a>
-          <a class="hide-mobile" href="./html/downloads.html">Downloads</a>
+          <a class="hide-mobile" href="neuigkeit.html">Aktuelles</a>
+          <a class="hide-mobile" href="karriere.html">Karriere</a>
+          <a class="hide-mobile" href="downloads.html">Downloads</a>
         </div>
-        <a href="index.html" class="logo">
+        <a href="../index.html" class="logo">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_170_1245)">
             <path id="changer2" class="changer2" d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>
@@ -85,7 +83,7 @@
         <div class="header-links right">
           <div class="hide-mobile language-box">
             <div class="language">
-              <img src="assets/icons/language.svg" alt="" />
+              <img src="../assets/icons/language.svg" alt="" />
               <span>Sprache</span>
             </div>
 
@@ -96,18 +94,18 @@
               <a href="">Polski (PL)</a>
             </div>
           </div>
-          <a class="hide-mobile" href="./html/kontakt.html">
-            <img src="assets/icons/contact.svg" alt="" /> Kontakt</a
+          <a class="hide-mobile" href="kontakt.html">
+            <img src="../assets/icons/contact.svg" alt="" /> Kontakt</a
           >
           <div class="search-box">
-            <img src="assets/icons/search.svg" alt="" />
+            <img src="../assets/icons/search.svg" alt="" />
             <span class="hide-mobile">Suche</span>
           </div>
         </div>
       </div>
     </header>
 
-    <label id="hamburger" class="hamburger">
+    <label id="hamburger" class="hamburger hamburger-subpage">
       <input type="checkbox" id="burger" />
       <svg viewBox="0 0 32 32">
         <path
@@ -121,7 +119,7 @@
     <div class="search-container">
       <div class="search">
         <input type="text" placeholder="Suchen" />
-        <img src="assets/icons/search.svg" alt="" />
+        <img src="../assets/icons/search.svg" alt="" />
       </div>
     </div>
 
@@ -130,7 +128,7 @@
         <div class="menu-content-box quick-actions">
           <div class="language-box menu-content-item">
             <div class="language">
-              <img src="assets/icons/language.svg" alt="" />
+              <img src="../assets/icons/language.svg" alt="" />
               <span>Sprache</span>
             </div>
 
@@ -143,28 +141,34 @@
           </div>
 
           <div class="search-box">
-            <img src="assets/icons/search.svg" alt="" />
+            <img src="../assets/icons/search.svg" alt="" />
             <span>Suche</span>
           </div>
         </div>
 
         <div class="menu-content-box">
+          <p class="menu-content-box-title">Menu</p>
+          <a href="../index.html">Aktuelles</a>
+          <a href="../index.html">Karriere</a>
+          <a href="../index.html">Downloads</a>
+          <a href="kontakt.html">Kontakt</a>
+        </div>
+
+        <div class="menu-content-box">
           <p class="menu-content-box-title">Navigieren</p>
-          <a href="./html/leistungsportfolio.html">Leistungsportfolio</a>
-          <a href="./html/anlagen.html">Anlagen</a>
-          <a href="./html/prozesse.html">Prozesse</a>
-          <a href="./html/branchen.html">Branchen</a>
-          <a href="./html/anlagen/halbautomatisch.html">Beispiele</a>
-          <a href="./html/partner.html">Partner</a>
+          <a href="./leistungsportfolio.html">Leistungsportfolio</a>
+          <a href="./anlagen.html">Anlagen</a>
+          <a href="./prozesse.html">Prozesse</a>
+          <a href="./branchen.html">Branchen</a>
+          <a href="./beispiele.html">Beispiele</a>
+          <a href="./partner.html">Partner</a>
         </div>
 
         <div class="menu-content-box">
           <p class="menu-content-box-title">Information</p>
-          <a href="./html/neuigkeit.html">Aktuelles</a>
-          <a href="./html/kontakt.html">Kontakt</a>
-          <a href="./html/karriere.html">Karriere</a>
-          <a href="./html/impressum.html">Impressum</a>
-          <a href="./html/downloads.html">Downloads</a>
+          <a href="neuigkeit.html">Aktuelles</a>
+          <a href="./downloads.html">Downloads</a>
+          <a href="./impressum.html">Impressum</a>
         </div>
 
         <div class="menu-content-box">
@@ -177,422 +181,157 @@
       </div>
     </div>
 
-    <div class="hero">
-      <video
-        playsinline autoplay muted loop loading="lazy" 
-      >
-        <source src="./assets/videos/TEAM-Automation-Berlin.webm">
-        Your browser does not support the video tag.
-      </video>
-    
-
-      <div class="hero-content">
-        <div class="hero-title">
-          <h1>... liefert Ihnen automatisch die Lösung!</h1>
+    <div class="container-full subpage-top">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a> > <a href=""> Branchen </a>
         </div>
 
-        <p>
-          TEAM Automation Berlin GmbH <br />
-          <span>Vision • Planung • Strategie • Erfolg</span>
-        </p>
+        <img
+          class="subpage-top-img"
+          src="../assets/images/anlagen.webp"
+          alt=""
+        />
       </div>
+    </div>
+
+    <div class="mini-nav">
+      <a href="./branchen/automobilindustrie.html">Automobilindustrie</a>
+      <a href="./branchen/nutzfahrzeug.html">Nutzfahrzeugindustrie</a>
+      <a href="./branchen/elektronik.html">Elektronikindustrie</a>
+      <a href="./branchen/chemie.html">Chemie</a>
+      <a href="./branchen/sicherheitstechnik.html">Sicherheitstechnik</a>
+      <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
+      <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
     </div>
 
     <div class="container-full">
-      <div class="container">
-        <div class="about">
-          <div class="about-text">
-            <div>
-              <h4>Seit 1997</h4>
-              <h3>Automation, die den Takt vorgibt</h3>
-            </div>
+      <div class="container text-section">
+        <div class="title">
+          <h2>Branchen</h2>
+        </div>
 
-            <p>
-              <b>
-                Seit über 20 Jahren – Automatisierung, die den Unterschied
-                macht</b
-              >
-            </p>
-
-            <p>
-              Automatisierung hat die Welt der Industrie verändert, Prozesse
-              beschleunigt und Präzision in neue Dimensionen geführt.
-            </p>
-
-            <p>
-              TEAM Automation Berlin ist seit mehr als zwei Jahrzehnten ein
-              zentraler Partner für Unternehmen, die ihre Produktionsprozesse
-              optimieren und sich auf eine zuverlässige, zukunftssichere
-              Technologie verlassen wollen.
-            </p>
-          </div>
-          <div class="swiper-container">
-            <div class="swiper swiper-about">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img
-                    src="assets/images/home/B5.webp"
-                    alt=""
-                  />
-
-                  <div class="swiper-text">
-                    Wo Technik auf Präzision trifft
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="text">
+          <p>
+            Unsere Lösungen sind branchenübergreifend im Einsatz und passen sich flexibel an die spezifischen Anforderungen unterschiedlichster Industrien an. Ob Automobil-, Elektronik-, Medizin- oder Verpackungstechnik – wir bieten maßgeschneiderte Automatisierungslösungen, die Effizienz, Präzision und Qualität in Ihrer Produktion steigern. Erfahren Sie mehr über unsere Branchenkompetenz und finden Sie die optimale Lösung für Ihre Anforderungen.
+          </p>
         </div>
       </div>
+    </div>
+
+    <div class="swiper imgSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="../assets/images/home/B1.webp"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="../assets/images/home/B2.webp"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="../assets/images/home/B3.webp"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="../assets/images/home/B4.webp"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="../assets/images/home/B5.webp"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="../assets/images/home/B6.webp"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
 
     <div class="container-full bg-fog">
       <div class="container">
         <div class="title">
-          <h2>Wir bringen Ihre Prozesse in Bewegung</h2>
+          <h2>Branchenübersicht</h2>
         </div>
 
         <div class="grid-3">
-          <div class="grid-3-item">
-            <h3>Leistungsportfolio</h3>
+          <div class="grid-3-item multiple">
+            <h3>Automobilindustrie</h3>
 
             <p>
-              TEAM Automation Berlin bietet Ihnen Automatisierungslösungen beginnend mit der Beratung und Konzeptionierung bis zur kompletten Umsetzung und verfügt dazu über nachfolgendes Portfolio.
+              Die Automobilindustrie ist eine der Schlüssel-Branchen der TEAM Automation Berlin GmbH. Mehr als 10 Jahre Erfahrung in diesem Sektor haben uns zu einem zuverlässigen, starken Partner gemacht. TEAM Automation Berlin bietet von der Montage der Einzelkomponenten bis zur Prüfung des Endprodukts schlüsselfertige Montageanlagen aus einer Hand – technisch ausgereift und wirtschaftlich rentabel: Intelligente Automation für die für die Mobilität von Morgen.
             </p>
-            <br>
-
-            <a href="./html/leistungsportfolio.html">
-              <img src="assets/icons/arrow_forward.svg" />
-              <div class="link">Leistungsportfolio anzeigen</div>
+            <a href="./branchen/automobilindustrie.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" />
+              <div class="link">Automobilindustrie</div>
             </a>
           </div>
 
-          <div class="grid-3-item">
-            <h3>Anlagen</h3>
+          <div class="grid-3-item multiple">
+            <h3>Nutzfahrzeugindustrie</h3>
 
             <p>
-              TEAM Automation Berlin erstellt für Sie Maschinen und Anlagen beginnend mit einfachen Handarbeitsplätzen bis hin zu vollautomatischen Montagelinien für Ihre Produkte.
+              Auf Grund der verschärften Abgasnormen Euro-6- für Nutzfahrzeugmotoren arbeitet TEAM Automation Berlin eng mit den entsprechenden Herstellern zusammen und realisiert Projekte für AGR-Ventile, Abgasklappen und Prüfstände.
             </p>
-            <br>
-            <a href="./html/anlagen.html">
-              <img src="assets/icons/arrow_forward.svg" />
-              <div class="link">Anlagen anzeigen</div>
+            <a href="./branchen/nutzfahrzeug.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" />
+              <div class="link">Nutzfahrzeugindustrie</div>
             </a>
           </div>
 
-          <div class="grid-3-item">
-            <h3>Prozesse</h3>
+          <div class="grid-3-item multiple">
+            <h3>Elektronikindustrie</h3>
 
             <p>
-              TEAM Automation Berlin verfügt über umfangreiche und langjährige Erfahrung mit allen gängigen technologischen Prozessen, die für Produktion Ihrer Teile erforderlich sind.
+              Erstellung einer vollautomatische Montageanlagen für die Kontakt-Bestückung von unterschiedlichen Verbindungsstecker für die Telekommunikation (Taktzeiten < 0,2 Sekunden/Kontakt).
             </p>
-            <br>
-            <a href="./html/prozesse.html">
-              <img src="assets/icons/arrow_forward.svg" />
-              <div class="link">Prozesse anzeigen</div>
+
+            <a href="./branchen/elektronik.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" />
+              <div class="link">Elektronikindustrie</div>
             </a>
           </div>
-
-          <div class="grid-3-item">
-            <h3>Branchen</h3>
-
-            <p>
-              TEAM Automation Berlin arbeitet branchenoffen und produktneutral. Egal, was Sie produzieren wollen - wir liefern Ihnen automatisch die Lösung.
-            </p>
-            <br>
-            <a href="./html/branchen.html">
-              <img src="assets/icons/arrow_forward.svg" />
-              <div class="link">Branchen anzeigen</div>
-            </a>
-          </div>
-
-          <div class="grid-3-item">
-            <h3>Beispiele</h3>
-
-            <p>
-              TEAM Automation Berlin präsentiert Ihnen anschauliche Projekte und Fallstudien, die die Kompetenz und Vielseitigkeit unserer Automatisierungslösungen unterstreichen.
-            </p>
-            <br>
-
-            <a href="./html/anlagen/halbautomatisch.html">
-              <img src="assets/icons/arrow_forward.svg" />
-              <div class="link">Beispiele anzeigen</div>
-            </a>
-          </div>
-
-          <div class="grid-3-item">
-            <h3>Partner</h3>
-
-            <p>
-              Zur Erweiterung der eigenen Kompetenzen und im Interesse seiner Kunden geht TEAM Automation Berlin mit geeigniten Hochtechnologieunternehmen permanente Partnerschaften ein.
-            </p>
-            <br>
-
-            <a href="./html/partner.html">
-              <img src="assets/icons/arrow_forward.svg" />
-              <div class="link">Partner anzeigen</div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-full bg-grey">
-      <div class="container">
-        <div class="title">
-          <h2>Unser TEAM</h2>
-        </div>
-
-        <div class="team">
-          <div class="team-img-box">
-            <img
-              class="team-img"
-              src="assets/images/our-team.webp"
-              alt=""
-            />
-            <img
-              class="team-img-points"
-              src="assets/images/Points.svg"
-              alt=""
-            />
-          </div>
-
-          <div class="team-text">
-            <h3>
-              Mehr Leistung, mehr 
-              Präzision<br /> – mit TEAM 
-              Automation Berlin <br /> auf 
-              Erfolgskurs
+          <div class="grid-3-item multiple">
+            <h3>Chemie
             </h3>
 
             <p>
-              Automatisierung hat die Welt der Industrie verändert, Prozesse
-              beschleunigt und Präzision in neue Dimensionen geführt.
+              Vollautomatische Anlage mit einer Taktzeit von 1,2 Sekunden/Teil für das Zuführen und befüllen von Dosierkappen (DosiCap) und Küvetten.
             </p>
+
+            <a href="./branchen/chemie.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" />
+              <div class="link">Chemie</div>
+            </a>
+          </div>
+          <div class="grid-3-item multiple">
+            <h3>Sicherheitstechnik</h3>
 
             <p>
-              TEAM Automation Berlin ist seit mehr als zwei Jahrzehnten ein
-              zentraler Partner für Unternehmen, die ihre Produktionsprozesse
-              optimieren und sich auf eine zuverlässige, zukunftssichere
-              Technologie verlassen wollen.
+              Vollautomatische Roboter- Prüfanlage für Rauchmelder und Doppel- Roboter- Bearbeitungsstation für Rauchmelderkomponenten
             </p>
-            <div class="actionBtns">
-              <a href="./html/unternehmen.html" class="btn">Über Uns</a>
-              <a href="./html/karriere.html" class="btn">Werde Teil des Teams</a>
-            </div>
-            
+
+            <a href="./branchen/sicherheitstechnik.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" />
+              <div class="link">Sicherheitstechnik</div>
+            </a>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="container-full bg-fog">
-      <div class="container">
-        <div class="title">
-          <h3>Neuigkeiten</h3>
-        </div>
-
-        <div class="neuigkeiten">
-          <div class="swiper swiper-neuigkeiten">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="./html/neuigkeit.html?page=2&section=china"">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/news-tüv.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Überwachungsauditierung </h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/news-schweiz.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Deutsche Ingenieurtechnik – gepaart mit Schweizer Präzision</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-scrollbar"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-full bg-grey">
-      <div class="container">
-        <div class="title">
-          <h3>Partner die TEAM Automation Berlin vertrauen</h3>
-        </div>
-
-        <div class="partners">
-          <div class="swiper swiper-partners">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="assets/images/partners/asml.webp" alt="" />
-              </div>
-
-              <div class="swiper-slide">
-                <img src="assets/images/partners/bosch.webp" alt="" />
-              </div>
-
-              <div class="swiper-slide">
-                <img src="assets/images/partners/conec.webp" alt="" />
-              </div>
-
-              <div class="swiper-slide">
-                <img src="assets/images/partners/continental.webp" alt="" />
-              </div>
-
-              <div class="swiper-slide">
-                <img src="assets/images/partners/eaton.webp" alt="" />
-              </div>
-
-              <div class="swiper-slide">
-                <img src="assets/images/partners/mercedes.webp" alt="" />
-              </div>
-
-              <div class="swiper-slide">
-                <img src="assets/images/partners/pyrexx.webp" alt="" />
-              </div>
-
-              <div class="swiper-slide">
-                <img src="assets/images/partners/rheinmetall.webp" alt="" />
-              </div>
-
-              <div class="swiper-slide">
-                <img src="assets/images/partners/skf.webp" alt="" />
-              </div>
-            </div>
-            <div class="swiper-scrollbar" style="display: none;"></div>
-          </div>
         </div>
       </div>
     </div>
@@ -601,19 +340,19 @@
       <div class="footer-content footer-cols">
         <div class="footer-col">
           <p class="footer-col-title">Navigieren</p>
-          <a href="./html/anlagen.html">Anlagen</a>
-          <a href="./html/prozesse.html">Prozesse</a>
-          <a href="./html/branchen.html">Branchen</a>
-          <a href="./html/anlagen/halbautomatisch.html">Beispiele</a>
-          <a href="./html/partner.html">Partner</a>
+          <a href="./anlagen.html">Anlagen</a>
+          <a href="./prozesse.html">Prozesse</a>
+          <a href="./branchen.html">Branchen</a>
+          <a href="./anlagen/halbautomatisch.html">Beispiele</a>
+          <a href="./partner.html">Partner</a>
         </div>
 
         <div class="footer-col">
           <p class="footer-col-title">Information</p>
-          <a href="./html/neuigkeit.html">Aktuelles</a>
-          <a href="./html/karriere.html">Karriere</a>
-          <a href="./html/impressum.html">Impressum</a>
-          <a href="./html/downloads.html">Downloads</a>
+          <a href="./neuigkeit.html">Aktuelles</a>
+          <a href="./karriere.html">Karriere</a>
+          <a href="./impressum.html">Impressum</a>
+          <a href="./downloads.html">Downloads</a>
         </div>
 
         <div class="footer-col">
@@ -621,7 +360,7 @@
           <a href="">Telefon +49 30 / 60 90 294 - 0</a>
           <a href="">Fax +49 30 / 60 90 294 - 09</a>
           <a href="mailto:info@team-automation-berlin.de" class="email">info@team-automation-berlin.de</a>
-          <a href="./html/kontakt.html">Kontakt Aufnehmen</a>
+          <a href="./kontakt.html">Kontakt Aufnehmen</a>
         </div>
 
       </div>
@@ -634,7 +373,7 @@
            Alboinstrasse 11D, 12103 Berlin
         </p>
 
-        <a class="footer-logo" href="index.html">
+        <a class="footer-logo" href="../index.html">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_170_1245)">
             <path d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>
@@ -676,9 +415,23 @@
       </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    <script src="js/header.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/swipers.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/swiper-bundle.min.js"></script>
+
+    <script>
+      var swiper = new Swiper(".imgSwiper", {
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+    <script src="../js/mininav.js"></script>
   </body>
 </html>
