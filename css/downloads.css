@@ -31,7 +31,7 @@
 }
 
 .downloads-grid .row {
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     background-color: #e5e5e5;
     border-bottom: 2px solid #2c2c2c;
     border-left: 2px solid #2c2c2c;
@@ -41,8 +41,6 @@
 }
 
 .downloads-grid .row:first-child {
-    padding: 1rem 3rem;
-    background-color: #e5e5e5;
     border-top: 2px solid #2c2c2c;
 }
 
@@ -56,6 +54,11 @@
 }
 
 .downloads-grid .row a{
+    display: flex;
+    align-items: center;
+}
+
+.downloads-grid .row .icons-cont{
     display: flex;
     align-items: center;
     margin-left: auto;
@@ -74,8 +77,9 @@
 .email{
     text-decoration: underline;
     color: #2a7af3;
-
 }
+
+
 
 
 
