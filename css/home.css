@@ -285,7 +285,13 @@ header a,
 }
 
 @keyframes show {
-
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  } 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ------------------  Search ---------------- */
@@ -512,24 +518,6 @@ p {
   border-radius: 10px;
   font-size: 1.111rem; /* 20px */
   line-height: 1.389rem; /* 25px */
-}
-
-.bewerben::before {
-    content: attr(data-hover);
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    font-size: .8em;
-    opacity: 0;
-    transform: translate(-100%, -50%);
-    transition: all .3sease-in-out;
-}
-.bewerben:hover::before {
-  transform: translate(0, -50%);
 }
 
 
@@ -1091,11 +1079,40 @@ footer {
   background: none!important;
   color: var(--primary-color);
 }
-.team .team-text .actionBtns a.btn:nth-child(2):hover {
-  background: var(--primary-color)!important;
-  filter: none !important;
-  color: white;
-  transition: 0.1s ease-in-out;
+
+.bewerben {
+  overflow: hidden;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+}
+
+.bewerben:before {
+  content: attr(data-hover);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+  font-size: .8em;
+  opacity: 0;
+  transform: translate(-100%, -50%);
+  transition: 1s ease;
+}
+.bewerben:hover:before {
+  opacity: 1; transform: translate(18%,-50%);
+}
+.bewerben div {
+  transition: 1s ease;
+}
+
+.bewerben:hover div {
+  transform: translate(140%, 0);
+  opacity: 0;
+}
+
+.bewerben:active {
+  scale: 0.98;
 }
 
 .actionBtns {
@@ -1218,7 +1235,16 @@ footer {
   -o-object-fit: contain;
      object-fit: contain;
 }
+/* -------------------  Animations ------------------ */
+.flyIn {
+  transition: ease-in-out 2s;
+  animation:  2s show;
 
+}
+.flyOut {
+  transition: 2s;
+  animation: reverse  2s show;
+}
 /* ------------------  Media Queries ---------------- */
 @media only screen and (max-width: 992px) {
   .about {
