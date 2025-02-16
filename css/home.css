@@ -5,6 +5,7 @@
   padding: 0;
   scroll-margin-top: 72px;
   scroll-behavior: smooth;
+
 }
 
 :root {
@@ -1233,5 +1234,13 @@ footer {
 @media only screen and (max-width: 480px) {
   .footer-bottom .footer-logo{
     width: initial !important;
+  }
+}
+@media (max-width: 319px) {
+  .small-screen-warning {
+      display: block;
+  }
+  .main-content {
+      display: none;
   }
 }/*# sourceMappingURL=home.css.map */

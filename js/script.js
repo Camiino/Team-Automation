@@ -79,3 +79,44 @@ function closeDropdown() {
 }
 
 
+/* ------------- Zoom ------------- */
+/*window.onload = function () {
+  document.body.style.zoom = "100%";
+}*/
+
+let smallScreenWarningShown = false;
+
+function checkScreenSize() {
+    if (window.innerWidth < 320) {
+        if (!smallScreenWarningShown) {
+            document.body.innerHTML = "<p id='warning-message'>Diese Bildschirmgröße wird leider nicht unterstützt. Bitte nutzen Sie ein größeres Gerät, um die Seite weiterhin zu verwenden.</p>";
+            document.body.style.cssText = `
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                text-align: center;
+                padding: 1rem;
+                background-color: #f8f8f8;
+                color: #333;
+            `;
+            smallScreenWarningShown = true;
+        }
+    } else {
+        if (smallScreenWarningShown) {
+            location.reload(); // Reload only once when moving back to a larger screen
+        }
+    }
+}
+
+// Initial check when the page loads
+checkScreenSize();
+
+// Listen for window resize events
+window.addEventListener("resize", checkScreenSize);
+
+
+
+
+
