@@ -132,6 +132,29 @@ checkScreenSize();
 window.addEventListener("resize", checkScreenSize);
 
 
+let lastScrollY = window.scrollY;
 
+function checkVisibility() {
+  const elements = document.querySelectorAll('.animated-item');
+  const scrollY = window.scrollY;
+  
+  if (scrollY > lastScrollY) { // User is scrolling down
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9) { // Element enters the viewport
+        el.classList.add('flyIn');
+      }
+    });
+  }
+
+  lastScrollY = scrollY;
+}
+
+window.addEventListener('scroll', checkVisibility);
+window.addEventListener('load', checkVisibility);
+
+window.addEventListener("load", () => {
+    document.querySelector(".initial-animated-item").classList.add("loaded");
+});
 
 

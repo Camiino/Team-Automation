@@ -1236,15 +1236,28 @@ footer {
      object-fit: contain;
 }
 /* -------------------  Animations ------------------ */
-.flyIn {
-  transition: ease-in-out 2s;
-  animation:  2s show;
+.initial-animated-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
 
+.initial-animated-item.loaded {
+  opacity: 1;
+  transform: translateY(0);
 }
-.flyOut {
-  transition: 2s;
-  animation: reverse  2s show;
+
+.animated-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
+
+.flyIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ------------------  Media Queries ---------------- */
 @media only screen and (max-width: 992px) {
   .about {
