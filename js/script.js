@@ -32,6 +32,21 @@ burger.addEventListener("change", () => {
   }
 });
 
+function resetMenuState() {
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("menu");
+
+  if (burger.checked) {
+    burger.checked = false; // Uncheck the burger checkbox
+    menu.classList.remove("open");
+    document.body.style.overflow = "auto";
+  }
+}
+
+// Run when the page loads (including after navigating back)
+window.addEventListener("pageshow", resetMenuState);
+
+
 /* ------------- Search ------------- */
 
 const searchBox = document.querySelectorAll(".search-box");
