@@ -154,7 +154,10 @@ window.addEventListener('scroll', checkVisibility);
 window.addEventListener('load', checkVisibility);
 
 window.addEventListener("load", () => {
-    document.querySelector(".initial-animated-item").classList.add("loaded");
+  document.querySelectorAll(".initial-animated-item").forEach(item => {
+      item.classList.add("loaded");
+  });
 });
+
 
 
