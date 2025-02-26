@@ -670,10 +670,71 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.grid-3.alt {
+  grid-template-columns: initial;
+  gap: 20px;
+}
+
+.grid-3 .grid-3-item.card{
+  width: 100%;
+  background-color: #e2e2e2;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+.card-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-top-right {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+}
+.card-top-right .plus-cl {
+  height: 35px;
+  width: 35px;
+  border: 3px solid #01509f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+}
+.card-top-right .plus-cl:hover {
+  cursor: pointer;
+}
+
+.card-top-right .plus-cl.active {
+  transform: rotate(45deg);
+}
+.card-top-right .plus-cl .plus {
+  width: 15px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #01509f;
+  position: relative;
+}
+.card-top-right .plus-cl .plus:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 15px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #01509f;
+  z-index: 100;
+  transform: rotate(90deg);
+}
+
 .grid-3 .grid-3-item h3 {
   font-size: 1.666rem; /* 30px */
   line-height: 2.083rem; /* 37.5px */
   margin-bottom: 30px;
+}
+.grid-3.alt .grid-3-item h3 {
+  margin-bottom: 0;
 }
 .grid-3 .grid-3-item p {
   font-size: 18px;
@@ -681,6 +742,38 @@ footer {
   line-height: 22.5px;
   margin-bottom: 0.5rem;
 }
+
+.grid-3 .grid-3-item.card p {
+  opacity: 0;
+  transition: height 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 ), opacity 0s;
+  height: 0;
+  margin-bottom: 0;
+  transform: translateY(-5px);
+}
+
+.grid-3 .grid-3-item.card.active p {
+  opacity: 1;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+  transform: translateY(0px);
+  height: initial;
+  margin: 1rem 0 1rem 0;
+}
+.grid-3 .grid-3-item.card a {
+  opacity: 0;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 ), opacity 0s;
+  height: 0;
+  margin-bottom: 0;
+  transform: translateY(-5px);
+}
+
+.grid-3 .grid-3-item.card.active a {
+  opacity: 1;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+  transform: translateY(0px);
+  height: initial;
+  margin: 0rem 0 1rem 0;
+}
+
 .grid-3 a {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -719,6 +812,11 @@ footer {
   margin-top: auto;
   margin-bottom: 2rem;
   padding-top: 1rem;
+}
+.grid-3.alt a.sublink {
+  margin-bottom: 0;
+  padding-top: 0;
+  margin-top: 0;
 }
 .grid-3 a.centered:hover img {
   transform: translateX(5px);
