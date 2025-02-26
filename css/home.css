@@ -104,6 +104,7 @@ body {
 
 .path15 {
   stroke-opacity: 0;
+  fill-opacity: 1;
 }
 
 @keyframes draw {
