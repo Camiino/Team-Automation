@@ -70,7 +70,7 @@ body {
   height: auto;
   fill-opacity: 0;
   stroke-dasharray: 4500;
-  animation: 1s fillAppear ease forwards 3s;
+  animation: .5s fillAppear ease forwards 2.5s;
 }
 
 .loading-text svg path.path15 {
@@ -82,24 +82,24 @@ body {
 }
 
 .path5, .path6 {
-  animation: 37.5s draw ease, 1s fillAppear ease forwards 3s;
+  animation: 37.5s draw ease;
 }
 
 .path7, .path8 {
-  animation: 31.5s draw ease, 1s fillAppear ease forwards 3s;
+  animation: 31.5s draw ease;
 }
 
 .path9, .path10 {
-  animation: 45s draw ease, 1s fillAppear ease forwards 3s;
+  animation: 45s draw ease;
 }
 
 .path11, .path12 {
-  animation: 26.25s draw ease, 1s fillAppear ease forwards 3s;
+  animation: 26.25s draw ease;
 }
 
 .path13 {
   stroke-dasharray: 2000;
-  animation: 11.25s draw2 ease, 1s fillAppear ease forwards 3s;
+  animation: 11.25s draw2 ease;
 }
 
 .path15 {
