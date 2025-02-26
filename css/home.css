@@ -40,12 +40,11 @@ body {
 #preloader {
   transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
   position: fixed;
-  top: 100%;
-  left: 0;
+  top: -100%;
+  right: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1); /* Blaue Hintergrundfarbe */
-  backdrop-filter: blur(0rem);
+  height: 200%;
+  background-color: #fff; /* Blaue Hintergrundfarbe */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,31 +55,83 @@ body {
   opacity: 0;
 }
 #preloader.active {
+  width: 100%;
+  height: 100%;
   transition: 1s;
   top: 0;
-  left: 0;
+  right: 0;
   opacity: 1;
-  backdrop-filter: blur(3rem);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 /* Text in der Mitte */
 .loading-text svg {
   width: 20vw;
   height: auto;
-  stroke-dasharray: 4500;
   fill-opacity: 0;
-  animation: draw 10s ease infinite;
+  stroke-dasharray: 4500;
+  animation: 1s fillAppear ease forwards 3s;
+}
+
+.loading-text svg path.path15 {
+  stroke: #9D9D9F;
+}
+
+.loading-text svg path {
+  stroke-width: 1;
+}
+
+.path5, .path6 {
+  animation: 37.5s draw ease, 1s fillAppear ease forwards 3s;
+}
+
+.path7, .path8 {
+  animation: 31.5s draw ease, 1s fillAppear ease forwards 3s;
+}
+
+.path9, .path10 {
+  animation: 45s draw ease, 1s fillAppear ease forwards 3s;
+}
+
+.path11, .path12 {
+  animation: 26.25s draw ease, 1s fillAppear ease forwards 3s;
+}
+
+.path13 {
+  stroke-dasharray: 2000;
+  animation: 11.25s draw2 ease, 1s fillAppear ease forwards 3s;
+}
+
+.path15 {
+  stroke-opacity: 0;
 }
 
 @keyframes draw {
-  0%{
+  0% {
     stroke-dashoffset: 4500;
-  }100% {
+  }
+  100% {
     stroke-dashoffset: 0;
   }
 }
 
+@keyframes draw2 {
+  0% {
+    stroke-dashoffset: 2000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillAppear {
+  0% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
 
 
 

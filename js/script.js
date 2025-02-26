@@ -135,28 +135,27 @@ window.addEventListener("resize", checkScreenSize);
 let lastScrollY = window.scrollY;
 
 function checkVisibility() {
-  const elements = document.querySelectorAll('.animated-item');
-  const scrollY = window.scrollY;
+    const elements = document.querySelectorAll('.animated-item');
+    const scrollY = window.scrollY;
   
-  if (scrollY > lastScrollY) { // User is scrolling down
-    elements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.9) { // Element enters the viewport
-        el.classList.add('flyIn');
-      }
-    });
-  }
+    if (scrollY > lastScrollY) { // User scrollt nach unten
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.9) { // Element betritt den sichtbaren Bereich
+                el.classList.add('flyIn');
+            }
+        });
+    }
 
-  lastScrollY = scrollY;
+    lastScrollY = scrollY;
 }
 
-window.addEventListener('scroll', checkVisibility);
-window.addEventListener('load', checkVisibility);
-
-window.addEventListener("load", () => {
-  document.querySelectorAll(".initial-animated-item").forEach(item => {
-      item.classList.add("loaded");
-  });
+// Scroll-Event erst starten, nachdem der Preloader fertig ist
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        checkVisibility();
+        window.addEventListener('scroll', checkVisibility);
+    }, 5000); // Wartet, bis der Preloader durchgelaufen ist
 });
 
 
