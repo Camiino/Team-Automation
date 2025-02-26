@@ -244,16 +244,15 @@ header a,
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   padding-top: 150px;
-  z-index: 50;
+  z-index: 1002;
   opacity: 0;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   pointer-events: none;
-  z-index: -50;
 }
 .search-container.active {
   opacity: 1;
-  z-index: 50;
+  z-index: 1002;
   pointer-events: all;
 }
 .search-container .search {
@@ -746,6 +745,7 @@ footer {
 .grid-3 .grid-3-item.card p {
   opacity: 0;
   transition: height 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 ), opacity 0s;
+  transition: 0.2s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
   height: 0;
   margin-bottom: 0;
   transform: translateY(-5px);

@@ -10,3 +10,4 @@ document.querySelectorAll('.plus-cl').forEach(plusCl => {
         }
     });
 });
+
