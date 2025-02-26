@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Starte Animationen erst nach dem Entfernen des Preloaders
             startAnimations();
-        }, 1000); // Wartezeit für die Animation
-    }, 4000); // 5 Sekunden Ladezeit
+        }, 1400); // Wartezeit für die Animation
+    }, 3400); // 5 Sekunden Ladezeit
 });
 
 // Funktion zum Starten der Animationen nach dem Preloader

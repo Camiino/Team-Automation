@@ -40,20 +40,37 @@ body {
 #preloader {
   transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
   position: fixed;
-  top: -100%;
+  top: 0;
   right: 0;
   width: 100%;
-  height: 200%;
-  background-color: #fff; /* Blaue Hintergrundfarbe */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  background-color: transparent; /* Blaue Hintergrundfarbe */
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  height: 100vh; /* Oder eine feste Höhe */
+  width: 100%;
   z-index: 10000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
+  opacity: 1;
 }
+#preloader div {
+  width: 100%;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+  transform: translate(120%, 0);
+  background-color: #fff;
+}
+
+#preloader div:nth-child(2) {
+  transition-delay: .3s;
+}
+#preloader div:last-child {
+  transition-delay: .6s;
+}
+
+#preloader.active div {
+  transform: translate(0, 0);
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+}
+
 #preloader.active {
   width: 100%;
   height: 100%;
@@ -64,21 +81,22 @@ body {
   background-color: rgba(255, 255, 255, 1);
 }
 
-/* Text in der Mitte */
+.loading-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  /* Text in der Mitte */
 .loading-text svg {
   width: 20vw;
   height: auto;
   fill-opacity: 0;
   stroke-dasharray: 4500;
-  animation: .5s fillAppear ease forwards 2.5s;
+  animation: .5s fillAppear ease forwards 2.2s;
 }
 
 .loading-text svg path.path15 {
   stroke: #9D9D9F;
-}
-
-.loading-text svg path {
-  stroke-width: 1;
 }
 
 .path5, .path6 {
