@@ -36,6 +36,125 @@ body {
   background: #2a7af3;
 }
 
+/* ------------------  Loader ---------------- */
+#preloader {
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent; /* Blaue Hintergrundfarbe */
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  height: 100vh; /* Oder eine feste Höhe */
+  width: 100%;
+  z-index: 10000;
+  opacity: 1;
+}
+#preloader div {
+  width: 100%;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+  transform: translate(120%, 0);
+  background-color: #fff;
+}
+
+#preloader div:nth-child(2) {
+  transition-delay: .3s;
+}
+#preloader div:last-child {
+  transition-delay: .6s;
+}
+
+#preloader.active div {
+  transform: translate(0, 0);
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+}
+
+#preloader.active {
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+  top: 0;
+  right: 0;
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.loading-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  /* Text in der Mitte */
+.loading-text svg {
+  width: 20vw;
+  height: auto;
+  fill-opacity: 0;
+  stroke-dasharray: 4500;
+  animation: .5s fillAppear ease forwards 2.2s;
+}
+
+.loading-text svg path.path15 {
+  stroke: #9D9D9F;
+}
+
+.path5, .path6 {
+  animation: 37.5s draw ease;
+}
+
+.path7, .path8 {
+  animation: 31.5s draw ease;
+}
+
+.path9, .path10 {
+  animation: 45s draw ease;
+}
+
+.path11, .path12 {
+  animation: 26.25s draw ease;
+}
+
+.path13 {
+  stroke-dasharray: 2000;
+  animation: 11.25s draw2 ease;
+}
+
+.path15 {
+  stroke-opacity: 0;
+  fill-opacity: 1;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 4500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw2 {
+  0% {
+    stroke-dashoffset: 2000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillAppear {
+  0% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+
+
+
+
 /* ------------------  Header ---------------- */
 header {
   position: fixed;
@@ -532,7 +651,7 @@ footer {
 }
 
 .footer-content {
-  width: 100%;
+  width: 55vw!important;
   margin: 0 auto;
   max-width: 1300px;
 }
@@ -842,7 +961,13 @@ footer {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2));
   z-index: 0;
 }
-
+.hero-logo, .hero-logo path {
+  fill: #fff;
+  position: relative;
+  top: 1.5rem;
+  height: 4.2rem;
+  width: auto;
+}
 .hero video {
   position: absolute;
   top: 0;
@@ -887,9 +1012,11 @@ footer {
       -ms-flex: 1;
           flex: 1;
 }
+
 .hero .hero-content h1 {
   z-index: 1;
-  padding: 0 20px;
+  padding: 0 60px;
+  line-height: 60px;
 }
 .hero .hero-content p {
   z-index: 1;
