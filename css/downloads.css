@@ -123,8 +123,8 @@
 }
 .aboutus-content{
     display: grid;
-    gap: 3rem;
-    margin: 2rem 0;
+    gap: 10rem;
+    margin: 4rem 0;
     height: 100%;
 }
 .aboutus-content .right1, .aboutus-content .left1{
