@@ -384,6 +384,9 @@ header a,
   margin: 0 auto;
   padding: 0 20px;
 }
+.container-partner {
+  width: 1800px;
+}
 
 /* h1 {
   font-size: 36px;
@@ -669,6 +672,19 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.grid-3 .grid-3-item-partner {
+ padding: 1rem 1rem 1rem 1rem;
+ border-radius: .5rem;
+ background-color: rgba(1, 80, 159, 0.1);
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ max-height: fit-content;
+ object-fit: fill;
+}
+.grid-3 .grid-3-item-partner:hover {
+}
+
 .grid-3.alt {
   grid-template-columns: initial;
   gap: 20px;
@@ -679,6 +695,15 @@ footer {
   background-color: #e2e2e2;
   padding: 1rem;
   border-radius: .5rem;
+}
+.grid-3 .grid-3-item-partner p{
+  display: initial;
+}
+.grid-3 .grid-3-item-partner img {
+  object-fit: fill;
+  border-radius: 4px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 .card-top {
   display: flex;
