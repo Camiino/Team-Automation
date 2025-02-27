@@ -704,6 +704,7 @@ footer {
   border-radius: 4px;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  width: 100%;
 }
 .card-top {
   display: flex;
