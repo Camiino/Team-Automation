@@ -367,3 +367,159 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+/*------------Cookies-------------*/
+
+document.addEventListener("DOMContentLoaded", async function () {
+  document.body.insertAdjacentHTML("beforeend", `
+      <div id="cookie-banner" class="cookie-banner border">
+          <div id="cookie-bubble" class="cookie-bubble">
+              <svg fill="#e5e5e5" width="40px" height="40px" viewBox="0 0 24 24" id="cookie" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color">
+                  <line x1="9.05" y1="9.5" x2="8.95" y2="9.5" style="fill: none; stroke: #e5e5e5; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"/>
+                  <line x1="9.55" y1="15" x2="9.45" y2="15" style="fill: none; stroke: #e5e5e5; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"/>
+                  <line x1="14.55" y1="14" x2="14.45" y2="14" style="fill: none; stroke: #e5e5e5; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"/>
+                  <path d="M18.12,9.78a3,3,0,0,1-3.9-3.9A3,3,0,0,1,12,3a9,9,0,1,0,9,9A3,3,0,0,1,18.12,9.78Z" style="fill: none; stroke: #e5e5e5; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"/>
+              </svg>
+          </div>
+          <div id="cookie-content" class="cookie-content">
+              <p>Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Sie können Ihre Einstellungen akzeptieren oder anpassen.</p>
+              <div id="cookie-settings">
+                  <label><input type="checkbox" id="essential" disabled checked> Essenziell</label><br>
+                  <label class="tooltip">
+                      <input type="checkbox" id="marketing" checked> 
+                      <span class="tooltip-title">Marketing</span>
+                      <span class="tooltip-text">YouTube, Google Maps</span>
+                  </label>
+                  <label style="display:none;"><input type="checkbox" id="analytics" checked> Analytics (Google Analytics)</label><br>
+              </div>
+              <div class="buttons-grid">
+                  <button id="accept-all" class="cookie-btn accept">Alle Akzeptieren</button>
+                  <button id="reject-all" class="cookie-btn reject">Optionale Cookies Ablehnen</button>
+                  <button id="save-settings" class="cookie-btn save">Einstellungen Speichern</button>
+              </div>
+          </div>
+      </div>
+  `);
+
+  const cookieBanner = document.getElementById("cookie-banner");
+  const cookieBubble = document.getElementById("cookie-bubble");
+  const consent = JSON.parse(localStorage.getItem("cookieConsent"));
+
+  if (!consent) {
+      cookieBanner.classList.remove("border");
+      cookieBanner.classList.add("expanded");
+      await new Promise(resolve => setTimeout(resolve, 300));
+      cookieBanner.classList.add("delayed");
+  }
+
+  cookieBubble.addEventListener("click", async function () {
+      if (!cookieBanner.classList.contains("expanded")) {
+          cookieBanner.classList.remove("border");
+          cookieBanner.classList.add("expanded");
+          await new Promise(resolve => setTimeout(resolve, 300));
+          cookieBanner.classList.add("delayed");
+      } else {
+          cookieBanner.classList.remove("delayed");
+          await new Promise(resolve => setTimeout(resolve, 300));
+          cookieBanner.classList.remove("expanded");
+          await new Promise(resolve => setTimeout(resolve, 300));
+          cookieBanner.classList.add("border");
+      }
+  });
+
+  document.getElementById("accept-all").addEventListener("click", function () {
+      localStorage.setItem("cookieConsent", JSON.stringify({ analytics: true, marketing: true }));
+      applyCookieSettings();
+      cookieBanner.classList.remove("expanded", "delayed");
+      location.reload();
+  });
+
+  document.getElementById("reject-all").addEventListener("click", function () {
+      localStorage.setItem("cookieConsent", JSON.stringify({ analytics: false, marketing: false }));
+      applyCookieSettings();
+      cookieBanner.classList.remove("expanded", "delayed");
+      location.reload();
+  });
+
+  document.getElementById("save-settings").addEventListener("click", function () {
+      const analytics = document.getElementById("analytics").checked;
+      const marketing = document.getElementById("marketing").checked;
+      localStorage.setItem("cookieConsent", JSON.stringify({ analytics, marketing }));
+      applyCookieSettings();
+      cookieBanner.classList.remove("expanded", "delayed");
+      location.reload();
+  });
+
+  function applyCookieSettings() {
+      const consent = JSON.parse(localStorage.getItem("cookieConsent"));
+
+      if (consent) {
+          if (consent.analytics) {
+              loadGoogleAnalytics();
+          }
+
+          if (consent.marketing) {
+              enableMarketingContent();
+              
+              // Show all iframes
+              document.querySelectorAll("iframe").forEach(iframe => {
+                  iframe.style.display = "block";
+              });
+
+              // Hide all .cookie-rejected elements
+              document.querySelectorAll(".cookie-rejected").forEach(el => {
+                  el.style.display = "none";
+              });
+
+          } else {
+              // Hide all iframes
+              document.querySelectorAll("iframe").forEach(iframe => {
+                  iframe.style.display = "none";
+              });
+
+              // Show all .cookie-rejected elements
+              document.querySelectorAll(".cookie-rejected").forEach(el => {
+                  el.style.display = "flex"; // Ensure flex/grid works
+              });
+          }
+      } else {
+          // Default state: Hide all iframes and show all .cookie-rejected elements
+          document.querySelectorAll("iframe").forEach(iframe => {
+              iframe.style.display = "none";
+          });
+
+          document.querySelectorAll(".cookie-rejected").forEach(el => {
+              el.style.display = "flex"; // Ensures visibility
+          });
+      }
+  }
+
+
+  function loadGoogleAnalytics() {
+      let script = document.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X";
+      document.head.appendChild(script);
+      script.onload = function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'UA-XXXXXXX-X');
+      };
+  }
+
+  function enableMarketingContent() {
+      document.querySelectorAll("iframe[data-src]").forEach(iframe => {
+          iframe.src = iframe.getAttribute("data-src");
+      });
+  }
+
+  applyCookieSettings();
+});
+
+
+
+
+
+
+
+
