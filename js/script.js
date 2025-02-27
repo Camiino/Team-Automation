@@ -56,8 +56,10 @@ searchBox.forEach((box) => {
   box.addEventListener("click", () => {
     if (searchContainer.classList.contains("active")) {
       searchContainer.classList.remove("active");
+      document.body.style.overflow = "auto";
     } else {
       searchContainer.classList.add("active");
+      document.body.style.overflow = "hidden";
       if (menu.classList.contains("open")) {
         burger.click();
       }
@@ -68,6 +70,7 @@ searchBox.forEach((box) => {
 searchContainer.addEventListener("mousedown", (e) => {
   if (e.target === searchContainer) {
     searchContainer.classList.remove("active");
+    document.body.style.overflow = "auto";
   }
 });
 
