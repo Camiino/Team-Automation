@@ -771,6 +771,56 @@ footer {
   .footer-content {
     width: 992px;
   }
+  .grid-3 {
+    margin-bottom: none;
+  }
+  .grid-3 .grid-3-item p {
+    font-size: .8rem!important;
+    height: 100px!important;
+  }
+  .grid-3 .grid-3-item a {
+    font-size: .9rem!important;
+  }
+  h4.h4-date {
+    font-size: 1rem!important;
+  }
+  h3.h3-int {
+    font-size: 1.5rem!important;
+  }
+  p.p-int {
+    font-size: .9rem;
+  }
+  a.hide-mobile, .hide-mobile span, .search-box span {
+    font-size: .8rem!important;
+  }
+  header {
+    padding: 0 30px;
+  }
+  a.logo {
+    top: 0.2rem!important;
+  }
+  a.logo svg {
+    max-width: 130px;
+  }
+  .hamburger {
+    top: 14px!important;
+  }
+  .hamburger svg {
+    height: 28px!important;
+  }
+  h3.about-tit {
+    font-size: 1.5rem!important;
+    margin-top: 0!important;
+  }
+  .team-text {
+    gap: 8px!important;
+  }
+  .team-text p {
+    font-size: 14px!important;
+  }
+  .actionBtns a.btn {
+    padding: 10px 40px!important;
+  }
 }
 @media only screen and (max-width: 992px) {
   #menu {
@@ -783,9 +833,6 @@ footer {
   .container,
   .footer-content {
     width: 768px;
-  }
-  header {
-    padding: 7px 14px;
   }
   header .header-content {
     display: grid;
@@ -814,6 +861,25 @@ footer {
     display: -ms-flexbox !important;
     display: flex !important;
   }
+  .about-text {
+    gap: 20px!important;
+  }
+  .grid-3 {
+    gap: 40px!important;
+    padding-top: 0!important;
+  }
+  .grid-3 .grid-3-item a{
+    padding: .5rem 2rem 1rem 0rem;
+  }
+  .grid-3 .grid-3-item h3{
+    font-size: 1.3rem!important;
+  }
+  h2.service, h3.service {
+    font-size: 1.6rem!important;
+  }
+  .swiper-text {
+    font-size: 2rem!important;
+  }
 }
 @media only screen and (max-width: 768px) {
   .container,
@@ -833,10 +899,37 @@ footer {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .grid-3 .grid-3-item p {
+    height: fit-content!important;
+    margin: .2rem!important;
+  }
 }
 @media only screen and (max-width: 600px) {
   html {
     font-size: 13px;
+  }
+  .grid-3 .grid-3-item a img {
+    width: 20px!important;
+    height: 20px!important;
+  }
+  h2.service, h3.service {
+    font-size: 1.8rem!important;
+  }
+  h3.about-tit {
+    font-size: 1.2rem!important;
+    margin-top: 0!important;
+  }
+  .team-text {
+    gap: 12px!important;
+  }
+  .team-text p {
+    font-size: 12px!important;
+  }
+  .actionBtns {
+    max-width: 400px!important;
+  }
+  .actionBtns a.btn {
+    padding: 8px 40px!important;
   }
 }
 @media only screen and (max-width: 480px) {
@@ -847,6 +940,15 @@ footer {
     grid-template-columns: 1fr;
     justify-items: center;
     gap: 20px;
+  }
+  .grid-3 .grid-3-item a img {
+    width: 20px!important;
+    height: 20px!important;
+  }.grid-3 .grid-3-item  p {
+    font-size: .85rem!important;
+  }
+  .swiper-text {
+    font-size: 1.7rem!important;
   }
 }
 /* ------------------  Grid 3 ---------------- */
