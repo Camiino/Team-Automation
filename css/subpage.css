@@ -559,13 +559,18 @@ footer {
 }
 
 /* ------------------  Media Queries ---------------- */
+@media only screen and (max-width: 1860px) {
+  .container-partner {
+    width: 1420px!important;
+  }
+}
 @media only screen and (max-width: 1440px) {
   html {
     font-size: 17px;
   }
   .container,
   .footer-content {
-    width: 1200px;
+    width: 1200px!important;
   }
 }
 @media only screen and (max-width: 1200px) {
@@ -574,7 +579,7 @@ footer {
   }
   .container,
   .footer-content {
-    width: 992px;
+    width: 992px!important;
   }
 }
 @media only screen and (max-width: 992px) {
@@ -587,7 +592,7 @@ footer {
   }
   .container,
   .footer-content {
-    width: 768px;
+    width: 768px!important;
   }
   header {
     padding: 7px 14px;
@@ -623,8 +628,8 @@ footer {
 @media only screen and (max-width: 768px) {
   .container,
   .footer-content {
-    max-width: 600px;
-    width: 100%;
+    max-width: 600px!important;
+    width: 100%!important;
   }
   .container-full {
     padding: 25px 0;
