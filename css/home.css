@@ -656,7 +656,6 @@ footer {
 }
 
 .footer-content {
-  width: 55vw!important;
   margin: 0 auto;
   max-width: 1300px;
 }
@@ -1516,6 +1515,8 @@ footer {
   max-height: 1000px;
 }
 .cookie-banner p {
+  text-align: left;
+  font-size: 0.75rem;
   margin: 0 0.5rem 1rem 0.5rem;
 }
 .cookie-banner button {
@@ -1699,6 +1700,7 @@ footer {
     width: initial !important;
   }
 }
+
 @media (max-width: 319px) {
   .small-screen-warning {
       display: block;
@@ -1706,4 +1708,13 @@ footer {
   .main-content {
       display: none;
   }
+}
+@media only screen and (max-width: 390px) {
+  .footer-bottom .footer-logo{
+    width: initial !important;
+  }
+  .cookie-banner{
+    max-width: calc(100% - 3rem);
+  }
+
 }/*# sourceMappingURL=home.css.map */

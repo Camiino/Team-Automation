@@ -1175,6 +1175,8 @@ header .header-links .search-box img {
   max-height: 1000px;
 }
 .cookie-banner p {
+  text-align: left;
+  font-size: 0.75rem;
   margin: 0 0.5rem 1rem 0.5rem;
 }
 .cookie-banner button {
@@ -1683,12 +1685,12 @@ header .header-links .search-box img {
   }
 
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 390px) {
   .footer-bottom .footer-logo{
     width: initial !important;
   }
   .cookie-banner{
-    max-width: 300px;
+    max-width: calc(100% - 3rem);
   }
 
 }
