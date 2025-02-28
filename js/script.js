@@ -520,6 +520,49 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 
+/*--------Fade--------*/
+(function () {
+    // Create the overlay
+    const overlay = document.createElement("div");
+    overlay.id = "page-loader";
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100vw";
+    overlay.style.height = "100vh";
+    overlay.style.backgroundColor = "#fff"; // Change color if needed
+    overlay.style.opacity = "1";
+    overlay.style.zIndex = "999999"; // Ensure it's above everything
+    overlay.style.transition = "opacity 0.5s ease-in-out";
+    overlay.style.pointerEvents = "none"; // Prevent interference with clicks
+
+    // Append to body before anything else renders
+    document.documentElement.insertBefore(overlay, document.body);
+
+    // Fade out overlay after everything loads
+    window.addEventListener("load", () => {
+        overlay.style.opacity = "0";
+    });
+
+    // Function to fade in before navigation
+    function showOverlayBeforeNavigation(event) {
+        overlay.style.opacity = "1"; // Fade in
+    }
+
+    // Listen for clicks on all internal links
+    document.addEventListener("DOMContentLoaded", () => {
+        document.body.addEventListener("click", function (event) {
+            let target = event.target.closest("a");
+            if (target && target.href && target.target !== "_blank" && !target.href.startsWith("#") && !target.download) {
+                event.preventDefault(); // Prevent instant navigation
+                showOverlayBeforeNavigation(); // Fade in
+                setTimeout(() => {
+                    window.location.href = target.href; // Navigate after transition
+                }, 500); // Match transition time
+            }
+        });
+    });
+})();
 
 
 
