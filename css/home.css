@@ -1414,6 +1414,8 @@ footer {
   max-height: 1000px;
 }
 .cookie-banner p {
+  text-align: left;
+  font-size: 0.75rem;
   margin: 0 0.5rem 1rem 0.5rem;
 }
 .cookie-banner button {

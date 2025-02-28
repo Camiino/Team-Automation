@@ -381,7 +381,10 @@ document.addEventListener("DOMContentLoaded", async function () {
               </svg>
           </div>
           <div id="cookie-content" class="cookie-content">
-              <p>Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Sie können Ihre Einstellungen akzeptieren oder anpassen.</p>
+              <p>Auf dieser Website nutzen wir Cookies zur Verarbeitung von Endgeräteinformationen. Die Verarbeitung dient der Gewährleistung grundlegender Funktionen und der Einbindung externer Inhalte und Dienste Dritter (z. B. Google Fonts, YouTube, Google Maps). Je nach Funktion können dabei Daten an Dritte weitergegeben und dort verarbeitet werden. Mehr Informationen hierzu finden Sie im <a href="https://webeesign.com/sandbox/TeamAuto/html/impressum.html" style="color: #e5e5e5;">Impressum</a>.
+
+                <br> <br>Sie können Ihre Zustimmung jederzeit ändern oder widerrufen.
+             </p>
               <div id="cookie-settings">
                   <label><input type="checkbox" id="essential" disabled checked> Essenziell</label><br>
                   <label class="tooltip">
@@ -393,7 +396,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               </div>
               <div class="buttons-grid">
                   <button id="accept-all" class="cookie-btn accept">Alle Akzeptieren</button>
-                  <button id="reject-all" class="cookie-btn reject">Optionale Cookies Ablehnen</button>
+                  <button id="reject-all" class="cookie-btn reject">Optionale Ablehnen</button>
                   <button id="save-settings" class="cookie-btn save">Einstellungen Speichern</button>
               </div>
           </div>
