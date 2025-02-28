@@ -1599,6 +1599,7 @@ footer {
     width: initial !important;
   }
 }
+
 @media (max-width: 319px) {
   .small-screen-warning {
       display: block;
@@ -1606,4 +1607,13 @@ footer {
   .main-content {
       display: none;
   }
+}
+@media only screen and (max-width: 390px) {
+  .footer-bottom .footer-logo{
+    width: initial !important;
+  }
+  .cookie-banner{
+    max-width: calc(100% - 3rem);
+  }
+
 }/*# sourceMappingURL=home.css.map */

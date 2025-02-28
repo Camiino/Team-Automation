@@ -1685,12 +1685,12 @@ header .header-links .search-box img {
   }
 
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 390px) {
   .footer-bottom .footer-logo{
     width: initial !important;
   }
   .cookie-banner{
-    max-width: 300px;
+    max-width: calc(100% - 3rem);
   }
 
 }
