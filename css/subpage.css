@@ -654,6 +654,9 @@ footer {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .container-full .text p {
+    font-size: 1rem!important;
+  }
 }
 @media only screen and (max-width: 600px) {
   html {
@@ -698,6 +701,13 @@ footer {
  max-height: fit-content;
  object-fit: fill;
 }
+
+.grid-3 .grid-3-item.card h3 {
+  line-height: none!important;
+  font-size: 1.4rem!important;
+}
+
+
 .grid-3 .grid-3-item-partner:hover {
 }
 
@@ -806,6 +816,7 @@ footer {
   height: 0;
   margin-bottom: 0;
   transform: translateY(-5px);
+  pointer-events: none;
 }
 
 .grid-3 .grid-3-item.card.active a {
@@ -814,6 +825,7 @@ footer {
   transform: translateY(0px);
   height: initial;
   margin: 0rem 0 1rem 0;
+  pointer-events: initial;
 }
 
 .grid-3 a {
@@ -895,6 +907,9 @@ footer {
     gap: 25px;
     padding-top: 20px;
     margin-bottom: 10px;
+  }
+  .grid-3 .grid-3-item p {
+    font-size: 1rem!important;
   }
   .grid-3 .grid-3-item h3,
   .grid-3 .grid-3-item p {
