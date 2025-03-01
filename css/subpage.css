@@ -1232,7 +1232,7 @@ header .header-links .search-box img {
 
 .tooltip-title {
   position: relative;
-  text-decoration: underline dotted #4CAF50;
+  text-decoration: underline dotted #3A8DDE;
   cursor: pointer;
 }
 .tooltip .tooltip-text {
@@ -1304,13 +1304,13 @@ header .header-links .search-box img {
 
 .accept, .reject, .customize, .save {
   background: none;
-  border: 2px solid #4CAF50;
+  border: 2px solid #3A8DDE;
   color: white;
   transition: 0.2s ease-in-out;
 }
 
 .accept:hover, .reject:hover, .customize:hover, .save:hover {
-  background: #4CAF50;
+  background: #3A8DDE;
   color: white;
 }
 
