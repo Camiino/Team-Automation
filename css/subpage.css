@@ -662,6 +662,15 @@ footer {
   html {
     font-size: 13px;
   }
+  #menu .menu-content .menu-content-box .menu-content-box-title {
+    font-size: 18px!important;
+  }
+  #menu a{
+    font-size: 14px!important;
+  }
+  a.hide-mobile, .hide-mobile span, .search-box span, .language span {
+    font-size:1rem!important;
+  }
 }
 @media only screen and (max-width: 480px) {
   html {
