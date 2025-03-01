@@ -404,9 +404,20 @@ document.addEventListener("DOMContentLoaded", async function () {
         </div>
     `);
 
+    // Check for stored consent and update the checkbox state accordingly.
+    const storedConsent = JSON.parse(localStorage.getItem("cookieConsent"));
+    if (storedConsent) {
+        // If marketing is rejected, uncheck the marketing box.
+        document.getElementById("marketing").checked = storedConsent.marketing;
+        // (Optional) Also update the analytics checkbox if needed.
+        if (document.getElementById("analytics")) {
+            document.getElementById("analytics").checked = storedConsent.analytics;
+        }
+    }
+
     const cookieBanner = document.getElementById("cookie-banner");
     const cookieBubble = document.getElementById("cookie-bubble");
-    const consent = JSON.parse(localStorage.getItem("cookieConsent"));
+    const consent = storedConsent;
 
     if (!consent) {
         cookieBanner.classList.remove("border");
@@ -443,6 +454,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     document.getElementById("reject-all").addEventListener("click", function () {
+        // Uncheck the marketing checkbox and store the rejection.
+        document.getElementById("marketing").checked = false;
         localStorage.setItem("cookieConsent", JSON.stringify({ analytics: false, marketing: false }));
         applyCookieSettings();
         closeCookieBanner();
