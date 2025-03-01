@@ -67,7 +67,7 @@ header.scrolled .header-links .search-box img {
   z-index: 1001;
   position: fixed;
   top: 20px;
-  left: 30px;
+  left: 20px;
 }
 
 #hamburger.scrolled {
@@ -581,6 +581,25 @@ footer {
   .footer-content {
     width: 992px!important;
   }
+  header {
+    padding: 0px 20px;
+  }
+  a.logo  {
+    top: 3px!important;
+  }
+  a.logo svg {
+    max-width: 130px;
+    top: .2rem!important;
+  }
+  .hamburger {
+    top: 12px;
+  }
+  .hamburger svg {
+    width: 28px;
+  }
+  a.hide-mobile {
+    font-size: 1rem!important;
+  }
 }
 @media only screen and (max-width: 992px) {
   #menu {
@@ -594,9 +613,6 @@ footer {
   .footer-content {
     width: 768px!important;
   }
-  header {
-    padding: 7px 14px;
-  }
   header .header-content {
     display: grid;
     grid-template-columns: 20px 40% 20px;
@@ -604,17 +620,12 @@ footer {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    height: 58px;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
   header .header-content .logo {
-    max-width: 150px;
-  }
-  .hamburger {
-    left: 14px;
-    top: 20px;
+    max-width: 130px;
   }
   .hide-mobile {
     display: none !important;

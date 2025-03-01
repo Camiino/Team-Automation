@@ -16,11 +16,15 @@
 
 html {
   font-size: 18px;
+  min-height: 100vh;
+    -webkit-overflow-scrolling: touch;
 }
 
 body {
   font-size: 1rem; /* 18px */
   line-height: 1.25; /* 22.5px */
+  min-height: 100vh;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* ------------------  Scrollbar ---------------- */
@@ -774,11 +778,11 @@ footer {
     margin-bottom: none;
   }
   .grid-3 .grid-3-item p {
-    font-size: .8rem!important;
-    height: 100px!important;
+    font-size:1rem!important;
+    height: 140px!important;
   }
   .grid-3 .grid-3-item a {
-    font-size: .9rem!important;
+    font-size: 1rem!important;
   }
   h4.h4-date {
     font-size: 1rem!important;
@@ -787,10 +791,10 @@ footer {
     font-size: 1.5rem!important;
   }
   p.p-int {
-    font-size: .9rem;
+    font-size: 1rem;
   }
-  a.hide-mobile, .hide-mobile span, .search-box span {
-    font-size: .8rem!important;
+  a.hide-mobile, .hide-mobile span, .search-box span, .language span {
+    font-size:1rem!important;
   }
   header {
     padding: 0 30px;
@@ -863,6 +867,9 @@ footer {
   .about-text {
     gap: 20px!important;
   }
+  .grid-3 .grid-3-item p {
+    height: 110px!important;
+  }
   .grid-3 {
     gap: 40px!important;
     padding-top: 0!important;
@@ -902,6 +909,7 @@ footer {
     height: fit-content!important;
     margin: .2rem!important;
   }
+
 }
 @media only screen and (max-width: 600px) {
   html {
@@ -930,6 +938,12 @@ footer {
   .actionBtns a.btn {
     padding: 8px 40px!important;
   }
+  #menu .menu-content .menu-content-box .menu-content-box-title {
+    font-size: 18px!important;
+  }
+  #menu a{
+    font-size: 14px!important;
+  }
 }
 @media only screen and (max-width: 480px) {
   html {
@@ -944,10 +958,20 @@ footer {
     width: 20px!important;
     height: 20px!important;
   }.grid-3 .grid-3-item  p {
-    font-size: .85rem!important;
+    font-size: 1rem!important;
   }
   .swiper-text {
     font-size: 1.7rem!important;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .actionBtns a.btn {
+    padding: 8px 25px!important;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .actionBtns a.btn {
+    padding: 8px 16px!important;
   }
 }
 /* ------------------  Grid 3 ---------------- */
@@ -1332,7 +1356,7 @@ footer {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: 800;
-  font-size: .8em;
+  font-size:.8em;
   opacity: 0;
   transform: translate(-100%, -50%);
   transition: 1s ease;
@@ -1693,6 +1717,25 @@ footer {
 @media only screen and (max-width: 768px) {
   .swiper-scrollbar {
     margin-top: 20px;
+  }
+  .bewerben:before {
+    content: none;
+    display: none;
+  }
+  .bewerben:hover:before {
+    opacity: 1; transform: none;
+  }
+  .bewerben div {
+    transition: 1s ease;
+  }
+  
+  .bewerben:hover div {
+    transform: none;
+    opacity: 1;
+  }
+  
+  .bewerben:active {
+    scale: none;
   }
 }
 @media only screen and (max-width: 480px) {
