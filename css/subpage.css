@@ -703,7 +703,7 @@ footer {
 }
 
 .grid-3 .grid-3-item.card h3 {
-  line-height: none!important;
+  line-height: 2.6rem!important;
   font-size: 1.4rem!important;
 }
 
@@ -916,6 +916,9 @@ footer {
   }
   .grid-3 a.sublink {
     margin-bottom: 4rem!important;
+  }
+  .grid-3 a.sublink.sublink-alt {
+    margin-bottom: 0rem!important;
   }
   .grid-3 .grid-3-item h3,
   .grid-3 .grid-3-item p {
