@@ -407,9 +407,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Check for stored consent and update the checkbox state accordingly.
     const storedConsent = JSON.parse(localStorage.getItem("cookieConsent"));
     if (storedConsent) {
-        // If marketing is rejected, uncheck the marketing box.
+        // Update the marketing & analytics checkboxes to reflect stored state.
         document.getElementById("marketing").checked = storedConsent.marketing;
-        // (Optional) Also update the analytics checkbox if needed.
         if (document.getElementById("analytics")) {
             document.getElementById("analytics").checked = storedConsent.analytics;
         }
@@ -448,14 +447,25 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     document.getElementById("accept-all").addEventListener("click", function () {
+        // Check the boxes so they reflect "all accepted."
+        document.getElementById("marketing").checked = true;
+        if (document.getElementById("analytics")) {
+            document.getElementById("analytics").checked = true;
+        }
+
+        // Save that to localStorage
         localStorage.setItem("cookieConsent", JSON.stringify({ analytics: true, marketing: true }));
         applyCookieSettings();
         closeCookieBanner();
     });
 
     document.getElementById("reject-all").addEventListener("click", function () {
-        // Uncheck the marketing checkbox and store the rejection.
+        // Uncheck the marketing box (and analytics if needed).
         document.getElementById("marketing").checked = false;
+        if (document.getElementById("analytics")) {
+            document.getElementById("analytics").checked = false;
+        }
+
         localStorage.setItem("cookieConsent", JSON.stringify({ analytics: false, marketing: false }));
         applyCookieSettings();
         closeCookieBanner();
@@ -534,6 +544,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     applyCookieSettings();
 });
+
 
 /*--------Fade--------*/
 (function () {
