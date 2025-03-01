@@ -535,7 +535,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     applyCookieSettings();
 });
 
-
 /*--------Fade--------*/
 (function () {
     // Get the current page filename
@@ -550,25 +549,27 @@ document.addEventListener("DOMContentLoaded", async function () {
     overlay.style.width = "100vw";
     overlay.style.height = "100vh";
     overlay.style.backgroundColor = "#fff"; // Change color if needed
-    overlay.style.opacity = currentPage === "index.html" || currentPage === "" ? "0" : "1"; // Hidden on index.html initially
+    // On index pages, start hidden; on others, start visible.
+    overlay.style.opacity = (currentPage === "index.html" || currentPage === "") ? "0" : "1";
     overlay.style.zIndex = "999999"; // Ensure it's above everything
     overlay.style.transition = "opacity 0.5s ease-in-out";
     overlay.style.pointerEvents = "none"; // Prevent interference with clicks
 
-    // Append overlay to body before anything else renders
+    // Append overlay to the document (before the body)
     document.documentElement.insertBefore(overlay, document.body);
 
-    // Fade out overlay after everything loads
-    window.addEventListener("load", () => {
-        setTimeout(() => {
-            overlay.style.opacity = "0";
-            setTimeout(() => overlay.remove(), 500); // Remove after transition
-        }, 10); // Small delay to ensure transition applies
-    });
-
-    // Function to fade in before navigation
+    // On non-index pages, fade out the overlay after load but DO NOT remove it.
+    if (!(currentPage === "index.html" || currentPage === "")) {
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                overlay.style.opacity = "0";
+            }, 10); // Small delay to ensure transition applies
+        });
+    }
+    
+    // Function to fade in the overlay before navigation
     function showOverlayBeforeNavigation() {
-        overlay.style.opacity = "1"; // Fade in
+        overlay.style.opacity = "1"; // Fade in (opacity 0 → 1)
     }
 
     // Listen for clicks on all internal links
@@ -576,9 +577,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         document.body.addEventListener("click", function (event) {
             let target = event.target.closest("a");
 
-            if (target && target.href && target.target !== "_blank" && !target.href.startsWith("#") && !target.download) {
+            if (target && target.href && target.target !== "_blank" &&
+                !target.href.startsWith("#") && !target.download) {
                 event.preventDefault(); // Prevent instant navigation
-                showOverlayBeforeNavigation(); // Fade in
+                showOverlayBeforeNavigation(); // Fade in the overlay
                 setTimeout(() => {
                     window.location.href = target.href; // Navigate after transition
                 }, 500); // Match transition time
@@ -586,6 +588,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
     });
 })();
+
 
 
 
