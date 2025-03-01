@@ -908,8 +908,14 @@ footer {
     padding-top: 20px;
     margin-bottom: 10px;
   }
-  .grid-3 .grid-3-item p {
+  .grid-3 .grid-3-item p, a div.link  {
     font-size: 1rem!important;
+  }
+  a.sublink img {
+    width: 20px;
+  }
+  .grid-3 a.sublink {
+    margin-bottom: 4rem!important;
   }
   .grid-3 .grid-3-item h3,
   .grid-3 .grid-3-item p {
