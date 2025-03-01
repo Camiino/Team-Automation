@@ -1662,8 +1662,12 @@ header .header-links .search-box img {
     overflow: hidden;
     gap: 15px;
     border-radius: 25px;
-    max-height: 55px;
+    max-height: 45px;
     padding-bottom: 15px;
+    padding: 6px 15px;
+  }
+  .mini-nav.isSticky {
+    max-height: 50px;
   }
   .mini-nav .mini-nav-scroll {
     display: none;
