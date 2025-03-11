@@ -897,7 +897,9 @@ footer {
   margin-bottom: 1rem;
   margin-left: 2rem;
 }
-
+.grid-3 a.sublink.sublink-alt {
+  display: none;
+}
 /* ------------------  Media Queries ---------------- */
 @media only screen and (max-width: 992px) {
   .grid-3 {
@@ -1696,8 +1698,10 @@ header .header-links .search-box img {
             transform: rotate(180deg);
   }
   .mini-nav.open {
-    max-height: 200px;
+    max-height: 400px;
+    padding-bottom: 15px;
   }
+  
 }
 @media only screen and (max-width: 600px) {
   .tabcontent {
