@@ -119,7 +119,9 @@
 .sub-content .subtitle{
     font-size: 1.5rem;
     color: var(--primary-color);
-    margin-top: -2rem;
+    margin-top: 0;
+    line-height: normal;
+    margin-bottom: 1rem;
 }
 .aboutus-content{
     display: grid;
@@ -179,6 +181,15 @@
     .aboutus-content p,
     .aboutus-content h4{
         text-align: left;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .impressum-grid{
+        grid-template-columns: 1fr;
+    }
+    .geschaeftsfuehrung-data{
+        margin-left: 1rem;
     }
 }
 
