@@ -1092,7 +1092,6 @@ footer {
   z-index: 0;
 }
 .hero-logo, .hero-logo path {
-  fill: #fff;
   position: relative;
   top: 3rem;
   left: -1rem;

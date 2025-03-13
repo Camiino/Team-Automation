@@ -105,7 +105,7 @@ function closeDropdown() {
 let smallScreenWarningShown = false;
 
 function checkScreenSize() {
-    if (window.innerWidth < 320) {
+    if (window.innerWidth < 340) {
         if (!smallScreenWarningShown) {
             document.body.innerHTML = "<p id='warning-message'>Diese Bildschirmgröße wird leider nicht unterstützt. Bitte nutzen Sie ein größeres Gerät, um die Seite weiterhin zu verwenden.</p>";
             document.body.style.cssText = `
