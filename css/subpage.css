@@ -811,14 +811,30 @@ footer {
   margin-bottom: 0;
   transform: translateY(-5px);
 }
-
-.grid-3 .grid-3-item.card.active p {
+.grid-3 .grid-3-item.card.active p{
   opacity: 1;
   transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
   transform: translateY(0px);
   height: initial;
   margin: 1rem 0 1rem 0;
 }
+.grid-3 .grid-3-item.card h4 {
+  opacity: 0;
+  transition: height 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 ), opacity 0s;
+  transition: 0.2s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+  height: 0;
+  margin-bottom: 0;
+  transform: translateY(-5px);
+}
+.grid-3 .grid-3-item.card.active h4 {
+  opacity: 1;
+  transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 );
+  transform: translateY(0px);
+  height: initial;
+  margin: 1rem 0 -0.5rem 0;
+}
+
+
 .grid-3 .grid-3-item.card a {
   opacity: 0;
   transition: 1s cubic-bezier( 0.15, 0.56, 0.22, 0.97 ), opacity 0s;
