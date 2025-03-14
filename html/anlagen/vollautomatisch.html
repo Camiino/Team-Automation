@@ -6,7 +6,7 @@
     <title>Vollautomatische Montageanlagen</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="shortcut icon" href="../../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
 
     <style>
       @font-face {
@@ -33,6 +33,7 @@
         letter-spacing: 1.5px;
       }
     </style>
+    <link rel="stylesheet" href="../../css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../../css/subpage.css" />
   </head>
   <body>
@@ -175,6 +176,84 @@
       </div>
     </div>
 
+    <label id="hamburger" class="hamburger hamburger-subpage">
+      <input type="checkbox" id="burger" />
+      <svg viewBox="0 0 32 32">
+        <path
+          class="line line-top-bottom"
+          d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+        ></path>
+        <path class="line" d="M7 16 27 16"></path>
+      </svg>
+    </label>
+
+    <div class="search-container">
+      <div class="search">
+        <input type="text" placeholder="Suchen" />
+        <img src="../../assets/icons/search.svg" alt="" />
+      </div>
+    </div>
+
+    <div id="menu" class="">
+      <div class="container menu-content">
+        <div class="menu-content-box quick-actions">
+          <div class="language-box menu-content-item">
+            <div class="language">
+              <img src="../../assets/icons/language.svg" alt="" />
+              <span>Sprache</span>
+            </div>
+
+            <div class="language-dropdown menu-content-item">
+              <a href="" class="active-language"> Deutsch (DE)</a>
+              <a href="">English (EN)</a>
+              <a href="">Русский (RU)</a>
+              <a href="">Polski (PL)</a>
+            </div>
+          </div>
+
+          <div class="search-box">
+            <img src="../../assets/icons/search.svg" alt="" />
+            <span>Suche</span>
+          </div>
+        </div>
+
+        <div class="menu-content-box">
+          <p class="menu-content-box-title">Menu</p>
+          <a href="../../index.html">Aktuelles</a>
+          <a href="../../index.html">Karriere</a>
+          <a href="../../index.html">Downloads</a>
+          <a href="../../index.html">Kontakt</a>
+        </div>
+
+        <div class="menu-content-box">
+          <p class="menu-content-box-title">Navigieren</p>
+          <a href="">Anlagen</a>
+          <a href="">Branchen</a>
+          <a href="">Leistungsportfolio</a>
+          <a href="">Unternehmen</a>
+          <a href="">Partner</a>
+          <a href="">Prozesse</a>
+        </div>
+
+        <div class="menu-content-box">
+          <p class="menu-content-box-title">Information</p>
+          <a href="">Aktuelles</a>
+          <a href="">AGB</a>
+          <a href="">Downloads</a>
+          <a href="">Impressum</a>
+          <a href="">Downloads</a>
+        </div>
+
+        <div class="menu-content-box">
+          <p class="menu-content-box-title">Sprache</p>
+          <a href="" class="active-language"> Deutsch (DE)</a>
+          <a href="">English (EN)</a>
+          <a href="">Русский (RU)</a>
+          <a href="">Polski (PL)</a>
+        </div>
+      </div>
+    </div>
+
     <div class="container-full subpage-top">
       <div class="container">
         <div class="breadcrumb">
@@ -209,46 +288,235 @@
             Vollautomatische Montageanlagen verkettet durch ein flexibles Werkstückträgerumlaufsystem oder durch Roboter, die ineinander greifen.
           </p>
         </div>
+      </div>
+    </div>
 
-        <div class="grid-3">
-          <div class="grid-3-item multiple">
-            <h3>Montageanlagen für Ventile</h3>
+    <div class="tab">
+      <!--  <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+        Mögliche Anlagenparameter
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-2')">Lorum</button>
+      <button class="tablinks" onclick="openTab(event, 'tab-3')">Lorum</button>
+      <button class="tablinks" onclick="openTab(event, 'tab-4')">Lorum</button> -->
+    </div>
 
-            <p>
-              Angefangen vom Bewickeln von Ventilspulen mit Kupferlackdraht/Aluminiumlackdraht mit unserem Schweizer Partner METEOR bis hin zur vollautomatischen Montageanlage können wir Ihnen das komplette Spektrum zur Herstellung von Ventilen entsprechend anbieten.
-            </p>
-            <a href="./subanlagen/ventile.html" class="sublink">
-              <img src="../../assets/icons/arrow_forward.svg" />
-              <div class="link">Anzeigen</div>
-            </a>
-          </div>
+    <div class="swiper swiper-tab">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+            Elektrische Umschaltventile
+          </button>
+        </div>
 
-          <div class="grid-3-item multiple">
-            <h3>Montageanlagen für Rauchmelder</h3>
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-2')">
+            Ölschaltventile
+          </button>
+        </div>
 
-            <p>
-              Vollautomatische Roboter- Prüfanlage für Rauchmelder und Doppel- Roboter- Bearbeitungsstation für Rauchmelderkomponenten.
-            </p>
-            <a href="./subanlagen/rauchmelder.html" class="sublink">
-              <img src="../../assets/icons/arrow_forward.svg" />
-              <div class="link">Anzeigen</div>
-            </a>
-          </div>
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-3')">
+            Schubumluftventile
+          </button>
+        </div>
 
-          <div class="grid-3-item multiple">
-            <h3>Montageanlagen für Abgasregelklappen</h3>
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-4')">
+            Abgasregelklappenanlage
+          </button>
+        </div>
 
-            <p>
-              TEAM Automation Berlin beliefert seit 2006 namhafte Automobilzulieferer weltweit mit halb- und vollautomatische Montageanlagen für Abgasdrosselklappen und Aktuatoren.
-            </p>
-            <a href="./subanlagen/abgasregelsysteme.html" class="sublink">
-              <img src="../../assets/icons/arrow_forward.svg" />
-              <div class="link">Anzeigen</div>
-            </a>
-          </div>
-          
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-5')">
+            Rauchmelder
+          </button>
         </div>
       </div>
+    </div>
+
+    <div class="container-full bg-tabs">
+      <div class="container">
+        <div id="tab-1" class="tabcontent tabcontent-active">
+          <img
+            src="../../assets/images/anlagen.webp"
+            alt=""
+          />
+
+          <div class="tabcontent-text">
+            <h3>Anlagenparameter</h3>
+
+            <div class="details">
+              <p>
+                Taktzeit: 8,5 Sekunden pro Teil <br><br>
+  
+                Technische Verfügbarkeit: 92 % <br><br>
+                
+                Abmaße: etwa 20  m x 5 m <br><br>
+              </p>
+              <div class="double-list">
+                <ul>
+                  <li>Bosch WT-Umlaufsystem</li>
+                  <li>Zuführung der verschiedenen Bauteile mittels Anyfeeder (Robotertechnik auch mit Bildverarbeitung – direktes Greifen vom Transportband)</li>
+                  <li>Diverse Linear- und Radialzuführsysteme, u.a.:
+                      <ul>
+                          <li>O-Ring-Zuführungen</li>
+                          <li>Federzuführungen</li>
+                          <li>Kugelzuführungen</li>
+                      </ul>
+                  </li>
+                </ul>
+  
+                <ul>
+                  <li>Diverse Einpresssysteme (messendes Einstellen)</li>
+                  <li>Radialnietsystem</li>
+                  <li>Diverse Bildverarbeitungssysteme</li>
+                  <li>Funktionsprüfungen und Dichtheitsprüfungen</li>
+                  <li>Laserbeschriftungssystem</li>
+                </ul>
+              </div>
+            </div>
+            </div>
+        </div>
+
+        <div id="tab-2" class="tabcontent">
+            <img
+              src="../../assets/images/manuelleanlagen.webp"
+              alt=""
+            />
+
+            <div class="tabcontent-text">
+              <h3>Anlagenparameter</h3>
+
+              <div class="details">
+                <p>
+                  Taktzeit: 8,5 Sekunden pro Teil <br><br>
+    
+                  Technische Verfügbarkeit: 92 % <br><br>
+                  
+                  Abmaße: etwa 18  m x 6 m <br><br>
+                </p>
+                <div class="double-list">
+                  <ul>
+                    <li>Bosch WT-Umlaufsystem</li>
+                    <li>Zuführung der verschiedenen Bauteile mittels Anyfeeder (Robotertechnik auch mit Bildverarbeitung – direktes Greifen vom Transportband)</li>
+                    <li>Diverse Linear- und Radialzuführsysteme, u.a.:
+                        <ul>
+                            <li>O-Ring-Zuführungen</li>
+                            <li>Federzuführungen</li>
+                            <li>Kugelzuführungen</li>
+                        </ul>
+                    </li>
+                  </ul>
+    
+                  <ul>
+                    <li>Diverse Einpresssysteme (messendes Einstellen)</li>
+                    <li>Kunststofflaserschweißsystem (Firma DILAS)</li>
+                    <li>Radialnietsystem</li>
+                    <li>Diverse Bildverarbeitungssysteme</li>
+                    <li>Funktionsprüfungen und Dichtheitsprüfungen</li>
+                    <li>Laserbeschriftungssystem</li>
+                    <li>Palettier-Roboter</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div id="tab-3" class="tabcontent">
+            <img
+              src="../../assets/images/anlagen.webp"
+              alt=""
+            />
+
+            <div class="tabcontent-text">
+              
+              <h3>Anlagenparameter</h3>
+
+              <div class="details">
+                <p>
+                  Taktzeit: bei 10 Sekunden pro Teil <br><br>
+    
+                  Technische Verfügbarkeit: 95 % <br><br>
+                  
+                  Abmaße: etwa 16  m x 4 m <br><br>
+                </p>
+                <div class="double-list">
+                  <ul>
+                    <li>Bosch WT-Umlaufsystem</li>
+                    <li>Zuführung verschiedener Bauteile über Transportbänder </li>
+                    <li>Diverse Linear- und Radialzuführsysteme, u.a.:
+                        <ul>
+                            <li>O-Ring-Zuführungen</li>
+                            <li>Federzuführungen</li>
+                            <li>Kugelzuführungen</li>
+                        </ul>
+                    </li>
+                  </ul>
+    
+                  <ul>
+                    <li>Kalibrierprozesse</li>
+                    <li>Diverse Bildverarbeitungssysteme</li>
+                    <li>Funktionsprüfungen und Dichtheitsprüfungen</li>
+                    <li>Laserbeschriftungssystem</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div id="tab-4" class="tabcontent">
+          <img
+            src="../../assets/images/anlagen.webp"
+            alt=""
+          />
+
+          <div class="tabcontent-text">
+            
+            <h3>Anlagenparameter</h3>
+
+            <div class="details">
+              <ul>
+                <li>Halb- und Vollautomatische Montageanlagen für Abgasdrosselklappen</li>
+                <li>Halb- und Vollautomatische Montageanlagen elektronische Aktuatoren</li>
+                <li>End of line tester</li>
+                <li>Platinenmontageanlagen</li>
+                <li>Plasmareinigungs- und Beschichtungsanlage</li>
+              </ul>
+
+              <p style="line-height: initial !important;">TEAM Automation Berlin beliefert seit 2006 namhafte Automobilzulieferer weltweit mit halb- und vollautomatische Montageanlagen für Abgasdrosselklappen und Aktuatoren.</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-5" class="tabcontent">
+          <img
+            src="../../assets/images/anlagen.webp"
+            alt=""
+          />
+
+          <div class="tabcontent-text">
+            
+            <h3>Bearbeitungsprozesse</h3>
+
+            <div class="details">
+              <ul>
+                <li>Zuführung der zu prüfenden Bauteile</li>
+                <li>Vollautomatisches Be- und Entladen der insgesamt 24 Prüfnester mittels KuKa-Roboter nach logistischer Prüfanforderung</li>
+                <li>Kennzeichnen der geprüften Bauteile</li>
+                <li>Ablage der Bauteile auf ein weiterführendes Transportband</li>
+                <li>Prozessdatenerfassung für jedes Bauteil</li>
+            </ul>
+              <p>
+                Taktzeit:      35 Sekunden / Teil <br><br>
+                Realisierungszeitraum:   6 Monate
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
 
     <footer>
@@ -333,6 +601,31 @@
     </footer>
 
     <script src="../../js/script.js"></script>
+    <script src="../../js/swiper-bundle.min.js"></script>
     <script src="../../js/mininav.js"></script>
+
+    <script>
+      function openTab(event, tabName) {
+        const tabcontent = document.querySelectorAll(".tabcontent");
+        tabcontent.forEach((content) =>
+          content.classList.remove("tabcontent-active")
+        );
+
+        document.getElementById(tabName).classList.add("tabcontent-active");
+        const tablinks = document.querySelectorAll(".tablinks");
+        tablinks.forEach((link) => link.classList.remove("active"));
+        event.target.classList.add("active");
+      }
+
+      var swipertab = new Swiper(".swiper-tab", {
+        freeMode: true,
+        slidesPerView: "auto",
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+          dragSize: 100,
+        },
+      });
+    </script>
   </body>
 </html>
