@@ -843,6 +843,7 @@ footer {
 }
 .card-back.has-scrollbar {
   padding-top: 0.2rem !important; /* Wendet das Padding nur an, wenn die Klasse existiert */
+  padding-right: .2rem!important;
 }
 
 .grid-3 .grid-3-item-partner p{
