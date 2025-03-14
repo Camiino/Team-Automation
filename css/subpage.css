@@ -376,7 +376,7 @@ header a,
   background-color: #ebf0f0;
 }
 .container-full.bg-tabs {
-  background-color: #e5e5e5;
+  background-color: rgb(245, 248, 250);
 }
 
 .container {
@@ -1492,7 +1492,6 @@ header .header-links .search-box img {
 .swiper-tab button {
   background-color: inherit;
   float: left;
-  border: none;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
@@ -1500,16 +1499,16 @@ header .header-links .search-box img {
   transition: 0.3s;
   width: 100%;
   text-align: center;
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.1rem; /* 24px */
   font-weight: 700;
   line-height: 1.875rem; /* 30px */
-  border-width: 1px;
-  border-style: solid;
-  border-color: #e5e5e5;
-  border-right: 0px;
+  border: 2px transparent solid;
+  border-top: 2px solid transparent;
 }
 .swiper-tab button.active {
-  background-color: #e5e5e5;
+  background-color: rgb(245, 248, 250);
+  color: #33475b;
+  border-top: 2px solid #01509f;
 }
 
 .tabcontent {
@@ -1525,6 +1524,8 @@ header .header-links .search-box img {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 60px;
+  color: #33475b;
+  
 }
 .tabcontent img {
   width: 100%;
@@ -1541,6 +1542,7 @@ header .header-links .search-box img {
   margin: 1rem 0 -1rem 0;
   font-size: 1.1rem;
   line-height: 0.75rem;
+  color: #33475b;
 }
 .tabcontent .details ul{
   margin: 2rem 1rem 1.25rem 1rem;
@@ -1548,10 +1550,12 @@ header .header-links .search-box img {
 }
 .tabcontent .details h2{
   font-size: 2rem;
+  color: #33475b;
 }
 .tabcontent .details ul ul{
   margin: 1rem 1rem 1.25rem 1rem;
   font-size: 1.1rem;
+  color: #33475b;
 }
 .tabcontent .details li{
   margin: 0.75rem 0;
