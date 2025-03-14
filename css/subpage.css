@@ -731,6 +731,120 @@ footer {
   padding: 1rem;
   border-radius: .5rem;
 }
+
+.grid-3 .grid-3-item.card .subcard-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  opacity: 0;
+  height: 0;
+  transform: translateY(0px);
+}
+
+.grid-3 .grid-3-item.card.active .subcard-grid {
+  opacity: 1;
+  height: initial; /* Feste Höhe */
+  transform: translateY(-5px);
+  margin: 2rem 0;
+  gap: 2rem;
+}
+
+
+.grid-3 .grid-3-item.card .subcard {
+  width: 350px; /* Feste Breite für konsistente Animation */
+  border-radius: 0.5rem;
+  transition: transform 1s;
+  position: relative;
+  perspective: 1000px; /* Perspektive für 3D-Effekt */
+  transform-style: preserve-3d; /* Damit die Kinder-Elemente sich in 3D drehen */
+  opacity: 0;
+  height: 0;
+  transform: translateY(0px);
+}
+
+@media only screen and (max-width: 400px) {
+  .grid-3 .grid-3-item.card .subcard {
+    width: 280px; /* Feste Breite für konsistente Animation */
+
+  }
+}
+.grid-3 .grid-3-item.card.active .subcard {
+  opacity: 1;
+  height: 200px; /* Feste Höhe */
+  transform: translateY(-5px);
+}
+
+
+.subcard:nth-last-child() {
+  flex-grow: 1;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.999s;
+}
+
+.subcard:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #01509f;
+  color: #fff;
+  display: flex;
+  border: 10px solid #01509f;
+  align-items: center;
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotateY(0deg)!important;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.card-front h4 {
+  margin: 0!important;
+  text-align: center;
+}
+
+.card-back {
+  background-color: #01509f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border: 10px solid #01509f;
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+
+.card-back p {
+  font-size: .9rem!important;
+  margin: 0!important;
+  padding: 0!important;
+  padding-top: 0!important;
+  margin-top: auto!important;
+  margin-bottom: auto!important;
+}
+.card-back.has-scrollbar {
+  padding-top: 0.2rem !important; /* Wendet das Padding nur an, wenn die Klasse existiert */
+}
+
 .grid-3 .grid-3-item-partner p{
   display: initial;
 }
@@ -1755,3 +1869,4 @@ header .header-links .search-box img {
 
 }
 /*# sourceMappingURL=subpage.css.map */
+

@@ -11,3 +11,16 @@ document.querySelectorAll('.plus-cl').forEach(plusCl => {
     });
 });
 
+document.querySelectorAll(".subcard").forEach(function (card) {
+    card.addEventListener("click", function () {
+        card.classList.toggle("is-flipped");
+    });
+});
+
+document.querySelectorAll(".card-back").forEach(function (element) {
+    if (element.scrollHeight > element.clientHeight) {
+        element.classList.add("has-scrollbar"); // Klasse für zusätzliches Padding hinzufügen
+    } else {
+        element.classList.remove("has-scrollbar"); // Falls keine Scrollbar da ist, Klasse entfernen
+    }
+});
