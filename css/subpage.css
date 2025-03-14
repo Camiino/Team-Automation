@@ -1391,7 +1391,6 @@ header .header-links .search-box img {
   border-width: 1px;
   border-style: solid;
   border-color: #e5e5e5;
-  border-radius: 10px 10px 0px 0px;
   border-right: 0px;
 }
 .swiper-tab button.active {
@@ -1423,49 +1422,33 @@ header .header-links .search-box img {
   width: 50%;
   max-width: 550px;
 }
-.tabcontent .tabcontent-text {
+.tabcontent p{
+  margin: 1rem 0 -1rem 0;
+  font-size: 1.1rem;
+  line-height: 0.75rem;
+}
+.tabcontent .details ul{
+  margin: 2rem 1rem 1.25rem 1rem;
+  font-size: 1.1rem;
+}
+.tabcontent .details h2{
+  font-size: 2rem;
+}
+.tabcontent .details ul ul{
+  margin: 1rem 1rem 1.25rem 1rem;
+  font-size: 1.1rem;
+}
+.tabcontent .details li{
+  margin: 0.75rem 0;
+}
+.tabcontent .details .double-list{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.tabcontent.tabcontent-active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 30px;
-  max-width: 600px;
-}
-.tabcontent .tabcontent-text table {
-  max-width: 500px;
-}
-.tabcontent .tabcontent-text table tr td:first-child {
-  font-size: 1.25rem; /* 20px */
-  font-weight: 600;
-  line-height: 1.5625rem; /* 25px */
-}
-.tabcontent .tabcontent-text table tr td:nth-child(2) {
-  font-size: 1.25rem; /* 20px */
-  font-weight: 400;
-  line-height: 1.5625rem; /* 25px */
-}
-.tabcontent .tabcontent-text ul {
-  margin-left: 20px;
-}
-.tabcontent .tabcontent-text p {
-  font-family: Lexend Deca;
-  font-size: 1.25rem; /* 20px */
-  font-weight: 500;
-  line-height: 1.5625rem; /* 25px */
-}
-.tabcontent .tabcontent-text ul li {
-  font-family: Lexend Deca;
-  font-size: 1rem; /* 20px */
-  font-weight: 200;
-  line-height: 1.25rem; /* 25px */
-  color: #2c2c2c;
-}
-.tabcontent .tabcontent-text ul li ul {
-  list-style-type: "- ";
-  margin-left: 40px;
 }
 .tabcontent.tabcontent-active {
   display: -webkit-box;
@@ -1638,6 +1621,9 @@ header .header-links .search-box img {
   .sub-anlagen-grid-2{
     grid-template-columns: 1fr;
   }
+  .sub-anlagen-grid-2 h2{
+    text-align: center;
+  }
 }
 @media only screen and (max-width: 992px) {
   * {
@@ -1759,6 +1745,12 @@ header .header-links .search-box img {
   }
   .cookie-banner{
     max-width: calc(100% - 3rem);
+  }
+  .double-list{
+    grid-template-columns: 1fr !important;
+  }
+  .double-list ul:last-child{
+    margin-top: -2rem;
   }
 
 }
