@@ -1523,7 +1523,6 @@ header .header-links .search-box img {
   text-align: center;
   font-size: 1.1rem; /* 24px */
   font-weight: 700;
-  line-height: 1.875rem; /* 30px */
   border: 2px transparent solid;
   border-top: 2px solid transparent;
 }
@@ -1769,6 +1768,11 @@ header .header-links .search-box img {
 @media only screen and (max-width: 992px) {
   * {
     scroll-margin-top: 40px;
+  }
+  .swiper-tab button {
+    line-height: initial!important;
+    padding: 10px 16px;
+    font-size: .9rem;
   }
   .project {
     grid-template-columns: 1fr;
