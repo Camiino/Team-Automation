@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.querySelector(".search-container input");
   const searchContainer = document.querySelector(".search-container");
+  const searchTrigger = document.querySelector(".search-box"); // The button/icon that opens search
 
   // Base URL for absolute links
   const baseUrl = "https://webeesign.com/sandbox/TeamAuto/";
@@ -364,6 +365,13 @@ document.addEventListener("DOMContentLoaded", function () {
           suggestionsBox.style.display = "none";
       }
   });
+  
+  searchTrigger.addEventListener("click", openSearch);
+
+  function openSearch() {
+      searchContainer.classList.add("active"); // Show search container
+      searchInput.focus(); // Auto-focus input
+  }
 });
 
 
