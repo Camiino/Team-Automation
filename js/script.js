@@ -10,17 +10,17 @@ const burger = document.getElementById("burger");
 const menu = document.getElementById("menu");
 
 burger.addEventListener("change", () => {
-  if (menu.classList.contains("open")) {
-    menu.classList.remove("open");
-    document.body.style.overflow = "auto";
-  } else {
-    menu.classList.add("open");
-    document.body.style.overflow = "hidden";
-
+    if (menu.classList.contains("open")) {
+        menu.classList.remove("open");
+        enableScroll(); // Enable scrolling
+      } else {
+        menu.classList.add("open");
+        disableScroll(); // Disable scrolling
+      
     if (searchContainer.classList.contains("active")) {
-      searchContainer.classList.remove("active");
+        searchContainer.classList.remove("active");
     }
-  }
+    }      
   closeDropdown();
 });
 
@@ -55,24 +55,25 @@ const searchContainer = document.querySelector(".search-container");
 searchBox.forEach((box) => {
   box.addEventListener("click", () => {
     if (searchContainer.classList.contains("active")) {
-      searchContainer.classList.remove("active");
-      document.body.style.overflow = "auto";
-    } else {
-      searchContainer.classList.add("active");
-      document.body.style.overflow = "hidden";
-      if (menu.classList.contains("open")) {
-        burger.click();
-      }
-    }
+        searchContainer.classList.remove("active");
+        enableScroll(); // Enable scrolling
+      } else {
+        searchContainer.classList.add("active");
+        disableScroll(); // Disable scrolling
+        if (menu.classList.contains("open")) {
+          burger.click();
+        }
+      }   
   });
 });
 
 searchContainer.addEventListener("mousedown", (e) => {
-  if (e.target === searchContainer) {
-    searchContainer.classList.remove("active");
-    document.body.style.overflow = "auto";
-  }
-});
+    if (e.target === searchContainer) {
+      searchContainer.classList.remove("active");
+      enableScroll(); // Enable scrolling again
+    }
+  });  
+  
 
 /* ------------- Language ------------- */
 
@@ -168,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.querySelector(".search-container input");
   const searchContainer = document.querySelector(".search-container");
+  const searchTrigger = document.querySelector(".search-box"); // The button/icon that opens search
 
   // Base URL for absolute links
   const baseUrl = "https://webeesign.com/sandbox/TeamAuto/";
@@ -364,6 +366,13 @@ document.addEventListener("DOMContentLoaded", function () {
           suggestionsBox.style.display = "none";
       }
   });
+
+  searchTrigger.addEventListener("click", openSearch);
+
+  function openSearch() {
+      searchContainer.classList.add("active"); // Show search container
+      searchInput.focus(); // Auto-focus input
+  }
 });
 
 
