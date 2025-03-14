@@ -33,6 +33,7 @@
         letter-spacing: 1.5px;
       }
     </style>
+    <link rel="stylesheet" href="../../css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../../css/subpage.css" />
   </head>
   <body>
@@ -287,35 +288,143 @@
             Wir erstellen gemäß den Kundenanforderungen und unter Anwendung diverser Prozesse halbautomatische Montageanlagen, bei denen die Bestückung und Zuführung der Fertigungsteile manuell erfolgen. Die Anlagen lassen sich ggf. zu einem späteren Zeitpunkt voll automatisieren, in dem entsprechende automatische Materialzuführungen nachgerüstet werden.
           </p>
         </div>
+      </div>
+    </div>
 
-        <div class="grid-3 grid-2er-special">
-          <div class="grid-3-item multiple">
-            <h3>Fertigungsanlage für Pumpen</h3>
+    <div class="tab">
+      <!--  <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+        Mögliche Anlagenparameter
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-2')">Lorum</button>
+      <button class="tablinks" onclick="openTab(event, 'tab-3')">Lorum</button>
+      <button class="tablinks" onclick="openTab(event, 'tab-4')">Lorum</button> -->
+    </div>
 
-            <p>
-              Herstellung von Halbautomatischen und vollautomatischen Montageanlagen  für Pumpen jeglicher Art unter höchsten Sauberkeitsanforderungen. Beispiele hierfür sind die  Hydraulische Flügelpumpe Sauberkeitsanforderung B4 - Partikelgröße <&nbsp;400µm oder Ölpumpen
-            </p>
-            <a href="./subanlagen/pumpen.html" class="sublink">
-              <img src="../../assets/icons/arrow_forward.svg" />
-              <div class="link">Anzeigen</div>
-            </a>
-          </div>
+    <div class="swiper swiper-tab">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+            Hydraulische Flügelpumpen
+          </button>
+        </div>
 
-          <div class="grid-3-item multiple">
-            <h3>Abgasregelklappenanlage</h3>
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-2')">
+            Ölpumpen
+          </button>
+        </div>
 
-            <p>
-              TEAM Automation Berlin beliefert seit 2006 namhafte Automobilzulieferer weltweit mit halb- und vollautomatische Montageanlagen für Abgasdrosselklappen und Aktuatoren.
-            </p>
-            <a href="./subanlagen/abgasregelsysteme.html" class="sublink">
-              <img src="../../assets/icons/arrow_forward.svg" />
-              <div class="link">Anzeigen</div>
-            </a>
-          </div>
-
-          
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-3')">
+            Abgasregelklappenanlage
+          </button>
         </div>
       </div>
+    </div>
+
+    <div class="container-full bg-tabs">
+      <div class="container">
+        <div id="tab-1" class="tabcontent tabcontent-active">
+          <img
+            src="../../assets/images/anlagen.webp"
+            alt=""
+          />
+
+          <div class="tabcontent-text">
+            <h3>Anlagenparameter</h3>
+
+            <div class="details">
+              <p>
+                Taktzeit: 140 Sekunden pro Teil <br><br>
+                Technische Vefügbarkeit : 95 % <br><br>
+                Stationsanzahl: 7 <br><br>
+                Abmaße: etwa 18m x 6m  <br><br>
+                Sehr hohe Reinheitsanforderungen
+              </p>
+                <ul>
+                  <li>manuell verschiebbare Werkstückträger</li>
+                  <li>Laserbeschriftungssystem</li>
+                  <li>Diverse Linear- und Radialzuführsysteme, u.a.:
+                      <ul>
+                          <li>O-Ring Zuführungen</li>
+                          <li>Flügel</li>
+                      </ul>
+                  </li>
+                  <li>Kraft/Weg-Überwachte Fügeprozesse</li>
+                  <li>Diverse Bildverarbeitungssysteme zur Lage- und Anwesenheitskontrolle</li>
+                </ul>
+
+                <p style="line-height: initial !important;">
+                  Erstellung von halbautomatischen Montageanlagen für hydraulische Flügelpumpe mit höchster Präzision und höchsten Sauberkeitsanforderungen. Bei den zu fertigenden Flügelpumpen handelt es sich um Ölpumpen z.B. zum Einsatz in Hochleistungsgetrieben.
+                </p>
+              </div>
+            </div>
+        </div>
+
+        <div id="tab-2" class="tabcontent">
+            <img
+              src="../../assets/images/manuelleanlagen.webp"
+              alt=""
+            />
+
+            <div class="tabcontent-text">
+              <h3>Anlagenparameter</h3>
+
+              <div class="details">
+                <p>
+                  Taktzeit: 10 Sekunden pro Teil
+                </p>
+                  <ul>
+                    <li>Bosch WT-Umlaufsystem</li>
+                    <li>Zuführung der verschiedenen Bauteile mittels Robotertechnik aus mehrstufigen Stangenmagazinen</li>
+                    <li>Diverse Linear- und Radialzuführsysteme, u.a.:
+                        <ul>
+                            <li>Federzuführungen</li>
+                            <li>Kugelzuführungen</li>
+                        </ul>
+                    </li>
+                  </ul>
+
+                  <ul>
+                    <li>Diverse Einpresssysteme (Kraft/Weg-überwacht)</li>
+                    <li>Diverse Bildverarbeitungssysteme</li>
+                    <li>Funktionsprüfungen und Dichtheitsprüfungen</li>
+                    <li>Laserbeschriftungssystem</li>
+                  </ul>
+                  <p style="line-height: initial !important;">
+                    Typen- und Prozesserweiterungen von automatischen Ölpumpenmontageanlagen zur Montage von Zahnradpumpen mit höchster Passgenauigkeit mit selbstlernender Robotermontage der Zahnradpaare.
+                  </p>
+              </div>
+            </div>
+        </div>
+
+        <div id="tab-3" class="tabcontent">
+            <img
+              src="../../assets/images/anlagen.webp"
+              alt=""
+            />
+
+            <div class="tabcontent-text">
+              
+              <h3>Anlagenparameter</h3>
+
+              <div class="details">
+                <ul>
+                  <li>Halb- und Vollautomatische Montageanlagen für Abgasdrosselklappen</li>
+                  <li>Halb- und Vollautomatische Montageanlagen elektronische Aktuatoren</li>
+                  <li>End of line tester</li>
+                  <li>Platinenmontageanlagen</li>
+                  <li>Plasmareinigungs- und Beschichtungsanlage</li>
+                </ul>
+
+                <p style="line-height: initial !important;">TEAM Automation Berlin beliefert seit 2006 namhafte Automobilzulieferer weltweit mit halb- und vollautomatische Montageanlagen für Abgasdrosselklappen und Aktuatoren.</p>
+
+              </div>
+            </div>
+        </div>
+      </div>
+
+
     </div>
 
     <footer>
@@ -400,6 +509,31 @@
     </footer>
 
     <script src="../../js/script.js"></script>
+    <script src="../../js/swiper-bundle.min.js"></script>
     <script src="../../js/mininav.js"></script>
+
+    <script>
+      function openTab(event, tabName) {
+        const tabcontent = document.querySelectorAll(".tabcontent");
+        tabcontent.forEach((content) =>
+          content.classList.remove("tabcontent-active")
+        );
+
+        document.getElementById(tabName).classList.add("tabcontent-active");
+        const tablinks = document.querySelectorAll(".tablinks");
+        tablinks.forEach((link) => link.classList.remove("active"));
+        event.target.classList.add("active");
+      }
+
+      var swipertab = new Swiper(".swiper-tab", {
+        freeMode: true,
+        slidesPerView: "auto",
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+          dragSize: 100,
+        },
+      });
+    </script>
   </body>
 </html>

@@ -733,13 +733,14 @@ footer {
 }
 
 .grid-3 .grid-3-item.card .subcard-grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Default two equal columns */
+  gap: 2rem; /* Adjust gap as needed */
   opacity: 0;
   height: 0;
   transform: translateY(0px);
+  width: 100%;
+  margin: 0 auto;
 }
 
 .grid-3 .grid-3-item.card.active .subcard-grid {
@@ -752,7 +753,8 @@ footer {
 
 
 .grid-3 .grid-3-item.card .subcard {
-  width: 350px; /* Feste Breite für konsistente Animation */
+  max-width: 100%; /* Prevents fixed 350px from overflowing */
+  width: 100%; /* Adapts to parent container */
   border-radius: 0.5rem;
   transition: transform 1s;
   position: relative;
@@ -763,10 +765,30 @@ footer {
   transform: translateY(0px);
 }
 
-@media only screen and (max-width: 400px) {
-  .grid-3 .grid-3-item.card .subcard {
-    width: 280px; /* Feste Breite für konsistente Animation */
-
+@media only screen and (max-width: 1000px) {
+  .grid-3 .grid-3-item.card .subcard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Default two equal columns */
+    gap: 1rem; /* Adjust gap as needed */
+  }
+  
+  .grid-3 .grid-3-item.card .subcard-grid .subcard:nth-child(odd):last-child {
+    grid-column: span 2; /* Make the last odd item span two columns */
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .grid-3 .grid-3-item.card .subcard-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Default two equal columns */
+    gap: 1rem; /* Adjust gap as needed */
+  }
+  
+  .grid-3 .grid-3-item.card .subcard-grid .subcard:nth-child(odd):last-child {
+    grid-column: span 1; /* Make the last odd item span two columns */
+    width: 100%;
+    margin: 0 auto;
   }
 }
 .grid-3 .grid-3-item.card.active .subcard {
