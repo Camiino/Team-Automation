@@ -316,43 +316,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to update suggestions list
   function updateSuggestions() {
-      const query = searchInput.value.trim();
-      suggestionsBox.innerHTML = "";
+    const query = searchInput.value.trim();
+    suggestionsBox.innerHTML = "";
 
-      if (query.length === 0) {
-          suggestionsBox.style.display = "none";
-          return;
-      }
+    if (query.length === 0) {
+        suggestionsBox.style.display = "none";
+        return;
+    }
 
-      const filtered = filterSuggestions(query);
+    const filtered = filterSuggestions(query).slice(0, 7); // Limit to 5 results
 
-      filtered.forEach(suggestion => {
-          const li = document.createElement("li");
-          li.textContent = suggestion.name;
-          li.style.padding = "8px";
-          li.style.cursor = "pointer";
-          li.style.borderBottom = "1px solid #888";
-          li.style.color = "white";
-          li.style.fontSize = "1.5rem";
-          li.style.listStyle = "none";
+    filtered.forEach(suggestion => {
+        const li = document.createElement("li");
+        li.textContent = suggestion.name;
+        li.style.padding = "8px";
+        li.style.cursor = "pointer";
+        li.style.borderBottom = "1px solid #888";
+        li.style.color = "white";
+        li.style.fontSize = "1.5rem";
+        li.style.listStyle = "none";
 
-          li.addEventListener("mouseover", () => {
-              li.style.background = "#555";
-          });
+        li.addEventListener("mouseover", () => {
+            li.style.background = "#555";
+        });
 
-          li.addEventListener("mouseout", () => {
-              li.style.background = "transparent";
-          });
+        li.addEventListener("mouseout", () => {
+            li.style.background = "transparent";
+        });
 
-          li.addEventListener("click", () => {
-              window.location.href = suggestion.url;
-          });
+        li.addEventListener("click", () => {
+            window.location.href = suggestion.url;
+        });
 
-          suggestionsBox.appendChild(li);
-      });
+        suggestionsBox.appendChild(li);
+    });
 
-      suggestionsBox.style.display = filtered.length > 0 ? "block" : "none";
-  }
+    suggestionsBox.style.display = filtered.length > 0 ? "block" : "none";
+}
+
 
   // Event listener for input field
   searchInput.addEventListener("input", updateSuggestions);
