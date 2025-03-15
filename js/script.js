@@ -332,12 +332,12 @@ document.addEventListener("DOMContentLoaded", function () {
         li.style.padding = "8px";
         li.style.cursor = "pointer";
         li.style.borderBottom = "1px solid #888";
-        li.style.color = "white";
+        li.style.color = "#444444";
         li.style.fontSize = "1.5rem";
         li.style.listStyle = "none";
 
         li.addEventListener("mouseover", () => {
-            li.style.background = "#555";
+            li.style.background = "#2a7af3";
         });
 
         li.addEventListener("mouseout", () => {

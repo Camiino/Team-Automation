@@ -473,6 +473,8 @@ header a,
   width: 30px;
   aspect-ratio: 1/1;
   cursor: pointer;
+  -webkit-filter: brightness(0) saturate(100%);
+          filter: brightness(0) saturate(100%);
   padding: 5px;
 }
 
