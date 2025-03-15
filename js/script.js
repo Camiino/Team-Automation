@@ -337,11 +337,13 @@ document.addEventListener("DOMContentLoaded", function () {
           li.style.listStyle = "none";
 
           li.addEventListener("mouseover", () => {
-              li.style.background = "#";
+              li.style.background = "#2a7af3";
+              li.style.color = "#ffffff";
           });
 
           li.addEventListener("mouseout", () => {
               li.style.background = "transparent";
+              li.style.color = "#444444";
           });
 
           li.addEventListener("click", () => {
