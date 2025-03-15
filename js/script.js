@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchTrigger = document.querySelector(".search-box"); // The button/icon that opens search
 
   // Base URL for absolute links
-  const baseUrl = "https://webeesign.com/sandbox/TeamAuto/";
+  const baseUrl = "https://bee-its.de/TeamCopy/";
 
   // Predefined search suggestions with absolute URLs
   const searchSuggestions = [
@@ -201,95 +201,92 @@ document.addEventListener("DOMContentLoaded", function () {
       // Anlagen
       { name: "Manuelle Arbeitsplätze", url: baseUrl + "html/anlagen/manuell.html" },
       { name: "Halbautomatische Anlagen", url: baseUrl + "html/anlagen/halbautomatisch.html" },
-      { name: "Vollautomatische Anlagen", url: baseUrl + "html/branchen/vollautomatisch.html" },
+      { name: "Vollautomatische Anlagen", url: baseUrl + "html/anlagen/vollautomatisch.html" },
 
 
       // Leistungsportfolio
-      { name: "After-Sales", url: baseUrl + "html/leistungsportfolio/after-sales.html" },
-      { name: "Konzeption", url: baseUrl + "html/leistungsportfolio/konzeption.html" },
-      { name: "Projektrealisierung", url: baseUrl + "html/leistungsportfolio/projektrealisierung.html" },
-      { name: "MTM-Analysen", url: baseUrl + "html/leistungsportfolio/projektrealisierung.html" },
-      { name: "Prozessoptimierungen", url: baseUrl + "html/leistungsportfolio/projektrealisierung.html" },
+      { name: "After-Sales", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Konzeption", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Projektrealisierung", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "MTM-Analysen", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Prozessoptimierungen", url: baseUrl + "html/leistungsportfolio.html" },
 
-      // Alternative headers for Konzeption
-      { name: "Konzeption & Planung", url: baseUrl + "html/leistungsportfolio/konzeption.html" },
-      { name: "Machbarkeitsanalysen", url: baseUrl + "html/leistungsportfolio/konzeption.html" },
-      { name: "Taktzeit- und Verfügbarkeitsanalysen", url: baseUrl + "html/leistungsportfolio/konzeption.html" },
-      { name: "Prozess- und Fertigungskonzeptionen", url: baseUrl + "html/leistungsportfolio/konzeption.html" },
+      { name: "Konzeption & Planung", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Machbarkeitsanalysen", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Taktzeit- und Verfügbarkeitsanalysen", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Prozess- und Fertigungskonzeptionen", url: baseUrl + "html/leistungsportfolio.html" },
 
-      // Alternative headers for Projektrealisierung
-      { name: "Projektrealisierung", url: baseUrl + "html/leistungsportfolio/projektrealisierung.html" },
-      { name: "Mechanische Konstruktion", url: baseUrl + "html/leistungsportfolio/projektrealisierung.html" },
-      { name: "Elektrische und pneumatische Planung", url: baseUrl + "html/leistungsportfolio/projektrealisierung.html" },
-      { name: "Schaltschrankbau und Verkabelung/Verschlauchung", url: baseUrl + "html/leistungsportfolio/projektrealisierung.html" },
-      { name: "Programmierung und Inbetriebnahme", url: baseUrl + "html/leistungsportfolio/projektrealisierung.html" },
-      { name: "Montage, Auslieferung und Aufstellung", url: baseUrl + "html/leistungsportfolio/projektrealisierung.html" },
-      { name: "Roboter-Programmierung", url: baseUrl + "html/leistungsportfolio/projektrealisierung.html" },
+      { name: "Projektrealisierung", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Mechanische Konstruktion", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Elektrische und pneumatische Planung", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Schaltschrankbau und Verkabelung/Verschlauchung", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Programmierung und Inbetriebnahme", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Montage, Auslieferung und Aufstellung", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Roboter-Programmierung", url: baseUrl + "html/leistungsportfolio.html" },
 
-      // Alternative headers for After-Sales
-      { name: "After-Sales", url: baseUrl + "html/leistungsportfolio/after-sales.html" },
-      { name: "Dokumentation", url: baseUrl + "html/leistungsportfolio/after-sales.html" },
-      { name: "Anlagen und Typenerweiterungen", url: baseUrl + "html/leistungsportfolio/after-sales.html" },
-      { name: "Service und Wartung", url: baseUrl + "html/leistungsportfolio/after-sales.html" },
+      { name: "After-Sales", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Dokumentation", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Anlagen und Typenerweiterungen", url: baseUrl + "html/leistungsportfolio.html" },
+      { name: "Service und Wartung", url: baseUrl + "html/leistungsportfolio.html" },
 
 
       // Prozesse
-      { name: "Bearbeitungsprozesse", url: baseUrl + "html/prozesse/bearbeitungsprozesse.html" },
-      { name: "Bördeltechnik", url: baseUrl + "html/prozesse/bearbeitungsprozesse.html" },
-      { name: "Spulenwickeltechnik", url: baseUrl + "html/prozesse/bearbeitungsprozesse.html" },
-      { name: "Dosier- und Vergießtechnik", url: baseUrl + "html/prozesse/bearbeitungsprozesse.html" },
-      { name: "Plasmareinigung und -beschichtung", url: baseUrl + "html/prozesse/bearbeitungsprozesse.html" },
-      { name: "Markier- und Beschriftungstechnik", url: baseUrl + "html/prozesse/bearbeitungsprozesse.html" },
+      { name: "Bearbeitungsprozesse", url: baseUrl + "html/prozesse.html" },
+      { name: "Bördeltechnik", url: baseUrl + "html/prozesse.html" },
+      { name: "Spulenwickeltechnik", url: baseUrl + "html/prozesse.html" },
+      { name: "Dosier- und Vergießtechnik", url: baseUrl + "html/prozesse.html" },
+      { name: "Plasmareinigung und -beschichtung", url: baseUrl + "html/prozesse.html" },
+      { name: "Markier- und Beschriftungstechnik", url: baseUrl + "html/prozesse.html" },
 
 
-      { name: "Lötprozesse", url: baseUrl + "html/prozesse/loetprozesse.html" },
-      { name: "Induktives Löten", url: baseUrl + "html/prozesse/loetprozesse.html" },
-      { name: "Lichtlöten", url: baseUrl + "html/prozesse/loetprozesse.html" },
-      { name: "Widerstandslöten", url: baseUrl + "html/prozesse/loetprozesse.html" },
-      { name: "Laserlöten", url: baseUrl + "html/prozesse/loetprozesse.html" },
+      { name: "Lötprozesse", url: baseUrl + "html/prozesse.html" },
+      { name: "Induktives Löten", url: baseUrl + "html/prozesse.html" },
+      { name: "Lichtlöten", url: baseUrl + "html/prozesse.html" },
+      { name: "Widerstandslöten", url: baseUrl + "html/prozesse.html" },
+      { name: "Laserlöten", url: baseUrl + "html/prozesse.html" },
 
 
-      { name: "Montageprozesse", url: baseUrl + "html/prozesse/montageprozesse.html" },
-      { name: "Fügevorgänge mit Kraft-Weg-Überwachung", url: baseUrl + "html/prozesse/montageprozesse.html" },
-      { name: "Koordinaten-Servo-Schraubtechnik", url: baseUrl + "html/prozesse/montageprozesse.html" },
-      { name: "Nietprozesse", url: baseUrl + "html/prozesse/montageprozesse.html" },
-      { name: "Manuelle Montageprozesse", url: baseUrl + "html/prozesse/montageprozesse.html" },
-      { name: "Verpackungssysteme", url: baseUrl + "html/prozesse/montageprozesse.html" },
+      { name: "Montageprozesse", url: baseUrl + "html/prozesse.html" },
+      { name: "Fügevorgänge mit Kraft-Weg-Überwachung", url: baseUrl + "html/prozesse.html" },
+      { name: "Koordinaten-Servo-Schraubtechnik", url: baseUrl + "html/prozesse.html" },
+      { name: "Nietprozesse", url: baseUrl + "html/prozesse.html" },
+      { name: "Manuelle Montageprozesse", url: baseUrl + "html/prozesse.html" },
+      { name: "Verpackungssysteme", url: baseUrl + "html/prozesse.html" },
 
 
-      { name: "Prüfprozesse", url: baseUrl + "html/prozesse/pruefprozesse.html" },
-      { name: "Funktionsprüfung", url: baseUrl + "html/prozesse/pruefprozesse.html" },
-      { name: "Komplette Testvorrichtungen und Endprüfstände", url: baseUrl + "html/prozesse/pruefprozesse.html" },
-      { name: "Mechanische Prüfverfahren", url: baseUrl + "html/prozesse/pruefprozesse.html" },
-      { name: "Optische Prüfverfahren", url: baseUrl + "html/prozesse/pruefprozesse.html" },
-      { name: "Durchfluss- und Dichtheitsprüfungen", url: baseUrl + "html/prozesse/pruefprozesse.html" },
+      { name: "Prüfprozesse", url: baseUrl + "html/prozesse.html" },
+      { name: "Funktionsprüfung", url: baseUrl + "html/prozesse.html" },
+      { name: "Komplette Testvorrichtungen und Endprüfstände", url: baseUrl + "html/prozesse.html" },
+      { name: "Mechanische Prüfverfahren", url: baseUrl + "html/prozesse.html" },
+      { name: "Optische Prüfverfahren", url: baseUrl + "html/prozesse.html" },
+      { name: "Durchfluss- und Dichtheitsprüfungen", url: baseUrl + "html/prozesse.html" },
 
 
-      { name: "Schweißprozesse", url: baseUrl + "html/prozesse/schweissprozesse.html" },
-      { name: "Laserschweißtechnik", url: baseUrl + "html/prozesse/schweissprozesse.html" },
-      { name: "Ultraschallschweißen", url: baseUrl + "html/prozesse/schweissprozesse.html" },
-      { name: "Widerstandsschweißen", url: baseUrl + "html/prozesse/schweissprozesse.html" },
-      { name: "Reibschweißen", url: baseUrl + "html/prozesse/schweissprozesse.html" },
-      { name: "Thermokompressionsschweißen", url: baseUrl + "html/prozesse/schweissprozesse.html" },
+      { name: "Schweißprozesse", url: baseUrl + "html/prozesse.html" },
+      { name: "Laserschweißtechnik", url: baseUrl + "html/prozesse.html" },
+      { name: "Ultraschallschweißen", url: baseUrl + "html/prozesse.html" },
+      { name: "Widerstandsschweißen", url: baseUrl + "html/prozesse.html" },
+      { name: "Reibschweißen", url: baseUrl + "html/prozesse.html" },
+      { name: "Thermokompressionsschweißen", url: baseUrl + "html/prozesse.html" },
 
 
-      { name: "Zuführprozesse", url: baseUrl + "html/prozesse/zufuehrprozesse.html" },
-      { name: "Transportbandsysteme", url: baseUrl + "html/prozesse/zufuehrprozesse.html" },
-      { name: "Palettier-Systeme", url: baseUrl + "html/prozesse/zufuehrprozesse.html" },
-      { name: "Robotertechnik", url: baseUrl + "html/prozesse/zufuehrprozesse.html" },
-      { name: "Linear- und Radialzuführsysteme", url: baseUrl + "html/prozesse/zufuehrprozesse.html" },
+      { name: "Zuführprozesse", url: baseUrl + "html/prozesse.html" },
+      { name: "Transportbandsysteme", url: baseUrl + "html/prozesse.html" },
+      { name: "Palettier-Systeme", url: baseUrl + "html/prozesse.html" },
+      { name: "Robotertechnik", url: baseUrl + "html/prozesse.html" },
+      { name: "Linear- und Radialzuführsysteme", url: baseUrl + "html/prozesse.html" },
 
       // Subanlagen > Pumpen
-      { name: "Nutzfahrzeug", url: baseUrl + "html/anlagen/subanlagen/pumpen.html" },
-      { name: "Hydraulische Flügelpumpen", url: baseUrl + "html/anlagen/subanlagen/pumpen/hydraulischefluegelpumpen.html" },
-      { name: "Ölpumpen", url: baseUrl + "html/anlagen/subanlagen/pumpen/oelpumpen.html" },
+      { name: "Pumpen", url: baseUrl + "html/anlagen/halbautomatisch.html" },
+      { name: "Hydraulische Flügelpumpen", url: baseUrl + "html/anlagen/halbautomatisch.html" },
+      { name: "Ölpumpen", url: baseUrl + "html/anlagen/halbautomatisch.html" },
 
       // Subanlagen > Ventile
-      { name: "Elektrische Umschaltventile", url: baseUrl + "html/anlagen/subanlagen/ventile/elektrischeumschaltventile.html" },
-      { name: "Ölschaltventile", url: baseUrl + "html/anlagen/subanlagen/ventile/oelschaltventile.html" },
-      { name: "Schubumluftventile", url: baseUrl + "html/anlagen/subanlagen/ventile/schubumluftventile.html" },
-      { name: "Abgasregelsysteme", url: baseUrl + "html/anlagen/subanlagen/abgasregelsysteme.html" },
-      { name: "Ventile", url: baseUrl + "html/anlagen/subanlagen/ventile.html" },
+      { name: "Elektrische Umschaltventile", url: baseUrl + "html/anlagen/vollautomatisch.html" },
+      { name: "Ölschaltventile", url: baseUrl + "html/anlagen/vollautomatisch.html" },
+      { name: "Schubumluftventile", url: baseUrl + "html/anlagen/vollautomatisch.html" },
+      { name: "Abgasregelsysteme", url: baseUrl + "html/anlagen/vollautomatisch.html" },
+      { name: "Ventile", url: baseUrl + "html/anlagen/vollautomatisch.html" },
       { name: "Rauchmelder", url: baseUrl + "html/anlagen/subanlagen/rauchmelder.html" },
   ];
 
@@ -391,7 +388,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 </svg>
             </div>
             <div id="cookie-content" class="cookie-content">
-                <p>Auf dieser Website nutzen wir Cookies zur Verarbeitung von Endgeräteinformationen. Die Verarbeitung dient der Gewährleistung grundlegender Funktionen und der Einbindung externer Inhalte und Dienste Dritter (z. B. Google Fonts, YouTube, Google Maps). Je nach Funktion können dabei Daten an Dritte weitergegeben und dort verarbeitet werden. Mehr Informationen hierzu finden Sie im <a href="https://webeesign.com/sandbox/TeamAuto/html/impressum.html" style="color: #e5e5e5;">Impressum</a>.
+                <p>Auf dieser Website nutzen wir Cookies zur Verarbeitung von Endgeräteinformationen. Die Verarbeitung dient der Gewährleistung grundlegender Funktionen und der Einbindung externer Inhalte und Dienste Dritter (z. B. Google Fonts, YouTube, Google Maps). Je nach Funktion können dabei Daten an Dritte weitergegeben und dort verarbeitet werden. Mehr Informationen hierzu finden Sie im <a href="https://bee-its.de/TeamCopy/html/impressum.html" style="color: #e5e5e5;">Impressum</a>.
 
                     <br><br>Sie können Ihre Zustimmung jederzeit ändern oder widerrufen.
                 </p>

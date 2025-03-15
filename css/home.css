@@ -537,7 +537,7 @@ header a,
   font-size: 22px;
   margin-bottom: 10px;
   width: 100%;
-  color: #1c1c1c;
+  color: #000000;
 }
 #menu .menu-content .menu-content-box.quick-actions {
   top: 20px;
@@ -552,7 +552,7 @@ header a,
 #menu .menu-content .menu-content-box.quick-actions .language,
 #menu .menu-content .menu-content-box.quick-actions .search-box {
   gap: 10px;
-  color: #1c1c1c;
+  color: #000000;
   font-weight: 500!important;
 }
 
@@ -1793,3 +1793,15 @@ footer {
   }
 
 }/*# sourceMappingURL=home.css.map */
+
+.contact-footer{
+  background-color: var(--primary-color);
+  width: fit-content;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: 0.2s background-color ease-in-out;
+  color: white !important;
+}
+.contact-footer:hover{
+  filter: brightness(1.2);
+}
