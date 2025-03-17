@@ -507,7 +507,7 @@ header a,
   transition: 0.3s color;
 }
 #menu a:hover {
-  color: white;
+  color: #2a7af3;
 }
 #menu #close {
   position: absolute;
