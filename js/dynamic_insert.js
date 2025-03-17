@@ -1,51 +1,17 @@
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ölschaltventile</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <link rel="shortcut icon" href="../../../../assets/icons/logoAlt.ico" type="image/x-icon" />
-
-    <style>
-      @font-face {
-        font-family: "Lexend Deca";
-        src: url(../../../../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
-      }
-
-      @font-face {
-        font-family: "Lexend LexendDeca-Bold";
-        src: url(../../../../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
-      }
-
-      @font-face {
-        font-family: "Mukta_Mahee";
-        src: url(../../../../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
-      }
-
-      body {
-        font-family: "Lexend Deca";
-      }
-
-      .neuigkeiten .neuigkeit-text {
-        font-family: "Mukta_Mahee";
-        letter-spacing: 1.5px;
-      }
-    </style>
-    <link rel="stylesheet" href="../../../../css/subpage.css" />
-  </head>
-  <body>
-    <header class="sticky">
+(function () {
+    function loadCommonSections() {
+    // Define the header HTML (you can paste your full header/menu/hero markup here)
+    const headerHTML = `
+ <header>
       <div class="header-content">
         <div class="header-links left">
           <!--   <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
 
-          <a class="hide-mobile" href="../../../neuigkeit.html">Aktuelles</a>
-          <a class="hide-mobile" href="../../../karriere.html">Karriere</a>
-          <a class="hide-mobile" href="../../../downloads.html">Downloads</a>
+          <a class="hide-mobile" href="https://bee-its.de/TeamCopy/html/neuigkeit.html">Aktuelles</a>
+          <a class="hide-mobile" href="https://bee-its.de/TeamCopy/html/karriere.html">Karriere</a>
+          <a class="hide-mobile" href="https://bee-its.de/TeamCopy/html/downloads.html">Downloads</a>
         </div>
-        <a href="../../../../index.html" class="logo">
+        <a href="https://bee-its.de/TeamCopy/index.html" class="logo">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_170_1245)">
             <path id="changer2" class="changer2" d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>
@@ -82,29 +48,29 @@
         <div class="header-links right">
           <div class="hide-mobile language-box">
             <div class="language">
-              <img src="../../../../assets/icons/language.svg" alt="" />
+              <img src="https://bee-its.de/TeamCopy/assets/icons/language.svg" alt="" />
               <span>Sprache</span>
             </div>
 
             <div class="language-dropdown">
-              <a href="../../../" class="active-language"> Deutsch (DE)</a>
-              <a href="../../../">English (EN)</a>
-              <a href="../../../">Русский (RU)</a>
-              <a href="../../../">Polski (PL)</a>
+              <a href="" class="active-language"> Deutsch (DE)</a>
+              <a href="">English (EN)</a>
+              <a href="">Русский (RU)</a>
+              <a href="">Polski (PL)</a>
             </div>
           </div>
-          <a class="hide-mobile" href="../../../kontakt.html">
-            <img src="../../../../assets/icons/contact.svg" alt="" /> Kontakt</a
+          <a class="hide-mobile" href="https://bee-its.de/TeamCopy/html/kontakt.html">
+            <img src="https://bee-its.de/TeamCopy/assets/icons/contact.svg" alt="" /> Kontakt</a
           >
           <div class="search-box">
-            <img src="../../../../assets/icons/search.svg" alt="" />
+            <img src="https://bee-its.de/TeamCopy/assets/icons/search.svg" alt="" />
             <span class="hide-mobile">Suche</span>
           </div>
         </div>
       </div>
     </header>
 
-    <label id="hamburger" class="hamburger hamburger-subpage">
+    <label id="hamburger" class="hamburger">
       <input type="checkbox" id="burger" />
       <svg viewBox="0 0 32 32">
         <path
@@ -118,7 +84,7 @@
     <div class="search-container">
       <div class="search">
         <input type="text" placeholder="Suchen" />
-        <img src="../../../../assets/icons/search.svg" alt="" />
+        <img src="https://bee-its.de/TeamCopy/assets/icons/search.svg" alt="" />
       </div>
     </div>
 
@@ -127,147 +93,77 @@
         <div class="menu-content-box quick-actions">
           <div class="language-box menu-content-item">
             <div class="language">
-              <img src="../../../../assets/icons/language.svg" alt="" />
+              <img src="https://bee-its.de/TeamCopy/assets/icons/language.svg" alt="" />
               <span>Sprache</span>
             </div>
 
             <div class="language-dropdown menu-content-item">
-              <a href="../../../" class="active-language"> Deutsch (DE)</a>
-              <a href="../../../">English (EN)</a>
-              <a href="../../../">Русский (RU)</a>
-              <a href="../../../">Polski (PL)</a>
+              <a href="" class="active-language"> Deutsch (DE)</a>
+              <a href="">English (EN)</a>
+              <a href="">Русский (RU)</a>
+              <a href="">Polski (PL)</a>
             </div>
           </div>
 
           <div class="search-box">
-            <img src="../../../../assets/icons/search.svg" alt="" />
+            <img src="https://bee-its.de/TeamCopy/assets/icons/search.svg" alt="" />
             <span>Suche</span>
           </div>
         </div>
 
         <div class="menu-content-box">
           <p class="menu-content-box-title">Navigieren</p>
-          <a href="../../../leistungsportfolio.html">Leistungsportfolio</a>
-          <a href="../../../anlagen.html">Anlagen</a>
-          <a href="../../../prozesse.html">Prozesse</a>
-          <a href="../../../branchen.html">Branchen</a>
-          <a href="../../../anlagen/halbautomatisch.html">Beispiele</a>
-          <a href="../../../partner.html">Partner</a>
+          <a href="https://bee-its.de/TeamCopy/index.html">Startseite</a>
+          <a href="https://bee-its.de/TeamCopy/html/leistungsportfolio.html">Leistungsportfolio</a>
+          <a href="https://bee-its.de/TeamCopy/html/anlagen.html">Anlagen</a>
+          <a href="https://bee-its.de/TeamCopy/html/prozesse.html">Prozesse</a>
+          <a href="https://bee-its.de/TeamCopy/html/branchen.html">Branchen</a>
+          <a href="https://bee-its.de/TeamCopy/html/anlagen/halbautomatisch.html">Beispiele</a>
+          <a href="https://bee-its.de/TeamCopy/html/partner.html">Partner</a>
         </div>
 
         <div class="menu-content-box">
           <p class="menu-content-box-title">Information</p>
-          <a href="../../../neuigkeit.html">Aktuelles</a>
-          <a href="../../../unternehmen.html">Unternehmen</a>
-          <a href="../../../karriere.html">Karriere</a>
-          <a href="../../../impressum.html">Impressum</a>
-          <a href="../../../downloads.html">Downloads</a>
-          <a href="../../../kontakt.html">Kontakt</a>
+          <a href="https://bee-its.de/TeamCopy/html/aktuelles.html">Aktuelles</a>
+          <a href="https://bee-its.de/TeamCopy/html/unternehmen.html">Unternehmen</a>
+          <a href="https://bee-its.de/TeamCopy/html/karriere.html">Karriere</a>
+          <a href="https://bee-its.de/TeamCopy/html/impressum.html">Impressum</a>
+          <a href="https://bee-its.de/TeamCopy/html/downloads.html">Downloads</a>
+          <a href="https://bee-its.de/TeamCopy/html/kontakt.html">Kontakt</a>
         </div>
 
         <div class="menu-content-box">
           <p class="menu-content-box-title">Sprache</p>
-          <a href="../../../" class="active-language"> Deutsch (DE)</a>
-          <a href="../../../">English (EN)</a>
-          <a href="../../../">Русский (RU)</a>
-          <a href="../../../">Polski (PL)</a>
+          <a href="" class="active-language"> Deutsch (DE)</a>
+          <a href="">English (EN)</a>
+          <a href="">Русский (RU)</a>
+          <a href="">Polski (PL)</a>
         </div>
       </div>
     </div>
-
-    <div class="container-full subpage-top">
-      <div class="container">
-        <div class="breadcrumb">
-          <a href="../../../../index.html">Home</a> > <a href="../../../anlagen.html"> Anlagen </a> > <a href="../ventile.html"> Ventile </a> > <a href=""> Ölschaltventile </a>
-        </div>
-
-        <img
-          class="subpage-top-img"
-          src="../../../../assets/images/anlagen.webp"
-          alt=""
-        />
-      </div>
-    </div>
-
-    <div class="mini-nav">
-      <a href="./oelschaltventile.html">Ölschaltventile</a>
-      <a href="./elektrischeumschaltventile.html">Elektrische Umschaltventile</a>
-      <a href="./schubumluftventile.html">Schubumluftventile</a>
-      <img class="mini-nav-scroll" src="../../../../assets/icons/arrow-top.svg" alt="" />
-      <img class="mini-nav-menu" src="../../../../assets/icons/arrow-top.svg" alt="" />
-    </div>
-
-
-    <div class="container-full">
-      <div class="container">
-        <div class="title">
-          <h2>Ölschaltventile</h2>
-        </div>
-
-        <div class="text">
-          <p>
-            Schaltventile werden zur Ansteuerung der zweistufig schaltbaren Motorenelemente verwendet. Dabei wird der vorhandene Öldruck im Motorölkreislauf dazu verwendet, den Verriegelungsmechanismus der schaltbaren Elemente mittels eines 3/2-Wege Schaltventils zu betätigen. Das 3/2-Wege Ventil wird entsprechend eines im Motorsteuergerät hinterlegten Kennfeldes, in Abhängigkeit von diversen Parametern wie Drehzahl, Motorlast, Fahrzeuggeschwindigkeit, Betriebstemperatur etc. angesteuert.
-          </p>
-        </div>
-
-        <div class="sub-anlagen-grid-2">
-          <img src="../../../../assets/images/anlagen.webp" alt="">
-          <div class="details">
-            <h2>Anlagenparameter</h2>
-            <p>
-              Taktzeit: 8,5 Sekunden pro Teil <br><br>
-
-              Technische Verfügbarkeit: 92 % <br><br>
-              
-              Abmaße: etwa 18  m x 6 m <br><br>
-            </p>
-            <div class="double-list">
-              <ul>
-                <li>Bosch WT-Umlaufsystem</li>
-                <li>Zuführung der verschiedenen Bauteile mittels Anyfeeder (Robotertechnik auch mit Bildverarbeitung – direktes Greifen vom Transportband)</li>
-                <li>Diverse Linear- und Radialzuführsysteme, u.a.:
-                    <ul>
-                        <li>O-Ring-Zuführungen</li>
-                        <li>Federzuführungen</li>
-                        <li>Kugelzuführungen</li>
-                    </ul>
-                </li>
-              </ul>
-
-              <ul>
-                <li>Diverse Einpresssysteme (messendes Einstellen)</li>
-                <li>Kunststofflaserschweißsystem (Firma DILAS)</li>
-                <li>Radialnietsystem</li>
-                <li>Diverse Bildverarbeitungssysteme</li>
-                <li>Funktionsprüfungen und Dichtheitsprüfungen</li>
-                <li>Laserbeschriftungssystem</li>
-                <li>Palettier-Roboter</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer>
+    `;
+    
+    // Define the footer HTML (again, paste your full footer markup here)
+    const footerHTML = `
+        <footer>
       <div class="footer-content footer-cols">
         <div class="footer-col">
           <p class="footer-col-title">Navigieren</p>
-          <a href="../../../leistungsportfolio.html">Leistungsportfolio</a>
-          <a href="../../../anlagen.html">Anlagen</a>
-          <a href="../../../prozesse.html">Prozesse</a>
-          <a href="../../../branchen.html">Branchen</a>
-          <a href="../../../anlagen/halbautomatisch.html">Beispiele</a>
-          <a href="../../../partner.html">Partner</a>
+          <a href="https://bee-its.de/TeamCopy/html/leistungsportfolio.html">Leistungsportfolio</a>
+          <a href="https://bee-its.de/TeamCopy/html/anlagen.html">Anlagen</a>
+          <a href="https://bee-its.de/TeamCopy/html/prozesse.html">Prozesse</a>
+          <a href="https://bee-its.de/TeamCopy/html/branchen.html">Branchen</a>
+          <a href="https://bee-its.de/TeamCopy/html/anlagen/halbautomatisch.html">Beispiele</a>
+          <a href="https://bee-its.de/TeamCopy/html/partner.html">Partner</a>
         </div>
 
         <div class="footer-col">
           <p class="footer-col-title">Information</p>
-          <a href="../../../neuigkeit.html">Aktuelles</a>
-          <a href="../../../unternehmen.html">Unternehmen</a>
-          <a href="../../../karriere.html">Karriere</a>
-          <a href="../../../impressum.html">Impressum</a>
-          <a href="../../../downloads.html">Downloads</a>
+          <a href="https://bee-its.de/TeamCopy/html/neuigkeit.html">Aktuelles</a>
+          <a href="https://bee-its.de/TeamCopy/html/unternehmen.html">Unternehmen</a>
+          <a href="https://bee-its.de/TeamCopy/html/karriere.html">Karriere</a>
+          <a href="https://bee-its.de/TeamCopy/html/impressum.html">Impressum</a>
+          <a href="https://bee-its.de/TeamCopy/html/downloads.html">Downloads</a>
         </div>
 
         <div class="footer-col">
@@ -275,20 +171,19 @@
           <a href="">Telefon +49 30 / 60 90 294 - 0</a>
           <a href="">Fax +49 30 / 60 90 294 - 09</a>
           <a href="mailto:info@team-automation-berlin.de" class="email">info@team-automation-berlin.de</a>
-            <a href="../../kontakt.html" class="contact-footer">Kontakt Aufnehmen</a>
+          <a href="https://bee-its.de/TeamCopy/html/kontakt.html" class="contact-footer">Kontakt aufnehmen</a>
         </div>
 
       </div>
-
-      <hr />
+      <hr/>
 
       <div class="footer-content footer-bottom">
         <p class="footer-copyright">
           Copyright © 2025 TEAM Automation Berlin GmbH  <br />
-           Alboinstrasse 11D, 12103 Berlin
+           Alboinstrasse 11, D-12103 Berlin
         </p>
 
-        <a class="footer-logo" href="../../../../index.html">
+        <a class="footer-logo" href="https://bee-its.de/TeamCopy/index.html">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_170_1245)">
             <path d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>
@@ -329,9 +224,20 @@
         </p>
       </div>
     </footer>
+    `;
+  
+    // Insert the header (including menu and hero) at the top of the document body
+    document.body.insertAdjacentHTML('afterbegin', headerHTML);
+    // Insert the footer at the end of the document body
+    document.body.insertAdjacentHTML('beforeend', footerHTML);
+    // Dispatch a custom event that signals the common sections are ready.
+    document.dispatchEvent(new Event('commonSectionsLoaded'));
+  }
+  
 
-    <script src="../../../../js/script.js?v=1.1"></script>
-
-    <script src="../../../../js/mininav.js?v=1.1"></script>
-  </body>
-</html>
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadCommonSections);
+    } else {
+        loadCommonSections();
+    }
+})();
