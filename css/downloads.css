@@ -166,47 +166,44 @@
 
 
 .aboutus-content svg {
-    width: 100%;
-    height: 60rem;
+    width: 80%;
+    height: auto;
     object-fit: cover;
     border-radius: 1rem;
     stroke: 0;
-    margin-bottom: -10rem;
-    margin-top: -7rem;
+    margin: 0 auto -5rem auto;
 }
 
 
-.aboutus-content .row.desc {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.aboutus-content .grid-locations.desc {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    flex-wrap: wrap;
     gap: 2rem;
 }
-.aboutus-content .row.desc .location {
+.aboutus-content .grid-locations.desc .location {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: start;
     min-width: fit-content;
 }
 
-.aboutus-content .row.desc .location h4 {
+.aboutus-content .grid-locations.desc .location h4 {
     font-size: 1rem;
     color: #EA4F4F;
     margin-top: 0;
 }
-.aboutus-content .row.desc .location:nth-child(3) h4, 
-    .aboutus-content .row.desc .location:nth-child(4) h4 {
+.aboutus-content .grid-locations.desc .location:nth-child(4) h4, 
+    .aboutus-content .grid-locations.desc .location:nth-child(5) h4 {
     color: #000;
 }
-.aboutus-content .row.desc .location p {
+.aboutus-content .grid-locations.desc .location p {
     font-size: .8rem;
     margin-top: 0;
     margin-bottom: 0;
 }
-.aboutus-content .row.desc .location p br{
+.aboutus-content .grid-locations.desc .location p br{
     margin-bottom: -1rem;
 }
 
