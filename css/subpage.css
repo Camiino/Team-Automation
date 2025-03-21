@@ -721,6 +721,12 @@ footer {
  object-fit: fill;
 }
 
+.grid-3 .grid-3-item-partner .partner-title {
+  min-height: 4rem;
+  margin-top: 0!important;
+  margin-bottom: 0!important;
+}
+
 .grid-3 .grid-3-item.card h3 {
   line-height: 2.6rem!important;
   font-size: 1.4rem!important;
@@ -864,7 +870,6 @@ footer {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-
 .card-back p {
   font-size: .9rem!important;
   margin: 0!important;
@@ -873,6 +878,10 @@ footer {
   margin-top: auto!important;
   margin-bottom: auto!important;
 }
+
+
+
+
 .card-back.has-scrollbar {
   padding-top: 0.2rem !important; /* Wendet das Padding nur an, wenn die Klasse existiert */
   padding-right: .2rem!important;

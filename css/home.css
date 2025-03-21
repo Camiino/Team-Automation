@@ -1111,6 +1111,14 @@ footer {
   margin-bottom: 1rem;
   width: auto;
 }
+svg.hero-logo  {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin-bottom: 1rem;
+}
 .hero video {
   position: absolute;
   top: 0;
@@ -1155,6 +1163,16 @@ footer {
       -ms-flex: 1;
           flex: 1;
 }
+.hero .hero-content .hero-title h1 {
+  line-height: 50px;
+}
+
+.hero .hero-content .hero-title h1 span {
+  color: var(--primary-color);
+  font-style: italic;
+}
+
+
 
 .hero .hero-content h1 {
   z-index: 1;

@@ -19,7 +19,7 @@
   }
 
 .sub-content{
-    padding-top: 5rem;
+    padding-top: 2rem;
     min-height: 80vh;
 }
 
@@ -125,7 +125,7 @@
 }
 .aboutus-content{
     display: grid;
-    gap: 10rem;
+    gap: 5rem;
     margin: 4rem 0;
     height: 100%;
 }
@@ -167,22 +167,26 @@
 
 .aboutus-content svg {
     width: 100%;
-    height: 60rem;
+    height: 25rem;
     object-fit: cover;
     border-radius: 1rem;
     stroke: 0;
-    margin-bottom: -10rem;
-    margin-top: -7rem;
+    margin-bottom: -3rem;
+    margin-top: -2rem;
 }
 
 
 .aboutus-content .row.desc {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1rem;
     width: 100%;
-    flex-wrap: wrap;
-    gap: 2rem;
+    max-width: 1400px;
+}
+.aboutus-content .row.desc.zwei  {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: -3.5rem;
 }
 .aboutus-content .row.desc .location {
     display: flex;
@@ -193,24 +197,45 @@
 }
 
 .aboutus-content .row.desc .location h4 {
-    font-size: 1rem;
-    color: #EA4F4F;
-    margin-top: 0;
-}
-.aboutus-content .row.desc .location:nth-child(3) h4, 
-    .aboutus-content .row.desc .location:nth-child(4) h4 {
+    font-size: .8rem;
     color: #000;
+    margin-top: 0;
+    line-height: 17px;
+    margin-bottom: 2px;
+    text-align: center;
 }
+
+.aboutus-content .row.desc.zwei .location h4 {
+    color: #EA4F4F;
+    line-height: 17px;
+}
+
+
 .aboutus-content .row.desc .location p {
     font-size: .8rem;
     margin-top: 0;
     margin-bottom: 0;
+    text-align: center;
+    line-height: 17px;
 }
 .aboutus-content .row.desc .location p br{
     margin-bottom: -1rem;
 }
 
 
+@media only screen and (max-width: 768px) {
+    .aboutus-content svg {
+        height: 16rem;
+    }
+    .aboutus-content .row.desc .location h4 {
+        font-size: .6rem;
+        line-height: 10px;
+    }
+    .aboutus-content .row.desc .location p {
+        font-size: .6rem;
+        line-height: 10px;
+    }
+}
 @media only screen and (max-width: 992px) {
     .aboutus-content .two-split-grid{
         display: grid;

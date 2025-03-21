@@ -112,9 +112,9 @@
         </div>
 
         <div class="menu-content-box">
-          <p class="menu-content-box-title">Navigieren</p>
+          <p class="menu-content-box-title">Navigation</p>
           <a href="https://bee-its.de/TeamCopy/index.html">Startseite</a>
-          <a href="https://bee-its.de/TeamCopy/html/leistungsportfolio.html">Leistungsportfolio</a>
+          <a href="https://bee-its.de/TeamCopy/html/leistungsportfolio.html">Leistungen</a>
           <a href="https://bee-its.de/TeamCopy/html/anlagen.html">Anlagen</a>
           <a href="https://bee-its.de/TeamCopy/html/prozesse.html">Prozesse</a>
           <a href="https://bee-its.de/TeamCopy/html/branchen.html">Branchen</a>
@@ -148,8 +148,8 @@
         <footer>
       <div class="footer-content footer-cols">
         <div class="footer-col">
-          <p class="footer-col-title">Navigieren</p>
-          <a href="https://bee-its.de/TeamCopy/html/leistungsportfolio.html">Leistungsportfolio</a>
+          <p class="footer-col-title">Navigation</p>
+          <a href="https://bee-its.de/TeamCopy/html/leistungsportfolio.html">Leistungen</a>
           <a href="https://bee-its.de/TeamCopy/html/anlagen.html">Anlagen</a>
           <a href="https://bee-its.de/TeamCopy/html/prozesse.html">Prozesse</a>
           <a href="https://bee-its.de/TeamCopy/html/branchen.html">Branchen</a>
