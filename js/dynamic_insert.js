@@ -1,3 +1,11 @@
+(function() {
+  var umamiScript = document.createElement('script');
+  umamiScript.defer = true;
+  umamiScript.src = "https://analytics.bee-its.de/script.js";
+  umamiScript.setAttribute("data-website-id", "c75c08d4-b826-43a4-bacd-ddee117ce62f");
+  document.head.appendChild(umamiScript);
+})();
+
 (function () {
     function loadCommonSections() {
     // Define the header HTML (you can paste your full header/menu/hero markup here)
