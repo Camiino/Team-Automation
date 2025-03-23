@@ -6,6 +6,7 @@
   document.head.appendChild(umamiScript);
 })();
 
+
 (function () {
     function loadCommonSections() {
     // Define the header HTML (you can paste your full header/menu/hero markup here)
