@@ -717,7 +717,6 @@ footer {
  display: flex;
  flex-direction: column;
  justify-content: space-between;
- max-height: fit-content;
  object-fit: fill;
 }
 

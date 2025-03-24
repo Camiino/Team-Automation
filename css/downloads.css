@@ -139,6 +139,7 @@
     object-fit: cover;
     margin: 0;
     border-radius: 1rem;
+    max-height: 27rem;
 }
 .aboutus-content p{
     margin-top: 1rem;
@@ -173,7 +174,6 @@
     stroke: 0;
     margin-bottom: -3rem;
     margin-top: -2rem;
-    justify-self: center;
 }
 
 

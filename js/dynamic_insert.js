@@ -1,8 +1,8 @@
 (function() {
   var umamiScript = document.createElement('script');
   umamiScript.defer = true;
-  umamiScript.src = "https://analytics.bee-its.de/script.js";
-  umamiScript.setAttribute("data-website-id", "c75c08d4-b826-43a4-bacd-ddee117ce62f");
+  umamiScript.src = "https://analytics.webeesign.com/script.js";
+  umamiScript.setAttribute("data-website-id", "061838cd-a1e3-4d69-b655-ca8831a60ede");
   document.head.appendChild(umamiScript);
 })();
 
