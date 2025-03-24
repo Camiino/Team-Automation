@@ -167,13 +167,14 @@
 
 
 .aboutus-content img.map {
-    width: 80%;
+    width: 100%;
     height: 25rem;
     object-fit: contain;
     border-radius: 1rem;
     stroke: 0;
     margin-bottom: -3rem;
     margin-top: -2rem;
+    justify-self: center;
 }
 
 
