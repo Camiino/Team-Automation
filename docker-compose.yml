@@ -36,4 +36,4 @@ services:
     # No exposed ports to the host machine
     # Only accessible from other containers
 volumes:
-  dbdata:
+  mariadb_data:
