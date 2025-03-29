@@ -628,7 +628,7 @@ document.addEventListener('commonSectionsLoaded', function () {
                 }, 10); // Small delay to ensure transition applies
             });
         }
-        
+    
         // Function to fade in the overlay before navigation
         function showOverlayBeforeNavigation() {
             overlay.style.opacity = "1"; // Fade in (opacity 0 → 1)
@@ -638,10 +638,14 @@ document.addEventListener('commonSectionsLoaded', function () {
         document.addEventListener("DOMContentLoaded", () => {
             document.body.addEventListener("click", function (event) {
                 const target = event.target.closest("a");
-                if ( target && target.href && target.target !== "_blank" &&
-                    !target.href.startsWith("#") && !target.download &&
-                    !target.href.startsWith("mailto:")){
-    
+                if (
+                    target &&
+                    target.href &&
+                    target.target !== "_blank" &&
+                    !target.href.startsWith("#") &&
+                    !target.download &&
+                    !target.href.startsWith("mailto:")
+                ) {
                     // Extract the current URL and the target URL (ignoring hash parts)
                     const currentUrl = window.location.href.split("#")[0];
                     const targetUrl = target.href.split("#")[0];
@@ -657,5 +661,23 @@ document.addEventListener('commonSectionsLoaded', function () {
                 }
             });
         });
+    
+        // Handle bfcache restores (e.g. swipe-back on iPhone)
+        window.addEventListener("pageshow", (event) => {
+            if (event.persisted) {
+                const overlay = document.getElementById("page-loader");
+                if (overlay) {
+                    // Instantly hide the overlay without transition flash
+                    overlay.style.transition = "none";
+                    overlay.style.opacity = "0";
+    
+                    // Re-enable transitions after one animation frame
+                    requestAnimationFrame(() => {
+                        overlay.style.transition = "opacity 0.5s ease-in-out";
+                    });
+                }
+            }
+        });
     })();
+    
     
