@@ -2,7 +2,7 @@
   var umamiScript = document.createElement('script');
   umamiScript.defer = true;
   umamiScript.src = "https://analytics.webeesign.com/script.js";
-  umamiScript.setAttribute("data-website-id", "061838cd-a1e3-4d69-b655-ca8831a60ede");
+  umamiScript.setAttribute("data-website-id", "f9b734fb-1180-43e4-91c5-d85f68da9e58");
   document.head.appendChild(umamiScript);
 })();
 
