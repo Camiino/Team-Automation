@@ -11,9 +11,12 @@ services:
       - ./:/var/www/localhost/htdocs
       - ./.env:/var/www/localhost/htdocs/.env
     depends_on:
-      - db
-    env_file:
-      - ./.env
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    #env_file:
+    #  - ./.env
 
   db:
     image: mariadb:latest
@@ -21,8 +24,13 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
-    env_file:
-      - ./.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    #env_file:
+    #  - ./.env
     # No exposed ports to the host machine
     # Only accessible from other containers
 
