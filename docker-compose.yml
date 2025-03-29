@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/localhost/htdocs
+      - ./.env:/var/www/localhost/htdocs/.env
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+
+  db:
+    image: mariadb:latest
+    restart: always
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    env_file:
+      - ./.env
+    # No exposed ports to the host machine
+    # Only accessible from other containers
+
+volumes:
+  mariadb_data:
