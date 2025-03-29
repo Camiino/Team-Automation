@@ -1,7 +1,5 @@
 FROM alpine:latest
 
-LABEL maintainer="Subie <subie@example.com>"
-
 # Install Nginx, PHP 8.3, and Supervisor
 RUN apk add --no-cache \
     nginx \
