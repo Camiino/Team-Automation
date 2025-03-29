@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "8083:80"
     volumes:
       - ./:/var/www/localhost/htdocs
       #- ./.env:/var/www/localhost/htdocs/.env
