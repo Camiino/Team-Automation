@@ -8,8 +8,8 @@ services:
     ports:
       - "8083:80"
     volumes:
-      - ./:/var/www/localhost/htdocs
-      #- ./.env:/var/www/localhost/htdocs/.env
+      - .:/var/www/localhost/htdocs
+      #- ./env:/var/www/localhost/htdocs/.env
     depends_on:
       - db
     environment:
@@ -35,6 +35,5 @@ services:
     #  - ./.env
     # No exposed ports to the host machine
     # Only accessible from other containers
-
 volumes:
-  mariadb_data:
+  dbdata:
