@@ -1119,7 +1119,7 @@ svg.hero-logo  {
   padding-bottom: 0px;
   margin-bottom: 1rem;
 }
-.hero video {
+.hero video, .hero img {
   position: absolute;
   top: 0;
   left: 0;
