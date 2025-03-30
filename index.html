@@ -77,18 +77,8 @@
     </div>
 
     <div class="hero">
-        <video 
-        autoplay 
-        muted 
-        playsinline 
-        loop 
-        preload="metadata" 
-        poster="./assets/images/PlaceHolder.webp" 
-        style="width: 100%; height: auto;"
-      >
-        <source src="./assets/videos/TEAM-Automation-Berlin.webm" type="video/webm">
-        Your browser does not support the video tag.
-      </video>    
+
+      <img src="./assets/images/PlaceHolder.webp" alt="">
       <div class="hero-content">
         <div class="hero-title initial-animated-item">
           
@@ -547,8 +537,6 @@
           const img = document.createElement('img');
           img.src = placeholderImage;
           img.alt = 'TEAM Automation Berlin';
-          img.style.width = '100%';
-          img.style.height = 'auto';
           
           // Replace the video with the image
           if (video && video.parentNode) {
