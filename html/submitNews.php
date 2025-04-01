@@ -3,10 +3,10 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Database config via env (from docker-compose)
-$host = getenv('DB_HOST');
-$dbname = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$pass = getenv('DB_PASSWORD');
+$host = "db";
+$dbname = "newsdb";
+$user = "newsadmin";
+$pass = "Yourpassword123!";
 
 // Connect to DB
 try {
