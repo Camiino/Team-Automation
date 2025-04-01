@@ -325,151 +325,8 @@
         <div class="neuigkeiten">
           <div class="swiper swiper-neuigkeiten">
             <div class="swiper-wrapper">
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="./html/neuigkeit.html?page=2&section=china">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/news-tüv.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Überwachungsauditierung </h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/news-schweiz.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Deutsche Ingenieurtechnik – gepaart mit Schweizer Präzision</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
-
-              <div class="swiper-slide neuigkeit">
-                <img
-                  class="neuigkeit-img"
-                  src="assets/images/china-kooperation1.webp"
-                  alt=""
-                />
-
-                <div class="neuigkeit-text">
-                  <h4>Neue Partner</h4>
-                  <a href="">
-                    <img src="assets/icons/arrow_forwardAlt.svg" />
-                    Anzeigen
-                  </a>
-                </div>
-              </div>
+              
             </div>
-
             <div class="swiper-scrollbar"></div>
           </div>
         </div>
@@ -564,5 +421,46 @@
     <script src="js/header.js?v=1.1" defer></script>
     <script src="js/swiper-bundle.min.js?v=1.1" defer></script>
     <script src="js/swipers.js?v=1.1" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const response = await fetch('./html/getNews.php');
+          const news = await response.json();
+    
+          const wrapper = document.querySelector('.swiper-neuigkeiten .swiper-wrapper');
+          wrapper.innerHTML = ''; // Clear existing slides
+    
+          if (news.length === 0) {
+            wrapper.innerHTML = '<div class="swiper-slide"><p>Keine Neuigkeiten vorhanden.</p></div>';
+            return;
+          }
+    
+          news.forEach((item, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide neuigkeit';
+    
+            const projectIndex = index + 1; // 1-based index
+            const page = Math.ceil(projectIndex / 3);
+            const anchor = `projekt-${projectIndex}`;
+            const link = `../html/neuigkeit.php?page=${page}#${anchor}`;
+    
+            slide.innerHTML = `
+              <img class="neuigkeit-img" src="${item.image_path}" alt="${item.title}" />
+              <div class="neuigkeit-text">
+                <h4>${item.title}</h4>
+                <a href="${link}">
+                  <img src="assets/icons/arrow_forwardAlt.svg" />
+                  Anzeigen
+                </a>
+              </div>
+            `;
+            wrapper.appendChild(slide);
+          });
+        } catch (err) {
+          console.error("Fehler beim Laden der Neuigkeiten:", err);
+        }
+      });
+    </script>    
+    
   </body>
 </html>
