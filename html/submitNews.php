@@ -65,7 +65,7 @@ if (!empty($errors)) {
 }
 
 // Upload image
-$uploadDir = __DIR__ . '/assets/uploads/';
+$uploadDir = __DIR__ . '/../assets/uploads/';
 $filename = uniqid() . '_' . basename($_FILES['image']['name']);
 $targetFile = $uploadDir . $filename;
 
@@ -74,7 +74,7 @@ if (!is_dir($uploadDir)) {
 }
 
 if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFile)) {
-    $imagePath = '/assets/uploads/' . $filename;
+    $imagePath = '/../assets/uploads/' . $filename;
 } else {
     echo json_encode(["success" => false, "message" => "Bild-Upload fehlgeschlagen."]);
     exit;
