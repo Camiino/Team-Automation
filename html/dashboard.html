@@ -7,8 +7,9 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
-    <script src="../js/dynamic_insert.js"></script>
-
+    <link rel="stylesheet" href="../css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/subpage.css" />
+    <link rel="stylesheet" href="../css/kontakt.css" />
     <style>
       @font-face {
         font-family: "Lexend Deca";
@@ -34,55 +35,125 @@
         letter-spacing: 1.5px;
       }
     </style>
-    <link rel="stylesheet" href="../css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="../css/subpage.css" />
-    <link rel="stylesheet" href="../css/kontakt.css" />
   </head>
   <body>
-
-
     <div class="container-full bg-grey">
-
       <div class="container text-section">
-          <div class="breadcrumb">
-            <a href="../index.html">Home</a> > <a href=""> Dashboard </a>
+        <div class="breadcrumb">
+          <a href="../index.html">Home</a> > <a href=""> Dashboard </a>
+        </div>
+        <div class="sub-content">
+          <div class="title">
+            <h2>Dashboard</h2>
           </div>
-          <div class="sub-content">
-              <div class="title">
-                <h2>Dashboard</h2>
-              </div>
-              <div class="content-grid" style="grid-template-columns: initial!important;">
-                <div class="form-container">
-                  <form class="contact-form" action="submitNews.php" method="POST">
-                    <div class="row">
-                        <div>
-                            <label for="date">Datum:</label>
-                            <input type="date" id="date" name="date">
-                        </div>
-            
-                        <div>
-                          <label for="image">Bild Hochladen:</label>
-                          <input type="file" id="image" name="image" required>
-                        </div>
-                    </div>
-                    <label for="title">Titel:</label>
-                    <input type="text" id="title" name="title" required>
-                    <label for="content">Inhalt:</label>
-                    <textarea id="content" name="content" required></textarea>
-            
-                    <button type="submit">Neuigkeit Hochladen</button>
-                  </form>
+          <div class="content-grid" style="grid-template-columns: initial!important;">
+            <div class="form-container">
+              <form class="contact-form" action="submitNews.php" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                  <div>
+                    <label for="date">Datum:</label>
+                    <input type="text" id="date" name="date" placeholder="TT.MM.JJJJ" pattern="\d{2}\.\d{2}\.\d{4}" required>
+                    <small style="color: gray;">Format: TT.MM.JJJJ</small>                        
+                  </div>
+                  <div>
+                    <label for="image">Bild Hochladen:</label>
+                    <input type="file" id="image" name="image" required>
+                  </div>
                 </div>
-              </div>
+                <label for="title">Titel:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="content">Inhalt:</label>
+                <textarea id="content" name="content" required></textarea>
+                <button type="submit">Neuigkeit Hochladen</button>
+              </form>
+            </div>
+            <div class="news-list-section" style="margin-top: 2rem;">
+              <h3>Bestehende Neuigkeiten</h3>
+              <div id="newsContainer" class="neuigkeiten"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
+    <script>
+      document.querySelector('form').addEventListener('submit', function (e) {
+        const dateInput = document.getElementById('date');
+        const dateValue = dateInput.value.trim();
+        const regex = /^\d{2}\.\d{2}\.\d{4}$/;
+        if (!regex.test(dateValue)) {
+          e.preventDefault();
+          alert("Bitte gib das Datum im Format TT.MM.JJJJ ein.");
+          dateInput.focus();
+        }
+      });
+
+      function escapeHTML(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      async function loadNews() {
+        try {
+          const response = await fetch('getNews.php');
+          const news = await response.json();
+          const container = document.getElementById('newsContainer');
+          container.innerHTML = '';
+
+          if (!news || news.length === 0) {
+            container.innerHTML = '<p>Keine Neuigkeiten vorhanden.</p>';
+            return;
+          }
+
+          news.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'news-card';
+            card.style = "border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; border-radius: 8px;";
+
+            let imageHTML = '';
+            if (item.image_path) {
+              imageHTML = `<img src="${item.image_path}" alt="${escapeHTML(item.title)}" style="max-width: 200px; display:block; margin-top:10px;" />`;
+            }
+
+            card.innerHTML = `
+              <h4>${escapeHTML(item.title)}</h4>
+              <p><strong>Datum:</strong> ${escapeHTML(item.date)}</p>
+              <p class="neuigkeit-text">${escapeHTML(item.content)}</p>
+              ${imageHTML}
+              <button onclick="deleteNews(${item.id})" style="margin-top: 10px; background: #c0392b; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">Löschen</button>
+            `;
+
+            container.appendChild(card);
+          });
+        } catch (err) {
+          console.error("Fehler beim Laden der Neuigkeiten:", err);
+        }
+      }
+
+      async function deleteNews(id) {
+        if (!confirm("Willst du diese Neuigkeit wirklich löschen?")) return;
+
+        try {
+          const response = await fetch('deleteNews.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `id=${encodeURIComponent(id)}`
+          });
+
+          const result = await response.text();
+          alert(result);
+          loadNews();
+        } catch (err) {
+          console.error("Fehler beim Löschen:", err);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", loadNews);
+    </script>
 
     <script src="../js/script.js?v=1.1"></script>
     <script src="../js/swiper-bundle.min.js?v=1.1"></script>
-
     <script>
       var swiper = new Swiper(".imgSwiper", {
         loop: true,

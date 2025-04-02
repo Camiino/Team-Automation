@@ -2,10 +2,10 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$host = getenv('DB_HOST');
-$dbname = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$pass = getenv('DB_PASSWORD');
+$host = "db";
+$dbname = "newsdb";
+$user = "newsadmin";
+$pass = "Yourpassword123!";
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);

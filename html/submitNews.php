@@ -2,18 +2,21 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// Database config via env (from docker-compose)
-$host = getenv('DB_HOST');
-$dbname = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$pass = getenv('DB_PASSWORD');
+header('Content-Type: application/json');
+
+// Database config
+$host = "db";
+$dbname = "newsdb";
+$user = "newsadmin";
+$pass = "Yourpassword123!";
 
 // Connect to DB
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die("Verbindung fehlgeschlagen: " . $e->getMessage());
+    echo json_encode(["success" => false, "message" => "Verbindung fehlgeschlagen: " . $e->getMessage()]);
+    exit;
 }
 
 // Simple form validation
@@ -21,59 +24,63 @@ $errors = [];
 
 $title = trim($_POST['title'] ?? '');
 $content = trim($_POST['content'] ?? '');
-$date = $_POST['date'] ?? date('Y-m-d');
+$dateInput = trim($_POST['date'] ?? '');
+$date = null;
 
-// 1. Validate required fields
+// Validate required fields
 if (empty($title)) $errors[] = "Titel ist erforderlich.";
 if (empty($content)) $errors[] = "Inhalt ist erforderlich.";
 
-// 2. Validate date
-if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
-    $errors[] = "Ungültiges Datum.";
+// Validate and convert date
+if (preg_match('/^\d{2}\.\d{2}\.\d{4}$/', $dateInput)) {
+    $parts = explode('.', $dateInput);
+    $date = "{$parts[2]}-{$parts[1]}-{$parts[0]}"; // Convert to YYYY-MM-DD
+} else {
+    $errors[] = "Ungültiges Datumsformat. Bitte TT.MM.JJJJ verwenden.";
 }
 
-// 3. Validate image
+// Validate image
 $imagePath = null;
 if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
     $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
-    $fileType = mime_content_type($_FILES['image']['tmp_name']);
-    
+    $fileType = function_exists('mime_content_type') ?
+        mime_content_type($_FILES['image']['tmp_name']) :
+        (new finfo(FILEINFO_MIME_TYPE))->file($_FILES['image']['tmp_name']);
+
     if (!in_array($fileType, $allowedTypes)) {
         $errors[] = "Nur JPEG, PNG oder WEBP erlaubt.";
     }
 
-    if ($_FILES['image']['size'] > 10 * 1024 * 1024) { // 2 MB
+    if ($_FILES['image']['size'] > 10 * 1024 * 1024) {
         $errors[] = "Bild darf nicht größer als 10MB sein.";
     }
 } else {
     $errors[] = "Bitte ein Bild hochladen.";
 }
 
-// Stop if there are validation errors
+// Return validation errors if any
 if (!empty($errors)) {
-    foreach ($errors as $err) {
-        echo "❌ " . htmlspecialchars($err) . "<br>";
-    }
+    echo json_encode(["success" => false, "message" => implode("\n", $errors)]);
     exit;
 }
 
-// 4. Upload image
-$uploadDir = __DIR__ . '/assets/uploads/';
+// Upload image
+$uploadDir = __DIR__ . '/../assets/uploads/';
 $filename = uniqid() . '_' . basename($_FILES['image']['name']);
 $targetFile = $uploadDir . $filename;
 
-// Create folder if needed
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0755, true);
 }
 
 if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFile)) {
-    $imagePath = '/assets/uploads/' . $filename;
+    $imagePath = '/../assets/uploads/' . $filename;
 } else {
-    die("Bild-Upload fehlgeschlagen.");
+    echo json_encode(["success" => false, "message" => "Bild-Upload fehlgeschlagen."]);
+    exit;
 }
 
-// 5. Insert into DB with prepared statement
+// Insert into DB
 $stmt = $pdo->prepare("INSERT INTO news (title, content, image_path, date) VALUES (:title, :content, :image_path, :date)");
 $stmt->execute([
     ':title' => $title,
@@ -82,5 +89,5 @@ $stmt->execute([
     ':date' => $date
 ]);
 
-echo "✅ Neuigkeit erfolgreich hinzugefügt!";
+echo json_encode(["success" => true, "message" => "Neuigkeit erfolgreich hochgeladen."]);
 ?>

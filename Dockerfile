@@ -6,6 +6,8 @@ RUN apk add --no-cache \
     php83 \
     php83-fpm \
     php83-mysqli \
+    php83-pdo \
+    php83-pdo_mysql \
     php83-session \
     php83-opcache \
     php83-curl \
