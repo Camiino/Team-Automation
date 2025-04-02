@@ -38,6 +38,23 @@
     <link rel="stylesheet" href="css/swiper-bundle.min.css" />
   </head>
   <body>
+    <script>
+      (function() {
+        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        if (isSafari) {
+          window.addEventListener('DOMContentLoaded', () => {
+            const video = document.querySelector('.hero video');
+            const img = document.createElement('img');
+            img.src = './assets/images/PlaceHolder.webp';
+            img.alt = 'TEAM Automation Berlin';
+            if (video && video.parentNode) {
+              video.parentNode.replaceChild(img, video);
+            }
+          });
+        }
+      })();
+      </script>
+      
     <div id="preloader" class="active">
       <div></div>
       <div class="loading-text">
@@ -383,39 +400,6 @@
         </div>
       </div>
     </div>
-    <script>
-      // Add this script to your page
-      document.addEventListener('DOMContentLoaded', function() {
-        // Function to detect Safari browser
-        function isSafari() {
-          const userAgent = navigator.userAgent.toLowerCase();
-          // Safari detection - checks for Safari but excludes Chrome and other browsers that include Safari in their UA
-          return userAgent.includes('safari') && !userAgent.includes('chrome') && !userAgent.includes('android');
-        }
-
-        // Get the video element
-        const video = document.querySelector('.hero video');
-        const placeholderImage = './assets/images/PlaceHolder.webp'; // Path to your placeholder image
-        
-        // Check if we're running on Safari
-        if (isSafari()) {
-          // Create an image element to replace the video
-          const img = document.createElement('img');
-          img.src = placeholderImage;
-          img.alt = 'TEAM Automation Berlin';
-          
-          // Replace the video with the image
-          if (video && video.parentNode) {
-            video.parentNode.replaceChild(img, video);
-          }
-        } else {
-          // For non-Safari browsers, ensure video is displayed
-          if (video) {
-            video.style.display = 'block';
-          }
-        }
-      });
-    </script>
     <script src="js/script.js?v=1.1" defer></script>
     <script src="js/loader.js?v=1.1"></script>
     <script src="js/header.js?v=1.1" defer></script>
