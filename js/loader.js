@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Otherwise, proceed with the preloader.
     // Force the viewport to scroll to the very top.
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
     
     // Disable scrolling using our custom function.
     disableScroll();
@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         preloader.style.width = "100%";
         preloader.style.height = "100%";
         preloader.style.zIndex = "9999";
+        //window.scrollTo(0, 0);
     }
     
     // Start the preloader exit sequence.
@@ -87,8 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
             enableScroll();
             // Start any additional animations.
             startAnimations();
-            // Force the scroll position to remain at the top.
-            window.scrollTo(0, 0);
         }, 1200); // Adjust this value to match your exit animation duration.
     }, 2400); // Adjust this delay as needed.
 });
