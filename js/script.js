@@ -212,265 +212,490 @@ document.addEventListener('commonSectionsLoaded', function () {
         const searchInput = document.querySelector(".search-container input");
         const searchContainer = document.querySelector(".search-container");
         const searchTrigger = document.querySelector(".search-box"); // The button/icon that opens search
-
-        // 1) Detect language: if the current URL includes "/html_pl/", we assume Polish; otherwise German.
-        const isPolish = window.location.href.includes("/html_pl/");
-
+    
+        // 1) Detect language by URL
+        const isPolish  = window.location.href.includes("/html_pl/") || window.location.href.includes("/index_pl.html");
+        const isEnglish = window.location.href.includes("/html_en/") || window.location.href.includes("/index_en.html");
+        const isRussian = window.location.href.includes("/html_ru/") || window.location.href.includes("/index_ru.html");
+    
         // 2) Base URLs for each language version
-        const baseUrlGerman = "https://bee-its.de/html/";
-        const baseUrlPolish = "https://bee-its.de/html_pl/";
-
-        // 3) Full set of German suggestions
+        const baseUrlDe = "https://bee-its.de/html/";
+        const baseUrlPl = "https://bee-its.de/html_pl/";
+        const baseUrlEn = "https://bee-its.de/html_en/";
+        const baseUrlRu = "https://bee-its.de/html_ru/";
+    
+        // -------------------------------------------------------------------------------------
+        // 3) GERMAN suggestions (full set)
+        // -------------------------------------------------------------------------------------
         const searchSuggestionsDe = [
             // Main pages
-            { name: "Aktuelles", url: baseUrlGerman + "neuigkeit.php" },
-            { name: "Karriere", url: baseUrlGerman + "karriere.html" },
-            { name: "Downloads", url: baseUrlGerman + "downloads.html" },
-            { name: "Kontakt", url: baseUrlGerman + "kontakt.html" },
-            { name: "Leistungsportfolio", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Anlagen", url: baseUrlGerman + "anlagen.html" },
-            { name: "Prozesse", url: baseUrlGerman + "prozesse.html" },
-            { name: "Branchen", url: baseUrlGerman + "branchen.html" },
-            { name: "Partner", url: baseUrlGerman + "partner.html" },
-            { name: "Unternehmen", url: baseUrlGerman + "unternehmen.html" },
-            { name: "Impressum", url: baseUrlGerman + "impressum.html" },
+            { name: "Aktuelles", url: baseUrlDe + "neuigkeit.php" },
+            { name: "Karriere", url: baseUrlDe + "karriere.html" },
+            { name: "Downloads", url: baseUrlDe + "downloads.html" },
+            { name: "Kontakt", url: baseUrlDe + "kontakt.html" },
+            { name: "Leistungsportfolio", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Anlagen", url: baseUrlDe + "anlagen.html" },
+            { name: "Prozesse", url: baseUrlDe + "prozesse.html" },
+            { name: "Branchen", url: baseUrlDe + "branchen.html" },
+            { name: "Partner", url: baseUrlDe + "partner.html" },
+            { name: "Unternehmen", url: baseUrlDe + "unternehmen.html" },
+            { name: "Impressum", url: baseUrlDe + "impressum.html" },
             // Additional
-            { name: "Beispiele", url: baseUrlGerman + "anlagen/halbautomatisch.html" },
-
+            { name: "Beispiele", url: baseUrlDe + "anlagen/halbautomatisch.html" },
+    
             // Branchen
-            { name: "Automobilindustrie", url: baseUrlGerman + "branchen/automobilindustrie.html" },
-            { name: "Chemie", url: baseUrlGerman + "branchen/chemie.html" },
-            { name: "Elektronik", url: baseUrlGerman + "branchen/elektronik.html" },
-            { name: "Nutzfahrzeug", url: baseUrlGerman + "branchen/nutzfahrzeug.html" },
-            { name: "Sicherheitstechnik", url: baseUrlGerman + "branchen/sicherheitstechnik.html" },
-
+            { name: "Automobilindustrie", url: baseUrlDe + "branchen/automobilindustrie.html" },
+            { name: "Chemie", url: baseUrlDe + "branchen/chemie.html" },
+            { name: "Elektronik", url: baseUrlDe + "branchen/elektronik.html" },
+            { name: "Nutzfahrzeug", url: baseUrlDe + "branchen/nutzfahrzeug.html" },
+            { name: "Sicherheitstechnik", url: baseUrlDe + "branchen/sicherheitstechnik.html" },
+    
             // Anlagen
-            { name: "Manuelle Arbeitsplätze", url: baseUrlGerman + "anlagen/manuell.html" },
-            { name: "Halbautomatische Anlagen", url: baseUrlGerman + "anlagen/halbautomatisch.html" },
-            { name: "Vollautomatische Anlagen", url: baseUrlGerman + "anlagen/vollautomatisch.html" },
-
+            { name: "Manuelle Arbeitsplätze", url: baseUrlDe + "anlagen/manuell.html" },
+            { name: "Halbautomatische Anlagen", url: baseUrlDe + "anlagen/halbautomatisch.html" },
+            { name: "Vollautomatische Anlagen", url: baseUrlDe + "anlagen/vollautomatisch.html" },
+    
             // Leistungsportfolio
-            { name: "After-Sales", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Konzeption", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Projektrealisierung", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "MTM-Analysen", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Prozessoptimierungen", url: baseUrlGerman + "leistungsportfolio.html" },
-
-            { name: "Konzeption & Planung", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Machbarkeitsanalysen", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Taktzeit- und Verfügbarkeitsanalysen", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Prozess- und Fertigungskonzeptionen", url: baseUrlGerman + "leistungsportfolio.html" },
-
-            { name: "Projektrealisierung", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Mechanische Konstruktion", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Elektrische und pneumatische Planung", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Schaltschrankbau und Verkabelung/Verschlauchung", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Programmierung und Inbetriebnahme", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Montage, Auslieferung und Aufstellung", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Roboter-Programmierung", url: baseUrlGerman + "leistungsportfolio.html" },
-
-            { name: "After-Sales", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Dokumentation", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Anlagen und Typenerweiterungen", url: baseUrlGerman + "leistungsportfolio.html" },
-            { name: "Service und Wartung", url: baseUrlGerman + "leistungsportfolio.html" },
-
+            { name: "After-Sales", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Konzeption", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Projektrealisierung", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "MTM-Analysen", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Prozessoptimierungen", url: baseUrlDe + "leistungsportfolio.html" },
+    
+            { name: "Konzeption & Planung", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Machbarkeitsanalysen", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Taktzeit- und Verfügbarkeitsanalysen", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Prozess- und Fertigungskonzeptionen", url: baseUrlDe + "leistungsportfolio.html" },
+    
+            { name: "Mechanische Konstruktion", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Elektrische und pneumatische Planung", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Schaltschrankbau und Verkabelung/Verschlauchung", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Programmierung und Inbetriebnahme", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Montage, Auslieferung und Aufstellung", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Roboter-Programmierung", url: baseUrlDe + "leistungsportfolio.html" },
+    
+            { name: "Dokumentation", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Anlagen und Typenerweiterungen", url: baseUrlDe + "leistungsportfolio.html" },
+            { name: "Service und Wartung", url: baseUrlDe + "leistungsportfolio.html" },
+    
             // Prozesse
-            { name: "Bearbeitungsprozesse", url: baseUrlGerman + "prozesse.html" },
-            { name: "Bördeltechnik", url: baseUrlGerman + "prozesse.html" },
-            { name: "Spulenwickeltechnik", url: baseUrlGerman + "prozesse.html" },
-            { name: "Dosier- und Vergießtechnik", url: baseUrlGerman + "prozesse.html" },
-            { name: "Plasmareinigung und -beschichtung", url: baseUrlGerman + "prozesse.html" },
-            { name: "Markier- und Beschriftungstechnik", url: baseUrlGerman + "prozesse.html" },
-
-            { name: "Lötprozesse", url: baseUrlGerman + "prozesse.html" },
-            { name: "Induktives Löten", url: baseUrlGerman + "prozesse.html" },
-            { name: "Lichtlöten", url: baseUrlGerman + "prozesse.html" },
-            { name: "Widerstandslöten", url: baseUrlGerman + "prozesse.html" },
-            { name: "Laserlöten", url: baseUrlGerman + "prozesse.html" },
-
-            { name: "Montageprozesse", url: baseUrlGerman + "prozesse.html" },
-            { name: "Fügevorgänge mit Kraft-Weg-Überwachung", url: baseUrlGerman + "prozesse.html" },
-            { name: "Koordinaten-Servo-Schraubtechnik", url: baseUrlGerman + "prozesse.html" },
-            { name: "Nietprozesse", url: baseUrlGerman + "prozesse.html" },
-            { name: "Manuelle Montageprozesse", url: baseUrlGerman + "prozesse.html" },
-            { name: "Verpackungssysteme", url: baseUrlGerman + "prozesse.html" },
-
-            { name: "Prüfprozesse", url: baseUrlGerman + "prozesse.html" },
-            { name: "Funktionsprüfung", url: baseUrlGerman + "prozesse.html" },
-            { name: "Komplette Testvorrichtungen und Endprüfstände", url: baseUrlGerman + "prozesse.html" },
-            { name: "Mechanische Prüfverfahren", url: baseUrlGerman + "prozesse.html" },
-            { name: "Optische Prüfverfahren", url: baseUrlGerman + "prozesse.html" },
-            { name: "Durchfluss- und Dichtheitsprüfungen", url: baseUrlGerman + "prozesse.html" },
-
-            { name: "Schweißprozesse", url: baseUrlGerman + "prozesse.html" },
-            { name: "Laserschweißtechnik", url: baseUrlGerman + "prozesse.html" },
-            { name: "Ultraschallschweißen", url: baseUrlGerman + "prozesse.html" },
-            { name: "Widerstandsschweißen", url: baseUrlGerman + "prozesse.html" },
-            { name: "Reibschweißen", url: baseUrlGerman + "prozesse.html" },
-            { name: "Thermokompressionsschweißen", url: baseUrlGerman + "prozesse.html" },
-
-            { name: "Zuführprozesse", url: baseUrlGerman + "prozesse.html" },
-            { name: "Transportbandsysteme", url: baseUrlGerman + "prozesse.html" },
-            { name: "Palettier-Systeme", url: baseUrlGerman + "prozesse.html" },
-            { name: "Robotertechnik", url: baseUrlGerman + "prozesse.html" },
-            { name: "Linear- und Radialzuführsysteme", url: baseUrlGerman + "prozesse.html" },
-
+            { name: "Bearbeitungsprozesse", url: baseUrlDe + "prozesse.html" },
+            { name: "Bördeltechnik", url: baseUrlDe + "prozesse.html" },
+            { name: "Spulenwickeltechnik", url: baseUrlDe + "prozesse.html" },
+            { name: "Dosier- und Vergießtechnik", url: baseUrlDe + "prozesse.html" },
+            { name: "Plasmareinigung und -beschichtung", url: baseUrlDe + "prozesse.html" },
+            { name: "Markier- und Beschriftungstechnik", url: baseUrlDe + "prozesse.html" },
+    
+            { name: "Lötprozesse", url: baseUrlDe + "prozesse.html" },
+            { name: "Induktives Löten", url: baseUrlDe + "prozesse.html" },
+            { name: "Lichtlöten", url: baseUrlDe + "prozesse.html" },
+            { name: "Widerstandslöten", url: baseUrlDe + "prozesse.html" },
+            { name: "Laserlöten", url: baseUrlDe + "prozesse.html" },
+    
+            { name: "Montageprozesse", url: baseUrlDe + "prozesse.html" },
+            { name: "Fügevorgänge mit Kraft-Weg-Überwachung", url: baseUrlDe + "prozesse.html" },
+            { name: "Koordinaten-Servo-Schraubtechnik", url: baseUrlDe + "prozesse.html" },
+            { name: "Nietprozesse", url: baseUrlDe + "prozesse.html" },
+            { name: "Manuelle Montageprozesse", url: baseUrlDe + "prozesse.html" },
+            { name: "Verpackungssysteme", url: baseUrlDe + "prozesse.html" },
+    
+            { name: "Prüfprozesse", url: baseUrlDe + "prozesse.html" },
+            { name: "Funktionsprüfung", url: baseUrlDe + "prozesse.html" },
+            { name: "Komplette Testvorrichtungen und Endprüfstände", url: baseUrlDe + "prozesse.html" },
+            { name: "Mechanische Prüfverfahren", url: baseUrlDe + "prozesse.html" },
+            { name: "Optische Prüfverfahren", url: baseUrlDe + "prozesse.html" },
+            { name: "Durchfluss- und Dichtheitsprüfungen", url: baseUrlDe + "prozesse.html" },
+    
+            { name: "Schweißprozesse", url: baseUrlDe + "prozesse.html" },
+            { name: "Laserschweißtechnik", url: baseUrlDe + "prozesse.html" },
+            { name: "Ultraschallschweißen", url: baseUrlDe + "prozesse.html" },
+            { name: "Widerstandsschweißen", url: baseUrlDe + "prozesse.html" },
+            { name: "Reibschweißen", url: baseUrlDe + "prozesse.html" },
+            { name: "Thermokompressionsschweißen", url: baseUrlDe + "prozesse.html" },
+    
+            { name: "Zuführprozesse", url: baseUrlDe + "prozesse.html" },
+            { name: "Transportbandsysteme", url: baseUrlDe + "prozesse.html" },
+            { name: "Palettier-Systeme", url: baseUrlDe + "prozesse.html" },
+            { name: "Robotertechnik", url: baseUrlDe + "prozesse.html" },
+            { name: "Linear- und Radialzuführsysteme", url: baseUrlDe + "prozesse.html" },
+    
             // Subanlagen > Pumpen
-            { name: "Pumpen", url: baseUrlGerman + "anlagen/halbautomatisch.html" },
-            { name: "Hydraulische Flügelpumpen", url: baseUrlGerman + "anlagen/halbautomatisch.html" },
-            { name: "Ölpumpen", url: baseUrlGerman + "anlagen/halbautomatisch.html" },
-
+            { name: "Pumpen", url: baseUrlDe + "anlagen/halbautomatisch.html" },
+            { name: "Hydraulische Flügelpumpen", url: baseUrlDe + "anlagen/halbautomatisch.html" },
+            { name: "Ölpumpen", url: baseUrlDe + "anlagen/halbautomatisch.html" },
+    
             // Subanlagen > Ventile
-            { name: "Elektrische Umschaltventile", url: baseUrlGerman + "anlagen/vollautomatisch.html" },
-            { name: "Ölschaltventile", url: baseUrlGerman + "anlagen/vollautomatisch.html" },
-            { name: "Schubumluftventile", url: baseUrlGerman + "anlagen/vollautomatisch.html" },
-            { name: "Abgasregelsysteme", url: baseUrlGerman + "anlagen/vollautomatisch.html" },
-            { name: "Ventile", url: baseUrlGerman + "anlagen/vollautomatisch.html" },
-            { name: "Rauchmelder", url: baseUrlGerman + "anlagen/subanlagen/rauchmelder.html" },
+            { name: "Elektrische Umschaltventile", url: baseUrlDe + "anlagen/vollautomatisch.html" },
+            { name: "Ölschaltventile", url: baseUrlDe + "anlagen/vollautomatisch.html" },
+            { name: "Schubumluftventile", url: baseUrlDe + "anlagen/vollautomatisch.html" },
+            { name: "Abgasregelsysteme", url: baseUrlDe + "anlagen/vollautomatisch.html" },
+            { name: "Ventile", url: baseUrlDe + "anlagen/vollautomatisch.html" },
+            { name: "Rauchmelder", url: baseUrlDe + "anlagen/subanlagen/rauchmelder.html" },
         ];
-
-        // 4) Full set of Polish suggestions
+    
+        // -------------------------------------------------------------------------------------
+        // 4) POLISH suggestions (full set)
+        // -------------------------------------------------------------------------------------
         const searchSuggestionsPl = [
             // Główne strony
-            { name: "Aktualności", url: baseUrlPolish + "neuigkeit.php" },
-            { name: "Kariera", url: baseUrlPolish + "karriere.html" },
-            { name: "Do pobrania", url: baseUrlPolish + "downloads.html" },
-            { name: "Kontakt", url: baseUrlPolish + "kontakt.html" },
-            { name: "Usługi", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Instalacje", url: baseUrlPolish + "anlagen.html" },
-            { name: "Procesy", url: baseUrlPolish + "prozesse.html" },
-            { name: "Branże", url: baseUrlPolish + "branchen.html" },
-            { name: "Partnerzy", url: baseUrlPolish + "partner.html" },
-            { name: "Firma", url: baseUrlPolish + "unternehmen.html" },
-            { name: "Impressum", url: baseUrlPolish + "impressum.html" },
+            { name: "Aktualności", url: baseUrlPl + "neuigkeit.php" },
+            { name: "Kariera", url: baseUrlPl + "karriere.html" },
+            { name: "Do pobrania", url: baseUrlPl + "downloads.html" },
+            { name: "Kontakt", url: baseUrlPl + "kontakt.html" },
+            { name: "Usługi", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Instalacje", url: baseUrlPl + "anlagen.html" },
+            { name: "Procesy", url: baseUrlPl + "prozesse.html" },
+            { name: "Branże", url: baseUrlPl + "branchen.html" },
+            { name: "Partnerzy", url: baseUrlPl + "partner.html" },
+            { name: "Firma", url: baseUrlPl + "unternehmen.html" },
+            { name: "Impressum", url: baseUrlPl + "impressum.html" },
             // Dodatkowe
-            { name: "Przykłady", url: baseUrlPolish + "anlagen/halbautomatisch.html" },
-
+            { name: "Przykłady", url: baseUrlPl + "anlagen/halbautomatisch.html" },
+    
             // Branże
-            { name: "Przemysł motoryzacyjny", url: baseUrlPolish + "branchen/automobilindustrie.html" },
-            { name: "Branża chemiczna", url: baseUrlPolish + "branchen/chemie.html" },
-            { name: "Elektronika", url: baseUrlPolish + "branchen/elektronik.html" },
-            { name: "Pojazdy użytkowe", url: baseUrlPolish + "branchen/nutzfahrzeug.html" },
-            { name: "Technika bezpieczeństwa", url: baseUrlPolish + "branchen/sicherheitstechnik.html" },
-
+            { name: "Przemysł motoryzacyjny", url: baseUrlPl + "branchen/automobilindustrie.html" },
+            { name: "Branża chemiczna", url: baseUrlPl + "branchen/chemie.html" },
+            { name: "Elektronika", url: baseUrlPl + "branchen/elektronik.html" },
+            { name: "Pojazdy użytkowe", url: baseUrlPl + "branchen/nutzfahrzeug.html" },
+            { name: "Technika bezpieczeństwa", url: baseUrlPl + "branchen/sicherheitstechnik.html" },
+    
             // Instalacje
-            { name: "Stanowiska manualne", url: baseUrlPolish + "anlagen/manuell.html" },
-            { name: "Instalacje półautomatyczne", url: baseUrlPolish + "anlagen/halbautomatisch.html" },
-            { name: "Instalacje w pełni automatyczne", url: baseUrlPolish + "anlagen/vollautomatisch.html" },
-
+            { name: "Stanowiska manualne", url: baseUrlPl + "anlagen/manuell.html" },
+            { name: "Instalacje półautomatyczne", url: baseUrlPl + "anlagen/halbautomatisch.html" },
+            { name: "Instalacje w pełni automatyczne", url: baseUrlPl + "anlagen/vollautomatisch.html" },
+    
             // Usługi (Leistungsportfolio)
-            { name: "After-Sales", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Koncepcja i planowanie", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Projektrealisierung", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "MTM-Analizy", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Optymalizacje procesów", url: baseUrlPolish + "leistungsportfolio.html" },
-
-            { name: "Machbarkeitsanalizy", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Taktzeit- i analizy dostępności", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Projekty i koncepcje produkcji", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Konstrukcja mechaniczna", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Planowanie elektryczne i pneumatyczne", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Budowa szaf sterowniczych i okablowanie", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Programowanie i uruchomienie", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Montaż, dostawa i ustawienie", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Programowanie robotów", url: baseUrlPolish + "leistungsportfolio.html" },
-
-            { name: "Dokumentacja", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Rozbudowy instalacji i typów", url: baseUrlPolish + "leistungsportfolio.html" },
-            { name: "Serwis i konserwacja", url: baseUrlPolish + "leistungsportfolio.html" },
-
+            { name: "After-Sales", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Koncepcja i planowanie", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Projektrealisierung", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "MTM-Analizy", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Optymalizacje procesów", url: baseUrlPl + "leistungsportfolio.html" },
+    
+            { name: "Machbarkeitsanalizy", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Taktzeit- i analizy dostępności", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Projekty i koncepcje produkcji", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Konstrukcja mechaniczna", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Planowanie elektryczne i pneumatyczne", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Budowa szaf sterowniczych i okablowanie", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Programowanie i uruchomienie", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Montaż, dostawa i ustawienie", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Programowanie robotów", url: baseUrlPl + "leistungsportfolio.html" },
+    
+            { name: "Dokumentacja", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Rozbudowy instalacji i typów", url: baseUrlPl + "leistungsportfolio.html" },
+            { name: "Serwis i konserwacja", url: baseUrlPl + "leistungsportfolio.html" },
+    
             // Procesy
-            { name: "Bördeltechnik (Zaciskanie)", url: baseUrlPolish + "prozesse.html" },
-            { name: "Technika nawijania cewek", url: baseUrlPolish + "prozesse.html" },
-            { name: "Techniki dozowania i zalewania", url: baseUrlPolish + "prozesse.html" },
-            { name: "Czyszczenie i powlekanie plazmowe", url: baseUrlPolish + "prozesse.html" },
-            { name: "Techniki znakowania i opisywania", url: baseUrlPolish + "prozesse.html" },
-
-            { name: "Lutowanie indukcyjne", url: baseUrlPolish + "prozesse.html" },
-            { name: "Lutowanie światłem", url: baseUrlPolish + "prozesse.html" },
-            { name: "Lutowanie oporowe", url: baseUrlPolish + "prozesse.html" },
-            { name: "Lutowanie laserowe", url: baseUrlPolish + "prozesse.html" },
-
-            { name: "Procesy montażowe", url: baseUrlPolish + "prozesse.html" },
-            { name: "Złącza z kontrolą siły i drogi", url: baseUrlPolish + "prozesse.html" },
-            { name: "Serwo-technika wkręcania", url: baseUrlPolish + "prozesse.html" },
-            { name: "Nitowanie", url: baseUrlPolish + "prozesse.html" },
-            { name: "Manualne procesy montażowe", url: baseUrlPolish + "prozesse.html" },
-            { name: "Systemy pakowania", url: baseUrlPolish + "prozesse.html" },
-
-            { name: "Procesy testowe i kontrolne", url: baseUrlPolish + "prozesse.html" },
-            { name: "Test funkcjonalny", url: baseUrlPolish + "prozesse.html" },
-            { name: "Kompletne stanowiska testowe", url: baseUrlPolish + "prozesse.html" },
-            { name: "Mechaniczne metody testowania", url: baseUrlPolish + "prozesse.html" },
-            { name: "Optyczne metody testowania", url: baseUrlPolish + "prozesse.html" },
-            { name: "Testy przepływu i szczelności", url: baseUrlPolish + "prozesse.html" },
-
-            { name: "Procesy spawalnicze", url: baseUrlPolish + "prozesse.html" },
-            { name: "Spawanie laserowe", url: baseUrlPolish + "prozesse.html" },
-            { name: "Spawanie ultradźwiękowe", url: baseUrlPolish + "prozesse.html" },
-            { name: "Spawanie oporowe", url: baseUrlPolish + "prozesse.html" },
-            { name: "Spawanie tarciowe", url: baseUrlPolish + "prozesse.html" },
-            { name: "Spawanie termokompresyjne", url: baseUrlPolish + "prozesse.html" },
-
-            { name: "Procesy podawcze", url: baseUrlPolish + "prozesse.html" },
-            { name: "Systemy taśm transportujących", url: baseUrlPolish + "prozesse.html" },
-            { name: "Systemy paletyzujące", url: baseUrlPolish + "prozesse.html" },
-            { name: "Technika robotów", url: baseUrlPolish + "prozesse.html" },
-            { name: "Systemy podawania liniowego i promieniowego", url: baseUrlPolish + "prozesse.html" },
-
+            { name: "Bördeltechnik (Zaciskanie)", url: baseUrlPl + "prozesse.html" },
+            { name: "Technika nawijania cewek", url: baseUrlPl + "prozesse.html" },
+            { name: "Techniki dozowania i zalewania", url: baseUrlPl + "prozesse.html" },
+            { name: "Czyszczenie i powlekanie plazmowe", url: baseUrlPl + "prozesse.html" },
+            { name: "Techniki znakowania i opisywania", url: baseUrlPl + "prozesse.html" },
+    
+            { name: "Lutowanie indukcyjne", url: baseUrlPl + "prozesse.html" },
+            { name: "Lutowanie światłem", url: baseUrlPl + "prozesse.html" },
+            { name: "Lutowanie oporowe", url: baseUrlPl + "prozesse.html" },
+            { name: "Lutowanie laserowe", url: baseUrlPl + "prozesse.html" },
+    
+            { name: "Procesy montażowe", url: baseUrlPl + "prozesse.html" },
+            { name: "Złącza z kontrolą siły i drogi", url: baseUrlPl + "prozesse.html" },
+            { name: "Serwo-technika wkręcania", url: baseUrlPl + "prozesse.html" },
+            { name: "Nitowanie", url: baseUrlPl + "prozesse.html" },
+            { name: "Manualne procesy montażowe", url: baseUrlPl + "prozesse.html" },
+            { name: "Systemy pakowania", url: baseUrlPl + "prozesse.html" },
+    
+            { name: "Procesy testowe i kontrolne", url: baseUrlPl + "prozesse.html" },
+            { name: "Test funkcjonalny", url: baseUrlPl + "prozesse.html" },
+            { name: "Kompletne stanowiska testowe", url: baseUrlPl + "prozesse.html" },
+            { name: "Mechaniczne metody testowania", url: baseUrlPl + "prozesse.html" },
+            { name: "Optyczne metody testowania", url: baseUrlPl + "prozesse.html" },
+            { name: "Testy przepływu i szczelności", url: baseUrlPl + "prozesse.html" },
+    
+            { name: "Procesy spawalnicze", url: baseUrlPl + "prozesse.html" },
+            { name: "Spawanie laserowe", url: baseUrlPl + "prozesse.html" },
+            { name: "Spawanie ultradźwiękowe", url: baseUrlPl + "prozesse.html" },
+            { name: "Spawanie oporowe", url: baseUrlPl + "prozesse.html" },
+            { name: "Spawanie tarciowe", url: baseUrlPl + "prozesse.html" },
+            { name: "Spawanie termokompresyjne", url: baseUrlPl + "prozesse.html" },
+    
+            { name: "Procesy podawcze", url: baseUrlPl + "prozesse.html" },
+            { name: "Systemy taśm transportujących", url: baseUrlPl + "prozesse.html" },
+            { name: "Systemy paletyzujące", url: baseUrlPl + "prozesse.html" },
+            { name: "Technika robotów", url: baseUrlPl + "prozesse.html" },
+            { name: "Systemy podawania liniowego i promieniowego", url: baseUrlPl + "prozesse.html" },
+    
             // Pod-instalacje > Pompy
-            { name: "Pompy", url: baseUrlPolish + "anlagen/halbautomatisch.html" },
-            { name: "Hydrauliczne pompy skrzydełkowe", url: baseUrlPolish + "anlagen/halbautomatisch.html" },
-            { name: "Pompy olejowe", url: baseUrlPolish + "anlagen/halbautomatisch.html" },
-
+            { name: "Pompy", url: baseUrlPl + "anlagen/halbautomatisch.html" },
+            { name: "Hydrauliczne pompy skrzydełkowe", url: baseUrlPl + "anlagen/halbautomatisch.html" },
+            { name: "Pompy olejowe", url: baseUrlPl + "anlagen/halbautomatisch.html" },
+    
             // Pod-instalacje > Zawory
-            { name: "Elektryczne zawory przełączające", url: baseUrlPolish + "anlagen/vollautomatisch.html" },
-            { name: "Zawory olejowe", url: baseUrlPolish + "anlagen/vollautomatisch.html" },
-            { name: "Zawory spalinowe", url: baseUrlPolish + "anlagen/vollautomatisch.html" },
-            { name: "Systemy regulacji spalin", url: baseUrlPolish + "anlagen/vollautomatisch.html" },
-            { name: "Zawory", url: baseUrlPolish + "anlagen/vollautomatisch.html" },
-            { name: "Czujniki dymu (Rauchmelder)", url: baseUrlPolish + "anlagen/subanlagen/rauchmelder.html" },
+            { name: "Elektryczne zawory przełączające", url: baseUrlPl + "anlagen/vollautomatisch.html" },
+            { name: "Zawory olejowe", url: baseUrlPl + "anlagen/vollautomatisch.html" },
+            { name: "Zawory spalinowe", url: baseUrlPl + "anlagen/vollautomatisch.html" },
+            { name: "Systemy regulacji spalin", url: baseUrlPl + "anlagen/vollautomatisch.html" },
+            { name: "Zawory", url: baseUrlPl + "anlagen/vollautomatisch.html" },
+            { name: "Czujniki dymu (Rauchmelder)", url: baseUrlPl + "anlagen/subanlagen/rauchmelder.html" },
         ];
-
-        // 5) Choose the correct array based on language detection
-        const searchSuggestions = isPolish ? searchSuggestionsPl : searchSuggestionsDe;
-
+    
+        // -------------------------------------------------------------------------------------
+        // 5) ENGLISH suggestions (full set, translated from German)
+        // -------------------------------------------------------------------------------------
+        const searchSuggestionsEn = [
+            // Main pages
+            { name: "News", url: baseUrlEn + "neuigkeit.php" },
+            { name: "Career", url: baseUrlEn + "karriere.html" },
+            { name: "Downloads", url: baseUrlEn + "downloads.html" },
+            { name: "Contact", url: baseUrlEn + "kontakt.html" },
+            { name: "Service Portfolio", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Systems", url: baseUrlEn + "anlagen.html" },
+            { name: "Processes", url: baseUrlEn + "prozesse.html" },
+            { name: "Sectors", url: baseUrlEn + "branchen.html" },
+            { name: "Partners", url: baseUrlEn + "partner.html" },
+            { name: "Company", url: baseUrlEn + "unternehmen.html" },
+            { name: "Imprint", url: baseUrlEn + "impressum.html" },
+            // Additional
+            { name: "Examples", url: baseUrlEn + "anlagen/halbautomatisch.html" },
+    
+            // Sectors (Branchen)
+            { name: "Automotive Industry", url: baseUrlEn + "branchen/automobilindustrie.html" },
+            { name: "Chemicals", url: baseUrlEn + "branchen/chemie.html" },
+            { name: "Electronics", url: baseUrlEn + "branchen/elektronik.html" },
+            { name: "Commercial Vehicles", url: baseUrlEn + "branchen/nutzfahrzeug.html" },
+            { name: "Security Technology", url: baseUrlEn + "branchen/sicherheitstechnik.html" },
+    
+            // Systems (Anlagen)
+            { name: "Manual Workstations", url: baseUrlEn + "anlagen/manuell.html" },
+            { name: "Semi-Automated Systems", url: baseUrlEn + "anlagen/halbautomatisch.html" },
+            { name: "Fully-Automated Systems", url: baseUrlEn + "anlagen/vollautomatisch.html" },
+    
+            // Service Portfolio (translated)
+            { name: "After-Sales", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Concept & Planning", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Project Realization", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "MTM Analyses", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Process Optimizations", url: baseUrlEn + "leistungsportfolio.html" },
+    
+            { name: "Feasibility Analyses", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Cycle Time & Availability Analyses", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Process & Production Concepts", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Mechanical Design", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Electrical & Pneumatic Planning", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Control Cabinet Construction & Wiring", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Programming & Commissioning", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Assembly, Delivery & Installation", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Robot Programming", url: baseUrlEn + "leistungsportfolio.html" },
+    
+            { name: "Documentation", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "System & Type Extensions", url: baseUrlEn + "leistungsportfolio.html" },
+            { name: "Service & Maintenance", url: baseUrlEn + "leistungsportfolio.html" },
+    
+            // Processes
+            { name: "Machining Processes", url: baseUrlEn + "prozesse.html" },
+            { name: "Flanging Technology", url: baseUrlEn + "prozesse.html" },
+            { name: "Coil Winding Technology", url: baseUrlEn + "prozesse.html" },
+            { name: "Dispensing & Potting Technology", url: baseUrlEn + "prozesse.html" },
+            { name: "Plasma Cleaning & Coating", url: baseUrlEn + "prozesse.html" },
+            { name: "Marking & Labeling Technology", url: baseUrlEn + "prozesse.html" },
+    
+            { name: "Soldering Processes", url: baseUrlEn + "prozesse.html" },
+            { name: "Inductive Soldering", url: baseUrlEn + "prozesse.html" },
+            { name: "Light Soldering", url: baseUrlEn + "prozesse.html" },
+            { name: "Resistance Soldering", url: baseUrlEn + "prozesse.html" },
+            { name: "Laser Soldering", url: baseUrlEn + "prozesse.html" },
+    
+            { name: "Assembly Processes", url: baseUrlEn + "prozesse.html" },
+            { name: "Joining with Force-Displacement Monitoring", url: baseUrlEn + "prozesse.html" },
+            { name: "Coordinate Servo Screw Technology", url: baseUrlEn + "prozesse.html" },
+            { name: "Riveting Processes", url: baseUrlEn + "prozesse.html" },
+            { name: "Manual Assembly Processes", url: baseUrlEn + "prozesse.html" },
+            { name: "Packaging Systems", url: baseUrlEn + "prozesse.html" },
+    
+            { name: "Testing Processes", url: baseUrlEn + "prozesse.html" },
+            { name: "Functional Testing", url: baseUrlEn + "prozesse.html" },
+            { name: "Complete Test Fixtures & End-of-Line Stations", url: baseUrlEn + "prozesse.html" },
+            { name: "Mechanical Testing Methods", url: baseUrlEn + "prozesse.html" },
+            { name: "Optical Testing Methods", url: baseUrlEn + "prozesse.html" },
+            { name: "Flow & Leak Tests", url: baseUrlEn + "prozesse.html" },
+    
+            { name: "Welding Processes", url: baseUrlEn + "prozesse.html" },
+            { name: "Laser Welding Technology", url: baseUrlEn + "prozesse.html" },
+            { name: "Ultrasonic Welding", url: baseUrlEn + "prozesse.html" },
+            { name: "Resistance Welding", url: baseUrlEn + "prozesse.html" },
+            { name: "Friction Welding", url: baseUrlEn + "prozesse.html" },
+            { name: "Thermocompression Welding", url: baseUrlEn + "prozesse.html" },
+    
+            { name: "Feeding Processes", url: baseUrlEn + "prozesse.html" },
+            { name: "Conveyor Belt Systems", url: baseUrlEn + "prozesse.html" },
+            { name: "Palletizing Systems", url: baseUrlEn + "prozesse.html" },
+            { name: "Robotics", url: baseUrlEn + "prozesse.html" },
+            { name: "Linear & Radial Feeding Systems", url: baseUrlEn + "prozesse.html" },
+    
+            // Sub-systems > Pumps
+            { name: "Pumps", url: baseUrlEn + "anlagen/halbautomatisch.html" },
+            { name: "Hydraulic Vane Pumps", url: baseUrlEn + "anlagen/halbautomatisch.html" },
+            { name: "Oil Pumps", url: baseUrlEn + "anlagen/halbautomatisch.html" },
+    
+            // Sub-systems > Valves
+            { name: "Electrical Changeover Valves", url: baseUrlEn + "anlagen/vollautomatisch.html" },
+            { name: "Oil Switching Valves", url: baseUrlEn + "anlagen/vollautomatisch.html" },
+            { name: "Turbo Bypass Valves", url: baseUrlEn + "anlagen/vollautomatisch.html" },
+            { name: "Exhaust Control Systems", url: baseUrlEn + "anlagen/vollautomatisch.html" },
+            { name: "Valves", url: baseUrlEn + "anlagen/vollautomatisch.html" },
+            { name: "Smoke Detectors", url: baseUrlEn + "anlagen/subanlagen/rauchmelder.html" },
+        ];
+    
+        // -------------------------------------------------------------------------------------
+        // 6) RUSSIAN suggestions (full set, translated from German)
+        // -------------------------------------------------------------------------------------
+        const searchSuggestionsRu = [
+            // Main pages
+            { name: "Новости", url: baseUrlRu + "neuigkeit.php" },
+            { name: "Карьера", url: baseUrlRu + "karriere.html" },
+            { name: "Загрузки", url: baseUrlRu + "downloads.html" },
+            { name: "Контакт", url: baseUrlRu + "kontakt.html" },
+            { name: "Портфолио услуг", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Установки", url: baseUrlRu + "anlagen.html" },
+            { name: "Процессы", url: baseUrlRu + "prozesse.html" },
+            { name: "Отрасли", url: baseUrlRu + "branchen.html" },
+            { name: "Партнёры", url: baseUrlRu + "partner.html" },
+            { name: "О компании", url: baseUrlRu + "unternehmen.html" },
+            { name: "Импрессум", url: baseUrlRu + "impressum.html" },
+            // Additional
+            { name: "Примеры", url: baseUrlRu + "anlagen/halbautomatisch.html" },
+    
+            // Отрасли (Branchen)
+            { name: "Автомобильная промышленность", url: baseUrlRu + "branchen/automobilindustrie.html" },
+            { name: "Химическая промышленность", url: baseUrlRu + "branchen/chemie.html" },
+            { name: "Электроника", url: baseUrlRu + "branchen/elektronik.html" },
+            { name: "Коммерческий транспорт", url: baseUrlRu + "branchen/nutzfahrzeug.html" },
+            { name: "Технологии безопасности", url: baseUrlRu + "branchen/sicherheitstechnik.html" },
+    
+            // Установки (Anlagen)
+            { name: "Ручные рабочие места", url: baseUrlRu + "anlagen/manuell.html" },
+            { name: "Полуавтоматические установки", url: baseUrlRu + "anlagen/halbautomatisch.html" },
+            { name: "Полностью автоматические установки", url: baseUrlRu + "anlagen/vollautomatisch.html" },
+    
+            // Портфолио услуг (Leistungsportfolio)
+            { name: "Послепродажное обслуживание", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Концепция и планирование", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Реализация проектов", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "MTM-анализы", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Оптимизация процессов", url: baseUrlRu + "leistungsportfolio.html" },
+    
+            { name: "Технико-экономические анализы", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Анализы тактового времени и доступности", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Концепции процессов и производства", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Механическая конструкция", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Электрическое и пневматическое проектирование", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Производство шкафов управления и монтаж", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Программирование и ввод в эксплуатацию", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Сборка, доставка и установка", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Программирование роботов", url: baseUrlRu + "leistungsportfolio.html" },
+    
+            { name: "Документация", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Модернизация установок и расширение типов", url: baseUrlRu + "leistungsportfolio.html" },
+            { name: "Сервис и обслуживание", url: baseUrlRu + "leistungsportfolio.html" },
+    
+            // Процессы
+            { name: "Процессы обработки", url: baseUrlRu + "prozesse.html" },
+            { name: "Завальцовка", url: baseUrlRu + "prozesse.html" },
+            { name: "Техника намотки катушек", url: baseUrlRu + "prozesse.html" },
+            { name: "Дозирование и заливка", url: baseUrlRu + "prozesse.html" },
+            { name: "Плазменная очистка и покрытие", url: baseUrlRu + "prozesse.html" },
+            { name: "Маркировка и гравировка", url: baseUrlRu + "prozesse.html" },
+    
+            { name: "Процессы пайки", url: baseUrlRu + "prozesse.html" },
+            { name: "Индукционная пайка", url: baseUrlRu + "prozesse.html" },
+            { name: "Пайка светом", url: baseUrlRu + "prozesse.html" },
+            { name: "Контактная пайка", url: baseUrlRu + "prozesse.html" },
+            { name: "Лазерная пайка", url: baseUrlRu + "prozesse.html" },
+    
+            { name: "Монтажные процессы", url: baseUrlRu + "prozesse.html" },
+            { name: "Соединение с контролем усилия и перемещения", url: baseUrlRu + "prozesse.html" },
+            { name: "Координатная серво-шуруповертовая техника", url: baseUrlRu + "prozesse.html" },
+            { name: "Заклёпочные процессы", url: baseUrlRu + "prozesse.html" },
+            { name: "Ручные сборочные процессы", url: baseUrlRu + "prozesse.html" },
+            { name: "Системы упаковки", url: baseUrlRu + "prozesse.html" },
+    
+            { name: "Испытательные процессы", url: baseUrlRu + "prozesse.html" },
+            { name: "Функциональные испытания", url: baseUrlRu + "prozesse.html" },
+            { name: "Полные испытательные приспособления и финальные стенды", url: baseUrlRu + "prozesse.html" },
+            { name: "Механические методы испытаний", url: baseUrlRu + "prozesse.html" },
+            { name: "Оптические методы испытаний", url: baseUrlRu + "prozesse.html" },
+            { name: "Тесты расхода и герметичности", url: baseUrlRu + "prozesse.html" },
+    
+            { name: "Процессы сварки", url: baseUrlRu + "prozesse.html" },
+            { name: "Лазерная сварка", url: baseUrlRu + "prozesse.html" },
+            { name: "Ультразвуковая сварка", url: baseUrlRu + "prozesse.html" },
+            { name: "Сопротивительная сварка", url: baseUrlRu + "prozesse.html" },
+            { name: "Сварка трением", url: baseUrlRu + "prozesse.html" },
+            { name: "Термокомпрессионная сварка", url: baseUrlRu + "prozesse.html" },
+    
+            { name: "Процессы подачи", url: baseUrlRu + "prozesse.html" },
+            { name: "Конвейерные системы", url: baseUrlRu + "prozesse.html" },
+            { name: "Паллетирующие системы", url: baseUrlRu + "prozesse.html" },
+            { name: "Робототехника", url: baseUrlRu + "prozesse.html" },
+            { name: "Линейные и радиальные системы подачи", url: baseUrlRu + "prozesse.html" },
+    
+            // Под-системы > Насосы
+            { name: "Насосы", url: baseUrlRu + "anlagen/halbautomatisch.html" },
+            { name: "Гидравлические лопастные насосы", url: baseUrlRu + "anlagen/halbautomatisch.html" },
+            { name: "Масляные насосы", url: baseUrlRu + "anlagen/halbautomatisch.html" },
+    
+            // Под-системы > Клапаны
+            { name: "Электрические переключающие клапаны", url: baseUrlRu + "anlagen/vollautomatisch.html" },
+            { name: "Масляные переключающие клапаны", url: baseUrlRu + "anlagen/vollautomatisch.html" },
+            { name: "Клапаны рециркуляции выхлопа", url: baseUrlRu + "anlagen/vollautomatisch.html" },
+            { name: "Системы управления выхлопом", url: baseUrlRu + "anlagen/vollautomatisch.html" },
+            { name: "Клапаны", url: baseUrlRu + "anlagen/vollautomatisch.html" },
+            { name: "Датчики дыма", url: baseUrlRu + "anlagen/subanlagen/rauchmelder.html" },
+        ];
+    
+        // -------------------------------------------------------------------------------------
+        // 7) CHOOSE which suggestions to use, default to German
+        // -------------------------------------------------------------------------------------
+        let searchSuggestions = searchSuggestionsDe;
+        if (isPolish)  { searchSuggestions = searchSuggestionsPl; }
+        else if (isEnglish) { searchSuggestions = searchSuggestionsEn; }
+        else if (isRussian) { searchSuggestions = searchSuggestionsRu; }
+    
         // Create a suggestions container dynamically
         const suggestionsBox = document.createElement("ul");
         suggestionsBox.classList.add("search-suggestions");
         searchContainer.appendChild(suggestionsBox);
-
+    
         // Basic styling for the suggestions box
-        suggestionsBox.style.background = "transparent";
-        suggestionsBox.style.color = "white";
-        suggestionsBox.style.width = searchInput.offsetWidth + "px";
-        suggestionsBox.style.maxHeight = "80%";
-        suggestionsBox.style.overflowY = "auto";
-        suggestionsBox.style.listStyle = "none";
-        suggestionsBox.style.padding = "5px";
-        suggestionsBox.style.margin = "3rem auto";
-        suggestionsBox.style.display = "none";
-        suggestionsBox.style.zIndex = "10000";
-
+        suggestionsBox.style.background   = "transparent";
+        suggestionsBox.style.color        = "white";
+        suggestionsBox.style.width        = searchInput.offsetWidth + "px";
+        suggestionsBox.style.maxHeight    = "80%";
+        suggestionsBox.style.overflowY    = "auto";
+        suggestionsBox.style.listStyle    = "none";
+        suggestionsBox.style.padding      = "5px";
+        suggestionsBox.style.margin       = "3rem auto";
+        suggestionsBox.style.display      = "none";
+        suggestionsBox.style.zIndex       = "10000";
+    
         // Filter suggestions by the user query
         function filterSuggestions(query) {
             return searchSuggestions.filter(item =>
                 item.name.toLowerCase().includes(query.toLowerCase())
             );
         }
-
+    
         // Update the suggestions list
         function updateSuggestions() {
             const query = searchInput.value.trim();
             suggestionsBox.innerHTML = "";
-
+    
             if (query.length === 0) {
                 suggestionsBox.style.display = "none";
                 return;
             }
-
+    
             const filtered = filterSuggestions(query).slice(0, 7); // Limit to 7 results
-
+    
             filtered.forEach(suggestion => {
                 const li = document.createElement("li");
                 li.textContent = suggestion.name;
@@ -480,7 +705,7 @@ document.addEventListener('commonSectionsLoaded', function () {
                 li.style.color = "#444444";
                 li.style.fontSize = "1.5rem";
                 li.style.listStyle = "none";
-
+    
                 li.addEventListener("mouseover", () => {
                     li.style.background = "#2a7af3";
                     li.style.color = "white";
@@ -492,23 +717,23 @@ document.addEventListener('commonSectionsLoaded', function () {
                 li.addEventListener("click", () => {
                     window.location.href = suggestion.url;
                 });
-
+    
                 suggestionsBox.appendChild(li);
             });
-
+    
             suggestionsBox.style.display = filtered.length > 0 ? "block" : "none";
         }
-
+    
         // Listen to user input
         searchInput.addEventListener("input", updateSuggestions);
-
+    
         // Hide suggestions when clicking outside the search container
         document.addEventListener("click", (e) => {
             if (!searchContainer.contains(e.target)) {
                 suggestionsBox.style.display = "none";
             }
         });
-
+    
         // Open the search field on trigger (e.g., magnifying glass click)
         searchTrigger.addEventListener("click", openSearch);
         function openSearch() {
@@ -517,19 +742,17 @@ document.addEventListener('commonSectionsLoaded', function () {
         }
     });
 
-
-
-
     /*------------Cookies-------------*/
 
     document.addEventListener("DOMContentLoaded", async function () {
-        // 1) Detect language
+        // 1) Detect language from URL or by other rules
         const isPolish = window.location.href.includes("/html_pl/") || window.location.href.includes("index_pl.html");
+        const isRussian = window.location.href.includes("/html_ru/") || window.location.href.includes("index_ru.html");
+        const isEnglish = window.location.href.includes("/html_en/") || window.location.href.includes("index_en.html");
     
         // 2) Prepare text for each language
         const texts = {
           de: {
-            heading: "Essenzielle & Optionale Cookies",
             message: `Auf dieser Website nutzen wir Cookies zur Verarbeitung von Endgeräteinformationen. Die Verarbeitung dient der Gewährleistung grundlegender Funktionen und der Einbindung externer Inhalte und Dienste Dritter (z. B. Google Fonts, YouTube, Google Maps). Je nach Funktion können dabei Daten an Dritte weitergegeben und dort verarbeitet werden. Mehr Informationen hierzu finden Sie im <a href="https://bee-its.de/TeamCopy/html/impressum.html" style="color: #e5e5e5;">Impressum</a>.<br><br>Sie können Ihre Zustimmung jederzeit ändern oder widerrufen.`,
             essentialLabel: "Essenziell",
             marketingLabel: "Marketing",
@@ -541,7 +764,6 @@ document.addEventListener('commonSectionsLoaded', function () {
             cookieSvgColor: "#e5e5e5"
           },
           pl: {
-            heading: "Niezbędne i opcjonalne pliki cookie",
             message: `Na tej stronie używamy plików cookie do przetwarzania informacji na temat urządzeń końcowych. Przetwarzanie służy zapewnieniu podstawowych funkcji oraz integracji zewnętrznych treści i usług firm trzecich (np. Google Fonts, YouTube, Google Maps). W zależności od funkcji, dane mogą być przekazywane osobom trzecim i tam przetwarzane. Więcej informacji znajdziesz w <a href="https://bee-its.de/TeamCopy/html/impressum.html" style="color: #e5e5e5;">Impressum</a>.<br><br>Możesz w każdej chwili zmienić lub wycofać swoją zgodę.`,
             essentialLabel: "Niezbędne",
             marketingLabel: "Marketing",
@@ -551,11 +773,41 @@ document.addEventListener('commonSectionsLoaded', function () {
             rejectAllBtn: "Odrzuć opcjonalne",
             saveSettingsBtn: "Zapisz ustawienia",
             cookieSvgColor: "#e5e5e5"
+          },
+          en: {
+            message: `We use cookies on this website to process device information. The processing is intended to ensure basic functions and the integration of external content and third-party services (e.g. Google Fonts, YouTube, Google Maps). Depending on the function, data may be passed on to third parties and processed there. You can find more information in our <a href="https://bee-its.de/TeamCopy/html/impressum.html" style="color: #e5e5e5;">imprint</a>.<br><br>You can change or revoke your consent at any time.`,
+            essentialLabel: "Essential",
+            marketingLabel: "Marketing",
+            marketingTooltip: "YouTube, Google Maps",
+            analyticsLabel: "Analytics (Google Analytics)",
+            acceptAllBtn: "Accept All",
+            rejectAllBtn: "Reject Optional",
+            saveSettingsBtn: "Save Settings",
+            cookieSvgColor: "#e5e5e5"
+          },
+          ru: {
+            message: `На этом сайте мы используем файлы cookie для обработки информации об устройствах. Это необходимо для обеспечения основных функций, а также для встраивания внешнего контента и сервисов третьих сторон (например, Google Fonts, YouTube, Google Maps). В зависимости от функциональности, данные могут передаваться третьим лицам и обрабатываться ими. Более подробную информацию вы можете найти в <a href="https://bee-its.de/TeamCopy/html/impressum.html" style="color: #e5e5e5;">импрессуме</a>.<br><br>Вы можете в любой момент изменить или отозвать свое согласие.`,
+            essentialLabel: "Основные",
+            marketingLabel: "Маркетинг",
+            marketingTooltip: "YouTube, Google Maps",
+            analyticsLabel: "Аналитика (Google Analytics)",
+            acceptAllBtn: "Принять все",
+            rejectAllBtn: "Отклонить дополнительные",
+            saveSettingsBtn: "Сохранить настройки",
+            cookieSvgColor: "#e5e5e5"
           }
         };
     
-        // 3) Pick the current language text
-        const langText = isPolish ? texts.pl : texts.de;
+        // 3) Decide which language to display
+        let langText = texts.de; // default to German
+        if (isPolish) {
+          langText = texts.pl;
+        } else if (isRussian) {
+          langText = texts.ru;
+        } else if (isEnglish) {
+          langText = texts.en;
+        }
+        // else it remains texts.de by default
     
         // 4) Insert the banner HTML with placeholders replaced
         document.body.insertAdjacentHTML("beforeend", `
@@ -600,17 +852,14 @@ document.addEventListener('commonSectionsLoaded', function () {
           </div>
         `);
     
-        // ---------- REMAINING LOGIC IS THE SAME (STORAGE, EVENT LISTENERS, ETC.) ----------
-        // The rest of your code for storing preferences and toggling iframes is unchanged.
+        // =========== REMAINING LOGIC (STORING PREFERENCES, TOGGLING IFRAMES, ETC.) ===========
     
         const storedConsent = JSON.parse(localStorage.getItem("cookieConsent"));
-        // ...
-        // EXACTLY the same code from your snippet after injecting the HTML.
-        
         const cookieBanner = document.getElementById("cookie-banner");
         const cookieBubble = document.getElementById("cookie-bubble");
         const consent = storedConsent;
     
+        // If no stored consent, show the banner expanded the first time
         if (!consent) {
             cookieBanner.classList.remove("border");
             cookieBanner.classList.add("expanded");
@@ -708,6 +957,7 @@ document.addEventListener('commonSectionsLoaded', function () {
             });
         }
     
+        // Apply settings right away on load
         applyCookieSettings();
     });
 
@@ -727,7 +977,7 @@ document.addEventListener('commonSectionsLoaded', function () {
         overlay.style.height = "100vh";
         overlay.style.backgroundColor = "#fff"; // Change color if needed
         // On index pages, start hidden; on others, start visible.
-        overlay.style.opacity = (currentPage === "index.html" ||currentPage === "index_pl.html" || currentPage === "") ? "0" : "1";
+        overlay.style.opacity = (currentPage === "index.html" || currentPage === "index_pl.html" || currentPage === "index_ru.html" || currentPage === "index_en.html" || currentPage === "") ? "0" : "1";
         overlay.style.zIndex = "999999"; // Ensure it's above everything
         overlay.style.transition = "opacity 0.5s ease-in-out";
         overlay.style.pointerEvents = "none"; // Prevent interference with clicks
@@ -796,7 +1046,6 @@ document.addEventListener('commonSectionsLoaded', function () {
     })();
     
     
-
 
 
     document.addEventListener("DOMContentLoaded", () => {

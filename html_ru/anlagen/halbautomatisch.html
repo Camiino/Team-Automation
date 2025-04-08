@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Полуавтоматические установки</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <script src="../../js/dynamic_insert_ru.js"></script>
+    
+    <style>
+      @font-face {
+        font-family: "Lexend Deca";
+        src: url(../../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
+      }
+
+      @font-face {
+        font-family: "Lexend LexendDeca-Bold";
+        src: url(../../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
+      }
+
+      @font-face {
+        font-family: "Mukta_Mahee";
+        src: url(../../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
+      }
+
+      body {
+        font-family: "Lexend Deca";
+      }
+
+      .neuigkeiten .neuigkeit-text {
+        font-family: "Mukta_Mahee";
+        letter-spacing: 1.5px;
+      }
+    </style>
+    <link rel="stylesheet" href="../../css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../../css/subpage.css" />
+  </head>
+  <body>
+    <div class="container-full subpage-top">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="../../index_ru.html">Главная</a> > <a href="../anlagen.html"> Установки </a> >
+          <a href=""> Полуавтоматические установки </a>
+        </div>
+
+        <img
+          class="subpage-top-img"
+          src="../../assets/images/manuelleanlagen.webp"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div class="mini-nav">
+      <a href="./manuell.html">Ручные рабочие места</a>
+      <a href="./halbautomatisch.html">Полуавтоматические установки</a>
+      <a href="./vollautomatisch.html">Полностью автоматические установки</a>
+      <img class="mini-nav-scroll" src="../../assets/icons/arrow-top.svg" alt="" />
+      <img class="mini-nav-menu" src="../../assets/icons/arrow-top.svg" alt="" />
+    </div>
+
+    <div class="container-full">
+      <div class="container">
+        <div class="title">
+          <h2>Полуавтоматические установки</h2>
+        </div>
+
+        <div class="text">
+          <p>
+            Мы разрабатываем полуавтоматические сборочные установки в соответствии с требованиями заказчика с применением различных процессов, где подача и установка компонентов осуществляется вручную. Такие установки могут быть дооснащены автоматическими системами подачи материалов для последующей полной автоматизации.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper swiper-tab">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+            Гидравлические лопастные насосы
+          </button>
+        </div>
+
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-2')">
+            Масляные насосы
+          </button>
+        </div>
+
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-3')">
+            Установка дроссельных заслонок
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-full bg-tabs">
+      <div class="container">
+        <div id="tab-1" class="tabcontent tabcontent-active">
+          <img src="../../assets/images/anlagen.webp" alt="" />
+          <div class="tabcontent-text">
+            <h3>Параметры установки</h3>
+            <div class="details">
+              <p>
+                Время цикла: 140 секунд на деталь <br><br>
+                Техническая доступность: 95 % <br><br>
+                Количество станций: 7 <br><br>
+                Габариты: примерно 18 м × 6 м <br><br>
+                Очень высокие требования к чистоте
+              </p>
+              <ul>
+                <li>Ручное перемещение держателей заготовок</li>
+                <li>Система лазерной маркировки</li>
+                <li>Различные линейные и радиальные системы подачи, в т.ч.:
+                  <ul>
+                    <li>Подача уплотнительных колец</li>
+                    <li>Лопасти</li>
+                  </ul>
+                </li>
+                <li>Контроль усилия и перемещения при сборке</li>
+                <li>Системы машинного зрения для контроля положения и наличия</li>
+              </ul>
+              <p style="line-height: initial !important;">
+                Разработка полуавтоматических сборочных установок для гидравлических лопастных насосов с высочайшей точностью и требованиями к чистоте. Изготавливаемые насосы используются, например, в высокопроизводительных трансмиссиях.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-2" class="tabcontent">
+          <img src="../../assets/images/manuelleanlagen.webp" alt="" />
+          <div class="tabcontent-text">
+            <h3>Параметры установки</h3>
+            <div class="details">
+              <p>Время цикла: 10 секунд на деталь</p>
+              <ul>
+                <li>Циркуляционная система Bosch WT</li>
+                <li>Подача компонентов с помощью робота из многоуровневых магазинов</li>
+                <li>Различные линейные и радиальные системы подачи, в т.ч.:
+                  <ul>
+                    <li>Подача пружин</li>
+                    <li>Подача шариков</li>
+                  </ul>
+                </li>
+              </ul>
+              <ul>
+                <li>Различные системы впрессовки (контроль силы и хода)</li>
+                <li>Системы машинного зрения</li>
+                <li>Функциональные и герметичные испытания</li>
+                <li>Система лазерной маркировки</li>
+              </ul>
+              <p style="line-height: initial !important;">
+                Расширения типов и процессов для автоматических установок сборки масляных насосов с высокой точностью подгонки и самообучающейся роботизированной сборкой зубчатых пар.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-3" class="tabcontent">
+          <img src="../../assets/images/anlagen.webp" alt="" />
+          <div class="tabcontent-text">
+            <h3>Параметры установки</h3>
+            <div class="details">
+              <ul>
+                <li>Полу- и полностью автоматические установки для сборки дроссельных заслонок</li>
+                <li>Полу- и полностью автоматические установки для электронных актуаторов</li>
+                <li>Испытательные станции конечного контроля (End-of-Line)</li>
+                <li>Установки для монтажа плат</li>
+                <li>Установки для плазменной очистки и нанесения покрытий</li>
+              </ul>
+              <p style="line-height: initial !important;">
+                С 2006 года TEAM Automation Berlin поставляет ведущим мировым производителям автокомпонентов полу- и полностью автоматические установки для сборки дроссельных заслонок и актуаторов.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/script.js?v=1.1"></script>
+    <script src="../../js/swiper-bundle.min.js?v=1.1"></script>
+    <script src="../../js/mininav.js?v=1.1"></script>
+    <script>
+      function openTab(event, tabName) {
+        const tabcontent = document.querySelectorAll(".tabcontent");
+        tabcontent.forEach(content => content.classList.remove("tabcontent-active"));
+
+        document.getElementById(tabName).classList.add("tabcontent-active");
+        const tablinks = document.querySelectorAll(".tablinks");
+        tablinks.forEach(link => link.classList.remove("active"));
+        event.target.classList.add("active");
+      }
+
+      var swipertab = new Swiper(".swiper-tab", {
+        freeMode: true,
+        slidesPerView: "auto",
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+          dragSize: 100,
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Установки</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <script src="../js/dynamic_insert_ru.js"></script>
+
+    <style>
+      @font-face {
+        font-family: "Lexend Deca";
+        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
+      }
+
+      @font-face {
+        font-family: "Lexend LexendDeca-Bold";
+        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
+      }
+
+      @font-face {
+        font-family: "Mukta_Mahee";
+        src: url(../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
+      }
+
+      body {
+        font-family: "Lexend Deca";
+      }
+
+      .neuigkeiten .neuigkeit-text {
+        font-family: "Mukta_Mahee";
+        letter-spacing: 1.5px;
+      }
+    </style>
+    <link rel="stylesheet" href="../css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/subpage.css" />
+  </head>
+  <body>
+
+    <div class="container-full subpage-top">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="../index_ru.html">Главная</a> > <a href=""> Установки </a>
+        </div>
+
+        <img class="subpage-top-img" src="../assets/images/anlagen.webp" alt="" />
+      </div>
+    </div>
+
+    <div class="mini-nav">
+      <a href="./anlagen/manuell.html">Ручные рабочие места</a>
+      <a href="./anlagen/halbautomatisch.html">Полуавтоматические установки</a>
+      <a href="./anlagen/vollautomatisch.html">Полностью автоматические установки</a>
+      <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
+      <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
+    </div>
+
+    <div class="container-full">
+      <div class="container text-section">
+        <div class="title">
+          <h2>Установки</h2>
+        </div>
+
+        <div class="text">
+          <p>
+            Установки TEAM Automation Berlin предлагают индивидуальные решения для самых различных
+            производственных требований. От ручных приспособлений до полуавтоматических систем и
+            полностью автоматических линий, обеспечивающих максимальную эффективность и точность. 
+            Независимо от желаемой степени автоматизации, все установки отличаются качеством, надежностью 
+            и оптимальной интеграцией в ваши производственные процессы.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-full bg-fog">
+      <div class="container">
+        <div class="title">
+          <h2>Виды установок</h2>
+        </div>
+
+        <div class="grid-3 anlagen-grid">
+          <div class="grid-3-item multiple">
+            <h3>Ручные рабочие места</h3>
+
+            <p>
+              TEAM Automation Berlin в соответствии с вашими требованиями разрабатывает ручные 
+              рабочие места для предварительной сборки и сборки, а также для проведения сложных 
+              проверок или упаковки, которые могут быть интегрированы в высокогибкие производственные линии.
+            </p>
+            <a href="./anlagen/manuell.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" />
+              <div class="link">Показать примеры</div>
+            </a>
+          </div>
+
+          <div class="grid-3-item multiple">
+            <h3>Полуавтоматические установки</h3>
+
+            <p>
+              TEAM Automation Berlin разрабатывает полуавтоматические монтажные установки в соответствии
+              с требованиями заказчика, в которых загрузка и подача компонентов выполняется вручную, 
+              а основные процессы происходят автоматически. При необходимости такие установки можно позже 
+              дооснастить для полной автоматизации.
+            </p>
+            <a href="./anlagen/halbautomatisch.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" />
+              <div class="link">Показать примеры</div>
+            </a>
+          </div>
+
+          <div class="grid-3-item multiple">
+            <h3>Полностью автоматические установки</h3>
+
+            <p>
+              TEAM Automation Berlin разрабатывает и поставляет полностью автоматические и высокоточные 
+              монтажные установки, в которых процессы объединены с помощью гибких систем транспортировки 
+              заготовок или робототехнических систем.
+            </p>
+            <a href="./anlagen/vollautomatisch.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" />
+              <div class="link">Показать примеры</div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/script.js?v=1.1"></script>
+    <script src="../js/swiper-bundle.min.js?v=1.1"></script>
+
+    <script>
+      var swiper = new Swiper(".imgSwiper", {
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+    <script src="../js/mininav.js?v=1.1"></script>
+  </body>
+</html>
