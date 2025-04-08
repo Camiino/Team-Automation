@@ -1416,6 +1416,9 @@ svg.hero-logo  {
 .bewerben:hover:before {
   opacity: 1; transform: translate(18%,-50%);
 }
+.bewerben_eng:hover:before {
+  opacity: 1; transform: translate(28%,-50%)!important;
+}
 .bewerben div {
   transition: 1s ease;
 }

@@ -194,7 +194,7 @@
               TEAM Automation Berlin offers automation solutions, starting with consultation and conceptualization through to complete implementation, and provides the following portfolio.
             </p>
             <br>
-            <a href="./html_eng/leistungsportfolio.html">
+            <a href="./html_en/leistungsportfolio.html">
               <img src="assets/icons/arrow_forward.svg" />
               <div class="link">View service portfolio</div>
             </a>
@@ -206,7 +206,7 @@
               TEAM Automation Berlin creates machines and systems for you, ranging from simple manual workstations to fully automated production lines for your products.
             </p>
             <br>
-            <a href="./html_eng/anlagen.html">
+            <a href="./html_en/anlagen.html">
               <img src="assets/icons/arrow_forward.svg" />
               <div class="link">View systems</div>
             </a>
@@ -218,7 +218,7 @@
               TEAM Automation Berlin has extensive, long-standing experience with all common technological processes required for the production of your products.
             </p>
             <br>
-            <a href="./html_eng/prozesse.html">
+            <a href="./html_en/prozesse.html">
               <img src="assets/icons/arrow_forward.svg" />
               <div class="link">View processes</div>
             </a>
@@ -230,7 +230,7 @@
               TEAM Automation Berlin works across industries and remains product-neutral. No matter what you wish to produce – TEAM Automation Berlin automatically provides you with the solution.
             </p>
             <br>
-            <a href="./html_eng/branchen.html">
+            <a href="./html_en/branchen.html">
               <img src="assets/icons/arrow_forward.svg" />
               <div class="link">View industries</div>
             </a>
@@ -242,7 +242,7 @@
               TEAM Automation Berlin presents illustrative projects and case studies that underscore the expertise and versatility of its automation solutions.
             </p>
             <br>
-            <a href="./html_eng/anlagen/halbautomatisch.html">
+            <a href="./html_en/anlagen/halbautomatisch.html">
               <img src="assets/icons/arrow_forward.svg" />
               <div class="link">View examples</div>
             </a>
@@ -254,7 +254,7 @@
               TEAM Automation Berlin forms partnerships with specialized high-tech companies as needed, to expand its competencies and in the interest of its customers.
             </p>
             <br>
-            <a href="./html_eng/partner.html">
+            <a href="./html_en/partner.html">
               <img src="assets/icons/arrow_forward.svg" />
               <div class="link">View partners</div>
             </a>
@@ -281,8 +281,8 @@
             </h3>
             <br><br>
             <div class="actionBtns">
-              <a href="./html_eng/unternehmen.html" class="btn" style="font-size: 1rem!important;">About TEAM</a>
-              <a href="./html_eng/karriere.html" class="btn bewerben bewerben_eng" data-hover="Apply now!" style="font-size: 1rem!important;">
+              <a href="./html_en/unternehmen.html" class="btn" style="font-size: 1rem!important;">About TEAM</a>
+              <a href="./html_en/karriere.html" class="btn bewerben bewerben_eng" data-hover="Apply now!" style="font-size: 1rem!important;">
                 <div>Become part of TEAM</div>
               </a>
             </div>
@@ -389,7 +389,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
         try {
-          const response = await fetch('./html_eng/getNews.php');
+          const response = await fetch('./html_en/getNews.php');
           const news = await response.json();
   
           const wrapper = document.querySelector('.swiper-neuigkeiten .swiper-wrapper');
@@ -407,7 +407,7 @@
             const projectIndex = index + 1; // 1-based index
             const page = Math.ceil(projectIndex / 3);
             const anchor = `projekt-${projectIndex}`;
-            const link = `../html_eng/neuigkeit.php?page=${page}#${anchor}`;
+            const link = `../html_en/neuigkeit.php?page=${page}#${anchor}`;
   
             slide.innerHTML = `
               <img class="neuigkeit-img" src="${item.image_path}" alt="${item.title}" />
