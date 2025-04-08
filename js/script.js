@@ -1049,7 +1049,7 @@ document.addEventListener('commonSectionsLoaded', function () {
 
 
     document.addEventListener("DOMContentLoaded", () => {
-        const languageLinks = document.querySelectorAll(".language-dropdown a, .footer-languages a");
+        const languageLinks = document.querySelectorAll(".language-dropdown a, .footer-languages a, .menu-content-box a");
       
         languageLinks.forEach(link => {
           link.addEventListener("click", function (e) {

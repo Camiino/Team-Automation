@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aktualności</title>
+    <title>News</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
@@ -32,7 +32,6 @@
         letter-spacing: 1.5px;
       }
     </style>
-
     <link rel="stylesheet" href="../css/subpage.css" />
   </head>
   <body>
@@ -40,22 +39,22 @@
     <div class="container-full subpage-top">
       <div class="container">
         <div class="breadcrumb">
-          <a href="../index_pl.html">Start</a> > <a href="#">Aktualności</a>
+          <a href="../index.html">Home</a> > <a href=""> News </a>
         </div>
 
         <img
           class="subpage-top-img"
           src="../assets/images/news.webp"
-          alt=""
+          alt="TEAM Automation Berlin News"
         />
       </div>
     </div>
 
     <div class="mini-nav">
-      <a href="#top" onclick="goPageOne(event)">Aktualności</a>
-      <a href="#neuesP">Twój nowy projekt</a>
-      <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
-      <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
+      <a href="#top" onclick="goPageOne(event)">News</a>
+      <a href="#newProject">Your New Project</a>
+      <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="scroll-to-top" />
+      <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="toggle-menu" />
     </div>
 
     <script></script>
@@ -69,14 +68,14 @@
             // === CONFIG ===
             $host = "db";
             $user = "newsadmin";
-            $pass = "Yourpassword123!";
+            $pass = "YourPassword123!";
             $db   = "newsdb";
             $projectsPerPage = 3;
 
             // === CONNECT ===
             $conn = new mysqli($host, $user, $pass, $db);
             if ($conn->connect_error) {
-              die("Błąd połączenia z bazą danych: " . $conn->connect_error);
+              die("DB connection failed: " . $conn->connect_error);
             }
 
             // === GET CURRENT PAGE ===
@@ -92,12 +91,13 @@
             // === OFFSET ===
             $offset = ($page - 1) * $projectsPerPage;
 
-            // === FETCH POLISH COLUMNS ===
+            // === FETCH ENGLISH COLUMNS (or German if still needed) ===
+            // Example: If your table has "title_en" / "content_en", change below:
             $query = "
               SELECT
                 id,
-                title_pl AS title,
-                content_pl AS content,
+                title_de AS title,
+                content_de AS content,
                 image_path,
                 date
               FROM news
@@ -111,25 +111,26 @@
             if ($result && $result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
                 echo '<div class="project-separator">
-                        <p>Projekt ' . $projectIndex . '</p>
+                        <p>Project ' . $projectIndex . '</p>
                         <hr />
                       </div>';
 
+                // Project styling
                 $cssClass = ($projectIndex % 2 === 0) ? "project project-reverse" : "project";
 
-                // format date
+                // Date formatting
                 $dateObj = DateTime::createFromFormat('Y-m-d', $row["date"]);
-                $formattedDate = $dateObj ? $dateObj->format('d. F Y') : htmlspecialchars($row["date"]);
+                $dateFormatted = $dateObj ? $dateObj->format('d. F Y') : htmlspecialchars($row["date"]);
 
                 // sanitize
                 $title = htmlspecialchars($row["title"]);
                 $content = nl2br(htmlspecialchars($row["content"]));
                 $imagePath = htmlspecialchars($row["image_path"]);
 
-                echo '<div class="' . $cssClass . '" id="projekt-' . $projectIndex . '">
+                echo '<div class="' . $cssClass . '" id="project-' . $projectIndex . '">
                         <img src="' . $imagePath . '" alt="" class="project-img"/>
                         <div class="project-text">
-                          <h4>' . $formattedDate . '</h4>
+                          <h4>' . $dateFormatted . '</h4>
                           <h3>' . $title . '</h3>
                           <p>' . $content . '</p>
                         </div>
@@ -138,7 +139,7 @@
                 $projectIndex++;
               }
             } else {
-              echo "<p>Brak aktualności.</p>";
+              echo "<p>No news found.</p>";
             }
 
             // === PAGINATION ===
@@ -152,29 +153,27 @@
           <!-- DYNAMIC NEWS ENDS HERE -->
         </div>
 
-        <!-- "Twój nowy projekt" section -->
         <div class="project project-reverse">
           <img
             src="../assets/images/create.webp"
-            alt=""
+            alt="Create a New Project"
             class="project-img"
           />
-          <div class="project-text" id="neuesP">
-            <h4>Dzisiaj</h4>
-            <h3>Twój nowy projekt</h3>
+          <div class="project-text" id="newProject">
+            <h4>Today</h4>
+            <h3>Your New Project</h3>
             <p>
-              Wyobraź sobie, że Twój następny projekt staje się częścią naszej
-              historii sukcesu. Razem zautomatyzujemy Twoje procesy i
-              stworzymy innowacyjne rozwiązania dla Twoich linii produkcyjnych.
-              Pozwól nam urzeczywistnić Twoją wizję!
+              Imagine your next project becoming part of our success story.
+              Together, we’ll automate your processes and create innovative
+              solutions for your production systems and chains.
+              Let’s turn your vision into reality!
             </p>
-            <a href="./kontakt.html" class="btn">Zacznij teraz</a>
+            <a href="./kontakt.html" class="btn"> Get Started Now </a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Scripts -->
     <script src="../js/script.js?v=1.1"></script>
     <script src="../js/mininav.js?v=1.1"></script>
 
@@ -184,6 +183,7 @@
         projectPages.forEach((projectPage) => {
           projectPage.classList.remove("project-page-active");
         });
+
         document.getElementById(page).classList.add("project-page-active");
         document.getElementById("project-container").scrollIntoView();
 
@@ -236,6 +236,5 @@
         }
       });
     </script>
-
   </body>
 </html>

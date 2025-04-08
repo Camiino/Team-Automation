@@ -227,7 +227,7 @@
         </a>
 
           <p class="footer-languages">
-            <a href=""> German (DE)</a> |
+            <a href=""> Deutsch (DE)</a> |
             <a href="" class="active-language" >English (EN)</a> | <a href="">Русский (RU)</a> |
             <a href="">Polski (PL)</a>
           </p>
