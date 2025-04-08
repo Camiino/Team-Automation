@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Systemy</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <script src="../js/dynamic_insert_pl.js"></script>
+
+    <style>
+      @font-face {
+        font-family: "Lexend Deca";
+        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
+      }
+
+      @font-face {
+        font-family: "Lexend LexendDeca-Bold";
+        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
+      }
+
+      @font-face {
+        font-family: "Mukta_Mahee";
+        src: url(../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
+      }
+
+      body {
+        font-family: "Lexend Deca";
+      }
+
+      .neuigkeiten .neuigkeit-text {
+        font-family: "Mukta_Mahee";
+        letter-spacing: 1.5px;
+      }
+    </style>
+    <link rel="stylesheet" href="../css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/subpage.css" />
+  </head>
+  <body>
+
+    <div class="container-full subpage-top">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="../index_pl.html">Strona główna</a> > <a href=""> Systemy </a>
+        </div>
+
+        <img
+          class="subpage-top-img"
+          src="../assets/images/anlagen.webp"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div class="mini-nav">
+      <a href="./anlagen/manuell.html">Stanowiska ręczne</a>
+      <a href="./anlagen/halbautomatisch.html">Systemy półautomatyczne</a>
+      <a href="./anlagen/vollautomatisch.html">Systemy w pełni automatyczne</a>
+      <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
+      <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
+    </div>
+
+    <div class="container-full">
+      <div class="container text-section">
+        <div class="title">
+          <h2>Systemy</h2>
+        </div>
+
+        <div class="text">
+          <p>
+            Systemy TEAM Automation Berlin oferują indywidualne rozwiązania dla różnych wymagań produkcyjnych.
+            Od ręcznych stanowisk poprzez systemy półautomatyczne aż po w pełni zautomatyzowane linie
+            zapewniające maksymalną wydajność i precyzję. Niezależnie od poziomu automatyzacji, wszystkie
+            systemy charakteryzują się jakością, niezawodnością oraz optymalną integracją z Twoimi
+            procesami produkcyjnymi.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-full bg-fog">
+      <div class="container">
+        <div class="title">
+          <h2>Rodzaje systemów</h2>
+        </div>
+
+        <div class="grid-3 anlagen-grid">
+          <div class="grid-3-item multiple">
+            <h3>Stanowiska ręczne</h3>
+
+            <p>
+              Zgodnie z Twoimi wymaganiami TEAM Automation Berlin tworzy ręczne stanowiska do wstępnego montażu
+              i montażu końcowego, a także do bardziej złożonych stanowisk testowych lub pakujących,
+              które mogą być również stosowane w połączeniu z wysoce elastycznymi systemami produkcyjnymi.
+            </p>
+            <a href="./anlagen/manuell.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" />
+              <div class="link">Zobacz przykłady</div>
+            </a>
+          </div>
+
+          <div class="grid-3-item multiple">
+            <h3>Systemy półautomatyczne</h3>
+
+            <p>
+              TEAM Automation Berlin tworzy półautomatyczne systemy montażowe dostosowane do wymagań klienta,
+              w których załadunek i dostarczanie elementów odbywa się ręcznie, natomiast same procesy
+              przebiegają automatycznie. Systemy te mogą być później w pełni zautomatyzowane.
+            </p>
+            <a href="./anlagen/halbautomatisch.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" />
+              <div class="link">Zobacz przykłady</div>
+            </a>
+          </div>
+
+          <div class="grid-3-item multiple">
+            <h3>Systemy w pełni automatyczne</h3>
+
+            <p>
+              TEAM Automation Berlin projektuje i dostarcza w pełni automatyczne, wysoce zaawansowane
+              systemy montażowe, w których poszczególne procesy są połączone za pomocą elastycznych
+              systemów transportu lub robotów.
+            </p>
+            <a href="./anlagen/vollautomatisch.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" />
+              <div class="link">Zobacz przykłady</div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/script.js?v=1.1"></script>
+    <script src="../js/swiper-bundle.min.js?v=1.1"></script>
+
+    <script>
+      var swiper = new Swiper(".imgSwiper", {
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+    <script src="../js/mininav.js?v=1.1"></script>
+  </body>
+</html>

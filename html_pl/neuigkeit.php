@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aktuelles</title>
+    <title>Aktualności</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
@@ -14,12 +14,10 @@
         font-family: "Lexend Deca";
         src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
       }
-
       @font-face {
         font-family: "Lexend LexendDeca-Bold";
         src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
       }
-
       @font-face {
         font-family: "Mukta_Mahee";
         src: url(../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
@@ -34,6 +32,7 @@
         letter-spacing: 1.5px;
       }
     </style>
+
     <link rel="stylesheet" href="../css/subpage.css" />
   </head>
   <body>
@@ -41,7 +40,7 @@
     <div class="container-full subpage-top">
       <div class="container">
         <div class="breadcrumb">
-          <a href="../index.html">Home</a> > <a href=""> Aktuelles </a>
+          <a href="../index_pl.html">Start</a> > <a href="#">Aktualności</a>
         </div>
 
         <img
@@ -53,8 +52,8 @@
     </div>
 
     <div class="mini-nav">
-      <a href="#top" onclick="goPageOne(event)">Aktuelles</a>
-      <a href="#neuesP">Ihr Neues Projekt</a>
+      <a href="#top" onclick="goPageOne(event)">Aktualności</a>
+      <a href="#neuesP">Twój nowy projekt</a>
       <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
     </div>
@@ -77,7 +76,7 @@
             // === CONNECT ===
             $conn = new mysqli($host, $user, $pass, $db);
             if ($conn->connect_error) {
-              die("DB connection failed: " . $conn->connect_error);
+              die("Błąd połączenia z bazą danych: " . $conn->connect_error);
             }
 
             // === GET CURRENT PAGE ===
@@ -93,12 +92,12 @@
             // === OFFSET ===
             $offset = ($page - 1) * $projectsPerPage;
 
-            // === FETCH GERMAN COLUMNS ONLY ===
+            // === FETCH POLISH COLUMNS ===
             $query = "
               SELECT
                 id,
-                title_de AS title,
-                content_de AS content,
+                title_pl AS title,
+                content_pl AS content,
                 image_path,
                 date
               FROM news
@@ -116,12 +115,11 @@
                         <hr />
                       </div>';
 
-                // project styling
                 $cssClass = ($projectIndex % 2 === 0) ? "project project-reverse" : "project";
 
-                // date formatting
+                // format date
                 $dateObj = DateTime::createFromFormat('Y-m-d', $row["date"]);
-                $dateFormatted = $dateObj ? $dateObj->format('d. F Y') : htmlspecialchars($row["date"]);
+                $formattedDate = $dateObj ? $dateObj->format('d. F Y') : htmlspecialchars($row["date"]);
 
                 // sanitize
                 $title = htmlspecialchars($row["title"]);
@@ -131,7 +129,7 @@
                 echo '<div class="' . $cssClass . '" id="projekt-' . $projectIndex . '">
                         <img src="' . $imagePath . '" alt="" class="project-img"/>
                         <div class="project-text">
-                          <h4>' . $dateFormatted . '</h4>
+                          <h4>' . $formattedDate . '</h4>
                           <h3>' . $title . '</h3>
                           <p>' . $content . '</p>
                         </div>
@@ -140,7 +138,7 @@
                 $projectIndex++;
               }
             } else {
-              echo "<p>Keine Neuigkeiten gefunden.</p>";
+              echo "<p>Brak aktualności.</p>";
             }
 
             // === PAGINATION ===
@@ -154,6 +152,7 @@
           <!-- DYNAMIC NEWS ENDS HERE -->
         </div>
 
+        <!-- "Twój nowy projekt" section -->
         <div class="project project-reverse">
           <img
             src="../assets/images/create.webp"
@@ -161,20 +160,21 @@
             class="project-img"
           />
           <div class="project-text" id="neuesP">
-            <h4>Heute</h4>
-            <h3>Ihr Neues Projekt</h3>
+            <h4>Dzisiaj</h4>
+            <h3>Twój nowy projekt</h3>
             <p>
-              Stellen Sie sich vor, Ihr nächstes Projekt wird Teil unserer
-              Erfolgsgeschichte. Gemeinsam automatisieren wir Ihre Prozesse und
-              schaffen innovative Lösungen für Ihre Fertigungsanlagen und
-              -ketten. Lassen Sie uns Ihre Vision Realität werden lassen!
+              Wyobraź sobie, że Twój następny projekt staje się częścią naszej
+              historii sukcesu. Razem zautomatyzujemy Twoje procesy i
+              stworzymy innowacyjne rozwiązania dla Twoich linii produkcyjnych.
+              Pozwól nam urzeczywistnić Twoją wizję!
             </p>
-            <a href="./kontakt.html" class="btn"> Jetzt Starten </a>
+            <a href="./kontakt.html" class="btn">Zacznij teraz</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Scripts -->
     <script src="../js/script.js?v=1.1"></script>
     <script src="../js/mininav.js?v=1.1"></script>
 
@@ -184,7 +184,6 @@
         projectPages.forEach((projectPage) => {
           projectPage.classList.remove("project-page-active");
         });
-
         document.getElementById(page).classList.add("project-page-active");
         document.getElementById("project-container").scrollIntoView();
 
@@ -237,5 +236,6 @@
         }
       });
     </script>
+
   </body>
 </html>
