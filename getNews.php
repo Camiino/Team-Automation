@@ -5,7 +5,12 @@ error_reporting(E_ALL);
 $host = "db";
 $dbname = "newsdb";
 $user = "newsadmin";
-$pass = "Yourpassword123!";
+$pass = "YourPassword123!";
+
+//$host = getenv('DB_HOST') ?: 'localhost';
+//$user = getenv('DB_USER') ?: 'root';
+//$pass = getenv('DB_PASSWORD') ?: '';
+//$dbname   = getenv('DB_NAME') ?: 'newsdb';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);

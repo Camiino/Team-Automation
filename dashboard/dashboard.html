@@ -174,7 +174,7 @@
         try {
           // For now we fetch all columns from getNews.php
           // Make sure getNews.php returns: title_de, content_de, title_en, content_en, title_pl, content_pl, title_ru, content_ru, date, image_path, id
-          const response = await fetch('getNews.php');
+          const response = await fetch('../getNews.php');
           const news = await response.json();
           const container = document.getElementById('newsContainer');
           container.innerHTML = '';

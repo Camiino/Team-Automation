@@ -15,7 +15,7 @@
         <div class="header-links left">
           <!--   <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
 
-          <a class="hide-mobile" href="https://bee-its.de/html_pl/neuigkeit.html">Aktuelles</a>
+          <a class="hide-mobile" href="https://bee-its.de/html_pl/neuigkeit.php">Aktuelles</a>
           <a class="hide-mobile" href="https://bee-its.de/html_pl/karriere.html">Karriere</a>
           <a class="hide-mobile" href="https://bee-its.de/html_pl/downloads.html">Downloads</a>
         </div>
@@ -167,7 +167,7 @@
 
         <div class="footer-col">
           <p class="footer-col-title">Information</p>
-          <a href="https://bee-its.de/html_pl/neuigkeit.html">Aktuelles</a>
+          <a href="https://bee-its.de/html_pl/neuigkeit.php">Aktuelles</a>
           <a href="https://bee-its.de/html_pl/unternehmen.html">Unternehmen</a>
           <a href="https://bee-its.de/html_pl/karriere.html">Karriere</a>
           <a href="https://bee-its.de/html_pl/impressum.html">Impressum</a>
