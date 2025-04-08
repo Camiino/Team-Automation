@@ -70,7 +70,7 @@
             // === CONFIG ===
             $host = "db";
             $user = "newsadmin";
-            $pass = "Yourpassword123!";
+            $pass = "YourPassword123!";
             $db   = "newsdb";
             $projectsPerPage = 3;
 

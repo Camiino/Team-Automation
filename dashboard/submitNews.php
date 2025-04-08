@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 $host = "db";
 $dbname = "newsdb";
 $user = "newsadmin";
-$pass = "Yourpassword123!";
+$pass = "YourPassword123!";
 
 // Connect to DB
 try {

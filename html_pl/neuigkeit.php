@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
-    <script src="../js/dynamic_insert.js"></script>
+    <script src="../js/dynamic_insert_pl.js"></script>
 
     <style>
       @font-face {
@@ -69,7 +69,7 @@
             // === CONFIG ===
             $host = "db";
             $user = "newsadmin";
-            $pass = "Yourpassword123!";
+            $pass = "YourPassword123!";
             $db   = "newsdb";
             $projectsPerPage = 3;
 

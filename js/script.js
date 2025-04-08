@@ -223,7 +223,7 @@ document.addEventListener('commonSectionsLoaded', function () {
         // 3) Full set of German suggestions
         const searchSuggestionsDe = [
             // Main pages
-            { name: "Aktuelles", url: baseUrlGerman + "neuigkeit.html" },
+            { name: "Aktuelles", url: baseUrlGerman + "neuigkeit.php" },
             { name: "Karriere", url: baseUrlGerman + "karriere.html" },
             { name: "Downloads", url: baseUrlGerman + "downloads.html" },
             { name: "Kontakt", url: baseUrlGerman + "kontakt.html" },
@@ -332,7 +332,7 @@ document.addEventListener('commonSectionsLoaded', function () {
         // 4) Full set of Polish suggestions
         const searchSuggestionsPl = [
             // Główne strony
-            { name: "Aktualności", url: baseUrlPolish + "neuigkeit.html" },
+            { name: "Aktualności", url: baseUrlPolish + "neuigkeit.php" },
             { name: "Kariera", url: baseUrlPolish + "karriere.html" },
             { name: "Do pobrania", url: baseUrlPolish + "downloads.html" },
             { name: "Kontakt", url: baseUrlPolish + "kontakt.html" },
@@ -808,25 +808,30 @@ document.addEventListener('commonSectionsLoaded', function () {
       
             const selectedLang = this.textContent.trim().match(/\((\w+)\)/)[1].toLowerCase(); // e.g., "de", "en", "pl", "ru"
             const currentUrl = new URL(window.location.href);
-            const currentPath = currentUrl.pathname;
+            let currentPath = currentUrl.pathname;
+      
+            // Normalize root path
+            if (currentPath === "/" || currentPath === "") {
+              currentPath = "/index.html";
+            }
       
             let newPath;
       
             // Handle index files (e.g., index.html → index_pl.html)
             if (/index(_\w+)?\.html$/.test(currentPath)) {
-              newPath = `/index${selectedLang === 'de' ? '' : '_' + selectedLang}.html`;
+              newPath = `/${selectedLang === 'de' ? 'index' : 'index_' + selectedLang}.html`;
             } else {
-              // Replace language part in the path
-              if (currentPath.includes("/html_pl/") || currentPath.includes("/html_en/") || currentPath.includes("/html_ru/")) {
-                newPath = currentPath.replace(/\/html_\w+\//, selectedLang === 'de' ? "/html/" : `/html_${selectedLang}/`);
+              // Handle subdirectory pages like /html/xyz.html or /html_pl/xyz.html
+              const langDirsRegex = /\/html(_\w+)?\//;
+      
+              if (langDirsRegex.test(currentPath)) {
+                newPath = currentPath.replace(langDirsRegex, selectedLang === 'de' ? "/html/" : `/html_${selectedLang}/`);
               } else {
-                newPath = selectedLang === 'de'
-                  ? currentPath.replace("/html/", "/html/") // stays the same
-                  : currentPath.replace("/html/", `/html_${selectedLang}/`);
+                // If somehow not matching anything above, stay defensive
+                newPath = currentPath;
               }
             }
       
-            // Redirect to the new URL
             window.location.href = newPath;
           });
         });
