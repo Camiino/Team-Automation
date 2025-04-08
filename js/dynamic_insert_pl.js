@@ -61,10 +61,10 @@
               </div>
   
               <div class="language-dropdown">
-                <a href="" class="active-language"> Deutsch (DE)</a>
+                <a href=""> Deutsch (DE)</a>
                 <a href="">English (EN)</a>
                 <a href="">Русский (RU)</a>
-                <a href="">Polski (PL)</a>
+                <a href="" class="active-language">Polski (PL)</a>
               </div>
             </div>
             <a class="hide-mobile" href="https://bee-its.de/html_pl/kontakt.html">
@@ -106,10 +106,10 @@
               </div>
   
               <div class="language-dropdown menu-content-item">
-                <a href="" class="active-language"> Deutsch (DE)</a>
+                <a href=""> Deutsch (DE)</a>
                 <a href="">English (EN)</a>
                 <a href="">Русский (RU)</a>
-                <a href="">Polski (PL)</a>
+                <a href="" class="active-language">Polski (PL)</a>
               </div>
             </div>
   
@@ -142,10 +142,10 @@
   
           <div class="menu-content-box">
             <p class="menu-content-box-title">Język</p>
-            <a href="" class="active-language"> Deutsch (DE)</a>
+            <a href=""> Deutsch (DE)</a>
             <a href="">English (EN)</a>
             <a href="">Русский (RU)</a>
-            <a href="">Polski (PL)</a>
+            <a href="" class="active-language" >Polski (PL)</a>
           </div>
         </div>
       </div>

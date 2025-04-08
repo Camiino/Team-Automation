@@ -1,4 +1,5 @@
 (function() {
+  // Analytics script
   var umamiScript = document.createElement('script');
   umamiScript.defer = true;
   umamiScript.src = "https://analytics.webeesign.com/script.js";
@@ -7,19 +8,19 @@
 })();
 
 (function () {
-    function loadCommonSections() {
-    // Define the header HTML (you can paste your full header/menu/hero markup here)
+  function loadCommonSections() {
+    // Define header HTML (paste your own header/menu/hero markup if needed)
     const headerHTML = `
- <header>
-      <div class="header-content">
-        <div class="header-links left">
-          <!--   <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
+      <header>
+        <div class="header-content">
+          <div class="header-links left">
+            <!--   <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
 
-          <a class="hide-mobile" href="https://bee-its.de/html_pl/neuigkeit.php">Aktuelles</a>
-          <a class="hide-mobile" href="https://bee-its.de/html_pl/karriere.html">Karriere</a>
-          <a class="hide-mobile" href="https://bee-its.de/html_pl/downloads.html">Downloads</a>
-        </div>
-        <a href="https://bee-its.de/index.html" class="logo">
+            <a class="hide-mobile" href="https://bee-its.de/html_pl/neuigkeit.php">News</a>
+            <a class="hide-mobile" href="https://bee-its.de/html_pl/karriere.html">Career</a>
+            <a class="hide-mobile" href="https://bee-its.de/html_pl/downloads.html">Downloads</a>
+          </div>
+<a href="https://bee-its.de/index.html" class="logo">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_170_1245)">
             <path id="changer2" class="changer2" d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>
@@ -53,145 +54,145 @@
           </svg>
         </a>
 
-        <div class="header-links right">
-          <div class="hide-mobile language-box">
-            <div class="language">
-              <img src="https://bee-its.de/assets/icons/language.svg" alt="" />
-              <span>Sprache</span>
-            </div>
+          <div class="header-links right">
+            <div class="hide-mobile language-box">
+              <div class="language">
+                <img src="https://bee-its.de/assets/icons/language.svg" alt="" />
+                <span>Language</span>
+              </div>
 
-            <div class="language-dropdown">
-              <a href="" class="active-language"> Deutsch (DE)</a>
-              <a href="">English (EN)</a>
-              <a href="">Русский (RU)</a>
-              <a href="">Polski (PL)</a>
+              <div class="language-dropdown">
+                <a href=""> Deutsch (DE)</a>
+                <a href="" class="active-language">English (EN)</a>
+                <a href="">Русский (RU)</a>
+                <a href="">Polski (PL)</a>
+              </div>
+            </div>
+            <a class="hide-mobile" href="https://bee-its.de/html_pl/kontakt.html">
+              <img src="https://bee-its.de/assets/icons/contact.svg" alt="" /> Contact
+            </a>
+            <div class="search-box">
+              <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
+              <span class="hide-mobile">Search</span>
             </div>
           </div>
-          <a class="hide-mobile" href="https://bee-its.de/html_pl/kontakt.html">
-            <img src="https://bee-its.de/assets/icons/contact.svg" alt="" /> Kontakt</a
-          >
-          <div class="search-box">
-            <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
-            <span class="hide-mobile">Suche</span>
+        </div>
+      </header>
+
+      <label id="hamburger" class="hamburger">
+        <input type="checkbox" id="burger" />
+        <svg viewBox="0 0 32 32">
+          <path
+            class="line line-top-bottom"
+            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+          ></path>
+          <path class="line" d="M7 16 27 16"></path>
+        </svg>
+      </label>
+
+      <div class="search-container">
+        <div class="search">
+          <input type="text" placeholder="Search" />
+          <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
+        </div>
+      </div>
+
+      <div id="menu" class="">
+        <div class="container menu-content">
+          <div class="menu-content-box quick-actions">
+            <div class="language-box menu-content-item">
+              <div class="language">
+                <img src="https://bee-its.de/assets/icons/language.svg" alt="" />
+                <span>Language</span>
+              </div>
+
+              <div class="language-dropdown menu-content-item">
+                <a href=""> Deutsch (DE)</a>
+                <a href="" class="active-language">English (EN)</a>
+                <a href="">Русский (RU)</a>
+                <a href="">Polski (PL)</a>
+              </div>
+            </div>
+
+            <div class="search-box">
+              <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
+              <span>Search</span>
+            </div>
+          </div>
+
+          <div class="menu-content-box">
+            <p class="menu-content-box-title">Navigation</p>
+            <a href="https://bee-its.de/index.html">Home</a>
+            <a href="https://bee-its.de/html_pl/leistungsportfolio.html">Services</a>
+            <a href="https://bee-its.de/html_pl/anlagen.html">Systems</a>
+            <a href="https://bee-its.de/html_pl/prozesse.html">Processes</a>
+            <a href="https://bee-its.de/html_pl/branchen.html">Sectors</a>
+            <a href="https://bee-its.de/html_pl/anlagen/halbautomatisch.html">Examples</a>
+            <a href="https://bee-its.de/html_pl/partner.html">Partners</a>
+          </div>
+
+          <div class="menu-content-box">
+            <p class="menu-content-box-title">Information</p>
+            <a href="https://bee-its.de/html_pl/aktuelles.html">News</a>
+            <a href="https://bee-its.de/html_pl/unternehmen.html">Company</a>
+            <a href="https://bee-its.de/html_pl/karriere.html">Career</a>
+            <a href="https://bee-its.de/html_pl/impressum.html">Imprint</a>
+            <a href="https://bee-its.de/html_pl/downloads.html">Downloads</a>
+            <a href="https://bee-its.de/html_pl/kontakt.html">Contact</a>
+          </div>
+
+          <div class="menu-content-box">
+            <p class="menu-content-box-title">Language</p>
+            <a href=""> Deutsch (DE)</a>
+            <a href="" class="active-language">English (EN)</a>
+            <a href="">Русский (RU)</a>
+            <a href="">Polski (PL)</a>
           </div>
         </div>
       </div>
-    </header>
-
-    <label id="hamburger" class="hamburger">
-      <input type="checkbox" id="burger" />
-      <svg viewBox="0 0 32 32">
-        <path
-          class="line line-top-bottom"
-          d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-        ></path>
-        <path class="line" d="M7 16 27 16"></path>
-      </svg>
-    </label>
-
-    <div class="search-container">
-      <div class="search">
-        <input type="text" placeholder="Suchen" />
-        <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
-      </div>
-    </div>
-
-    <div id="menu" class="">
-      <div class="container menu-content">
-        <div class="menu-content-box quick-actions">
-          <div class="language-box menu-content-item">
-            <div class="language">
-              <img src="https://bee-its.de/assets/icons/language.svg" alt="" />
-              <span>Sprache</span>
-            </div>
-
-            <div class="language-dropdown menu-content-item">
-              <a href="" class="active-language"> Deutsch (DE)</a>
-              <a href="">English (EN)</a>
-              <a href="">Русский (RU)</a>
-              <a href="">Polski (PL)</a>
-            </div>
-          </div>
-
-          <div class="search-box">
-            <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
-            <span>Suche</span>
-          </div>
-        </div>
-
-        <div class="menu-content-box">
-          <p class="menu-content-box-title">Navigation</p>
-          <a href="https://bee-its.de/index.html">Startseite</a>
-          <a href="https://bee-its.de/html_pl/leistungsportfolio.html">Leistungen</a>
-          <a href="https://bee-its.de/html_pl/anlagen.html">Anlagen</a>
-          <a href="https://bee-its.de/html_pl/prozesse.html">Prozesse</a>
-          <a href="https://bee-its.de/html_pl/branchen.html">Branchen</a>
-          <a href="https://bee-its.de/html_pl/anlagen/halbautomatisch.html">Beispiele</a>
-          <a href="https://bee-its.de/html_pl/partner.html">Partner</a>
-        </div>
-
-        <div class="menu-content-box">
-          <p class="menu-content-box-title">Information</p>
-          <a href="https://bee-its.de/html_pl/aktuelles.html">Aktuelles</a>
-          <a href="https://bee-its.de/html_pl/unternehmen.html">Unternehmen</a>
-          <a href="https://bee-its.de/html_pl/karriere.html">Karriere</a>
-          <a href="https://bee-its.de/html_pl/impressum.html">Impressum</a>
-          <a href="https://bee-its.de/html_pl/downloads.html">Downloads</a>
-          <a href="https://bee-its.de/html_pl/kontakt.html">Kontakt</a>
-        </div>
-
-        <div class="menu-content-box">
-          <p class="menu-content-box-title">Sprache</p>
-          <a href="" class="active-language"> Deutsch (DE)</a>
-          <a href="">English (EN)</a>
-          <a href="">Русский (RU)</a>
-          <a href="">Polski (PL)</a>
-        </div>
-      </div>
-    </div>
     `;
-    
-    // Define the footer HTML (again, paste your full footer markup here)
+
+    // Define the footer HTML
     const footerHTML = `
-        <footer>
-      <div class="footer-content footer-cols">
-        <div class="footer-col">
-          <p class="footer-col-title">Navigation</p>
-          <a href="https://bee-its.de/html_pl/leistungsportfolio.html">Leistungen</a>
-          <a href="https://bee-its.de/html_pl/anlagen.html">Anlagen</a>
-          <a href="https://bee-its.de/html_pl/prozesse.html">Prozesse</a>
-          <a href="https://bee-its.de/html_pl/branchen.html">Branchen</a>
-          <a href="https://bee-its.de/html_pl/anlagen/halbautomatisch.html">Beispiele</a>
-          <a href="https://bee-its.de/html_pl/partner.html">Partner</a>
+      <footer>
+        <div class="footer-content footer-cols">
+          <div class="footer-col">
+            <p class="footer-col-title">Navigation</p>
+            <a href="https://bee-its.de/html_pl/leistungsportfolio.html">Services</a>
+            <a href="https://bee-its.de/html_pl/anlagen.html">Systems</a>
+            <a href="https://bee-its.de/html_pl/prozesse.html">Processes</a>
+            <a href="https://bee-its.de/html_pl/branchen.html">Sectors</a>
+            <a href="https://bee-its.de/html_pl/anlagen/halbautomatisch.html">Examples</a>
+            <a href="https://bee-its.de/html_pl/partner.html">Partners</a>
+          </div>
+
+          <div class="footer-col">
+            <p class="footer-col-title">Information</p>
+            <a href="https://bee-its.de/html_pl/neuigkeit.php">News</a>
+            <a href="https://bee-its.de/html_pl/unternehmen.html">Company</a>
+            <a href="https://bee-its.de/html_pl/karriere.html">Career</a>
+            <a href="https://bee-its.de/html_pl/impressum.html">Imprint</a>
+            <a href="https://bee-its.de/html_pl/downloads.html">Downloads</a>
+          </div>
+
+          <div class="footer-col">
+            <p class="footer-col-title">Contact</p>
+            <a href="">Phone +49 30 / 60 90 294 - 0</a>
+            <a href="">Fax +49 30 / 60 90 294 - 09</a>
+            <a href="mailto:info@team-automation-berlin.de" class="email">info@team-automation-berlin.de</a>
+            <a href="https://bee-its.de/html_pl/kontakt.html" class="contact-footer">Get in Touch</a>
+          </div>
         </div>
+        <hr />
 
-        <div class="footer-col">
-          <p class="footer-col-title">Information</p>
-          <a href="https://bee-its.de/html_pl/neuigkeit.php">Aktuelles</a>
-          <a href="https://bee-its.de/html_pl/unternehmen.html">Unternehmen</a>
-          <a href="https://bee-its.de/html_pl/karriere.html">Karriere</a>
-          <a href="https://bee-its.de/html_pl/impressum.html">Impressum</a>
-          <a href="https://bee-its.de/html_pl/downloads.html">Downloads</a>
-        </div>
+        <div class="footer-content footer-bottom">
+          <p class="footer-copyright">
+            Copyright © 2025 TEAM Automation Berlin GmbH
+            <br />
+            Alboinstrasse 11, D-12103 Berlin
+          </p>
 
-        <div class="footer-col">
-          <p class="footer-col-title">Kontakt</p>
-          <a href="">Telefon +49 30 / 60 90 294 - 0</a>
-          <a href="">Fax +49 30 / 60 90 294 - 09</a>
-          <a href="mailto:info@team-automation-berlin.de" class="email">info@team-automation-berlin.de</a>
-          <a href="https://bee-its.de/html_pl/kontakt.html" class="contact-footer">Kontakt aufnehmen</a>
-        </div>
-
-      </div>
-      <hr/>
-
-      <div class="footer-content footer-bottom">
-        <p class="footer-copyright">
-          Copyright © 2025 TEAM Automation Berlin GmbH  <br />
-           Alboinstrasse 11, D-12103 Berlin
-        </p>
-
-        <a class="footer-logo" href="https://bee-its.de/index.html">
+<a class="footer-logo" href="https://bee-its.de/index.html">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_170_1245)">
             <path d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>
@@ -225,27 +226,27 @@
           </svg>
         </a>
 
-        <p class="footer-languages">
-          <a href="" class="active-language"> Deutsch (DE)</a> |
-          <a href="">English (EN)</a> | <a href="">Русский (RU)</a> |
-          <a href="">Polski (PL)</a>
-        </p>
-      </div>
-    </footer>
+          <p class="footer-languages">
+            <a href=""> German (DE)</a> |
+            <a href="" class="active-language" >English (EN)</a> | <a href="">Русский (RU)</a> |
+            <a href="">Polski (PL)</a>
+          </p>
+        </div>
+      </footer>
     `;
-  
-    // Insert the header (including menu and hero) at the top of the document body
+
+    // Insert the header at the top of the document body
     document.body.insertAdjacentHTML('afterbegin', headerHTML);
     // Insert the footer at the end of the document body
     document.body.insertAdjacentHTML('beforeend', footerHTML);
-    // Dispatch a custom event that signals the common sections are ready.
+
+    // Dispatch a custom event indicating the sections are loaded
     document.dispatchEvent(new Event('commonSectionsLoaded'));
   }
-  
 
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", loadCommonSections);
-    } else {
-        loadCommonSections();
-    }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadCommonSections);
+  } else {
+    loadCommonSections();
+  }
 })();
