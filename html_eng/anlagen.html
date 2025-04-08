@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Systems</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <script src="../js/dynamic_insert_pl.js"></script>
+
+    <style>
+      @font-face {
+        font-family: "Lexend Deca";
+        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
+      }
+
+      @font-face {
+        font-family: "Lexend LexendDeca-Bold";
+        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
+      }
+
+      @font-face {
+        font-family: "Mukta_Mahee";
+        src: url(../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
+      }
+
+      body {
+        font-family: "Lexend Deca";
+      }
+
+      .neuigkeiten .neuigkeit-text {
+        font-family: "Mukta_Mahee";
+        letter-spacing: 1.5px;
+      }
+    </style>
+    <link rel="stylesheet" href="../css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/subpage.css" />
+  </head>
+  <body>
+
+    <div class="container-full subpage-top">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="../index_en.html">Home</a> > <a href=""> Systems </a>
+        </div>
+
+        <img
+          class="subpage-top-img"
+          src="../assets/images/anlagen.webp"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div class="mini-nav">
+      <a href="./anlagen/manuell.html">Manual Workstations</a>
+      <a href="./anlagen/halbautomatisch.html">Semi-Automatic Systems</a>
+      <a href="./anlagen/vollautomatisch.html">Fully Automatic Systems</a>
+      <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
+      <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
+    </div>
+
+    <div class="container-full">
+      <div class="container text-section">
+        <div class="title">
+          <h2>Systems</h2>
+        </div>
+
+        <div class="text">
+          <p>
+            TEAM Automation Berlin systems offer customized solutions for various production requirements.
+            From manual workstations through semi-automatic systems to fully automated lines that ensure maximum efficiency and precision.
+            Regardless of the level of automation, all systems are characterized by quality, reliability, and optimal integration with your production processes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-full bg-fog">
+      <div class="container">
+        <div class="title">
+          <h2>Types of Systems</h2>
+        </div>
+
+        <div class="grid-3 anlagen-grid">
+          <div class="grid-3-item multiple">
+            <h3>Manual Workstations</h3>
+
+            <p>
+              According to your requirements, TEAM Automation Berlin creates manual workstations for initial assembly and final assembly, as well as for more complex test or packaging stations that can also be used in conjunction with highly flexible production systems.
+            </p>
+            <a href="./anlagen/manuell.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" alt="View" />
+              <div class="link">View examples</div>
+            </a>
+          </div>
+
+          <div class="grid-3-item multiple">
+            <h3>Semi-Automatic Systems</h3>
+
+            <p>
+              TEAM Automation Berlin creates semi-automatic assembly systems tailored to customer requirements, where the loading and delivery of components is done manually, while the processes themselves run automatically. These systems can later be fully automated.
+            </p>
+            <a href="./anlagen/halbautomatisch.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" alt="View" />
+              <div class="link">View examples</div>
+            </a>
+          </div>
+
+          <div class="grid-3-item multiple">
+            <h3>Fully Automatic Systems</h3>
+
+            <p>
+              TEAM Automation Berlin designs and delivers fully automatic, highly advanced assembly systems, in which individual processes are interconnected using flexible transport systems or robots.
+            </p>
+            <a href="./anlagen/vollautomatisch.html" class="sublink">
+              <img src="../assets/icons/arrow_forward.svg" alt="View" />
+              <div class="link">View examples</div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/script.js?v=1.1"></script>
+    <script src="../js/swiper-bundle.min.js?v=1.1"></script>
+
+    <script>
+      var swiper = new Swiper(".imgSwiper", {
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+    <script src="../js/mininav.js?v=1.1"></script>
+  </body>
+</html>
