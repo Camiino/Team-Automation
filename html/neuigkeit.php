@@ -41,7 +41,7 @@
     <div class="container-full subpage-top">
       <div class="container">
         <div class="breadcrumb">
-          <a href="../index.html">Home</a> > <a href=""> Aktuelles </a>
+          <a href="../index.html">Home</a> > <a href="">Aktuelles</a>
         </div>
 
         <img
@@ -58,8 +58,6 @@
       <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
     </div>
-
-    <script></script>
 
     <div class="container-full" id="project-container">
       <div class="container">
@@ -109,29 +107,60 @@
 
             $projectIndex = $offset + 1;
 
+            // === MANUAL GERMAN DATE FUNCTION ===
+            function formatGermanDate($dateString) {
+              $months = [
+                '01' => 'Januar',
+                '02' => 'Februar',
+                '03' => 'März',
+                '04' => 'April',
+                '05' => 'Mai',
+                '06' => 'Juni',
+                '07' => 'Juli',
+                '08' => 'August',
+                '09' => 'September',
+                '10' => 'Oktober',
+                '11' => 'November',
+                '12' => 'Dezember'
+              ];
+
+              $dateObj = DateTime::createFromFormat('Y-m-d', $dateString);
+              if (!$dateObj) {
+                return htmlspecialchars($dateString);
+              }
+
+              $day = $dateObj->format('d');
+              $month = $dateObj->format('m');
+              $year = $dateObj->format('Y');
+
+              // e.g. "08. April 2025"
+              return "$day. {$months[$month]} $year";
+            }
+
             if ($result && $result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
+                // Output the project separator
                 echo '<div class="project-separator">
                         <p>Projekt ' . $projectIndex . '</p>
                         <hr />
                       </div>';
 
-                // project styling
+                // Decide normal or reverse layout
                 $cssClass = ($projectIndex % 2 === 0) ? "project project-reverse" : "project";
 
-                // date formatting
-                $dateObj = DateTime::createFromFormat('Y-m-d', $row["date"]);
-                $dateFormatted = $dateObj ? $dateObj->format('d. F Y') : htmlspecialchars($row["date"]);
+                // Format date (German fallback)
+                $formattedDate = formatGermanDate($row["date"]);
 
-                // sanitize
+                // Sanitize
                 $title = htmlspecialchars($row["title"]);
                 $content = nl2br(htmlspecialchars($row["content"]));
                 $imagePath = htmlspecialchars($row["image_path"]);
 
+                // Output the project
                 echo '<div class="' . $cssClass . '" id="projekt-' . $projectIndex . '">
                         <img src="' . $imagePath . '" alt="" class="project-img"/>
                         <div class="project-text">
-                          <h4>' . $dateFormatted . '</h4>
+                          <h4>' . $formattedDate . '</h4>
                           <h3>' . $title . '</h3>
                           <p>' . $content . '</p>
                         </div>
@@ -154,6 +183,7 @@
           <!-- DYNAMIC NEWS ENDS HERE -->
         </div>
 
+        <!-- "Ihr Neues Projekt" section -->
         <div class="project project-reverse">
           <img
             src="../assets/images/create.webp"
@@ -169,12 +199,13 @@
               schaffen innovative Lösungen für Ihre Fertigungsanlagen und
               -ketten. Lassen Sie uns Ihre Vision Realität werden lassen!
             </p>
-            <a href="./kontakt.html" class="btn"> Jetzt Starten </a>
+            <a href="./kontakt.html" class="btn">Jetzt Starten</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Scripts -->
     <script src="../js/script.js?v=1.1"></script>
     <script src="../js/mininav.js?v=1.1"></script>
 
@@ -184,7 +215,6 @@
         projectPages.forEach((projectPage) => {
           projectPage.classList.remove("project-page-active");
         });
-
         document.getElementById(page).classList.add("project-page-active");
         document.getElementById("project-container").scrollIntoView();
 
@@ -214,7 +244,9 @@
             document.querySelectorAll(".project-page").forEach((el) => el.classList.remove("project-page-active"));
             targetPage.classList.add("project-page-active");
 
-            document.querySelectorAll(".project-pagination-pages a").forEach((el) => el.classList.remove("project-pagination-pages-current"));
+            document.querySelectorAll(".project-pagination-pages a").forEach((el) => {
+              el.classList.remove("project-pagination-pages-current");
+            });
 
             const activePageIndicator = document.querySelector(`.project-pagination-pages a:nth-child(${pageParam})`);
             if (activePageIndicator) {
@@ -227,7 +259,7 @@
               setTimeout(() => {
                 const sectionElement = document.getElementById(sectionParam);
                 if (sectionElement) {
-                  const offset = 10 * window.innerHeight / 100;
+                  const offset = (window.innerHeight * 10) / 100;
                   const elementPosition = sectionElement.getBoundingClientRect().top + window.scrollY - offset;
                   window.scrollTo({ top: elementPosition, behavior: "smooth" });
                 }
@@ -237,5 +269,6 @@
         }
       });
     </script>
+
   </body>
 </html>

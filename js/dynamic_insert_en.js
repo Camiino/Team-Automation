@@ -20,7 +20,7 @@
             <a class="hide-mobile" href="https://bee-its.de/html_pl/karriere.html">Career</a>
             <a class="hide-mobile" href="https://bee-its.de/html_pl/downloads.html">Downloads</a>
           </div>
-<a href="https://bee-its.de/index.html" class="logo">
+<a href="https://bee-its.de/index_en.html" class="logo">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_170_1245)">
             <path id="changer2" class="changer2" d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>
@@ -122,7 +122,7 @@
 
           <div class="menu-content-box">
             <p class="menu-content-box-title">Navigation</p>
-            <a href="https://bee-its.de/index.html">Home</a>
+            <a href="https://bee-its.de/index_en.html">Home</a>
             <a href="https://bee-its.de/html_pl/leistungsportfolio.html">Services</a>
             <a href="https://bee-its.de/html_pl/anlagen.html">Systems</a>
             <a href="https://bee-its.de/html_pl/prozesse.html">Processes</a>
@@ -192,7 +192,7 @@
             Alboinstrasse 11, D-12103 Berlin
           </p>
 
-<a class="footer-logo" href="https://bee-its.de/index.html">
+<a class="footer-logo" href="https://bee-its.de/index_en.html">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_170_1245)">
             <path d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>

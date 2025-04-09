@@ -59,8 +59,6 @@
       <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
     </div>
 
-    <script></script>
-
     <div class="container-full" id="project-container">
       <div class="container">
         <div class="project-page project-page-active" id="project-page-1">
@@ -73,6 +71,38 @@
             $pass = "YourPassword123!";
             $db   = "newsdb";
             $projectsPerPage = 3;
+
+            // Helper function to manually format Russian dates
+            function formatRussianDate($dateString) {
+              // Map numeric month -> Russian month name
+              $months = [
+                '01' => 'января',
+                '02' => 'февраля',
+                '03' => 'марта',
+                '04' => 'апреля',
+                '05' => 'мая',
+                '06' => 'июня',
+                '07' => 'июля',
+                '08' => 'августа',
+                '09' => 'сентября',
+                '10' => 'октября',
+                '11' => 'ноября',
+                '12' => 'декабря',
+              ];
+
+              // Parse the date (YYYY-mm-dd)
+              $dateObj = DateTime::createFromFormat('Y-m-d', $dateString);
+              // If parsing fails, return raw date
+              if (!$dateObj) return htmlspecialchars($dateString);
+
+              // Extract day, month, year
+              $day   = $dateObj->format('d');
+              $month = $dateObj->format('m');
+              $year  = $dateObj->format('Y');
+
+              // Construct "DD {RussianMonth} YYYY"
+              return "$day {$months[$month]} $year";
+            }
 
             // === CONNECT ===
             $conn = new mysqli($host, $user, $pass, $db);
@@ -111,21 +141,36 @@
 
             if ($result && $result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
-                echo '<div class="project-separator">\n                        <p>Проект ' . $projectIndex . '</p>\n                        <hr />\n                      </div>';
+                // 1) Output the project separator
+                echo <<<HTML
+                <div class="project-separator">
+                  <p>Проект $projectIndex</p>
+                  <hr />
+                </div>
+                HTML;
 
-                // project styling
+                // Decide normal or reverse layout
                 $cssClass = ($projectIndex % 2 === 0) ? "project project-reverse" : "project";
 
-                // date formatting
-                $dateObj = DateTime::createFromFormat('Y-m-d', $row["date"]);
-                $dateFormatted = $dateObj ? $dateObj->format('d. F Y') : htmlspecialchars($row["date"]);
+                // Manually format date in Russian
+                $dateFormatted = formatRussianDate($row["date"]);
 
-                // sanitize
+                // Sanitize content
                 $title = htmlspecialchars($row["title"]);
                 $content = nl2br(htmlspecialchars($row["content"]));
                 $imagePath = htmlspecialchars($row["image_path"]);
 
-                echo '<div class="' . $cssClass . '" id="projekt-' . $projectIndex . '">\n                        <img src="' . $imagePath . '" alt="" class="project-img"/>\n                        <div class="project-text">\n                          <h4>' . $dateFormatted . '</h4>\n                          <h3>' . $title . '</h3>\n                          <p>' . $content . '</p>\n                        </div>\n                      </div>';
+                // 2) Output the project block
+                echo <<<HTML
+                <div class="$cssClass" id="projekt-$projectIndex">
+                  <img src="$imagePath" alt="" class="project-img"/>
+                  <div class="project-text">
+                    <h4>$dateFormatted</h4>
+                    <h3>$title</h3>
+                    <p>$content</p>
+                  </div>
+                </div>
+                HTML;
 
                 $projectIndex++;
               }
@@ -144,6 +189,7 @@
           <!-- DYNAMIC NEWS ENDS HERE -->
         </div>
 
+        <!-- "Ваш новый проект" section -->
         <div class="project project-reverse">
           <img
             src="../assets/images/create.webp"
@@ -158,16 +204,18 @@
               автоматизируем ваши процессы и создадим инновационные решения для ваших
               производственных линий и цепочек. Давайте вместе воплотим вашу идею в реальность!
             </p>
-            <a href="./kontakt.html" class="btn"> Начнём прямо сейчас </a>
+            <a href="./kontakt.html" class="btn">Начнём прямо сейчас</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- SCRIPTS -->
     <script src="../js/script.js?v=1.1"></script>
     <script src="../js/mininav.js?v=1.1"></script>
 
     <script>
+      // Pagination helper
       const projectPages = document.querySelectorAll(".project-page");
       function changePage(event, page) {
         projectPages.forEach((projectPage) => {
@@ -190,6 +238,7 @@
     </script>
 
     <script>
+      // On page load, set correct page if ?page=X in the URL
       document.addEventListener("DOMContentLoaded", function () {
         const urlParams = new URLSearchParams(window.location.search);
         const pageParam = urlParams.get("page");
@@ -203,7 +252,9 @@
             document.querySelectorAll(".project-page").forEach((el) => el.classList.remove("project-page-active"));
             targetPage.classList.add("project-page-active");
 
-            document.querySelectorAll(".project-pagination-pages a").forEach((el) => el.classList.remove("project-pagination-pages-current"));
+            document.querySelectorAll(".project-pagination-pages a").forEach((el) =>
+              el.classList.remove("project-pagination-pages-current")
+            );
 
             const activePageIndicator = document.querySelector(`.project-pagination-pages a:nth-child(${pageParam})`);
             if (activePageIndicator) {
@@ -216,7 +267,7 @@
               setTimeout(() => {
                 const sectionElement = document.getElementById(sectionParam);
                 if (sectionElement) {
-                  const offset = 10 * window.innerHeight / 100;
+                  const offset = (10 * window.innerHeight) / 100;
                   const elementPosition = sectionElement.getBoundingClientRect().top + window.scrollY - offset;
                   window.scrollTo({ top: elementPosition, behavior: "smooth" });
                 }

@@ -15,9 +15,9 @@
           <div class="header-links left">
             <!--   <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
 
-            <a class="hide-mobile" href="https://bee-its.de/html_pl/neuigkeit.php">Новости</a>
-            <a class="hide-mobile" href="https://bee-its.de/html_pl/karriere.html">Карьера</a>
-            <a class="hide-mobile" href="https://bee-its.de/html_pl/downloads.html">Загрузки</a>
+            <a class="hide-mobile" href="https://bee-its.de/html_ru/neuigkeit.php">Новости</a>
+            <a class="hide-mobile" href="https://bee-its.de/html_ru/karriere.html">Карьера</a>
+            <a class="hide-mobile" href="https://bee-its.de/html_ru/downloads.html">Загрузки</a>
           </div>
           <a href="https://bee-its.de/index_ru.html" class="logo">
             <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +67,7 @@
                 <a href="">Polski (PL)</a>
               </div>
             </div>
-            <a class="hide-mobile" href="https://bee-its.de/html_pl/kontakt.html">
+            <a class="hide-mobile" href="https://bee-its.de/html_ru/kontakt.html">
               <img src="https://bee-its.de/assets/icons/contact.svg" alt="" /> Контакт</a
             >
             <div class="search-box">
@@ -122,22 +122,22 @@
           <div class="menu-content-box">
             <p class="menu-content-box-title">Навигация</p>
             <a href="https://bee-its.de/index_ru.html">Главная</a>
-            <a href="https://bee-its.de/html_pl/leistungsportfolio.html">Услуги</a>
-            <a href="https://bee-its.de/html_pl/anlagen.html">Установки</a>
-            <a href="https://bee-its.de/html_pl/prozesse.html">Процессы</a>
-            <a href="https://bee-its.de/html_pl/branchen.html">Отрасли</a>
-            <a href="https://bee-its.de/html_pl/anlagen/halbautomatisch.html">Примеры</a>
-            <a href="https://bee-its.de/html_pl/partner.html">Партнёры</a>
+            <a href="https://bee-its.de/html_ru/leistungsportfolio.html">Услуги</a>
+            <a href="https://bee-its.de/html_ru/anlagen.html">Установки</a>
+            <a href="https://bee-its.de/html_ru/prozesse.html">Процессы</a>
+            <a href="https://bee-its.de/html_ru/branchen.html">Отрасли</a>
+            <a href="https://bee-its.de/html_ru/anlagen/halbautomatisch.html">Примеры</a>
+            <a href="https://bee-its.de/html_ru/partner.html">Партнёры</a>
           </div>
 
           <div class="menu-content-box">
             <p class="menu-content-box-title">Информация</p>
-            <a href="https://bee-its.de/html_pl/aktuelles.html">Новости</a>
-            <a href="https://bee-its.de/html_pl/unternehmen.html">О компании</a>
-            <a href="https://bee-its.de/html_pl/karriere.html">Карьера</a>
-            <a href="https://bee-its.de/html_pl/impressum.html">Импрессум</a>
-            <a href="https://bee-its.de/html_pl/downloads.html">Загрузки</a>
-            <a href="https://bee-its.de/html_pl/kontakt.html">Контакт</a>
+            <a href="https://bee-its.de/html_ru/aktuelles.html">Новости</a>
+            <a href="https://bee-its.de/html_ru/unternehmen.html">О компании</a>
+            <a href="https://bee-its.de/html_ru/karriere.html">Карьера</a>
+            <a href="https://bee-its.de/html_ru/impressum.html">Импрессум</a>
+            <a href="https://bee-its.de/html_ru/downloads.html">Загрузки</a>
+            <a href="https://bee-its.de/html_ru/kontakt.html">Контакт</a>
           </div>
 
           <div class="menu-content-box">
@@ -157,21 +157,21 @@
         <div class="footer-content footer-cols">
           <div class="footer-col">
             <p class="footer-col-title">Навигация</p>
-            <a href="https://bee-its.de/html_pl/leistungsportfolio.html">Услуги</a>
-            <a href="https://bee-its.de/html_pl/anlagen.html">Установки</a>
-            <a href="https://bee-its.de/html_pl/prozesse.html">Процессы</a>
-            <a href="https://bee-its.de/html_pl/branchen.html">Отрасли</a>
-            <a href="https://bee-its.de/html_pl/anlagen/halbautomatisch.html">Примеры</a>
-            <a href="https://bee-its.de/html_pl/partner.html">Партнёры</a>
+            <a href="https://bee-its.de/html_ru/leistungsportfolio.html">Услуги</a>
+            <a href="https://bee-its.de/html_ru/anlagen.html">Установки</a>
+            <a href="https://bee-its.de/html_ru/prozesse.html">Процессы</a>
+            <a href="https://bee-its.de/html_ru/branchen.html">Отрасли</a>
+            <a href="https://bee-its.de/html_ru/anlagen/halbautomatisch.html">Примеры</a>
+            <a href="https://bee-its.de/html_ru/partner.html">Партнёры</a>
           </div>
 
           <div class="footer-col">
             <p class="footer-col-title">Информация</p>
-            <a href="https://bee-its.de/html_pl/neuigkeit.php">Новости</a>
-            <a href="https://bee-its.de/html_pl/unternehmen.html">О компании</a>
-            <a href="https://bee-its.de/html_pl/karriere.html">Карьера</a>
-            <a href="https://bee-its.de/html_pl/impressum.html">Импрессум</a>
-            <a href="https://bee-its.de/html_pl/downloads.html">Загрузки</a>
+            <a href="https://bee-its.de/html_ru/neuigkeit.php">Новости</a>
+            <a href="https://bee-its.de/html_ru/unternehmen.html">О компании</a>
+            <a href="https://bee-its.de/html_ru/karriere.html">Карьера</a>
+            <a href="https://bee-its.de/html_ru/impressum.html">Импрессум</a>
+            <a href="https://bee-its.de/html_ru/downloads.html">Загрузки</a>
           </div>
 
           <div class="footer-col">
@@ -179,7 +179,7 @@
             <a href="">Телефон +49 30 / 60 90 294 - 0</a>
             <a href="">Факс +49 30 / 60 90 294 - 09</a>
             <a href="mailto:info@team-automation-berlin.de" class="email">info@team-automation-berlin.de</a>
-            <a href="https://bee-its.de/html_pl/kontakt.html" class="contact-footer">Связаться</a>
+            <a href="https://bee-its.de/html_ru/kontakt.html" class="contact-footer">Связаться</a>
           </div>
         </div>
         <hr/>

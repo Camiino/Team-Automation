@@ -296,11 +296,11 @@
         <div class="title">
           <h3 class="service">News</h3>
         </div>
-  
+
         <div class="neuigkeiten">
           <div class="swiper swiper-neuigkeiten">
             <div class="swiper-wrapper">
-              <!-- Slides will be dynamically inserted here -->
+              <!-- Dynamically inserted news slides -->
             </div>
             <div class="swiper-scrollbar"></div>
           </div>
@@ -389,43 +389,43 @@
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
         try {
-          const response = await fetch('./html_en/getNews.php');
+          const response = await fetch('./getNews.php');
           const news = await response.json();
-  
+    
           const wrapper = document.querySelector('.swiper-neuigkeiten .swiper-wrapper');
           wrapper.innerHTML = ''; // Clear existing slides
-  
+    
           if (news.length === 0) {
             wrapper.innerHTML = '<div class="swiper-slide"><p>No news available.</p></div>';
             return;
           }
-  
+    
           news.forEach((item, index) => {
             const slide = document.createElement('div');
             slide.className = 'swiper-slide neuigkeit';
-  
+    
             const projectIndex = index + 1; // 1-based index
             const page = Math.ceil(projectIndex / 3);
             const anchor = `projekt-${projectIndex}`;
             const link = `../html_en/neuigkeit.php?page=${page}#${anchor}`;
-  
+    
             slide.innerHTML = `
               <img class="neuigkeit-img" src="${item.image_path}" alt="${item.title}" />
               <div class="neuigkeit-text">
                 <h4>${item.title}</h4>
                 <a href="${link}">
                   <img src="assets/icons/arrow_forwardAlt.svg" />
-                  View details
+                  Show
                 </a>
               </div>
             `;
             wrapper.appendChild(slide);
           });
         } catch (err) {
-          console.error("Error loading news:", err);
+          console.error("Fehler beim Laden der Neuigkeiten:", err);
         }
       });
-    </script>    
+    </script>      
   
   </body>
 </html>

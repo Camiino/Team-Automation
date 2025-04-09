@@ -7,7 +7,9 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
-    <script src="../js/dynamic_insert.js"></script>
+
+    <!-- If you have a dynamic_insert_en.js for header/footer in English -->
+    <script src="../js/dynamic_insert_en.js"></script>
 
     <style>
       @font-face {
@@ -32,6 +34,7 @@
         letter-spacing: 1.5px;
       }
     </style>
+
     <link rel="stylesheet" href="../css/subpage.css" />
   </head>
   <body>
@@ -39,13 +42,13 @@
     <div class="container-full subpage-top">
       <div class="container">
         <div class="breadcrumb">
-          <a href="../index.html">Home</a> > <a href=""> News </a>
+          <a href="../index_en.html">Home</a> > <a href="#">News</a>
         </div>
 
         <img
           class="subpage-top-img"
           src="../assets/images/news.webp"
-          alt="TEAM Automation Berlin News"
+          alt="TEAM Automation Berlin - News"
         />
       </div>
     </div>
@@ -53,14 +56,14 @@
     <div class="mini-nav">
       <a href="#top" onclick="goPageOne(event)">News</a>
       <a href="#newProject">Your New Project</a>
-      <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="scroll-to-top" />
-      <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="toggle-menu" />
+      <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
+      <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
     </div>
 
-    <script></script>
-
+    <!-- Container for dynamic projects/news -->
     <div class="container-full" id="project-container">
       <div class="container">
+        <!-- PAGE 1 (active by default) -->
         <div class="project-page project-page-active" id="project-page-1">
 
           <!-- DYNAMIC NEWS STARTS HERE -->
@@ -75,7 +78,7 @@
             // === CONNECT ===
             $conn = new mysqli($host, $user, $pass, $db);
             if ($conn->connect_error) {
-              die("DB connection failed: " . $conn->connect_error);
+              die("Database connection failed: " . $conn->connect_error);
             }
 
             // === GET CURRENT PAGE ===
@@ -91,13 +94,12 @@
             // === OFFSET ===
             $offset = ($page - 1) * $projectsPerPage;
 
-            // === FETCH ENGLISH COLUMNS (or German if still needed) ===
-            // Example: If your table has "title_en" / "content_en", change below:
+            // === FETCH ENGLISH COLUMNS ===
             $query = "
               SELECT
                 id,
-                title_de AS title,
-                content_de AS content,
+                title_en AS title,
+                content_en AS content,
                 image_path,
                 date
               FROM news
@@ -110,36 +112,44 @@
 
             if ($result && $result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
+                // Project separator
                 echo '<div class="project-separator">
                         <p>Project ' . $projectIndex . '</p>
                         <hr />
                       </div>';
 
-                // Project styling
+                // Decide layout (reverse or normal)
                 $cssClass = ($projectIndex % 2 === 0) ? "project project-reverse" : "project";
 
-                // Date formatting
-                $dateObj = DateTime::createFromFormat('Y-m-d', $row["date"]);
-                $dateFormatted = $dateObj ? $dateObj->format('d. F Y') : htmlspecialchars($row["date"]);
+                setlocale(LC_TIME, 'ru_RU.UTF-8');
 
-                // sanitize
+                // 2) Suppose $dateObj is a valid DateTime. 
+                //    Convert it to a timestamp, then strftime uses the locale:
+                $timestamp = $dateObj->getTimestamp();
+
+                // 3) Use strftime with a format that includes month names, etc.
+                $formattedDate = strftime('%d %B %Y', $timestamp);
+
+                // Sanitize content
                 $title = htmlspecialchars($row["title"]);
                 $content = nl2br(htmlspecialchars($row["content"]));
                 $imagePath = htmlspecialchars($row["image_path"]);
 
-                echo '<div class="' . $cssClass . '" id="project-' . $projectIndex . '">
-                        <img src="' . $imagePath . '" alt="" class="project-img"/>
-                        <div class="project-text">
-                          <h4>' . $dateFormatted . '</h4>
-                          <h3>' . $title . '</h3>
-                          <p>' . $content . '</p>
-                        </div>
-                      </div>';
+                echo '
+                  <div class="' . $cssClass . '" id="projekt-' . $projectIndex . '">
+                    <img src="' . $imagePath . '" alt="News Image" class="project-img"/>
+                    <div class="project-text">
+                      <h4>' . $formattedDate . '</h4>
+                      <h3>' . $title . '</h3>
+                      <p>' . $content . '</p>
+                    </div>
+                  </div>
+                ';
 
                 $projectIndex++;
               }
             } else {
-              echo "<p>No news found.</p>";
+              echo "<p>No news at the moment.</p>";
             }
 
             // === PAGINATION ===
@@ -153,27 +163,29 @@
           <!-- DYNAMIC NEWS ENDS HERE -->
         </div>
 
+        <!-- "Your New Project" section -->
         <div class="project project-reverse">
           <img
             src="../assets/images/create.webp"
-            alt="Create a New Project"
+            alt="Start your new project"
             class="project-img"
           />
           <div class="project-text" id="newProject">
             <h4>Today</h4>
             <h3>Your New Project</h3>
             <p>
-              Imagine your next project becoming part of our success story.
-              Together, we’ll automate your processes and create innovative
-              solutions for your production systems and chains.
-              Let’s turn your vision into reality!
+              Imagine your next project becoming part of our success story. 
+              Together, we will automate your processes and develop innovative 
+              solutions for your production lines. Let us bring your vision 
+              to life!
             </p>
-            <a href="./kontakt.html" class="btn"> Get Started Now </a>
+            <a href="./kontakt.html" class="btn">Get Started</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Scripts -->
     <script src="../js/script.js?v=1.1"></script>
     <script src="../js/mininav.js?v=1.1"></script>
 
@@ -183,7 +195,6 @@
         projectPages.forEach((projectPage) => {
           projectPage.classList.remove("project-page-active");
         });
-
         document.getElementById(page).classList.add("project-page-active");
         document.getElementById("project-container").scrollIntoView();
 
@@ -210,10 +221,14 @@
           const targetPage = document.getElementById(pageId);
 
           if (targetPage) {
-            document.querySelectorAll(".project-page").forEach((el) => el.classList.remove("project-page-active"));
+            document.querySelectorAll(".project-page").forEach((el) => {
+              el.classList.remove("project-page-active");
+            });
             targetPage.classList.add("project-page-active");
 
-            document.querySelectorAll(".project-pagination-pages a").forEach((el) => el.classList.remove("project-pagination-pages-current"));
+            document.querySelectorAll(".project-pagination-pages a").forEach((el) => {
+              el.classList.remove("project-pagination-pages-current");
+            });
 
             const activePageIndicator = document.querySelector(`.project-pagination-pages a:nth-child(${pageParam})`);
             if (activePageIndicator) {
@@ -226,7 +241,7 @@
               setTimeout(() => {
                 const sectionElement = document.getElementById(sectionParam);
                 if (sectionElement) {
-                  const offset = 10 * window.innerHeight / 100;
+                  const offset = (window.innerHeight * 10) / 100;
                   const elementPosition = sectionElement.getBoundingClientRect().top + window.scrollY - offset;
                   window.scrollTo({ top: elementPosition, behavior: "smooth" });
                 }
@@ -236,5 +251,6 @@
         }
       });
     </script>
+
   </body>
 </html>
