@@ -126,7 +126,7 @@
           <a href="https://bee-its.de/html_pl/anlagen.html">Anlagen</a>
           <a href="https://bee-its.de/html_pl/prozesse.html">Prozesse</a>
           <a href="https://bee-its.de/html_pl/branchen.html">Branchen</a>
-          <a href="https://bee-its.de/html_pl/anlagen/halbautomatisch.html">Beispiele</a>
+          <a href="https://bee-its.de/html_pl/anlagen/vollautomatisch.html">Beispiele</a>
           <a href="https://bee-its.de/html_pl/partner.html">Partner</a>
         </div>
 
@@ -161,7 +161,7 @@
           <a href="https://bee-its.de/html_pl/anlagen.html">Anlagen</a>
           <a href="https://bee-its.de/html_pl/prozesse.html">Prozesse</a>
           <a href="https://bee-its.de/html_pl/branchen.html">Branchen</a>
-          <a href="https://bee-its.de/html_pl/anlagen/halbautomatisch.html">Beispiele</a>
+          <a href="https://bee-its.de/html_pl/anlagen/vollautomatisch.html">Beispiele</a>
           <a href="https://bee-its.de/html_pl/partner.html">Partner</a>
         </div>
 

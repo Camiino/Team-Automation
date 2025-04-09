@@ -122,9 +122,6 @@
                 $cssClass = ($projectIndex % 2 === 0) ? "project project-reverse" : "project";
 
                 setlocale(LC_TIME, 'ru_RU.UTF-8');
-
-                // 2) Suppose $dateObj is a valid DateTime. 
-                //    Convert it to a timestamp, then strftime uses the locale:
                 $timestamp = $dateObj->getTimestamp();
 
                 // 3) Use strftime with a format that includes month names, etc.

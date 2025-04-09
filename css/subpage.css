@@ -1147,7 +1147,6 @@ footer {
 }
 /* ------------------ Subpage  Header ---------------- */
 header {
-  position: static;
   background-color: white;
 }
 header .header-links a,
@@ -1164,7 +1163,7 @@ header .header-links .search-box img {
 
 /* ------------------ Subpage  Hamburger ---------------- */
 .hamburger {
-  position: absolute;
+  position: fixed;
   -webkit-filter: brightness(0) saturate(100%);
           filter: brightness(0) saturate(100%);
 }
@@ -1184,6 +1183,7 @@ header .header-links .search-box img {
   gap: 15px;
   padding-bottom: 20px;
   border-bottom: 3px solid var(--primary-color);
+  margin-top: 3rem;
 }
 .subpage-top .breadcrumb a {
   text-decoration: none;
@@ -1207,7 +1207,6 @@ header .header-links .search-box img {
 .mini-nav {
   max-width: 1400px;
   border-radius: 50px;
-  position: sticky;
   top: 0;
   background-color: var(--primary-color);
   padding: 20px 30px;
@@ -1907,6 +1906,9 @@ header .header-links .search-box img {
   .tabcontent {
     gap: 30px;
   }
+  .breadcrumb{
+    margin-top: 3.5rem !important;
+  }
 }
 @media only screen and (max-width: 480px) {
   .project {
@@ -1971,11 +1973,13 @@ header .header-links .search-box img {
 
 
 .contact-grid {
-  margin-top: 3rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 5rem;
 }
 
 .contact-grid .person {
@@ -2023,7 +2027,6 @@ header .header-links .search-box img {
     width: 100%;
   }
   .contact-grid .person {
-    margin-top: 2rem;
     width: 100%;
   }
   .contact-grid .person .person-desc {

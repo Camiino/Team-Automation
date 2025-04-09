@@ -241,7 +241,7 @@ document.addEventListener('commonSectionsLoaded', function () {
             { name: "Unternehmen", url: baseUrlDe + "unternehmen.html" },
             { name: "Impressum", url: baseUrlDe + "impressum.html" },
             // Additional
-            { name: "Beispiele", url: baseUrlDe + "anlagen/halbautomatisch.html" },
+            { name: "Beispiele", url: baseUrlDe + "anlagen/vollautomatisch.html" },
     
             // Branchen
             { name: "Automobilindustrie", url: baseUrlDe + "branchen/automobilindustrie.html" },
@@ -350,7 +350,7 @@ document.addEventListener('commonSectionsLoaded', function () {
             { name: "Firma", url: baseUrlPl + "unternehmen.html" },
             { name: "Impressum", url: baseUrlPl + "impressum.html" },
             // Dodatkowe
-            { name: "Przykłady", url: baseUrlPl + "anlagen/halbautomatisch.html" },
+            { name: "Przykłady", url: baseUrlPl + "anlagen/vollautomatisch.html" },
     
             // Branże
             { name: "Przemysł motoryzacyjny", url: baseUrlPl + "branchen/automobilindustrie.html" },
@@ -455,7 +455,7 @@ document.addEventListener('commonSectionsLoaded', function () {
             { name: "Company", url: baseUrlEn + "unternehmen.html" },
             { name: "Imprint", url: baseUrlEn + "impressum.html" },
             // Additional
-            { name: "Examples", url: baseUrlEn + "anlagen/halbautomatisch.html" },
+            { name: "Examples", url: baseUrlEn + "anlagen/vollautomatisch.html" },
     
             // Sectors (Branchen)
             { name: "Automotive Industry", url: baseUrlEn + "branchen/automobilindustrie.html" },
@@ -562,7 +562,7 @@ document.addEventListener('commonSectionsLoaded', function () {
             { name: "О компании", url: baseUrlRu + "unternehmen.html" },
             { name: "Импрессум", url: baseUrlRu + "impressum.html" },
             // Additional
-            { name: "Примеры", url: baseUrlRu + "anlagen/halbautomatisch.html" },
+            { name: "Примеры", url: baseUrlRu + "anlagen/vollautomatisch.html" },
     
             // Отрасли (Branchen)
             { name: "Автомобильная промышленность", url: baseUrlRu + "branchen/automobilindustrie.html" },

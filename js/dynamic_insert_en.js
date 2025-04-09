@@ -14,7 +14,7 @@
       <header>
         <div class="header-content">
           <div class="header-links left">
-            <!--   <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
+            <!-- <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
 
             <a class="hide-mobile" href="https://bee-its.de/html_pl/neuigkeit.php">News</a>
             <a class="hide-mobile" href="https://bee-its.de/html_pl/karriere.html">Career</a>
@@ -127,7 +127,7 @@
             <a href="https://bee-its.de/html_pl/anlagen.html">Systems</a>
             <a href="https://bee-its.de/html_pl/prozesse.html">Processes</a>
             <a href="https://bee-its.de/html_pl/branchen.html">Sectors</a>
-            <a href="https://bee-its.de/html_pl/anlagen/halbautomatisch.html">Examples</a>
+            <a href="https://bee-its.de/html_pl/anlagen/vollautomatisch.html">Examples</a>
             <a href="https://bee-its.de/html_pl/partner.html">Partners</a>
           </div>
 
@@ -162,7 +162,7 @@
             <a href="https://bee-its.de/html_pl/anlagen.html">Systems</a>
             <a href="https://bee-its.de/html_pl/prozesse.html">Processes</a>
             <a href="https://bee-its.de/html_pl/branchen.html">Sectors</a>
-            <a href="https://bee-its.de/html_pl/anlagen/halbautomatisch.html">Examples</a>
+            <a href="https://bee-its.de/html_pl/anlagen/vollautomatisch.html">Examples</a>
             <a href="https://bee-its.de/html_pl/partner.html">Partners</a>
           </div>
 
