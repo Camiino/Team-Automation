@@ -36,7 +36,7 @@
         letter-spacing: 1.5px;
       }
 
-      /* Multi-language Anzeige: Standardmäßig soll nur der aktive Block sichtbar sein */
+      /* Multi-language Anzeige: Standardmäßig wird nur der aktive Block gezeigt */
       .lang-title,
       .lang-text {
         display: none;
@@ -46,7 +46,7 @@
         display: block;
       }
 
-      /* Optional: Visuelle Hervorhebung der aktiven Tabs */
+      /* Visuelle Hervorhebung der aktiven Tabs */
       .lang-tabs .tab {
         transition: background-color 0.2s ease;
         cursor: pointer;
@@ -55,26 +55,23 @@
         background-color: #ccc;
       }
       
-      /* Falls noch nötig: Zusätzliche Anpassungen für das Layout der Spalten */
+      /* Layout-Anpassungen für die Spalten */
       .lang-wrapper,
       .text-wrapper {
         flex: 1;
       }
     </style>
   </head>
-
   <body>
     <div class="container-full bg-grey">
       <div class="container text-section">
         <div class="breadcrumb">
           <a href="../index.html">Home</a> > <a href="#">Dashboard</a>
         </div>
-
         <div class="sub-content">
           <div class="title">
             <h2>Dashboard</h2>
           </div>
-
           <div class="content-grid" style="grid-template-columns: initial!important;">
             <!-- FORM: Submit new multi-language news -->
             <div class="form-container">
@@ -82,66 +79,48 @@
                 <div class="row">
                   <div>
                     <label for="date">Datum:</label>
-                    <input
-                      type="text"
-                      id="date"
-                      name="date"
-                      placeholder="TT.MM.JJJJ"
-                      pattern="\d{2}\.\d{2}\.\d{4}"
-                      required
-                    />
+                    <input type="text" id="date" name="date" placeholder="TT.MM.JJJJ" pattern="\d{2}\.\d{2}\.\d{4}" required />
                     <small style="color: gray;">Format: TT.MM.JJJJ</small>
                   </div>
-
                   <div>
                     <label for="image">Bild Hochladen:</label>
                     <input type="file" id="image" name="image" required />
                   </div>
                 </div>
-
                 <!-- Language fields: DE, EN, PL, RU -->
                 <div class="lang-fields">
                   <!-- German -->
                   <div class="lang-column">
                     <label for="title_de">Titel (DE):</label>
                     <input type="text" id="title_de" name="title_de" required />
-
                     <label for="content_de">Inhalt (DE):</label>
                     <textarea id="content_de" name="content_de" required></textarea>
                   </div>
-
                   <!-- English -->
                   <div class="lang-column">
                     <label for="title_en">Title (EN):</label>
                     <input type="text" id="title_en" name="title_en" required />
-
                     <label for="content_en">Content (EN):</label>
                     <textarea id="content_en" name="content_en" required></textarea>
                   </div>
-
                   <!-- Polish -->
                   <div class="lang-column">
                     <label for="title_pl">Tytuł (PL):</label>
                     <input type="text" id="title_pl" name="title_pl" required />
-
                     <label for="content_pl">Treść (PL):</label>
                     <textarea id="content_pl" name="content_pl" required></textarea>
                   </div>
-
                   <!-- Russian -->
                   <div class="lang-column">
                     <label for="title_ru">Заголовок (RU):</label>
                     <input type="text" id="title_ru" name="title_ru" required />
-
                     <label for="content_ru">Содержание (RU):</label>
                     <textarea id="content_ru" name="content_ru" required></textarea>
                   </div>
                 </div>
-
                 <button type="submit" style="margin-top:1rem;">Neuigkeit Hochladen</button>
               </form>
             </div>
-
             <!-- NEWS LIST: Existing News Items -->
             <div class="news-list-section" style="margin-top: 2rem;">
               <h3>Bestehende Neuigkeiten</h3>
@@ -151,7 +130,7 @@
         </div>
       </div>
     </div>
-
+    
     <script>
       // Datumseingabe validieren (TT.MM.JJJJ)
       document.querySelector('form').addEventListener('submit', function (e) {
@@ -164,34 +143,33 @@
           dateInput.focus();
         }
       });
-
+      
       // Hilfsfunktion zum Escapen von HTML
       function escapeHTML(str) {
         const div = document.createElement('div');
         div.textContent = str;
         return div.innerHTML;
       }
-
+      
       async function loadNews() {
         try {
-          // Hole alle Spalten aus getNews.php:
-          // Erwartet werden Felder: title_de, content_de, title_en, content_en, title_pl, content_pl, title_ru, content_ru, date, image_path, id
+          // Hole alle benötigten Felder aus getNews.php (title_de, content_de, title_en, content_en, etc.)
           const response = await fetch('../getNews.php');
           const news = await response.json();
           const container = document.getElementById('newsContainer');
           container.innerHTML = '';
-
+      
           if (!news || news.length === 0) {
             container.innerHTML = '<p>Keine Neuigkeiten vorhanden.</p>';
             return;
           }
-
+      
           news.forEach(item => {
             const card = document.createElement('div');
             card.className = 'news-card';
             card.style = "border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; border-radius: 8px;";
-
-            // Optionales Bild vorbereiten
+      
+            // Optionales Bild
             let imageHTML = '';
             if (item.image_path) {
               imageHTML = `
@@ -202,23 +180,20 @@
                 />
               `;
             }
-
-            // News-Card mit 3 Spalten: Bild / Titel+Tabs / Text
+      
+            // News-Card in 3 Spalten: Bild / Titel + Tabs / Text
             card.innerHTML = `
               <div class="content" style="display: flex; flex-direction: row; gap: 2rem;">
                 ${imageHTML}
                 <!-- Spalte 2: Überschrift + Tab-Navigation -->
                 <div class="lang-wrapper">
-                  <!-- Tab-Navigation -->
                   <ul class="lang-tabs" style="display: flex; list-style: none; padding: 0; gap: 10px; margin: 1rem 0;">
                     <li class="tab active" data-lang="de" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">DE</li>
                     <li class="tab" data-lang="en" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">EN</li>
                     <li class="tab" data-lang="pl" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">PL</li>
                     <li class="tab" data-lang="ru" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">RU</li>
                   </ul>
-                  <!-- Datum -->
                   <h4>Datum: ${escapeHTML(item.date)}</h4>
-                  <!-- Mehrsprachige Titel -->
                   <div class="lang-title de active">
                     <h4 style="margin-top:1rem;">
                       Titel (DE): <span class="news-title">${escapeHTML(item.title_de)}</span>
@@ -268,25 +243,31 @@
             `;
             container.appendChild(card);
           });
-
-          // Tab-Event-Listener: Umschalten von Titel und Text
+      
+          // Tab-Event-Listener: Vor Tabwechsel prüfen, ob gerade editiert wird
           document.querySelectorAll('.lang-tabs .tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-              const selectedLang = this.getAttribute("data-lang");
+            tab.addEventListener('click', function(e) {
               const card = this.closest('.news-card');
-              
+              // Wenn in dieser Karte Editierfelder vorhanden sind, abbrechen
+              if (card.querySelector('.edit-title-input, .edit-content-textarea')) {
+                alert("Bitte speichern oder brechen Sie Ihre Änderungen ab, bevor Sie den Tab wechseln.");
+                e.preventDefault();
+                return;
+              }
+      
+              const selectedLang = this.getAttribute("data-lang");
               // Alle Tabs in der Karte zurücksetzen
               card.querySelectorAll('.lang-tabs .tab').forEach(t => t.classList.remove('active'));
               this.classList.add('active');
-              
-              // Alle Titelfelder umschalten
+      
+              // Umschalten der Titelfelder
               card.querySelectorAll('.lang-title').forEach(titleEl => {
                 titleEl.classList.remove('active');
                 if (titleEl.classList.contains(selectedLang)) {
                   titleEl.classList.add('active');
                 }
               });
-              // Alle Textfelder umschalten
+              // Umschalten der Textfelder
               card.querySelectorAll('.lang-text').forEach(textEl => {
                 textEl.classList.remove('active');
                 if (textEl.classList.contains(selectedLang)) {
@@ -299,65 +280,64 @@
           console.error("Fehler beim Laden der Neuigkeiten:", err);
         }
       }
-
+      
       function toggleEdit(btn, newsId) {
         const card = btn.closest('.news-card');
-        // Ermittle den aktuell aktiven Sprachcode via aktiven Tab
+        // Ermittle den aktiven Tab und somit den Sprachcode
         const activeTab = card.querySelector('.lang-tabs .tab.active');
         if (!activeTab) {
           alert("Kein aktiver Sprachtab gefunden.");
           return;
         }
         const lang = activeTab.getAttribute("data-lang");
-        
-        // Finde die aktiven Titel- und Textfelder
+      
+        // Finde die editierten Titel- und Inhaltfelder
         const activeTitleDiv = card.querySelector('.lang-wrapper .lang-title.active');
         const activeTextDiv = card.querySelector('.text-wrapper .lang-text.active');
-        
-        // Prüfe, ob bereits im Editiermodus
+      
+        // Prüfe, ob wir bereits im Editiermodus sind
         const titleInput = activeTitleDiv.querySelector('.edit-title-input');
         const contentTextarea = activeTextDiv.querySelector('.edit-content-textarea');
-        
+      
         if (!titleInput && !contentTextarea) {
-          // Noch nicht im Editiermodus: Ersetze Title und Content durch Eingabefelder
+          // Noch nicht editiert: Ersetze Anzeige durch Eingabefelder
           const currentTitle = activeTitleDiv.querySelector('.news-title').textContent;
           const currentContent = activeTextDiv.querySelector('.neuigkeit-text').textContent;
-          
+      
           const inputTitle = document.createElement('input');
           inputTitle.type = 'text';
           inputTitle.className = 'edit-title-input';
           inputTitle.value = currentTitle;
           inputTitle.style.padding = '4px';
           inputTitle.style.fontSize = '1em';
-          
+      
           const textareaContent = document.createElement('textarea');
           textareaContent.className = 'edit-content-textarea';
           textareaContent.value = currentContent;
           textareaContent.style.width = '100%';
           textareaContent.style.boxSizing = 'border-box';
-          
+      
           activeTitleDiv.querySelector('.news-title').replaceWith(inputTitle);
           activeTextDiv.querySelector('.neuigkeit-text').replaceWith(textareaContent);
-          
+      
           btn.textContent = 'Speichern';
           inputTitle.focus();
         } else {
-          // Bereits im Editiermodus: Lese die neuen Werte aus
+          // Im Editiermodus: Neue Werte auslesen und via AJAX senden
           const newTitle = titleInput.value;
           const newContent = contentTextarea.value;
-          
           updateNewsData(newsId, lang, newTitle, newContent)
             .then(response => {
               const spanTitle = document.createElement('span');
               spanTitle.className = 'news-title';
               spanTitle.textContent = newTitle;
               titleInput.replaceWith(spanTitle);
-              
+      
               const pContent = document.createElement('p');
               pContent.className = 'neuigkeit-text';
               pContent.textContent = newContent;
               contentTextarea.replaceWith(pContent);
-              
+      
               btn.textContent = 'Bearbeiten';
             })
             .catch(err => {
@@ -366,7 +346,7 @@
             });
         }
       }
-
+      
       async function updateNewsData(newsId, lang, newTitle, newContent) {
         const response = await fetch('updateNews.php', {
           method: 'POST',
@@ -376,7 +356,7 @@
         const result = await response.text();
         return result;
       }
-
+      
       async function deleteNews(id) {
         if (!confirm("Willst du diese Neuigkeit wirklich löschen?")) return;
         try {
@@ -392,13 +372,13 @@
           console.error("Fehler beim Löschen:", err);
         }
       }
-
+      
       document.addEventListener("DOMContentLoaded", loadNews);
     </script>
-
+    
     <!-- Externe JS-Skripte -->
     <script src="../js/script.js?v=1.1"></script>
-    <!-- Falls du dynamic_insert_all.js nicht mehr brauchst, kannst du diese Zeile entfernen -->
+    <!-- Falls du dynamic_insert_all.js nicht mehr brauchst, diesen Tag entfernen -->
     <!-- <script src="../js/dynamic_insert_all.js"></script> -->
     <script src="../js/swiper-bundle.min.js?v=1.1"></script>
     <script>
