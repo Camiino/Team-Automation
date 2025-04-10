@@ -36,29 +36,29 @@
         letter-spacing: 1.5px;
       }
 
-      /* Additional styling for multi-language fields */
-      .lang-fields {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
+      /* Multi-language Anzeige: Standardmäßig soll nur der aktive Block sichtbar sein */
+      .lang-title,
+      .lang-text {
+        display: none;
       }
-      .lang-column {
-        flex: 1 1 300px;
-        min-width: 280px;
+      .lang-title.active,
+      .lang-text.active {
+        display: block;
       }
-      .lang-column label {
-        font-weight: bold;
-        display: inline-block;
-        margin-top: 1rem;
+
+      /* Optional: Visuelle Hervorhebung der aktiven Tabs */
+      .lang-tabs .tab {
+        transition: background-color 0.2s ease;
+        cursor: pointer;
       }
-      .lang-column textarea,
-      .lang-column input[type="text"] {
-        width: 100%;
-        box-sizing: border-box;
+      .lang-tabs .tab.active {
+        background-color: #ccc;
       }
-      .news-card h4 {
-        margin-top: 0.5rem;
-        margin-bottom: 0.25rem;
+      
+      /* Falls noch nötig: Zusätzliche Anpassungen für das Layout der Spalten */
+      .lang-wrapper,
+      .text-wrapper {
+        flex: 1;
       }
     </style>
   </head>
@@ -153,7 +153,7 @@
     </div>
 
     <script>
-      // Validate the date format (TT.MM.JJJJ)
+      // Datumseingabe validieren (TT.MM.JJJJ)
       document.querySelector('form').addEventListener('submit', function (e) {
         const dateInput = document.getElementById('date');
         const dateValue = dateInput.value.trim();
@@ -165,6 +165,7 @@
         }
       });
 
+      // Hilfsfunktion zum Escapen von HTML
       function escapeHTML(str) {
         const div = document.createElement('div');
         div.textContent = str;
@@ -172,218 +173,218 @@
       }
 
       async function loadNews() {
-  try {
-    // Hole alle Spalten aus getNews.php, dabei müssen die folgenden Felder zurückgegeben werden:
-    // title_de, content_de, title_en, content_en, title_pl, content_pl, title_ru, content_ru, date, image_path, id
-    const response = await fetch('../getNews.php');
-    const news = await response.json();
-    const container = document.getElementById('newsContainer');
-    container.innerHTML = '';
+        try {
+          // Hole alle Spalten aus getNews.php:
+          // Erwartet werden Felder: title_de, content_de, title_en, content_en, title_pl, content_pl, title_ru, content_ru, date, image_path, id
+          const response = await fetch('../getNews.php');
+          const news = await response.json();
+          const container = document.getElementById('newsContainer');
+          container.innerHTML = '';
 
-    if (!news || news.length === 0) {
-      container.innerHTML = '<p>Keine Neuigkeiten vorhanden.</p>';
-      return;
-    }
+          if (!news || news.length === 0) {
+            container.innerHTML = '<p>Keine Neuigkeiten vorhanden.</p>';
+            return;
+          }
 
-    news.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'news-card';
-      card.style = "border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; border-radius: 8px;";
+          news.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'news-card';
+            card.style = "border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; border-radius: 8px;";
 
-      // Optionales Bild vorbereiten
-      let imageHTML = '';
-      if (item.image_path) {
-        imageHTML = `
-          <img
-            src="${item.image_path}"
-            alt="${escapeHTML(item.title_de || 'News-Image')}"
-            style="width: 30%; display:block; height: auto; border-radius: 8px; object-fit: fill;"
-          />
-        `;
-      }
+            // Optionales Bild vorbereiten
+            let imageHTML = '';
+            if (item.image_path) {
+              imageHTML = `
+                <img
+                  src="${item.image_path}"
+                  alt="${escapeHTML(item.title_de || 'News-Image')}"
+                  style="width: 30%; display:block; height: auto; border-radius: 8px; object-fit: fill;"
+                />
+              `;
+            }
 
-      // Aufbau der News-Card inklusive Tab-Navigation, Sprachinhalten und Buttons zum Bearbeiten / Löschen
-      card.innerHTML = `
-      <div class="content" style="display: flex; flex-direction: row; gap: 2rem;">
-        ${imageHTML}
-        <!-- Zweite Spalte: Überschrift + Tab-Navigation -->
-        <div class="lang-wrapper" style="flex: 1;">
-          <!-- Tab-Navigation -->
-          <ul class="lang-tabs" style="display: flex; list-style: none; padding: 0; gap: 10px; margin: 1rem 0;">
-            <li class="tab active" data-lang="de" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">DE</li>
-            <li class="tab" data-lang="en" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">EN</li>
-            <li class="tab" data-lang="pl" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">PL</li>
-            <li class="tab" data-lang="ru" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">RU</li>
-          </ul>
-          <!-- Datum -->
-          <h4>Datum: ${escapeHTML(item.date)}</h4>
-          <!-- Mehrsprachige Titel (nur ein Element pro Sprache, standardmäßig sichtbar nur für 'de') -->
-          <div class="lang-title de active">
-            <h4 style="margin-top:1rem;">
-              Titel (DE): 
-              <span class="news-title">${escapeHTML(item.title_de)}</span>
-            </h4>
-          </div>
-          <div class="lang-title en">
-            <h4 style="margin-top:1rem;">
-              Title (EN): 
-              <span class="news-title">${escapeHTML(item.title_en)}</span>
-            </h4>
-          </div>
-          <div class="lang-title pl">
-            <h4 style="margin-top:1rem;">
-              Tytuł (PL): 
-              <span class="news-title">${escapeHTML(item.title_pl)}</span>
-            </h4>
-          </div>
-          <div class="lang-title ru">
-            <h4 style="margin-top:1rem;">
-              Заголовок (RU): 
-              <span class="news-title">${escapeHTML(item.title_ru)}</span>
-            </h4>
-          </div>
-        </div>
-        <!-- Dritte Spalte: Inhalt -->
-        <div class="text-wrapper" style="flex: 1;">
-          <div class="lang-text de active">
-            <p class="neuigkeit-text">${escapeHTML(item.content_de)}</p>
-          </div>
-          <div class="lang-text en">
-            <p class="neuigkeit-text">${escapeHTML(item.content_en)}</p>
-          </div>
-          <div class="lang-text pl">
-            <p class="neuigkeit-text">${escapeHTML(item.content_pl)}</p>
-          </div>
-          <div class="lang-text ru">
-            <p class="neuigkeit-text">${escapeHTML(item.content_ru)}</p>
-          </div>
-        </div>
-      </div>
-      <!-- Buttons: Bearbeiten und Löschen -->
-      <div style="margin-top: 10px;">
-        <button class="edit-btn" onclick="toggleEdit(this, ${item.id})" style="background: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; margin-right: 10px;">
-          Bearbeiten
-        </button>
-        <button onclick="deleteNews(${item.id})" style="background: #c0392b; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">
-          Löschen
-        </button>
-      </div>
-    `;
+            // News-Card mit 3 Spalten: Bild / Titel+Tabs / Text
+            card.innerHTML = `
+              <div class="content" style="display: flex; flex-direction: row; gap: 2rem;">
+                ${imageHTML}
+                <!-- Spalte 2: Überschrift + Tab-Navigation -->
+                <div class="lang-wrapper">
+                  <!-- Tab-Navigation -->
+                  <ul class="lang-tabs" style="display: flex; list-style: none; padding: 0; gap: 10px; margin: 1rem 0;">
+                    <li class="tab active" data-lang="de" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">DE</li>
+                    <li class="tab" data-lang="en" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">EN</li>
+                    <li class="tab" data-lang="pl" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">PL</li>
+                    <li class="tab" data-lang="ru" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">RU</li>
+                  </ul>
+                  <!-- Datum -->
+                  <h4>Datum: ${escapeHTML(item.date)}</h4>
+                  <!-- Mehrsprachige Titel -->
+                  <div class="lang-title de active">
+                    <h4 style="margin-top:1rem;">
+                      Titel (DE): <span class="news-title">${escapeHTML(item.title_de)}</span>
+                    </h4>
+                  </div>
+                  <div class="lang-title en">
+                    <h4 style="margin-top:1rem;">
+                      Title (EN): <span class="news-title">${escapeHTML(item.title_en)}</span>
+                    </h4>
+                  </div>
+                  <div class="lang-title pl">
+                    <h4 style="margin-top:1rem;">
+                      Tytuł (PL): <span class="news-title">${escapeHTML(item.title_pl)}</span>
+                    </h4>
+                  </div>
+                  <div class="lang-title ru">
+                    <h4 style="margin-top:1rem;">
+                      Заголовок (RU): <span class="news-title">${escapeHTML(item.title_ru)}</span>
+                    </h4>
+                  </div>
+                </div>
+                <!-- Spalte 3: Inhalt -->
+                <div class="text-wrapper">
+                  <div class="lang-text de active">
+                    <p class="neuigkeit-text">${escapeHTML(item.content_de)}</p>
+                  </div>
+                  <div class="lang-text en">
+                    <p class="neuigkeit-text">${escapeHTML(item.content_en)}</p>
+                  </div>
+                  <div class="lang-text pl">
+                    <p class="neuigkeit-text">${escapeHTML(item.content_pl)}</p>
+                  </div>
+                  <div class="lang-text ru">
+                    <p class="neuigkeit-text">${escapeHTML(item.content_ru)}</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Buttons: Bearbeiten und Löschen -->
+              <div style="margin-top: 10px;">
+                <button class="edit-btn" onclick="toggleEdit(this, ${item.id})" style="background: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-right: 10px;">
+                  Bearbeiten
+                </button>
+                <button onclick="deleteNews(${item.id})" style="background: #c0392b; color: white; border: none; padding: 8px 12px; border-radius: 4px;">
+                  Löschen
+                </button>
+              </div>
+            `;
+            container.appendChild(card);
+          });
 
-
-      container.appendChild(card);
-    });
-
-    // Füge Event-Listener für den Tab-Wechsel hinzu (sobald die News-Cards geladen sind)
-    document.querySelectorAll('.lang-tabs .tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        const selectedLang = this.getAttribute('data-lang');
-        const card = this.closest('.news-card');
-        // Entferne "active" von allen Tabs in der jeweiligen Card
-        card.querySelectorAll('.lang-tabs .tab').forEach(t => t.classList.remove('active'));
-        // Setze den aktiven Tab
-        this.classList.add('active');
-        // Verberge alle Sprachinhalte in der Card und zeige nur den Inhalt der ausgewählten Sprache
-        card.querySelectorAll('.lang-content').forEach(content => content.classList.remove('active'));
-        const selectedContent = card.querySelector('.lang-content.' + selectedLang);
-        if (selectedContent) {
-          selectedContent.classList.add('active');
+          // Tab-Event-Listener: Umschalten von Titel und Text
+          document.querySelectorAll('.lang-tabs .tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+              const selectedLang = this.getAttribute("data-lang");
+              const card = this.closest('.news-card');
+              
+              // Alle Tabs in der Karte zurücksetzen
+              card.querySelectorAll('.lang-tabs .tab').forEach(t => t.classList.remove('active'));
+              this.classList.add('active');
+              
+              // Alle Titelfelder umschalten
+              card.querySelectorAll('.lang-title').forEach(titleEl => {
+                titleEl.classList.remove('active');
+                if (titleEl.classList.contains(selectedLang)) {
+                  titleEl.classList.add('active');
+                }
+              });
+              // Alle Textfelder umschalten
+              card.querySelectorAll('.lang-text').forEach(textEl => {
+                textEl.classList.remove('active');
+                if (textEl.classList.contains(selectedLang)) {
+                  textEl.classList.add('active');
+                }
+              });
+            });
+          });
+        } catch (err) {
+          console.error("Fehler beim Laden der Neuigkeiten:", err);
         }
-      });
-    });
-  } catch (err) {
-    console.error("Fehler beim Laden der Neuigkeiten:", err);
-  }
-}
-
-// Funktion zum Umschalten zwischen Bearbeiten und Speichern
-function toggleEdit(btn, newsId) {
-  // Finde die News-Card, in der der Button geklickt wurde
-  const card = btn.closest('.news-card');
-  // Hole den aktuell aktiven Sprachblock
-  const activeContent = card.querySelector('.lang-content.active');
-  if (!activeContent) return;
-  
-  // Im aktiven Content suchen wir das span-Element, das den Titel enthält oder alternativ das Input-Feld (falls bereits im Editiermodus)
-  const titleSpan = activeContent.querySelector('.news-title');
-  const inputField = activeContent.querySelector('.edit-title-input');
-
-  if (!inputField && titleSpan) {
-    // Noch nicht im Editiermodus: Span in ein Input-Feld umwandeln
-    const currentTitle = titleSpan.textContent;
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.value = currentTitle;
-    input.className = 'edit-title-input';
-    // Optional: Style anpassen (z. B. Padding, Breite)
-    input.style.padding = '4px';
-    input.style.fontSize = '1em';
-    // Ersetze das span durch das Input-Feld
-    titleSpan.parentNode.replaceChild(input, titleSpan);
-    // Ändere den Button-Text zu "Speichern"
-    btn.textContent = 'Speichern';
-    // Optional: Fokussiere das Input-Feld
-    input.focus();
-  } else if (inputField) {
-    // Bereits im Editiermodus -> Titel speichern
-    const newTitle = inputField.value;
-    // Ermittle den Sprachcode: Suche in den Klassen des aktiven Sprach-Containers (z. B. 'de', 'en', etc.)
-    let lang = '';
-    activeContent.classList.forEach(cls => {
-      if (['de', 'en', 'pl', 'ru'].includes(cls)) {
-        lang = cls;
       }
-    });
-    if (!lang) {
-      alert('Sprachcode nicht gefunden.');
-      return;
-    }
-    
-    // Sende den neuen Titel per AJAX an updateNews.php
-    updateNewsTitle(newsId, lang, newTitle)
-      .then(response => {
-        // Nach erfolgreichem Update: Erstelle wieder ein span-Element mit dem neuen Titel
-        const span = document.createElement('span');
-        span.className = 'news-title';
-        span.textContent = newTitle;
-        inputField.parentNode.replaceChild(span, inputField);
-        // Setze den Button-Text zurück zu "Bearbeiten"
-        btn.textContent = 'Bearbeiten';
-      })
-      .catch(err => {
-        console.error("Fehler beim Aktualisieren des Titels:", err);
-        alert("Aktualisierung fehlgeschlagen.");
-      });
-  }
-}
 
-// Funktion, die den neuen Titel per AJAX an den Server sendet
-async function updateNewsTitle(newsId, lang, newTitle) {
-  const response = await fetch('updateNews.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `id=${encodeURIComponent(newsId)}&lang=${encodeURIComponent(lang)}&title=${encodeURIComponent(newTitle)}`
-  });
-  const result = await response.text();
-  return result;
-}
+      function toggleEdit(btn, newsId) {
+        const card = btn.closest('.news-card');
+        // Ermittle den aktuell aktiven Sprachcode via aktiven Tab
+        const activeTab = card.querySelector('.lang-tabs .tab.active');
+        if (!activeTab) {
+          alert("Kein aktiver Sprachtab gefunden.");
+          return;
+        }
+        const lang = activeTab.getAttribute("data-lang");
+        
+        // Finde die aktiven Titel- und Textfelder
+        const activeTitleDiv = card.querySelector('.lang-wrapper .lang-title.active');
+        const activeTextDiv = card.querySelector('.text-wrapper .lang-text.active');
+        
+        // Prüfe, ob bereits im Editiermodus
+        const titleInput = activeTitleDiv.querySelector('.edit-title-input');
+        const contentTextarea = activeTextDiv.querySelector('.edit-content-textarea');
+        
+        if (!titleInput && !contentTextarea) {
+          // Noch nicht im Editiermodus: Ersetze Title und Content durch Eingabefelder
+          const currentTitle = activeTitleDiv.querySelector('.news-title').textContent;
+          const currentContent = activeTextDiv.querySelector('.neuigkeit-text').textContent;
+          
+          const inputTitle = document.createElement('input');
+          inputTitle.type = 'text';
+          inputTitle.className = 'edit-title-input';
+          inputTitle.value = currentTitle;
+          inputTitle.style.padding = '4px';
+          inputTitle.style.fontSize = '1em';
+          
+          const textareaContent = document.createElement('textarea');
+          textareaContent.className = 'edit-content-textarea';
+          textareaContent.value = currentContent;
+          textareaContent.style.width = '100%';
+          textareaContent.style.boxSizing = 'border-box';
+          
+          activeTitleDiv.querySelector('.news-title').replaceWith(inputTitle);
+          activeTextDiv.querySelector('.neuigkeit-text').replaceWith(textareaContent);
+          
+          btn.textContent = 'Speichern';
+          inputTitle.focus();
+        } else {
+          // Bereits im Editiermodus: Lese die neuen Werte aus
+          const newTitle = titleInput.value;
+          const newContent = contentTextarea.value;
+          
+          updateNewsData(newsId, lang, newTitle, newContent)
+            .then(response => {
+              const spanTitle = document.createElement('span');
+              spanTitle.className = 'news-title';
+              spanTitle.textContent = newTitle;
+              titleInput.replaceWith(spanTitle);
+              
+              const pContent = document.createElement('p');
+              pContent.className = 'neuigkeit-text';
+              pContent.textContent = newContent;
+              contentTextarea.replaceWith(pContent);
+              
+              btn.textContent = 'Bearbeiten';
+            })
+            .catch(err => {
+              console.error("Fehler beim Aktualisieren der News:", err);
+              alert("Aktualisierung fehlgeschlagen.");
+            });
+        }
+      }
 
-
-
-
-
-
+      async function updateNewsData(newsId, lang, newTitle, newContent) {
+        const response = await fetch('updateNews.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: `id=${encodeURIComponent(newsId)}&lang=${encodeURIComponent(lang)}&title=${encodeURIComponent(newTitle)}&content=${encodeURIComponent(newContent)}`
+        });
+        const result = await response.text();
+        return result;
+      }
 
       async function deleteNews(id) {
         if (!confirm("Willst du diese Neuigkeit wirklich löschen?")) return;
-
         try {
           const response = await fetch('deleteNews.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: `id=${encodeURIComponent(id)}`
           });
-
           const result = await response.text();
           alert(result);
           loadNews();
@@ -395,21 +396,22 @@ async function updateNewsTitle(newsId, lang, newTitle) {
       document.addEventListener("DOMContentLoaded", loadNews);
     </script>
 
-    <!-- JS scripts -->
+    <!-- Externe JS-Skripte -->
     <script src="../js/script.js?v=1.1"></script>
-    <script src="../js/dynamic_insert_all.js"></script>
+    <!-- Falls du dynamic_insert_all.js nicht mehr brauchst, kannst du diese Zeile entfernen -->
+    <!-- <script src="../js/dynamic_insert_all.js"></script> -->
     <script src="../js/swiper-bundle.min.js?v=1.1"></script>
     <script>
       var swiper = new Swiper(".imgSwiper", {
         loop: true,
         pagination: {
           el: ".swiper-pagination",
-          type: "fraction",
+          type: "fraction"
         },
         navigation: {
           nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
+          prevEl: ".swiper-button-prev"
+        }
       });
     </script>
   </body>
