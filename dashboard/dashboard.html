@@ -302,29 +302,37 @@
         const contentTextarea = activeTextDiv.querySelector('.edit-content-textarea');
       
         if (!titleInput && !contentTextarea) {
-          // In den Editiermodus wechseln: Ersetze statischen Text durch Formularfelder
+          // Noch nicht editiert: Ersetze statischen Text durch Formularfelder
           const currentTitle = activeTitleDiv.querySelector('.news-title').textContent;
           const currentContent = activeTextDiv.querySelector('.neuigkeit-text').textContent;
-      
+          
           const inputTitle = document.createElement('input');
           inputTitle.type = 'text';
           inputTitle.className = 'edit-title-input';
           inputTitle.value = currentTitle;
           inputTitle.style.padding = '4px';
           inputTitle.style.fontSize = '1em';
-      
+          // Neu: Eingabefeld so formatieren, dass es in einer Zeile bleibt
+          inputTitle.style.display = 'inline-block';
+          inputTitle.style.width = 'calc(100% - 10px)'; // 100% minus etwas Rand, damit es nicht umbricht
+          inputTitle.style.whiteSpace = 'nowrap';
+          inputTitle.style.overflow = 'hidden';
+          inputTitle.style.textOverflow = 'ellipsis';
+          inputTitle.style.boxSizing = 'border-box';
+          
           const textareaContent = document.createElement('textarea');
           textareaContent.className = 'edit-content-textarea';
           textareaContent.value = currentContent;
           textareaContent.style.width = '100%';
           textareaContent.style.boxSizing = 'border-box';
-      
+          
           activeTitleDiv.querySelector('.news-title').replaceWith(inputTitle);
           activeTextDiv.querySelector('.neuigkeit-text').replaceWith(textareaContent);
-      
+          
           btn.textContent = 'Speichern';
           inputTitle.focus();
-        } else {
+        }
+        else {
           // Werte auslesen und via AJAX senden
           const newTitle = titleInput.value;
           const newContent = contentTextarea.value;

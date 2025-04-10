@@ -30,3 +30,14 @@
   flex: 1;
   flex-direction: column;
 }
+
+.edit-title-input {
+  display: inline-block;
+  width: calc(100% - 10px);
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px;
+  font-size: 1em;
+}
