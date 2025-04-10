@@ -8,6 +8,13 @@
   display: block;
 }
 
+.lang-content {
+    display: none;
+}
+.lang-content.active {
+    display: block;
+}
+
 /* Optionale visuelle Hervorhebung der aktiven Tabs */
 .lang-tabs .tab {
     transition: background-color 0.2s ease;
