@@ -1,0 +1,43 @@
+/* Standardmäßig wird nur der aktive Inhaltsblock angezeigt */
+.lang-title,
+.lang-text {
+  display: none;
+}
+.lang-title.active,
+.lang-text.active {
+  display: block;
+}
+
+.lang-content {
+    display: none;
+}
+.lang-content.active {
+    display: block;
+}
+
+/* Optionale visuelle Hervorhebung der aktiven Tabs */
+.lang-tabs .tab {
+    transition: background-color 0.2s ease;
+}
+.lang-tabs .tab.active {
+    background-color: #ccc;
+}
+  
+.lang-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex: 1;
+  flex-direction: column;
+}
+
+.edit-title-input {
+  display: inline-block;
+  width: calc(100% - 10px);
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px;
+  font-size: 1em;
+}

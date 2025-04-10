@@ -50,13 +50,30 @@ $titleCol = "title_" . $lang;
 $contentCol = "content_" . $lang;
 
 try {
-    $stmt = $pdo->query("SELECT id, $titleCol AS title, $contentCol AS content, image_path, date FROM news ORDER BY date DESC");
+    // Alle mehrsprachigen Felder abfragen:
+    $sql = "SELECT 
+              id,
+              title_de,
+              content_de,
+              title_en,
+              content_en,
+              title_pl,
+              content_pl,
+              title_ru,
+              content_ru,
+              image_path,
+              date
+            FROM news 
+            ORDER BY date DESC";
+    $stmt = $pdo->query($sql);
     $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    
     header('Content-Type: application/json');
     echo json_encode($news);
 } catch (PDOException $e) {
-    http_response_code(500);
-    echo json_encode(["error" => "Fehler beim Abrufen der Nachrichten."]);
+    // Fehlerbehandlung, z.B. error_log oder entsprechende JSON-Ausgabe
+    error_log($e->getMessage());
+    echo json_encode(["error" => "Daten konnten nicht geladen werden."]);
 }
+
 ?>
