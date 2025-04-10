@@ -23,3 +23,10 @@
     background-color: #ccc;
 }
   
+.lang-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex: 1;
+  flex-direction: column;
+}
