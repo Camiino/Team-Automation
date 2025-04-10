@@ -1,16 +1,15 @@
 <?php
 // updateNews.php
 
-// Fehlerberichterstattung aktivieren (nur in der Entwicklungsumgebung!)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// DB-Konfiguration laden (verwende denselben Pfad wie in deinen anderen PHP-Dateien)
+require_once 'config.php';
 
-// Nur POST-Anfragen verarbeiten
+// Nur POST-Anfragen zulassen
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die("Direkter Zugriff nicht erlaubt.");
 }
 
-// Prüfe, ob alle notwendigen Parameter gesendet wurden
+// Es müssen alle Parameter übergeben werden
 if (!isset($_POST['id'], $_POST['lang'], $_POST['title'], $_POST['content'])) {
     die("Fehler: Fehlende Parameter.");
 }
@@ -20,30 +19,25 @@ $lang    = trim($_POST['lang']);
 $title   = trim($_POST['title']);
 $content = trim($_POST['content']);
 
-// Erlaubte Sprachcodes – passe diese Liste bei Bedarf an
+// Erlaubte Sprachcodes
 $allowedLangs = ['de', 'en', 'pl', 'ru'];
 if (!in_array($lang, $allowedLangs)) {
     die("Fehler: Ungültiger Sprachcode.");
 }
 
-// Spaltennamen definieren – laut deiner init-db.sql sind die Spalten z. B. "title_de" und "content_de"
+// Dynamisch den Spaltennamen erzeugen, z. B. "title_de" und "content_de"
 $titleCol   = "title_" . $lang;
 $contentCol = "content_" . $lang;
 
-// Verbindung zur Datenbank herstellen – nimm hier die gleichen Zugangsparameter wie in submitNews.php und getNews.php
-$host     = 'localhost';
-$dbname   = 'news_db';      // <== Ersetze 'news_db' durch deinen tatsächlichen Datenbanknamen
-$username = 'news_user';    // <== Ersetze 'news_user' durch deinen Datenbankbenutzernamen
-$password = 'news_pass';    // <== Ersetze 'news_pass' durch dein Datenbankpasswort
-
 try {
+    // Erstelle eine neue PDO-Verbindung mithilfe der in config.php definierten Parameter
     $pdo = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Datenbankverbindung fehlgeschlagen: " . $e->getMessage());
 }
 
-// Update-Query: Aktualisiere den Titel und Inhalt in der entsprechenden Sprachspalte
+// Update-Query: Aktualisiere den Titel und Inhalt in der entsprechenden Sprache
 $sql = "UPDATE news SET $titleCol = :title, $contentCol = :content WHERE id = :id";
 $stmt = $pdo->prepare($sql);
 
