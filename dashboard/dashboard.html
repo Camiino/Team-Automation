@@ -207,7 +207,7 @@
         <div class="content" style="display: flex; flex-direction: row; gap: 2rem;">
           ${imageHTML}
           <div class="text" style="display: flex; flex-direction: column; gap: 0; justify-content: start; text-align: justify;">
-            <h4>Datum: ${escapeHTML(item.date)}</h4>
+            
             <!-- Tab-Navigation -->
             <ul class="lang-tabs" style="display: flex; list-style: none; padding: 0; gap: 10px; margin: 1rem 0;">
               <li class="tab active" data-lang="de" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">DE</li>
@@ -215,6 +215,7 @@
               <li class="tab" data-lang="pl" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">PL</li>
               <li class="tab" data-lang="ru" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">RU</li>
             </ul>
+            <h4>Datum: ${escapeHTML(item.date)}</h4>
             <!-- Sprachinhalte: Jeweils in einem Container mit Klassen für Sprache und aktive Sichtbarkeit -->
             <div class="lang-content de active">
               <h4 style="margin-top:1rem;">
