@@ -1,0 +1,16 @@
+/* Standardmäßig wird nur der aktive Inhaltsblock angezeigt */
+.lang-content {
+    display: none;
+  }
+  .lang-content.active {
+    display: block;
+  }
+  
+  /* Optionale visuelle Hervorhebung der aktiven Tabs */
+  .lang-tabs .tab {
+    transition: background-color 0.2s ease;
+  }
+  .lang-tabs .tab.active {
+    background-color: #ccc;
+  }
+  
