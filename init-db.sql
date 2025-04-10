@@ -20,7 +20,6 @@ CREATE TABLE IF NOT EXISTS news (
     date DATE NOT NULL
 );
 
-
 INSERT INTO news (
     title_de, content_de,
     title_en, content_en,

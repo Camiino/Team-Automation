@@ -20,7 +20,7 @@
             <a class="hide-mobile" href="https://bee-its.de/html_pl/karriere.html">Career</a>
             <a class="hide-mobile" href="https://bee-its.de/html_pl/downloads.html">Downloads</a>
           </div>
-<a href="https://bee-its.de/index_en.html" class="logo">
+          <a href="https://bee-its.de/index_en.html" class="logo">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_170_1245)">
             <path id="changer2" class="changer2" d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>
