@@ -29,10 +29,10 @@ if (!in_array($lang, $allowedLangs)) {
 $column = "title_" . $lang;
 
 // Datenbank-Verbindungsdaten – Werte bitte an deine Umgebung anpassen
-$host = 'localhost';
-$dbname = 'deine_datenbank';      // z. B. "my_news_db"
-$username = 'dein_benutzername';   // z. B. "root"
-$password = 'dein_passwort';       // z. B. "" oder "secret"
+$host = "db";
+$dbname = "newsdb";
+$username = "newsadmin";
+$password = "YourPassword123!";
 
 try {
     // Erstelle eine Verbindung via PDO
