@@ -6,7 +6,11 @@
     <title>Manual Workstations</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="shortcut icon" href="../../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../../assets/icons/logoAlt.ico"
+      type="image/x-icon"
+    />
     <script src="../../js/dynamic_insert_en.js"></script>
 
     <style>
@@ -34,61 +38,170 @@
         letter-spacing: 1.5px;
       }
     </style>
+
+    <link rel="stylesheet" href="../../css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../../css/subpage.css" />
   </head>
   <body>
-
     <div class="container-full subpage-top">
       <div class="container">
         <div class="breadcrumb">
-          <a href="../../index_en.html">Home</a> > <a href="../anlagen.html">Systems</a> >
+          <a href="../../index_en.html">Home</a> >
+          <a href="../anlagen.html">Systems</a> >
           <a href="">Manual Workstations</a>
         </div>
 
         <img
-          class="subpage-top-img"
-          src="../../assets/images/manuelleanlagen.webp"
+          class="subpage-top-img anlagen-cover"
+          src="../../assets/images/Anlagen/Cover_-_Manuelle_Arbeitsplätze-removebg-preview.webp"
           alt=""
         />
       </div>
     </div>
 
     <div class="mini-nav">
-      <a href="./vollautomatisch.html">Fully Automatic Systems</a>
-      <a href="./halbautomatisch.html">Semi-Automatic Systems</a>
+      <a href="./vollautomatisch.html">Fully Automated Systems</a>
+      <a href="./halbautomatisch.html">Semi-Automated Systems</a>
       <a href="./manuell.html">Manual Workstations</a>
       <img class="mini-nav-scroll" src="../../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../../assets/icons/arrow-top.svg" alt="" />
     </div>
 
     <div class="container-full">
-      <div class="container text-section">
+      <div class="container">
         <div class="title">
           <h2>Manual Workstations</h2>
         </div>
 
         <div class="text">
           <p>
-            According to your requirements, we create manual workstations – from the simplest preliminary assembly and assembly stations to complex testing or packaging stations, optionally in combination with highly flexible production lines.
+            According to your requirements, we create manual workstations ranging
+            from the simplest preassembly and assembly tasks to complex test or
+            packaging stations, possibly also in conjunction with highly flexible
+            production systems.
           </p>
         </div>
+      </div>
+    </div>
 
-        <div class="sub-anlagen-grid-2">
-          <img src="../../assets/images/anlagen.webp" alt="">
-          <div class="details">
-            <h2>Based on your process requirements, we design and build:</h2>
-            <ul>
-              <li>Manual preliminary assembly workstations</li>
-              <li>Manual assembly workstations</li>
-              <li>Manual testing stations</li>
-              <li>Manual packaging stations</li>
-            </ul>
+    <div class="tab">
+      <!--
+        <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+          Possible System Parameters
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'tab-2')">Lorum</button>
+        <button class="tablinks" onclick="openTab(event, 'tab-3')">Lorum</button>
+        <button class="tablinks" onclick="openTab(event, 'tab-4')">Lorum</button>
+      -->
+    </div>
+
+    <div class="swiper swiper-tab">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+            Manual Workstation for Head-Up Display
+          </button>
+        </div>
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-2')">
+            Manual EOLT Workstation
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-full bg-tabs">
+      <div class="container">
+        <div id="tab-1" class="tabcontent tabcontent-active">
+          <img
+            src="../../assets/images/Anlagen/ManuelleArbeitsplätze/Handarbeitsplatz Head-Up-Display.webp"
+            alt=""
+          />
+          <div class="tabcontent-text">
+            <h3>System Parameters</h3>
+            <div class="details">
+              <ul>
+                <li>Cycle time per display: 60 seconds</li>
+                <li>Place housing into fixture and secure it</li>
+                <li>The housing is automatically rotated radially to the respective processing station</li>
+                <li>The assembly process/sequence is displayed digitally</li>
+                <li>Testing processes start automatically</li>
+                <li>After testing, OK/NOK parts are displayed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-2" class="tabcontent">
+          <img
+            src="../../assets/images/Anlagen/ManuelleArbeitsplätze/Manueller_EOLT-Arbeitsplatz-removebg-preview.webp"
+            alt=""
+          />
+          <div class="tabcontent-text">
+            <h3>System Parameters</h3>
+            <div class="details">
+              <ul>
+                <li>Cycle time per part: 25 seconds</li>
+                <li>Manually insert part into fixture nest</li>
+                <li>Manually secure and contact the part</li>
+                <li>Start the testing process</li>
+                <li>After testing, OK/NOK parts are displayed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-3" class="tabcontent">
+          <img
+            src="../../assets/images/anlagen.webp"
+            alt=""
+          />
+          <div class="tabcontent-text">
+            <h3>System Parameters</h3>
+            <div class="details">
+              <ul>
+                <li>Semi- and fully automated assembly systems for exhaust throttle valves</li>
+                <li>Semi- and fully automated assembly systems for electronic actuators</li>
+                <li>End-of-line tester</li>
+                <li>PCB assembly systems</li>
+                <li>Plasma cleaning and coating system</li>
+              </ul>
+              <p style="line-height: initial !important;">
+                TEAM Automation Berlin has been supplying well-known automotive
+                suppliers worldwide since 2006 with semi- and fully automated
+                assembly systems for exhaust throttle valves and actuators.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <script src="../../js/script.js?v=1.1"></script>
+    <script src="../../js/swiper-bundle.min.js?v=1.1"></script>
     <script src="../../js/mininav.js?v=1.1"></script>
+    <script>
+      function openTab(event, tabName) {
+        const tabcontent = document.querySelectorAll(".tabcontent");
+        tabcontent.forEach((content) =>
+          content.classList.remove("tabcontent-active")
+        );
+
+        document.getElementById(tabName).classList.add("tabcontent-active");
+        const tablinks = document.querySelectorAll(".tablinks");
+        tablinks.forEach((link) => link.classList.remove("active"));
+        event.target.classList.add("active");
+      }
+
+      var swipertab = new Swiper(".swiper-tab", {
+        freeMode: true,
+        slidesPerView: "auto",
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+          dragSize: 100,
+        },
+      });
+    </script>
   </body>
 </html>

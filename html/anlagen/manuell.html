@@ -34,6 +34,7 @@
         letter-spacing: 1.5px;
       }
     </style>
+    <link rel="stylesheet" href="../../css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../../css/subpage.css" />
   </head>
   <body>
@@ -46,8 +47,8 @@
         </div>
 
         <img
-          class="subpage-top-img"
-          src="../../assets/images/manuelleanlagen.webp"
+          class="subpage-top-img anlagen-cover"
+          src="../../assets/images/Anlagen/Cover_-_Manuelle_Arbeitsplätze-removebg-preview.webp"
           alt=""
         />
       </div>
@@ -62,38 +63,146 @@
     </div>
 
     <div class="container-full">
-      <div class="container text-section">
-        <div class="title">
-          <h2>Manuelle Arbeitsplätze</h2>
-        </div>
-
-        <div class="text">
-          <p>
-            Entsprechend Ihren Anforderungen erstellen wir manuelle
-            Arbeitsplätze von einfachsten Vormontage und Montage bis hin zu
-            komplexen Prüf- oder Verpackungsplätzen, ggf. auch im Verbund mit
-            hochflexiblen Fertigungsanlage.
-          </p>
-        </div>
-
-        <div class="sub-anlagen-grid-2">
-          <img src="../../assets/images/anlagen.webp" alt="">
-          <div class="details">
-            <h2>Gemäß Ihren Prozessvorgaben
-              planen und erstellen wir</h2>
-            <ul>
-              <li>Manuelle Vormontageplätze</li>
-              <li>Manuelle Montageplätze</li>
-              <li>Manuelle Prüfplätze</li>
-              <li>Manuelle Verpackungsplätze</li>
-            </ul>
+      <div class="container">
+          <div class="title">
+            <h2>Manuelle Arbeitsplätze</h2>
           </div>
+
+          <div class="text">
+            <p>
+              Entsprechend Ihren Anforderungen erstellen wir manuelle
+              Arbeitsplätze von einfachsten Vormontage und Montage bis hin zu
+              komplexen Prüf- oder Verpackungsplätzen, ggf. auch im Verbund mit
+              hochflexiblen Fertigungsanlage.
+            </p>
+          </div>
+      </div>
+    </div>
+
+    <div class="tab">
+      <!--  <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+        Mögliche Anlagenparameter
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-2')">Lorum</button>
+      <button class="tablinks" onclick="openTab(event, 'tab-3')">Lorum</button>
+      <button class="tablinks" onclick="openTab(event, 'tab-4')">Lorum</button> -->
+    </div>
+
+    <div class="swiper swiper-tab">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+            Handarbeitsplatz Head-Up-Display
+          </button>
+        </div>
+
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-2')">
+            Manueller EOLT-Arbeitsplatz
+          </button>
         </div>
       </div>
     </div>
-    
+
+    <div class="container-full bg-tabs">
+      <div class="container">
+        <div id="tab-1" class="tabcontent tabcontent-active">
+          <img
+            src="../../assets/images/Anlagen/ManuelleArbeitsplätze/Handarbeitsplatz Head-Up-Display.webp"
+            alt=""
+          />
+
+          <div class="tabcontent-text">
+            <h3>Anlagenparameter</h3>
+
+            <div class="details">
+              <ul>
+                <li>Taktzeit pro Display: 60 Sekunden</li>
+                <li>Gehäuse in Aufnahme einlegen und fixieren</li>
+                <li>Gehäuse wird automatisch radial in die jeweilige Bearbeitungsstation gedreht</li>
+                <li>Montageablauf/Montagereihenfolge wird digital angezeigt</li>
+                <li>Prüfabläufe werden automatisch gestartet</li>
+                <li>Nach dem Prüfablauf werden IO/NIO-Teile angezeigt</li>
+              </ul>
+              </div>
+            </div>
+        </div>
+
+        <div id="tab-2" class="tabcontent">
+            <img
+              src="../../assets/images/Anlagen/ManuelleArbeitsplätze/Manueller_EOLT-Arbeitsplatz-removebg-preview.webp"
+              alt=""
+            />
+
+            <div class="tabcontent-text">
+              <h3>Anlagenparameter</h3>
+
+              <div class="details">
+                  <ul>
+                    <li>Taktzeit pro Teil: 25 Sekunden</li>
+                    <li>Bauteil manuell in Aufnahmenest einlegen</li>
+                    <li>Bauteil manuell fixieren und kontaktieren</li>
+                    <li>Prüfprozess starten</li>
+                    <li>Nach dem Prüfablauf werden IO/NIO-Teile angezeigt</li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+
+        <div id="tab-3" class="tabcontent">
+            <img
+              src="../../assets/images/anlagen.webp"
+              alt=""
+            />
+
+            <div class="tabcontent-text">
+              
+              <h3>Anlagenparameter</h3>
+
+              <div class="details">
+                <ul>
+                  <li>Halb- und Vollautomatische Montageanlagen für Abgasdrosselklappen</li>
+                  <li>Halb- und Vollautomatische Montageanlagen elektronische Aktuatoren</li>
+                  <li>End of line tester</li>
+                  <li>Platinenmontageanlagen</li>
+                  <li>Plasmareinigungs- und Beschichtungsanlage</li>
+                </ul>
+
+                <p style="line-height: initial !important;">TEAM Automation Berlin beliefert seit 2006 namhafte Automobilzulieferer weltweit mit halb- und vollautomatische Montageanlagen für Abgasdrosselklappen und Aktuatoren.</p>
+
+              </div>
+            </div>
+        </div>
+      </div>
+
+
+    </div>
 
     <script src="../../js/script.js?v=1.1"></script>
+    <script src="../../js/swiper-bundle.min.js?v=1.1"></script>
     <script src="../../js/mininav.js?v=1.1"></script>
+    <script>
+      function openTab(event, tabName) {
+        const tabcontent = document.querySelectorAll(".tabcontent");
+        tabcontent.forEach((content) =>
+          content.classList.remove("tabcontent-active")
+        );
+
+        document.getElementById(tabName).classList.add("tabcontent-active");
+        const tablinks = document.querySelectorAll(".tablinks");
+        tablinks.forEach((link) => link.classList.remove("active"));
+        event.target.classList.add("active");
+      }
+
+      var swipertab = new Swiper(".swiper-tab", {
+        freeMode: true,
+        slidesPerView: "auto",
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+          dragSize: 100,
+        },
+      });
+    </script>
   </body>
 </html>

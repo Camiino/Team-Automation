@@ -1202,6 +1202,10 @@ header .header-links .search-box img {
   -o-object-position: center;
      object-position: center;
 }
+.anlagen-cover{
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+}
 
 /* ------------------  Mini Nav ---------------- */
 .mini-nav {

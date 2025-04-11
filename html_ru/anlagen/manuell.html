@@ -6,7 +6,11 @@
     <title>Ручные рабочие места</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="shortcut icon" href="../../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../../assets/icons/logoAlt.ico"
+      type="image/x-icon"
+    />
     <script src="../../js/dynamic_insert_ru.js"></script>
 
     <style>
@@ -34,61 +38,174 @@
         letter-spacing: 1.5px;
       }
     </style>
+    <link rel="stylesheet" href="../../css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../../css/subpage.css" />
   </head>
   <body>
-
     <div class="container-full subpage-top">
       <div class="container">
         <div class="breadcrumb">
-          <a href="../../index_ru.html">Главная</a> > <a href="../anlagen.html"> Установки </a> >
-          <a href=""> Ручные рабочие места </a>
+          <a href="../../index_ru.html">Главная</a> >
+          <a href="../anlagen.html">Системы</a> >
+          <a href="">Ручные рабочие места</a>
         </div>
 
         <img
-          class="subpage-top-img"
-          src="../../assets/images/manuelleanlagen.webp"
+          class="subpage-top-img anlagen-cover"
+          src="../../assets/images/Anlagen/Cover_-_Manuelle_Arbeitsplätze-removebg-preview.webp"
           alt=""
         />
       </div>
     </div>
 
     <div class="mini-nav">
-      <a href="./vollautomatisch.html">Полностью автоматические установки</a>
-      <a href="./halbautomatisch.html">Полуавтоматические установки</a>
+      <a href="./vollautomatisch.html">Полностью автоматические системы</a>
+      <a href="./halbautomatisch.html">Полуавтоматические системы</a>
       <a href="./manuell.html">Ручные рабочие места</a>
       <img class="mini-nav-scroll" src="../../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../../assets/icons/arrow-top.svg" alt="" />
     </div>
 
     <div class="container-full">
-      <div class="container text-section">
+      <div class="container">
         <div class="title">
           <h2>Ручные рабочие места</h2>
         </div>
 
         <div class="text">
           <p>
-            В соответствии с вашими требованиями мы разрабатываем ручные рабочие места: от простейших мест для предварительной и основной сборки до комплексных испытательных или упаковочных участков, при необходимости также в сочетании с высокофлексибельными производственными установками.
+            В соответствии с вашими требованиями мы создаём ручные рабочие места —
+            от простейшей предварительной сборки и монтажа до сложных станций для
+            тестирования или упаковки, при необходимости также в сочетании с
+            высокофлексибельными производственными системами.
           </p>
         </div>
+      </div>
+    </div>
 
-        <div class="sub-anlagen-grid-2">
-          <img src="../../assets/images/anlagen.webp" alt="">
-          <div class="details">
-            <h2>В соответствии с вашими технологическими требованиями мы разрабатываем и создаем</h2>
-            <ul>
-              <li>Ручные участки предварительной сборки</li>
-              <li>Ручные участки основной сборки</li>
-              <li>Ручные участки испытаний</li>
-              <li>Ручные участки упаковки</li>
-            </ul>
+    <div class="tab">
+      <!--  
+        <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+          Возможные параметры системы
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'tab-2')">Lorem</button>
+        <button class="tablinks" onclick="openTab(event, 'tab-3')">Lorem</button>
+        <button class="tablinks" onclick="openTab(event, 'tab-4')">Lorem</button>
+      -->
+    </div>
+
+    <div class="swiper swiper-tab">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+            Ручное рабочее место для Head-Up Display
+          </button>
+        </div>
+
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-2')">
+            Ручное рабочее место EOLT
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-full bg-tabs">
+      <div class="container">
+        <!-- Tab 1 -->
+        <div id="tab-1" class="tabcontent tabcontent-active">
+          <img
+            src="../../assets/images/Anlagen/ManuelleArbeitsplätze/Handarbeitsplatz Head-Up-Display.webp"
+            alt=""
+          />
+          <div class="tabcontent-text">
+            <h3>Параметры системы</h3>
+            <div class="details">
+              <ul>
+                <li>Время такта на один дисплей: 60 секунд</li>
+                <li>Укладка и фиксация корпуса в держателе</li>
+                <li>Корпус автоматически поворачивается радиально к соответствующей рабочей станции</li>
+                <li>Процесс/последовательность сборки отображается в цифровом виде</li>
+                <li>Процедуры тестирования запускаются автоматически</li>
+                <li>После завершения теста отображаются детали с результатом годен/негоден (OK/NOK)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2 -->
+        <div id="tab-2" class="tabcontent">
+          <img
+            src="../../assets/images/Anlagen/ManuelleArbeitsplätze/Manueller_EOLT-Arbeitsplatz-removebg-preview.webp"
+            alt=""
+          />
+          <div class="tabcontent-text">
+            <h3>Параметры системы</h3>
+            <div class="details">
+              <ul>
+                <li>Время такта на одну деталь: 25 секунд</li>
+                <li>Ручная укладка детали в гнездо держателя</li>
+                <li>Ручная фиксация детали и соединение (контактирование)</li>
+                <li>Запуск тестового процесса</li>
+                <li>После завершения теста отображаются детали OK/NOK</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3 -->
+        <div id="tab-3" class="tabcontent">
+          <img
+            src="../../assets/images/anlagen.webp"
+            alt=""
+          />
+          <div class="tabcontent-text">
+            <h3>Параметры системы</h3>
+            <div class="details">
+              <ul>
+                <li>Полу- и полностью автоматические системы сборки дроссельных заслонок выхлопных газов</li>
+                <li>Полу- и полностью автоматические системы сборки электронных приводов</li>
+                <li>End of line тестер</li>
+                <li>Системы сборки печатных плат</li>
+                <li>Система плазменной очистки и нанесения покрытий</li>
+              </ul>
+
+              <p style="line-height: initial !important;">
+                С 2006 года компания TEAM Automation Berlin поставляет ведущим мировым
+                поставщикам автомобильной промышленности полу- и полностью
+                автоматические системы сборки дроссельных заслонок и приводов.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <script src="../../js/script.js?v=1.1"></script>
+    <script src="../../js/swiper-bundle.min.js?v=1.1"></script>
     <script src="../../js/mininav.js?v=1.1"></script>
+    <script>
+      function openTab(event, tabName) {
+        const tabcontent = document.querySelectorAll(".tabcontent");
+        tabcontent.forEach((content) =>
+          content.classList.remove("tabcontent-active")
+        );
+
+        document.getElementById(tabName).classList.add("tabcontent-active");
+        const tablinks = document.querySelectorAll(".tablinks");
+        tablinks.forEach((link) => link.classList.remove("active"));
+        event.target.classList.add("active");
+      }
+
+      var swipertab = new Swiper(".swiper-tab", {
+        freeMode: true,
+        slidesPerView: "auto",
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+          dragSize: 100,
+        },
+      });
+    </script>
   </body>
 </html>

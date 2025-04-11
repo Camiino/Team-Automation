@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stanowiska ręczne</title>
+    <title>Stanowiska Manualne</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="shortcut icon" href="../../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../../assets/icons/logoAlt.ico"
+      type="image/x-icon"
+    />
     <script src="../../js/dynamic_insert_pl.js"></script>
 
     <style>
@@ -34,20 +38,21 @@
         letter-spacing: 1.5px;
       }
     </style>
+    <link rel="stylesheet" href="../../css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../../css/subpage.css" />
   </head>
   <body>
-
     <div class="container-full subpage-top">
       <div class="container">
         <div class="breadcrumb">
-          <a href="../../index_pl.html">Start</a> > <a href="../anlagen.html"> Systemy </a> >
-          <a href=""> Stanowiska ręczne </a>
+          <a href="../../index_pl.html">Strona główna</a> >
+          <a href="../anlagen.html">Systemy</a> >
+          <a href="">Stanowiska manualne</a>
         </div>
 
         <img
-          class="subpage-top-img"
-          src="../../assets/images/manuelleanlagen.webp"
+          class="subpage-top-img anlagen-cover"
+          src="../../assets/images/Anlagen/Cover_-_Manuelle_Arbeitsplätze-removebg-preview.webp"
           alt=""
         />
       </div>
@@ -56,44 +61,148 @@
     <div class="mini-nav">
       <a href="./vollautomatisch.html">W pełni automatyczne systemy</a>
       <a href="./halbautomatisch.html">Półautomatyczne systemy</a>
-      <a href="./manuell.html">Stanowiska ręczne</a>
-      
+      <a href="./manuell.html">Stanowiska manualne</a>
       <img class="mini-nav-scroll" src="../../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../../assets/icons/arrow-top.svg" alt="" />
     </div>
 
     <div class="container-full">
-      <div class="container text-section">
+      <div class="container">
         <div class="title">
-          <h2>Stanowiska ręczne</h2>
+          <h2>Stanowiska Manualne</h2>
         </div>
 
         <div class="text">
           <p>
-            Zgodnie z Twoimi wymaganiami tworzymy stanowiska ręczne –
-            od najprostszych stanowisk wstępnego montażu i montażu,
-            po złożone stanowiska testowe lub pakujące, opcjonalnie
-            również w połączeniu z wysoce elastycznymi liniami produkcyjnymi.
+            Zgodnie z Państwa wymaganiami tworzymy stanowiska manualne,
+            począwszy od najprostszych stanowisk wstępnego montażu i montażu,
+            aż po złożone stanowiska testowe lub pakujące, ewentualnie także
+            w połączeniu z wysoko elastycznymi systemami produkcyjnymi.
           </p>
         </div>
+      </div>
+    </div>
 
-        <div class="sub-anlagen-grid-2">
-          <img src="../../assets/images/anlagen.webp" alt="">
-          <div class="details">
-            <h2>Zgodnie z Twoimi wymaganiami procesowymi
-              projektujemy i budujemy:</h2>
-            <ul>
-              <li>Ręczne stanowiska wstępnego montażu</li>
-              <li>Ręczne stanowiska montażowe</li>
-              <li>Ręczne stanowiska testowe</li>
-              <li>Ręczne stanowiska pakujące</li>
-            </ul>
+    <div class="tab">
+      <!--  
+        <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+          Możliwe parametry systemu
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'tab-2')">Lorum</button>
+        <button class="tablinks" onclick="openTab(event, 'tab-3')">Lorum</button>
+        <button class="tablinks" onclick="openTab(event, 'tab-4')">Lorum</button>
+      -->
+    </div>
+
+    <div class="swiper swiper-tab">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+            Stanowisko ręczne do wyświetlacza Head-Up
+          </button>
+        </div>
+
+        <div class="swiper-slide">
+          <button class="tablinks" onclick="openTab(event, 'tab-2')">
+            Ręczne stanowisko EOLT
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-full bg-tabs">
+      <div class="container">
+        <div id="tab-1" class="tabcontent tabcontent-active">
+          <img
+            src="../../assets/images/Anlagen/ManuelleArbeitsplätze/Handarbeitsplatz Head-Up-Display.webp"
+            alt=""
+          />
+          <div class="tabcontent-text">
+            <h3>Parametry systemu</h3>
+            <div class="details">
+              <ul>
+                <li>Czas cyklu na wyświetlacz: 60 sekund</li>
+                <li>Włożenie i ustalenie obudowy w uchwycie</li>
+                <li>Obudowa jest automatycznie obracana promieniowo do odpowiedniej stacji roboczej</li>
+                <li>Przebieg/sekencja montażu jest wyświetlana cyfrowo</li>
+                <li>Procesy testowe uruchamiają się automatycznie</li>
+                <li>Po zakończeniu testu wyświetlane są informacje o częściach OK/NOK</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-2" class="tabcontent">
+          <img
+            src="../../assets/images/Anlagen/ManuelleArbeitsplätze/Manueller_EOLT-Arbeitsplatz-removebg-preview.webp"
+            alt=""
+          />
+          <div class="tabcontent-text">
+            <h3>Parametry systemu</h3>
+            <div class="details">
+              <ul>
+                <li>Czas cyklu na część: 25 sekund</li>
+                <li>Ręczne umieszczenie elementu w gnieździe uchwytu</li>
+                <li>Ręczne ustalenie i podłączenie elementu</li>
+                <li>Uruchomienie procesu testowego</li>
+                <li>Po zakończeniu testu wyświetlane są informacje o częściach OK/NOK</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-3" class="tabcontent">
+          <img
+            src="../../assets/images/anlagen.webp"
+            alt=""
+          />
+          <div class="tabcontent-text">
+            <h3>Parametry systemu</h3>
+            <div class="details">
+              <ul>
+                <li>Pół- i w pełni automatyczne systemy montażowe przepustnic spalin</li>
+                <li>Pół- i w pełni automatyczne systemy montażowe siłowników elektronicznych</li>
+                <li>End of line tester</li>
+                <li>Systemy montażowe płytek PCB</li>
+                <li>System czyszczenia i powlekania plazmowego</li>
+              </ul>
+
+              <p style="line-height: initial !important;">
+                TEAM Automation Berlin dostarcza od 2006 roku znanym dostawcom z branży
+                motoryzacyjnej na całym świecie pół- i w pełni automatyczne systemy
+                montażowe przepustnic spalin oraz siłowników.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <script src="../../js/script.js?v=1.1"></script>
+    <script src="../../js/swiper-bundle.min.js?v=1.1"></script>
     <script src="../../js/mininav.js?v=1.1"></script>
+    <script>
+      function openTab(event, tabName) {
+        const tabcontent = document.querySelectorAll(".tabcontent");
+        tabcontent.forEach((content) =>
+          content.classList.remove("tabcontent-active")
+        );
+
+        document.getElementById(tabName).classList.add("tabcontent-active");
+        const tablinks = document.querySelectorAll(".tablinks");
+        tablinks.forEach((link) => link.classList.remove("active"));
+        event.target.classList.add("active");
+      }
+
+      var swipertab = new Swiper(".swiper-tab", {
+        freeMode: true,
+        slidesPerView: "auto",
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+          dragSize: 100,
+        },
+      });
+    </script>
   </body>
 </html>
