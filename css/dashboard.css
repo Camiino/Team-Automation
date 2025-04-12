@@ -5,56 +5,66 @@
 }
 .lang-title.active,
 .lang-text.active {
-  display: block;
+  display: flex;
 }
 
 .lang-content {
-    display: none;
+  display: none;
 }
 .lang-content.active {
-    display: block;
+  display: block;
 }
 
-/* Optionale visuelle Hervorhebung der aktiven Tabs */
+/* Visuelle Hervorhebung der aktiven Tabs */
 .lang-tabs .tab {
-    transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 .lang-tabs .tab.active {
-    background-color: #ccc;
+  background-color: #ccc;
 }
-  
+
+/* Wrapper für Titel, Tabs und Buttons */
 .lang-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   flex: 1;
   flex-direction: column;
 }
 
+/* Titelzeile mit Label + Input nebeneinander */
+.lang-title {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+}
+
+.lang-title h4 {
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Eingabefeld für Titel */
 .edit-title-input {
-  display: inline-block;
-  width: calc(100% - 10px);
+  flex: 1;
+  min-width: 150px;
+  max-width: 100%;
+  width: auto;
   box-sizing: border-box;
+  padding: 6px 8px;
+  font-size: 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 4px;
-  font-size: 1em;
 }
 
+/* Eingabefeld für Inhalt */
 .edit-content-textarea {
   max-width: 100%;
   width: 100%;
   box-sizing: border-box;
   resize: vertical;
-}
-
-.edit-title-input {
-  max-width: 100%;
-  width: 100%;
-  box-sizing: border-box;
-}
-.edit-content-textarea,
-.edit-title-input {
   padding: 6px 8px;
 }
