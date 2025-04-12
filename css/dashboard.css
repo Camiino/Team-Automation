@@ -49,7 +49,6 @@
 /* Eingabefeld für Titel */
 .edit-title-input {
   flex: 1;
-  min-width: 150px;
   max-width: fit-content;
   width: auto;
   box-sizing: border-box;
