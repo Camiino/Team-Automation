@@ -315,11 +315,13 @@
         tabcontent.forEach((content) =>
           content.classList.remove("tabcontent-active")
         );
+
         document.getElementById(tabName).classList.add("tabcontent-active");
         const tablinks = document.querySelectorAll(".tablinks");
         tablinks.forEach((link) => link.classList.remove("active"));
         event.target.classList.add("active");
       }
+
       var swipertab = new Swiper(".swiper-tab", {
         freeMode: true,
         slidesPerView: "auto",
@@ -329,6 +331,32 @@
           dragSize: 100,
         },
       });
+      const tabScroll = document.querySelector('.tab-scroll');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        tabScroll.addEventListener('mousedown', (e) => {
+          isDown = true;
+          startX = e.pageX - tabScroll.offsetLeft;
+          scrollLeft = tabScroll.scrollLeft;
+        });
+
+        tabScroll.addEventListener('mouseleave', () => {
+          isDown = false;
+        });
+
+        tabScroll.addEventListener('mouseup', () => {
+          isDown = false;
+        });
+
+        tabScroll.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - tabScroll.offsetLeft;
+          const walk = (x - startX) * 2;
+          tabScroll.scrollLeft = scrollLeft - walk;
+        });
     </script>
   </body>
 </html>
