@@ -27,7 +27,7 @@
 .lang-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: start;
   flex: 1;
   flex-direction: column;
 }
@@ -67,4 +67,12 @@
   box-sizing: border-box;
   resize: vertical;
   padding: 6px 8px;
+}
+
+.news-card img {
+  height: auto;
+  max-height: 300px; /* oder ein anderer fixer Wert */
+  object-fit: cover;
+  flex-shrink: 0;
+  align-self: flex-start;
 }
