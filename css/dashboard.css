@@ -76,3 +76,7 @@
   flex-shrink: 0;
   align-self: flex-start;
 }
+
+.neuigkeit-text {
+  text-align: left;
+}
