@@ -134,6 +134,13 @@
       </div>
     </div>
 
+    <div id="success-popup" class="popup hidden">
+      <div class="popup-inner">
+        <p>Vielen Dank für Ihre Nachricht! Wir melden uns in Kürze bei Ihnen.</p>
+        <button onclick="hidePopup()">Schließen</button>
+      </div>
+    </div>
+
     <script src="../js/script.js?v=1.1"></script>
     <script src="../js/swiper-bundle.min.js?v=1.1"></script>
 
@@ -149,6 +156,36 @@
           prevEl: ".swiper-button-prev",
         },
       });
+    </script>
+
+    <script>
+      const form = document.querySelector("form");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const response = await fetch("submitForm.php", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          form.reset();
+          showPopup();
+        } else {
+          alert(await response.text()); // Optional: show error
+        }
+      });
+
+      function showPopup() {
+        const popup = document.getElementById("success-popup");
+        popup.classList.remove("hidden");
+        setTimeout(() => popup.classList.add("hidden"), 5000);
+      }
+
+      function hidePopup() {
+        document.getElementById("success-popup").classList.add("hidden");
+      }
     </script>
   </body>
 </html>

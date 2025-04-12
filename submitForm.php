@@ -1,9 +1,9 @@
 <?php
 
 // Load PHPMailer classes
-require 'vendor/phpmailer/src/PHPMailer.php';
-require 'vendor/phpmailer/src/SMTP.php';
-require 'vendor/phpmailer/src/Exception.php';
+require 'vendor/phpmailer/PHPMailer.php';
+require 'vendor/phpmailer/SMTP.php';
+require 'vendor/phpmailer/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
