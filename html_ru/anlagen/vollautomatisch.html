@@ -3,36 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Полностью автоматические монтажные системы</title>
+    <title>Полностью автоматизированные сборочные линии</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link
-      rel="shortcut icon"
-      href="../assets/icons/logoAlt.ico"
-      type="image/x-icon"
-    />
-    <script src="../../js/dynamic_insert_ru.js"></script>
-
+    <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <script src="../../js/dynamic_insert.js"></script>
     <style>
       @font-face {
         font-family: "Lexend Deca";
         src: url(../../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
       }
-
       @font-face {
         font-family: "Lexend LexendDeca-Bold";
         src: url(../../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
       }
-
       @font-face {
         font-family: "Mukta_Mahee";
         src: url(../../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
       }
-
       body {
         font-family: "Lexend Deca";
       }
-
       .neuigkeiten .neuigkeit-text {
         font-family: "Mukta_Mahee";
         letter-spacing: 1.5px;
@@ -42,14 +33,13 @@
     <link rel="stylesheet" href="../../css/subpage.css" />
   </head>
   <body>
+
     <div class="container-full subpage-top">
       <div class="container">
         <div class="breadcrumb">
-          <a href="../../index_ru.html">Главная</a> >
-          <a href="../anlagen.html">Системы</a> >
-          <a href="">Полностью автоматические монтажные системы</a>
+          <a href="../../index.html">Главная</a> > <a href="../anlagen.html">Линии</a> >
+          <a href="">Полностью автоматизированные сборочные линии</a>
         </div>
-
         <img
           class="subpage-top-img anlagen-cover"
           src="../../assets/images/Anlagen/Cover_-_Vollautomatische_Anlagen-removebg-preview.webp"
@@ -59,8 +49,8 @@
     </div>
 
     <div class="mini-nav">
-      <a href="./vollautomatisch.html">Полностью автоматические системы</a>
-      <a href="./halbautomatisch.html">Полуавтоматические системы</a>
+      <a href="./vollautomatisch.html">Полностью автоматизированные линии</a>
+      <a href="./halbautomatisch.html">Полуавтоматические линии</a>
       <a href="./manuell.html">Ручные рабочие места</a>
       <img class="mini-nav-scroll" src="../../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../../assets/icons/arrow-top.svg" alt="" />
@@ -69,268 +59,219 @@
     <div class="container-full">
       <div class="container">
         <div class="title">
-          <h2>Полностью автоматические монтажные системы</h2>
+          <h2>Полностью автоматизированные сборочные линии</h2>
         </div>
         <div class="text">
           <p>
-            Полностью автоматические монтажные системы, объединённые посредством
-            гибкой системы циркуляции паллет (Werkstückträger) либо при помощи
-            взаимодействующих роботов.
+            Полностью автоматизированные сборочные линии, соединённые с помощью гибкой системы ротации держателей заготовок или роботов, работающих совместно.
           </p>
         </div>
       </div>
     </div>
 
     <div class="tab">
-      <!--
-        <button class="tablinks active" onclick="openTab(event, 'tab-1')">
-          Возможные параметры системы
-        </button>
-        <button class="tablinks" onclick="openTab(event, 'tab-2')">Lorum</button>
-        <button class="tablinks" onclick="openTab(event, 'tab-3')">Lorum</button>
-        <button class="tablinks" onclick="openTab(event, 'tab-4')">Lorum</button>
-      -->
+      <!-- Дополнительные кнопки вкладок (при необходимости) -->
     </div>
 
-    <div class="swiper swiper-tab">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <button class="tablinks active" onclick="openTab(event, 'tab-1')">
-            Система сварки и испытаний для аккумуляторных блоков
-          </button>
-        </div>
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-2')">
-            Монтажная система для токосъёмных контактов
-          </button>
-        </div>
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-3')">
-            Система манипулирования шприцами (медтехника)
-          </button>
-        </div>
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-4')">
-            Монтажная система для управляющих клапанов
-          </button>
-        </div>
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-5')">
-            Монтажная система для соединительных элементов PV-модулей
-          </button>
-        </div>
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-6')">
-            Монтажная система для штекерных планок
-          </button>
-        </div>
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-7')">
-            Станок для обрезки и формования катушек транспондера
-          </button>
-        </div>
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-8')">
-            Тermoусадочный монтаж двигателя
-          </button>
-        </div>
-      </div>
+    <div class="tab tab-scroll">
+      <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+        Сварочно-испытательная установка для аккумуляторных блоков
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-2')">
+        Сборочная линия для электропитания
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-3')">
+        Система обработки шприцев (медицинская техника)
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-4')">
+        Сборочная линия для переключающих клапанов
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-5')">
+        Сборочная линия для соединительных элементов солнечных панелей
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-6')">
+        Сборочная линия для коннекторных блоков
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-7')">
+        Машина для обрезки и формовки катушек транспондеров
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-8')">
+        Сборочная линия для сборки моторов с усадкой
+      </button>
     </div>
-
+    
     <div class="container-full bg-tabs">
       <div class="container">
-        <!-- Tab 1 -->
+        <!-- Вкладка 1 -->
         <div id="tab-1" class="tabcontent tabcontent-active">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/Schweiß-undPrüfanlagefürAkku-Packs-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/Schweiß-undPrüfanlagefürAkku-Packs-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Параметры системы</h3>
+            <h3>Параметры линии</h3>
             <div class="details">
               <div class="double-list">
                 <ul>
-                  <li>Время такта на один аккумуляторный блок: 30 секунд</li>
-                  <li>Подача предварительно собранных блоков</li>
-                  <li>Контактная (резистивная) сварка соединителей ячеек с отдельными аккумуляторами
+                  <li>Время цикла на аккумуляторный блок: 30 секунд</li>
+                  <li>Подача предварительно собранных аккумуляторных блоков</li>
+                  <li>
+                    Сварка соединителей ячеек с отдельными аккумуляторами
                     <ul>
-                      <li>0,8 секунды на каждую сварку с оценкой параметров сварки</li>
-                      <li>До 60 сварок на один аккумуляторный блок</li>
+                      <li>0,8 секунды на сварку с оценкой параметров сварки</li>
+                      <li>До 60 сварок на аккумуляторный блок</li>
                     </ul>
                   </li>
                 </ul>
                 <ul>
-                  <li>Окончательная сборка аккумуляторных блоков</li>
-                  <li>EOLT для аккумуляторных блоков
+                  <li>Финальная сборка аккумуляторных блоков</li>
+                  <li>
+                    Конечное тестирование аккумуляторных блоков (EOLT)
                     <ul>
-                      <li>Ток заряда</li>
-                      <li>Время заряда</li>
-                      <li>Функциональный тест</li>
+                      <li>Ток зарядки</li>
+                      <li>Время зарядки</li>
+                      <li>Функциональное тестирование</li>
                     </ul>
                   </li>
-                  <li>Двухсторонняя лазерная маркировка</li>
+                  <li>Двусторонняя лазерная маркировка</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Tab 2 -->
+        <!-- Вкладка 2 -->
         <div id="tab-2" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlageStromabgriff(BatteriemanagementElektroautos)-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlageStromabgriff(BatteriemanagementElektroautos)-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Параметры системы</h3>
+            <h3>Параметры линии</h3>
             <div class="details">
               <ul>
-                <li>Время такта на один токосъёмный контакт: 6,5 секунды</li>
-                <li>Подача и предварительная сборка различных металлических деталей</li>
-                <li>Загрузка и выгрузка термопластавтомата</li>
-                <li>Завершение сборки/итоговая проверка смонтированных токосъёмов</li>
-                <li>Выкладка деталей в лотки (trays)</li>
+                <li>Время цикла на отбор электроэнергии: 6,5 секунд</li>
+                <li>Подача различных листовых деталей и их предварительная сборка</li>
+                <li>Загрузка и разгрузка пластмассовой шприцевальной машины</li>
+                <li>Финальная сборка/контроль собранных электроотборников</li>
+                <li>Размещение компонентов в лотках</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Tab 3 -->
+        <!-- Вкладка 3 -->
         <div id="tab-3" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/HandlingsystemSpritzen(Medizintechnik)-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/HandlingsystemSpritzen(Medizintechnik)-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Параметры системы</h3>
+            <h3>Параметры линии</h3>
             <div class="details">
               <ul>
-                <li>Время такта на одну шприц: ≤ 0,5 секунды</li>
-                <li>Подача уже наполненных шприцев, их выравнивание и подготовка в группах по 10 для упаковки</li>
-                <li>Одновременный захват 10 шприцев, поворот и укладка в подготовленные блистеры с заданной ориентацией</li>
+                <li>Время цикла на шприц: ≤ 0,5 секунды</li>
+                <li>Подача уже заполненных шприцев, их выравнивание и одновременная подготовка 10 шприцев к упаковке</li>
+                <li>Одновременное захватывание, переворачивание и позиционное размещение 10 шприцев в blister</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Tab 4 -->
+        <!-- Вкладка 4 -->
         <div id="tab-4" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefüSchaltventile-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefüSchaltventile-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Параметры системы</h3>
+            <h3>Параметры линии</h3>
             <div class="details">
               <div class="double-list">
                 <ul>
-                  <li>Время такта на один управляющий клапан: 6,5 секунды</li>
-                  <li>Подача каркасов катушек и монтаж с контактными пинами</li>
-                  <li>Подача медной проволоки и намотка на каркас катушки</li>
-                  <li>Подача, гибка и монтаж проводных компонентов (диодов)</li>
-                  <li>Контактная сварка (резистивная) выводов</li>
+                  <li>Время цикла на переключающий клапан: 6,5 секунд</li>
+                  <li>Подача корпуса намотки и сборка с контактными штырями</li>
+                  <li>Подача медного провода и намотка на корпус</li>
+                  <li>Подача проводимых компонентов (диодов), их сгибание и сборка</li>
+                  <li>Сварка контактов методом сопротивления</li>
                 </ul>
                 <ul>
-                  <li>Подача и монтаж металлических деталей</li>
-                  <li>Лазерная сварка (360° по окружности) металлических деталей</li>
-                  <li>Финальный контроль и подготовка к литью пластмассы</li>
-                  <li>Четырёхкратное литьё пластмассы вокруг детали</li>
-                  <li>Проверка детали и паллетизация</li>
+                  <li>Подача и сборка листовых деталей</li>
+                  <li>Лазерная сварка (на 360°) листовых деталей</li>
+                  <li>Финальный контроль и подготовка для инжекционного обтекания пластиком</li>
+                  <li>4-кратное обтекание пластиком изделия</li>
+                  <li>Контроль качества и паллетирование</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Tab 5 -->
+        <!-- Вкладка 5 -->
         <div id="tab-5" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefürVerbindungselementevonPVModulen-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefürVerbindungselementevonPVModulen-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Параметры системы</h3>
+            <h3>Параметры линии</h3>
             <div class="details">
               <ul>
-                <li>Время такта на один соединительный элемент: 5 секунд</li>
-                <li>Полностью автоматическая подача и монтаж различных металлических деталей</li>
-                <li>Упаковка деталей в картонные коробки</li>
-                <li>Закрытие коробок, маркировка (этикетирование) и укладка на европалету</li>
+                <li>Время цикла на соединительный элемент: 5 секунд</li>
+                <li>Полностью автоматическая подача различных листовых деталей и их сборка</li>
+                <li>Упаковка компонентов в коробки</li>
+                <li>Запечатывание, маркировка и штабелирование коробок на евролотах</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Tab 6 -->
+        <!-- Вкладка 6 -->
         <div id="tab-6" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefürSteckerleisten-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefürSteckerleisten-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Параметры системы</h3>
+            <h3>Параметры линии</h3>
             <div class="details">
               <div class="double-list">
                 <ul>
-                  <li>Время такта на одну штекерную планку: 7,5 секунды</li>
-                  <li>Вырубка с ленты-носителя и предварительная сборка разных контактных пинов
+                  <li>Время цикла на распределительный блок: 7,5 секунд</li>
+                  <li>Из различных контактных штырей, высекаемых с транспортёра, предварительная сборка
                     <ul>
-                      <li>До четырёх различных типов пинов на одну штекерную планку</li>
-                      <li>42-контактная или 30-контактная планка (0,8 секунды на один пин)</li>
+                      <li>До 4 различных штырей на блок</li>
+                      <li>42-контактный и 30-контактный блок (0,8 секунды на контакт)</li>
                     </ul>
                   </li>
-                  <li>Загрузка и выгрузка термопластавтомата (4 гнезда)</li>
+                  <li>Подача в шприцевальную машину (4 камеры)</li>
                 </ul>
                 <ul>
-                  <li>Проверка готовой штекерной планки (после литья)
+                  <li>Контроль обтёкнутого распределительного блока
                     <ul>
-                      <li>Испытание на высокое напряжение</li>
-                      <li>Проверка биения (т.н. «круговое биение», taumel test)</li>
+                      <li>Высоковольтное тестирование</li>
+                      <li>Тест на вибрацию штырей</li>
                     </ul>
                   </li>
-                  <li>Укладка штекерной планки в подготовленные блистеры (смотанные в рулон)</li>
-                  <li>Запайка блистера с покрывной плёнкой</li>
+                  <li>Размещение блока в подготовленных blister (с ленты)</li>
+                  <li>Запечатывание blister с защитной плёнкой</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Tab 7 -->
+        <!-- Вкладка 7 -->
         <div id="tab-7" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/Trimm-undFormmaschinefürTransponderspulen-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/Trimm-undFormmaschinefürTransponderspulen-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Параметры системы</h3>
+            <h3>Параметры линии</h3>
             <div class="details">
               <ul>
-                <li>Время такта на одну катушку: ≤ 0,2 секунды</li>
-                <li>Полностью связанная (интегрированная) транспортная линия с обработкой ленты-носителя «reel-to-reel»</li>
-                <li>Диаметр проволоки 32–50 мкм</li>
-                <li>Станция теста импульсного тока</li>
-                <li>Выравнивание и гибка контактов на поворотном столе</li>
+                <li>Время цикла на катушку: ≤ 0,2 секунды</li>
+                <li>Полностью интегрированная линия с обработкой по принципу "reel-to-reel"</li>
+                <li>Диаметр провода 32–50 мкм</li>
+                <li>Испытательная станция с импульсным током</li>
+                <li>Выравнивание и гибка клемм на вращающемся столе</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Tab 8 -->
+        <!-- Вкладка 8 -->
         <div id="tab-8" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/SchrumpfmontageMotor-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/SchrumpfmontageMotor-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Параметры системы</h3>
+            <h3>Параметры линии</h3>
             <div class="details">
               <ul>
-                <li>Время такта на один двигатель: 15 секунд</li>
-                <li>Корпус двигателя приподнимается и ориентируется с помощью двух центрирующих штифтов</li>
-                <li>Блок ECU уже выровнен и захватывается в «плавающем» состоянии</li>
-                <li>Тулейка двигателя нагревается и расширяется посредством индуктора</li>
-                <li>В течение трёх секунд двигатель должен быть совмещён (посажен) с блоком ECU</li>
+                <li>Время цикла на мотор: 15 секунд</li>
+                <li>Корпус мотора поднимается и выравнивается с использованием двух центровочных штифтов</li>
+                <li>Блок ECU уже центрирован и захватывается с плавающим механизмом</li>
+                <li>Моторный корпус нагревается с помощью индуктора и расширяется</li>
+                <li>Мотор должен быть проведён над блоком ECU за три секунды</li>
               </ul>
             </div>
           </div>
@@ -344,16 +285,12 @@
     <script>
       function openTab(event, tabName) {
         const tabcontent = document.querySelectorAll(".tabcontent");
-        tabcontent.forEach((content) =>
-          content.classList.remove("tabcontent-active")
-        );
-
+        tabcontent.forEach((content) => content.classList.remove("tabcontent-active"));
         document.getElementById(tabName).classList.add("tabcontent-active");
         const tablinks = document.querySelectorAll(".tablinks");
         tablinks.forEach((link) => link.classList.remove("active"));
         event.target.classList.add("active");
       }
-
       var swipertab = new Swiper(".swiper-tab", {
         freeMode: true,
         slidesPerView: "auto",

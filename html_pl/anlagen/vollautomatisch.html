@@ -3,36 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>W pełni automatyczne systemy montażowe</title>
+    <title>W pełni automatyczne linie montażowe</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link
-      rel="shortcut icon"
-      href="../assets/icons/logoAlt.ico"
-      type="image/x-icon"
-    />
-    <script src="../../js/dynamic_insert_pl.js"></script>
+    <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <script src="../../js/dynamic_insert.js"></script>
 
     <style>
       @font-face {
         font-family: "Lexend Deca";
         src: url(../../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
       }
-
       @font-face {
         font-family: "Lexend LexendDeca-Bold";
         src: url(../../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
       }
-
       @font-face {
         font-family: "Mukta_Mahee";
         src: url(../../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
       }
-
       body {
         font-family: "Lexend Deca";
       }
-
       .neuigkeiten .neuigkeit-text {
         font-family: "Mukta_Mahee";
         letter-spacing: 1.5px;
@@ -42,14 +34,13 @@
     <link rel="stylesheet" href="../../css/subpage.css" />
   </head>
   <body>
+
     <div class="container-full subpage-top">
       <div class="container">
         <div class="breadcrumb">
-          <a href="../../index_pl.html">Strona główna</a> >
-          <a href="../anlagen.html">Systemy</a> >
-          <a href="">W pełni automatyczne systemy montażowe</a>
+          <a href="../../index.html">Strona główna</a> > <a href="../anlagen.html">Linie</a> >
+          <a href="">W pełni automatyczne linie montażowe</a>
         </div>
-
         <img
           class="subpage-top-img anlagen-cover"
           src="../../assets/images/Anlagen/Cover_-_Vollautomatische_Anlagen-removebg-preview.webp"
@@ -59,9 +50,9 @@
     </div>
 
     <div class="mini-nav">
-      <a href="./vollautomatisch.html">W pełni automatyczne systemy</a>
-      <a href="./halbautomatisch.html">Półautomatyczne systemy</a>
-      <a href="./manuell.html">Stanowiska manualne</a>
+      <a href="./vollautomatisch.html">W pełni automatyczne linie</a>
+      <a href="./halbautomatisch.html">Półautomatyczne linie</a>
+      <a href="./manuell.html">Ręczne stanowiska</a>
       <img class="mini-nav-scroll" src="../../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../../assets/icons/arrow-top.svg" alt="" />
     </div>
@@ -69,274 +60,219 @@
     <div class="container-full">
       <div class="container">
         <div class="title">
-          <h2>W pełni automatyczne systemy montażowe</h2>
+          <h2>W pełni automatyczne linie montażowe</h2>
         </div>
         <div class="text">
           <p>
-            W pełni automatyczne linie montażowe, połączone za pomocą elastycznego
-            systemu obiegu uchwytów lub zintegrowanych robotów współpracujących.
+            W pełni automatyczne linie montażowe, łączone przy użyciu elastycznego systemu obiegu uchwytów na detale lub za pomocą współpracujących robotów.
           </p>
         </div>
       </div>
     </div>
 
     <div class="tab">
-      <!--
-        <button class="tablinks active" onclick="openTab(event, 'tab-1')">
-          Możliwe parametry systemu
-        </button>
-        <button class="tablinks" onclick="openTab(event, 'tab-2')">Lorem</button>
-        <button class="tablinks" onclick="openTab(event, 'tab-3')">Lorem</button>
-        <button class="tablinks" onclick="openTab(event, 'tab-4')">Lorem</button>
-      -->
+      <!-- (Opcjonalne przyciski dla przyszłych zakładek) -->
     </div>
 
-    <div class="swiper swiper-tab">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <button class="tablinks active" onclick="openTab(event, 'tab-1')">
-            System spawania i testowania pakietów akumulatorów
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-2')">
-            System montażowy przyłączy prądowych
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-3')">
-            System manipulacyjny do strzykawek (technika medyczna)
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-4')">
-            System montażowy zaworów sterujących
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-5')">
-            System montażowy elementów łączących moduły PV
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-6')">
-            System montażowy listew wtykowych
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-7')">
-            Maszyna do przycinania i formowania cewek transponderów
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-8')">
-            Montaż skurczowy silnika
-          </button>
-        </div>
-      </div>
+    <div class="tab tab-scroll">
+      <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+        Instalacja spawalniczo-kontrolna dla pakietów akumulatorowych
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-2')">
+        Linia montażowa odbioru prądu
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-3')">
+        System obsługi strzykawek (technika medyczna)
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-4')">
+        Linia montażowa do zaworów przełączających
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-5')">
+        Linia montażowa do elementów łączących moduły PV
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-6')">
+        Linia montażowa do listew złączy
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-7')">
+        Maszyna do przycinania i formowania cewek transponderowych
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-8')">
+        Linia montażowa do montażu silników z usadką
+      </button>
     </div>
-
+    
     <div class="container-full bg-tabs">
       <div class="container">
-        <!-- Tab 1 -->
+        <!-- Zakładka 1 -->
         <div id="tab-1" class="tabcontent tabcontent-active">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/Schweiß-undPrüfanlagefürAkku-Packs-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/Schweiß-undPrüfanlagefürAkku-Packs-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Parametry systemu</h3>
+            <h3>Parametry linii</h3>
             <div class="details">
               <div class="double-list">
                 <ul>
-                  <li>Czas cyklu na pakiet akumulatorów: 30 sekund</li>
-                  <li>Podawanie wstępnie zmontowanych pakietów</li>
-                  <li>Spawanie oporowe połączeń między ogniwami akumulatorowymi
+                  <li>Czas cyklu na pakiet akumulatorowy: 30 sekund</li>
+                  <li>Podawanie wstępnie zmontowanych pakietów akumulatorowych</li>
+                  <li>
+                    Spawanie metodą oporową łączników ogniw z pojedynczymi akumulatorami
                     <ul>
-                      <li>0,8 sekundy na jedno spawanie wraz z oceną parametrów spawania</li>
-                      <li>Do 60 spawów na pakiet</li>
+                      <li>0,8 sekundy na spoinę z oceną parametrów</li>
+                      <li>Do 60 spoin na pakiet</li>
                     </ul>
                   </li>
                 </ul>
                 <ul>
-                  <li>Końcowy montaż pakietów akumulatorów</li>
-                  <li>EOLT dla pakietów akumulatorów
+                  <li>Końcowy montaż pakietów akumulatorowych</li>
+                  <li>
+                    Testowanie końcowe (EOLT) pakietów akumulatorowych
                     <ul>
                       <li>Prąd ładowania</li>
                       <li>Czas ładowania</li>
                       <li>Test funkcjonalny</li>
                     </ul>
                   </li>
-                  <li>Dwustronne znakowanie laserowe</li>
+                  <li>Laserowe oznakowanie z obu stron</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Tab 2 -->
+        <!-- Zakładka 2 -->
         <div id="tab-2" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlageStromabgriff(BatteriemanagementElektroautos)-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlageStromabgriff(BatteriemanagementElektroautos)-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Parametry systemu</h3>
+            <h3>Parametry linii</h3>
             <div class="details">
               <ul>
-                <li>Czas cyklu na przyłącze prądowe: 6,5 sekundy</li>
-                <li>Podawanie i wstępny montaż różnych elementów z blachy</li>
-                <li>Załadunek i rozładunek wtryskarki do tworzyw sztucznych</li>
-                <li>Końcowy montaż/końcowy test zamontowanych przyłączy prądowych</li>
-                <li>Odkładanie elementów w tace (traye)</li>
+                <li>Czas cyklu na odbiór prądu: 6,5 sekundy</li>
+                <li>Podawanie i wstępny montaż różnych elementów blachowych</li>
+                <li>Załadunek i rozładunek maszyny wtryskowej</li>
+                <li>Końcowy montaż/kontrola zamontowanych odbiorników prądu</li>
+                <li>Odkładanie elementów do tacek</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Tab 3 -->
+        <!-- Zakładka 3 -->
         <div id="tab-3" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/HandlingsystemSpritzen(Medizintechnik)-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/HandlingsystemSpritzen(Medizintechnik)-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Parametry systemu</h3>
+            <h3>Parametry linii</h3>
             <div class="details">
               <ul>
-                <li>Czas cyklu na strzykawkę: ≤ 0,5 sekundy</li>
-                <li>Podawanie już napełnionych strzykawek, ich ustawianie i przygotowywanie po 10 sztuk do pakowania</li>
-                <li>Jednoczesne chwycenie 10 strzykawek, odwrócenie i ułożenie w przygotowanych blisterach w określonej orientacji</li>
+                <li>Czas cyklu na szpryczkę: ≤ 0,5 sekundy</li>
+                <li>Podawanie wstępnie wypełnionych szpryczy, ich wyrównanie oraz jednoczesne przygotowanie 10 sztuk do pakowania</li>
+                <li>Jednoczesne chwytanie, obracanie i umieszczanie szpryczy w blisterach</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Tab 4 -->
+        <!-- Zakładka 4 -->
         <div id="tab-4" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefüSchaltventile-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefüSchaltventile-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Parametry systemu</h3>
+            <h3>Parametry linii</h3>
             <div class="details">
               <div class="double-list">
                 <ul>
-                  <li>Czas cyklu na zawór sterujący: 6,5 sekundy</li>
-                  <li>Podawanie korpusów cewek i montaż z pinami kontaktowymi</li>
-                  <li>Podawanie drutu miedzianego i nawijanie na korpus cewki</li>
-                  <li>Podawanie, zaginanie i montaż przewodowych komponentów (diod)</li>
-                  <li>Spawanie oporowe styków</li>
+                  <li>Czas cyklu na zawór przełączający: 6,5 sekundy</li>
+                  <li>Podawanie korpusu cewki i montaż z pinami kontaktowymi</li>
+                  <li>Podawanie przewodu miedzianego i jego nawijanie na korpus</li>
+                  <li>Podawanie elementów przewodzących (diody), ich gięcie i montaż</li>
+                  <li>Spawanie metodą oporową kontaktów</li>
                 </ul>
                 <ul>
-                  <li>Podawanie i montaż elementów z blachy</li>
-                  <li>Spawanie laserowe (360° dookoła) elementów z blachy</li>
-                  <li>Końcowa kontrola i przygotowanie do wtrysku tworzywa sztucznego</li>
-                  <li>Wtrysk tworzywa wokół elementu w 4 gniazdach (4-krotny)</li>
-                  <li>Kontrola elementu i paletyzacja</li>
+                  <li>Podawanie i montaż elementów blachowych</li>
+                  <li>Laserowe spawanie blach (pełny obrót 360°)</li>
+                  <li>Końcowa kontrola i przygotowanie do obudowy z tworzywa sztucznego</li>
+                  <li>4-krotne obudowanie elementu tworzywem sztucznym</li>
+                  <li>Kontrola jakości i paletowanie</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Tab 5 -->
+        <!-- Zakładka 5 -->
         <div id="tab-5" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefürVerbindungselementevonPVModulen-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefürVerbindungselementevonPVModulen-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Parametry systemu</h3>
+            <h3>Parametry linii</h3>
             <div class="details">
               <ul>
                 <li>Czas cyklu na element łączący: 5 sekund</li>
-                <li>Całkowicie automatyczne podawanie i montaż różnych elementów z blachy</li>
-                <li>Pakowanie elementów w kartony</li>
-                <li>Zamykanie kartonów, etykietowanie i układanie na europalecie</li>
+                <li>Pełna automatyczna podaż różnych blachowych elementów i ich montaż</li>
+                <li>Pakowanie elementów w opakowania kartonowe</li>
+                <li>Zamknięcie opakowania, oznakowanie i układanie na palecie euro</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Tab 6 -->
+        <!-- Zakładka 6 -->
         <div id="tab-6" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefürSteckerleisten-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/MontageanlagefürSteckerleisten-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Parametry systemu</h3>
+            <h3>Parametry linii</h3>
             <div class="details">
               <div class="double-list">
                 <ul>
-                  <li>Czas cyklu na listwę wtykową: 7,5 sekundy</li>
-                  <li>Wykrawanie z taśmy nośnej i wstępny montaż różnych pinów kontaktowych
+                  <li>Czas cyklu na listewkę złączy: 7,5 sekundy</li>
+                  <li>Z różnych pinów wycinanych z taśmy, wstępny montaż
                     <ul>
-                      <li>Do czterech różnych rodzajów pinów na jedną listwę wtykową</li>
-                      <li>Listwa 42-pinowa lub 30-pinowa (0,8 sekundy na jeden pin)</li>
+                      <li>Możliwość zastosowania do 4 różnych pinów na listewkę</li>
+                      <li>42- i 30-pinowe listewki (0,8 sekundy na pin)</li>
                     </ul>
                   </li>
-                  <li>Załadunek i rozładunek wtryskarki (4 gniazda)</li>
+                  <li>Załadunek maszyny wtryskowej (4-kanałowej)</li>
                 </ul>
                 <ul>
-                  <li>Kontrola gotowej listwy po wtrysku
+                  <li>Kontrola listewki po obudowaniu
                     <ul>
                       <li>Test wysokiego napięcia</li>
-                      <li>Test bicia osiowego (tzw. „taumel test”)</li>
+                      <li>Test oscylacyjny pinów</li>
                     </ul>
                   </li>
-                  <li>Odkładanie listwy wtykowej do przygotowanych blisterów (rozwijanych z roli)</li>
-                  <li>Zgrzewanie blistera z folią pokrywającą</li>
+                  <li>Odkładanie listewki na opakowanie (z taśmy)</li>
+                  <li>Zgrzewanie blistera folią ochronną</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Tab 7 -->
+        <!-- Zakładka 7 -->
         <div id="tab-7" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/Trimm-undFormmaschinefürTransponderspulen-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/Trimm-undFormmaschinefürTransponderspulen-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Parametry systemu</h3>
+            <h3>Parametry linii</h3>
             <div class="details">
               <ul>
-                <li>Czas cyklu na cewkę: ≤ 0,2 sekundy</li>
-                <li>W pełni zintegrowana linia transferowa z przetwarzaniem taśmy nośnej „reel-to-reel”</li>
-                <li>Średnica drutu 32–50 μm</li>
-                <li>Stacja testu impulsowego</li>
-                <li>Ustawianie i zaginanie zacisków na stole obrotowym</li>
+                <li>Czas cyklu na katuchę: ≤ 0,2 sekundy</li>
+                <li>Pełna, zintegrowana linia transferowa z przetwarzaniem metodą "reel-to-reel"</li>
+                <li>Średnica drutu: 32–50 µm</li>
+                <li>Stacja testowa impulsowego prądu</li>
+                <li>Wyrównanie i gięcie zacisków na obracającym się stole</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Tab 8 -->
+        <!-- Zakładka 8 -->
         <div id="tab-8" class="tabcontent">
-          <img
-            src="../../assets/images/Anlagen/VollautomatischeAnlagen/SchrumpfmontageMotor-Bild.webp"
-            alt=""
-          />
+          <img src="../../assets/images/Anlagen/VollautomatischeAnlagen/SchrumpfmontageMotor-Bild.webp" alt="" />
           <div class="tabcontent-text">
-            <h3>Parametry systemu</h3>
+            <h3>Parametry linii</h3>
             <div class="details">
               <ul>
                 <li>Czas cyklu na silnik: 15 sekund</li>
-                <li>Obudowa silnika jest podnoszona i ustawiana za pomocą dwóch kołków centrujących</li>
-                <li>Jednostka ECU jest już wycentrowana i chwytana w sposób pływający</li>
-                <li>Tuleja silnika jest podgrzewana i rozszerzana za pomocą induktora</li>
-                <li>W ciągu trzech sekund silnik musi zostać nałożony na jednostkę ECU</li>
+                <li>Obudowa silnika jest podnoszona i wyrównywana przy użyciu dwóch centrowych sztyftów</li>
+                <li>Jednostka ECU jest już wycentrowana i jest chwytana przez system z zachowaniem swobody</li>
+                <li>Obudowa silnika jest ogrzewana za pomocą induktora i rozszerzana</li>
+                <li>Silnik musi zostać przesunięty nad jednostką ECU w ciągu 3 sekund</li>
               </ul>
             </div>
           </div>
@@ -350,16 +286,12 @@
     <script>
       function openTab(event, tabName) {
         const tabcontent = document.querySelectorAll(".tabcontent");
-        tabcontent.forEach((content) =>
-          content.classList.remove("tabcontent-active")
-        );
-
+        tabcontent.forEach((content) => content.classList.remove("tabcontent-active"));
         document.getElementById(tabName).classList.add("tabcontent-active");
         const tablinks = document.querySelectorAll(".tablinks");
         tablinks.forEach((link) => link.classList.remove("active"));
         event.target.classList.add("active");
       }
-
       var swipertab = new Swiper(".swiper-tab", {
         freeMode: true,
         slidesPerView: "auto",
