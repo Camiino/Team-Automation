@@ -41,3 +41,20 @@
   padding: 4px;
   font-size: 1em;
 }
+
+.edit-content-textarea {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.edit-title-input {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.edit-content-textarea,
+.edit-title-input {
+  padding: 6px 8px;
+}
