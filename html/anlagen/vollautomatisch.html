@@ -85,57 +85,34 @@
       <button class="tablinks" onclick="openTab(event, 'tab-4')">Lorum</button> -->
     </div>
 
-    <div class="swiper swiper-tab">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <button class="tablinks active" onclick="openTab(event, 'tab-1')">
-            Schweiß- und Prüfanlage für Akku-Packs
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-2')">
-            Montageanlage Stromabgriff
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-3')">
-            Handlingsystem Spritzen (Medizintechnik)
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-4')">
-            Montageanlage für Schaltventile
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-5')">
-            Montageanlage für Verbindungselemente von PV-Modulen
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-6')">
-            Montageanlage für Steckerleisten
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-7')">
-            Trimm- und Formmaschine für Transponderspulen
-          </button>
-        </div>
-
-        <div class="swiper-slide">
-          <button class="tablinks" onclick="openTab(event, 'tab-8')">
-            Schrumpfmontage Motor
-          </button>
-        </div>
-      </div>
+    <div class="tab tab-scroll">
+      <button class="tablinks active" onclick="openTab(event, 'tab-1')">
+        Schweiß- und Prüfanlage für Akku-Packs
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-2')">
+        Montageanlage Stromabgriff
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-3')">
+        Handlingsystem Spritzen (Medizintechnik)
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-4')">
+        Montageanlage für Schaltventile
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-5')">
+        Montageanlage für Verbindungselemente von PV-Modulen
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-6')">
+        Montageanlage für Steckerleisten
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-7')">
+        Trimm- und Formmaschine für Transponderspulen
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'tab-8')">
+        Schrumpfmontage Motor
+      </button>
     </div>
+    
+    
 
     <div class="container-full bg-tabs">
       <div class="container">
@@ -383,6 +360,32 @@
           dragSize: 100,
         },
       });
+      const tabScroll = document.querySelector('.tab-scroll');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        tabScroll.addEventListener('mousedown', (e) => {
+          isDown = true;
+          startX = e.pageX - tabScroll.offsetLeft;
+          scrollLeft = tabScroll.scrollLeft;
+        });
+
+        tabScroll.addEventListener('mouseleave', () => {
+          isDown = false;
+        });
+
+        tabScroll.addEventListener('mouseup', () => {
+          isDown = false;
+        });
+
+        tabScroll.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - tabScroll.offsetLeft;
+          const walk = (x - startX) * 2;
+          tabScroll.scrollLeft = scrollLeft - walk;
+        });
     </script>
   </body>
 </html>
