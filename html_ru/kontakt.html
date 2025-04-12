@@ -144,7 +144,7 @@
         e.preventDefault();
 
         const formData = new FormData(form);
-        const response = await fetch("submitForm.php", {
+        const response = await fetch("../submitForm.php", {
           method: "POST",
           body: formData,
         });
