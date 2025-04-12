@@ -16,12 +16,21 @@ RUN apk add --no-cache \
     php83-xml \
     php83-fileinfo \
     php83-zlib \
-    supervisor
+    supervisor \
+    unzip \
+    wget
 
 # Clean default content and copy app
 RUN rm -rf /var/www/localhost/htdocs/*
 COPY . /var/www/localhost/htdocs/
 
+# Download PHPMailer into vendor directory (AFTER app copy)
+RUN mkdir -p vendor/phpmailer && \
+    wget -O /tmp/phpmailer.zip https://github.com/PHPMailer/PHPMailer/archive/master.zip && \
+    unzip /tmp/phpmailer.zip -d /tmp && \
+    cp -r /tmp/PHPMailer-master/src /var/www/localhost/htdocs/vendor/phpmailer && \
+    rm -rf /tmp/phpmailer.zip /tmp/PHPMailer-master
+    
 # Copy config files
 COPY nginx.conf /etc/nginx/http.d/default.conf
 COPY supervisord.conf /etc/supervisord.conf
