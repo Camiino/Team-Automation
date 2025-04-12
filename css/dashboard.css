@@ -80,3 +80,16 @@
 .neuigkeit-text {
   text-align: left;
 }
+
+@media screen and (max-width: 1440px) {
+  .lang-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .edit-title-input {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+  }
+}
