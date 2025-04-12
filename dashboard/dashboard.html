@@ -195,62 +195,63 @@
                 ${imageHTML}
                 
                 <!-- Spalte 2: Datum, Titel, Tab-Navigation, Buttons -->
-                <div class="lang-wrapper">
-                  <div style="display:flex;flex-direction:column;align-items:start;">
-                    <h4>Datum: ${escapeHTML(item.date)}</h4>
-                  
-                  
-                    <!-- Mehrsprachige Titel -->
-                    <div class="lang-title de active">
-                      <h4 style="text-align:left;margin-top:1rem;">Titel (DE): <span class="news-title">${escapeHTML(item.title_de)}</span></h4>
-                    </div>
-                    <div class="lang-title en">
-                      <h4 style="text-align:left;margin-top:1rem;">Title (EN): <span class="news-title">${escapeHTML(item.title_en)}</span></h4>
-                    </div>
-                    <div class="lang-title pl">
-                      <h4 style="text-align:left;margin-top:1rem;">Tytuł (PL): <span class="news-title">${escapeHTML(item.title_pl)}</span></h4>
-                    </div>
-                    <div class="lang-title ru">
-                      <h4 style="text-align:left;margin-top:1rem;">Заголовок (RU): <span class="news-title">${escapeHTML(item.title_ru)}</span></h4>
-                    </div>
-                  </div>
-                  <div style="display:flex;flex-direction:column;align-items:start;">
-                    <!-- Tab-Navigation -->
-                    <ul class="lang-tabs" style="display: flex; list-style: none; padding: 0; gap: 10px; margin: 1rem 0;">
-                      <li class="tab active" data-lang="de" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">DE</li>
-                      <li class="tab" data-lang="en" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">EN</li>
-                      <li class="tab" data-lang="pl" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">PL</li>
-                      <li class="tab" data-lang="ru" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">RU</li>
-                    </ul>
+                <div class="content-wrapper">
+                  <div class="lang-wrapper">
+                    <div style="display:flex;flex-direction:column;align-items:start;">
+                      <h4>Datum: ${escapeHTML(item.date)}</h4>
                     
-                    <!-- Button-Gruppe -->
-                    <div class="button-group" style="margin-top: 10px;">
-                      <button class="edit-btn" onclick="toggleEdit(this, ${item.id})" style="background: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-right: 10px;">Bearbeiten</button>
-                      <button onclick="deleteNews(${item.id})" style="background: #c0392b; color: white; border: none; padding: 8px 12px; border-radius: 4px;">Löschen</button>
+                    
+                      <!-- Mehrsprachige Titel -->
+                      <div class="lang-title de active">
+                        <h4 style="text-align:left;margin-top:1rem;">Titel (DE): <span class="news-title">${escapeHTML(item.title_de)}</span></h4>
+                      </div>
+                      <div class="lang-title en">
+                        <h4 style="text-align:left;margin-top:1rem;">Title (EN): <span class="news-title">${escapeHTML(item.title_en)}</span></h4>
+                      </div>
+                      <div class="lang-title pl">
+                        <h4 style="text-align:left;margin-top:1rem;">Tytuł (PL): <span class="news-title">${escapeHTML(item.title_pl)}</span></h4>
+                      </div>
+                      <div class="lang-title ru">
+                        <h4 style="text-align:left;margin-top:1rem;">Заголовок (RU): <span class="news-title">${escapeHTML(item.title_ru)}</span></h4>
+                      </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;align-items:start;">
+                      <!-- Tab-Navigation -->
+                      <ul class="lang-tabs" style="display: flex; list-style: none; padding: 0; gap: 10px; margin: 1rem 0;">
+                        <li class="tab active" data-lang="de" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">DE</li>
+                        <li class="tab" data-lang="en" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">EN</li>
+                        <li class="tab" data-lang="pl" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">PL</li>
+                        <li class="tab" data-lang="ru" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px;">RU</li>
+                      </ul>
+                      
+                      <!-- Button-Gruppe -->
+                      <div class="button-group" style="margin-top: 10px;">
+                        <button class="edit-btn" onclick="toggleEdit(this, ${item.id})" style="background: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-right: 10px;">Bearbeiten</button>
+                        <button onclick="deleteNews(${item.id})" style="background: #c0392b; color: white; border: none; padding: 8px 12px; border-radius: 4px;">Löschen</button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Spalte 3: Inhalt -->
+                  <div class="text-wrapper">
+                    <div class="lang-text de active">
+                      <p class="content-header" style="text-align:left;font-weight: bold;">Inhalt:</p>
+                      <p class="neuigkeit-text" style="text-align:left;">${escapeHTML(item.content_de)}</p>
+                    </div>
+                    <div class="lang-text en">
+                      <p class="content-header" style="text-align:left;font-weight: bold;">Content:</p>
+                      <p class="neuigkeit-text"style="text-align:left;">${escapeHTML(item.content_en)}</p>
+                    </div>
+                    <div class="lang-text pl">
+                      <p class="content-header" style="text-align:left;font-weight: bold;">Treść:</p>
+                      <p class="neuigkeit-text"style="text-align:left;">${escapeHTML(item.content_pl)}</p>
+                    </div>
+                    <div class="lang-text ru">
+                      <p class="content-header" style="text-align:left;font-weight: bold;">Содержание:</p>
+                      <p class="neuigkeit-text"style="text-align:left;">${escapeHTML(item.content_ru)}</p>
                     </div>
                   </div>
                 </div>
-                
-                <!-- Spalte 3: Inhalt -->
-                <div class="text-wrapper">
-                  <div class="lang-text de active">
-                    <p class="content-header" style="text-align:left;font-weight: bold;">Inhalt:</p>
-                    <p class="neuigkeit-text" style="text-align:left;">${escapeHTML(item.content_de)}</p>
-                  </div>
-                  <div class="lang-text en">
-                    <p class="content-header" style="text-align:left;font-weight: bold;">Content:</p>
-                    <p class="neuigkeit-text"style="text-align:left;">${escapeHTML(item.content_en)}</p>
-                  </div>
-                  <div class="lang-text pl">
-                    <p class="content-header" style="text-align:left;font-weight: bold;">Treść:</p>
-                    <p class="neuigkeit-text"style="text-align:left;">${escapeHTML(item.content_pl)}</p>
-                  </div>
-                  <div class="lang-text ru">
-                    <p class="content-header" style="text-align:left;font-weight: bold;">Содержание:</p>
-                    <p class="neuigkeit-text"style="text-align:left;">${escapeHTML(item.content_ru)}</p>
-                  </div>
-                </div>
-                
               </div>
               
               <!-- Buttons (optional, falls du sie auch in Spalte 2 haben möchtest, wurden sie bereits dort integriert) -->
