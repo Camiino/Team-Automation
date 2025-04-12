@@ -82,7 +82,7 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .newsContainer .content {
+  .newsContainer .news-card .content {
     flex-direction: column!important;
   }
 }
