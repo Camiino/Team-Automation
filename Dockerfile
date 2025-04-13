@@ -35,6 +35,18 @@ RUN mkdir -p /var/www/localhost/htdocs/vendor/phpmailer && \
 COPY nginx.conf /etc/nginx/http.d/default.conf
 COPY supervisord.conf /etc/supervisord.conf
 
+# Configure PHP-FPM to expose environment variables to PHP scripts
+RUN sed -i 's/^;*clear_env\s*=.*/clear_env = no/' /etc/php83/php-fpm.d/www.conf && \
+    echo "env[DB_HOST] = \$DB_HOST" >> /etc/php83/php-fpm.d/www.conf && \
+    echo "env[DB_NAME] = \$DB_NAME" >> /etc/php83/php-fpm.d/www.conf && \
+    echo "env[DB_USER] = \$DB_USER" >> /etc/php83/php-fpm.d/www.conf && \
+    echo "env[DB_PASSWORD] = \$DB_PASSWORD" >> /etc/php83/php-fpm.d/www.conf
+
+# Set proper ownership and permissions for PHP files
+RUN chown -R nobody:nobody /var/www/localhost/htdocs && \
+    find /var/www/localhost/htdocs -type d -exec chmod 755 {} \; && \
+    find /var/www/localhost/htdocs -type f -exec chmod 644 {} \;
+    
 EXPOSE 80
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
