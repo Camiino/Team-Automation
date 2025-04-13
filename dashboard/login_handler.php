@@ -3,7 +3,7 @@ session_start();
 
 // Replace this with a database in real applications
 $valid_users = [
-    "admin" => '$2a$20$Ylz3Mp7uxSlz3qyodKi5le1YAV8v/St8Keo4nc4VtltqKuV56xZH6' // secret123
+    "admin" => '$2a$12$1ix5B9.vBqOhP6eV9dLv2uB1NQ7GUDncbg4V6Vy8tK23MN6SqRM.6' // secret123
 ];
 
 $username = $_POST['username'] ?? '';
