@@ -753,44 +753,40 @@ document.addEventListener('commonSectionsLoaded', function () {
         // 2) Prepare text for each language
         const texts = {
           de: {
-            message: `Auf dieser Website nutzen wir Cookies zur Verarbeitung von Endgeräteinformationen. Die Verarbeitung dient der Gewährleistung grundlegender Funktionen und der Einbindung externer Inhalte und Dienste Dritter (z. B. Google Fonts, YouTube, Google Maps). Je nach Funktion können dabei Daten an Dritte weitergegeben und dort verarbeitet werden. Mehr Informationen hierzu finden Sie im <a href="https://bee-its.de/html/impressum.html" style="color: #e5e5e5;">Impressum</a>.<br><br>Sie können Ihre Zustimmung jederzeit ändern oder widerrufen.`,
+            message: `Auf dieser Website nutzen wir Cookies zur Verarbeitung von Endgeräteinformationen. Die Verarbeitung dient der Gewährleistung grundlegender Funktionen und der Einbindung externer Inhalte und Dienste Dritter (YouTube, Google Maps). Je nach Funktion können dabei Daten an Dritte weitergegeben und dort verarbeitet werden. Mehr Informationen hierzu finden Sie im <a href="https://bee-its.de/html/impressum.html" style="color: #e5e5e5;">Impressum</a>.<br><br>Sie können Ihre Zustimmung jederzeit ändern oder widerrufen.`,
             essentialLabel: "Essenziell",
             marketingLabel: "Marketing",
             marketingTooltip: "YouTube, Google Maps",
-            analyticsLabel: "Analytics (Google Analytics)",
             acceptAllBtn: "Alle Akzeptieren",
             rejectAllBtn: "Optionale Ablehnen",
             saveSettingsBtn: "Einstellungen Speichern",
             cookieSvgColor: "#e5e5e5"
           },
           pl: {
-            message: `Na tej stronie używamy plików cookie do przetwarzania informacji na temat urządzeń końcowych. Przetwarzanie służy zapewnieniu podstawowych funkcji oraz integracji zewnętrznych treści i usług firm trzecich (np. Google Fonts, YouTube, Google Maps). W zależności od funkcji, dane mogą być przekazywane osobom trzecim i tam przetwarzane. Więcej informacji znajdziesz w <a href="https://bee-its.de/html_pl/impressum.html" style="color: #e5e5e5;">Impressum</a>.<br><br>Możesz w każdej chwili zmienić lub wycofać swoją zgodę.`,
+            message: `Na tej stronie używamy plików cookie do przetwarzania informacji na temat urządzeń końcowych. Przetwarzanie służy zapewnieniu podstawowych funkcji oraz integracji zewnętrznych treści i usług firm trzecich (YouTube, Google Maps). W zależności od funkcji, dane mogą być przekazywane osobom trzecim i tam przetwarzane. Więcej informacji znajdziesz w <a href="https://bee-its.de/html_pl/impressum.html" style="color: #e5e5e5;">Impressum</a>.<br><br>Możesz w każdej chwili zmienić lub wycofać swoją zgodę.`,
             essentialLabel: "Niezbędne",
             marketingLabel: "Marketing",
             marketingTooltip: "YouTube, Google Maps",
-            analyticsLabel: "Analityka (Google Analytics)",
             acceptAllBtn: "Zaakceptuj wszystkie",
             rejectAllBtn: "Odrzuć opcjonalne",
             saveSettingsBtn: "Zapisz ustawienia",
             cookieSvgColor: "#e5e5e5"
           },
           en: {
-            message: `We use cookies on this website to process device information. The processing is intended to ensure basic functions and the integration of external content and third-party services (e.g. Google Fonts, YouTube, Google Maps). Depending on the function, data may be passed on to third parties and processed there. You can find more information in our <a href="https://bee-its.de/html_en/impressum.html" style="color: #e5e5e5;">imprint</a>.<br><br>You can change or revoke your consent at any time.`,
+            message: `We use cookies on this website to process device information. The processing is intended to ensure basic functions and the integration of external content and third-party services (YouTube, Google Maps). Depending on the function, data may be passed on to third parties and processed there. You can find more information in our <a href="https://bee-its.de/html_en/impressum.html" style="color: #e5e5e5;">imprint</a>.<br><br>You can change or revoke your consent at any time.`,
             essentialLabel: "Essential",
             marketingLabel: "Marketing",
             marketingTooltip: "YouTube, Google Maps",
-            analyticsLabel: "Analytics (Google Analytics)",
             acceptAllBtn: "Accept All",
             rejectAllBtn: "Reject Optional",
             saveSettingsBtn: "Save Settings",
             cookieSvgColor: "#e5e5e5"
           },
           ru: {
-            message: `На этом сайте мы используем файлы cookie для обработки информации об устройствах. Это необходимо для обеспечения основных функций, а также для встраивания внешнего контента и сервисов третьих сторон (например, Google Fonts, YouTube, Google Maps). В зависимости от функциональности, данные могут передаваться третьим лицам и обрабатываться ими. Более подробную информацию вы можете найти в <a href="https://bee-its.de/html_ru/impressum.html" style="color: #e5e5e5;">импрессуме</a>.<br><br>Вы можете в любой момент изменить или отозвать свое согласие.`,
+            message: `На этом сайте мы используем файлы cookie для обработки информации об устройствах. Это необходимо для обеспечения основных функций, а также для встраивания внешнего контента и сервисов третьих сторон (например, YouTube, Google Maps). В зависимости от функциональности, данные могут передаваться третьим лицам и обрабатываться ими. Более подробную информацию вы можете найти в <a href="https://bee-its.de/html_ru/impressum.html" style="color: #e5e5e5;">импрессуме</a>.<br><br>Вы можете в любой момент изменить или отозвать свое согласие.`,
             essentialLabel: "Основные",
             marketingLabel: "Маркетинг",
             marketingTooltip: "YouTube, Google Maps",
-            analyticsLabel: "Аналитика (Google Analytics)",
             acceptAllBtn: "Принять все",
             rejectAllBtn: "Отклонить дополнительные",
             saveSettingsBtn: "Сохранить настройки",
@@ -836,10 +832,6 @@ document.addEventListener('commonSectionsLoaded', function () {
                         <span class="tooltip-text">${langText.marketingTooltip}</span>
                     </label>
                     
-                    <!-- For analytics, if you want it visible: -->
-                    <label style="display:none;">
-                      <input type="checkbox" id="analytics" checked> ${langText.analyticsLabel}
-                    </label>
                     <br>
                 </div>
     
