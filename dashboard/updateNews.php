@@ -1,9 +1,5 @@
 <?php
-// updateNews.php
-
-// Fehlerberichterstattung einschalten (für Debugging-Zwecke!)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+require_once 'auth_check.php';
 
 // Nur POST-Anfragen zulassen
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -38,8 +34,8 @@ $titleCol   = "title_" . $lang;
 $contentCol = "content_" . $lang;
 
 // Gemeinsame DB-Konfiguration laden, falls vorhanden (config.php im selben Verzeichnis)
-if (file_exists('config.php')) {
-    require_once 'config.php';
+if (file_exists('../config.php')) {
+    require_once '../config.php';
 } else {
     // Falls keine config.php vorhanden ist, hier die Standardwerte anpassen:
     $host     = 'localhost';

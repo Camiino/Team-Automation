@@ -1,6 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+require_once 'auth_check.php';
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
 
 // Prüfen, ob ID gesendet wurde
 if (!isset($_POST['id']) || !is_numeric($_POST['id'])) {
@@ -11,8 +12,18 @@ if (!isset($_POST['id']) || !is_numeric($_POST['id'])) {
 
 $id = (int)$_POST['id'];
 
+if (file_exists('../config.php')) {
+    require_once '../config.php';
+} else {
+    // Falls keine config.php vorhanden ist, hier die Standardwerte anpassen:
+    $host     = 'localhost';
+    $dbname   = 'news_db';      // DB-Name anpassen!
+    $username = 'news_user';    // Benutzername anpassen!
+    $password = 'news_pass';    // Passwort anpassen!
+}
+
 try {
-    $pdo = new PDO("mysql:host=db;dbname=newsdb;charset=utf8mb4", "newsadmin", "YourPassword123!");
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Bildpfad abrufen

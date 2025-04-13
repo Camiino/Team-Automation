@@ -67,16 +67,22 @@
             // =======================
             // 1) CONFIG
             // =======================
-            $host = "db";
-            $user = "newsadmin";
-            $pass = "YourPassword123!";
-            $db   = "newsdb";
+            if (file_exists('../config.php')) {
+              require_once '../config.php';
+            } else {
+                // Falls keine config.php vorhanden ist, hier die Standardwerte anpassen:
+                $host     = 'localhost';
+                $dbname   = 'news_db';      // DB-Name anpassen!
+                $username = 'news_user';    // Benutzername anpassen!
+                $password = 'news_pass';    // Passwort anpassen!
+            }
+            
             $projectsPerPage = 3;
 
             // =======================
             // 2) CONNECT
             // =======================
-            $conn = new mysqli($host, $user, $pass, $db);
+            $conn = new mysqli($host, $username, $password, $dbname);
             if ($conn->connect_error) {
               die("Błąd połączenia z bazą danych: " . $conn->connect_error);
             }

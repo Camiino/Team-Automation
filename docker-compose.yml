@@ -33,8 +33,6 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     #env_file:
     #  - ./.env
-    # No exposed ports to the host machine
-    # Only accessible from other containers
 volumes:
   mariadb_data:
 

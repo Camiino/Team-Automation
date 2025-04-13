@@ -1,18 +1,21 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+require_once 'auth_check.php';
 
 header('Content-Type: application/json');
 
-// Database config
-$host = "db";
-$dbname = "newsdb";
-$user = "newsadmin";
-$pass = "YourPassword123!";
+if (file_exists('../config.php')) {
+    require_once '../config.php';
+} else {
+    // Falls keine config.php vorhanden ist, hier die Standardwerte anpassen:
+    $host     = 'localhost';
+    $dbname   = 'news_db';      // DB-Name anpassen!
+    $username = 'news_user';    // Benutzername anpassen!
+    $password = 'news_pass';    // Passwort anpassen!
+}
 
 // Connect to DB
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo json_encode(["success" => false, "message" => "Verbindung fehlgeschlagen: " . $e->getMessage()]);

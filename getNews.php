@@ -2,18 +2,23 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$host = "db";
-$dbname = "newsdb";
-$user = "newsadmin";
-$pass = "YourPassword123!";
+if (file_exists('../config.php')) {
+    require_once '../config.php';
+} else {
+    // Falls keine config.php vorhanden ist, hier die Standardwerte anpassen:
+    $host     = 'localhost';
+    $dbname   = 'news_db';      // DB-Name anpassen!
+    $username = 'news_user';    // Benutzername anpassen!
+    $password = 'news_pass';    // Passwort anpassen!
+}
 
 //$host = getenv('DB_HOST') ?: 'localhost';
-//$user = getenv('DB_USER') ?: 'root';
-//$pass = getenv('DB_PASSWORD') ?: '';
+//$username = getenv('DB_USER') ?: 'root';
+//$password = getenv('DB_PASSWORD') ?: '';
 //$dbname   = getenv('DB_NAME') ?: 'newsdb';
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     http_response_code(500);
