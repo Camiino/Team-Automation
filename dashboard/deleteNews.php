@@ -12,7 +12,7 @@ if (!isset($_POST['id']) || !is_numeric($_POST['id'])) {
 $id = (int)$_POST['id'];
 
 try {
-    $pdo = new PDO("mysql:host=db;dbname=newsdb;charset=utf8mb4", "newsadmin", "Yourpassword123!");
+    $pdo = new PDO("mysql:host=db;dbname=newsdb;charset=utf8mb4", "newsadmin", "YourPassword123!");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Bildpfad abrufen
