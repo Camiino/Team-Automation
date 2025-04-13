@@ -23,7 +23,7 @@ if (isset($valid_users[$username]) && password_verify($password, $valid_users[$u
     $_SESSION['logged_in'] = true;
     $_SESSION['username'] = $username;
     $_SESSION['login_attempts'] = 0;
-    header('Location: dashboard/dashboard.php');
+    header('Location: dashboard.php');
     exit;
 } else {
     $_SESSION['login_attempts']++;
