@@ -2,8 +2,8 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-if (file_exists('../config.php')) {
-    require_once '../config.php';
+if (file_exists('./config.php')) {
+    require_once './config.php';
 } else {
     // Falls keine config.php vorhanden ist, hier die Standardwerte anpassen:
     $host     = 'localhost';
