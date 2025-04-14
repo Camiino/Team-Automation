@@ -851,6 +851,11 @@ document.addEventListener('commonSectionsLoaded', function () {
         const cookieBubble = document.getElementById("cookie-bubble");
         const consent = storedConsent;
     
+        // --- UPDATE CHECKBOX ON PAGE LOAD IF STORED CONSENT EXISTS ---
+        if (consent) {
+          document.getElementById("marketing").checked = consent.marketing;
+        }
+    
         // If no stored consent, show the banner expanded the first time
         if (!consent) {
             cookieBanner.classList.remove("border");
@@ -870,6 +875,12 @@ document.addEventListener('commonSectionsLoaded', function () {
         }
     
         cookieBubble.addEventListener("click", async function () {
+            // --- EACH TIME THE BANNER IS OPENED, REFLECT THE LATEST STORED VALUE ---
+            const currentConsent = JSON.parse(localStorage.getItem("cookieConsent"));
+            if (currentConsent) {
+              document.getElementById("marketing").checked = currentConsent.marketing;
+            }
+    
             if (!cookieBanner.classList.contains("expanded")) {
                 cookieBanner.classList.remove("border");
                 cookieBanner.classList.add("expanded");
@@ -882,28 +893,21 @@ document.addEventListener('commonSectionsLoaded', function () {
     
         document.getElementById("accept-all").addEventListener("click", function () {
             document.getElementById("marketing").checked = true;
-            if (document.getElementById("analytics")) {
-                document.getElementById("analytics").checked = true;
-            }
-            localStorage.setItem("cookieConsent", JSON.stringify({ analytics: true, marketing: true }));
+            localStorage.setItem("cookieConsent", JSON.stringify({ marketing: true }));
             applyCookieSettings();
             closeCookieBanner();
         });
     
         document.getElementById("reject-all").addEventListener("click", function () {
             document.getElementById("marketing").checked = false;
-            if (document.getElementById("analytics")) {
-                document.getElementById("analytics").checked = false;
-            }
-            localStorage.setItem("cookieConsent", JSON.stringify({ analytics: false, marketing: false }));
+            localStorage.setItem("cookieConsent", JSON.stringify({ marketing: false }));
             applyCookieSettings();
             closeCookieBanner();
         });
     
         document.getElementById("save-settings").addEventListener("click", function () {
-            const analytics = document.getElementById("analytics").checked;
             const marketing = document.getElementById("marketing").checked;
-            localStorage.setItem("cookieConsent", JSON.stringify({ analytics, marketing }));
+            localStorage.setItem("cookieConsent", JSON.stringify({ marketing }));
             applyCookieSettings();
             closeCookieBanner();
         });
