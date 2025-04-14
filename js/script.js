@@ -230,7 +230,7 @@ document.addEventListener('commonSectionsLoaded', function () {
         const searchSuggestionsDe = [
             // Main pages
             { name: "Aktuelles", url: baseUrlDe + "neuigkeit.php" },
-            { name: "Karriere", url: baseUrlDe + "karriere.html" },
+            { name: "Karriere", url: baseUrlDe + "karriere.php" },
             { name: "Downloads", url: baseUrlDe + "downloads.html" },
             { name: "Kontakt", url: baseUrlDe + "kontakt.html" },
             { name: "Leistungsportfolio", url: baseUrlDe + "leistungsportfolio.html" },
@@ -339,7 +339,7 @@ document.addEventListener('commonSectionsLoaded', function () {
         const searchSuggestionsPl = [
             // Główne strony
             { name: "Aktualności", url: baseUrlPl + "neuigkeit.php" },
-            { name: "Kariera", url: baseUrlPl + "karriere.html" },
+            { name: "Kariera", url: baseUrlPl + "karriere.php" },
             { name: "Do pobrania", url: baseUrlPl + "downloads.html" },
             { name: "Kontakt", url: baseUrlPl + "kontakt.html" },
             { name: "Usługi", url: baseUrlPl + "leistungsportfolio.html" },
@@ -444,7 +444,7 @@ document.addEventListener('commonSectionsLoaded', function () {
         const searchSuggestionsEn = [
             // Main pages
             { name: "News", url: baseUrlEn + "neuigkeit.php" },
-            { name: "Career", url: baseUrlEn + "karriere.html" },
+            { name: "Career", url: baseUrlEn + "karriere.php" },
             { name: "Downloads", url: baseUrlEn + "downloads.html" },
             { name: "Contact", url: baseUrlEn + "kontakt.html" },
             { name: "Service Portfolio", url: baseUrlEn + "leistungsportfolio.html" },
@@ -551,7 +551,7 @@ document.addEventListener('commonSectionsLoaded', function () {
         const searchSuggestionsRu = [
             // Main pages
             { name: "Новости", url: baseUrlRu + "neuigkeit.php" },
-            { name: "Карьера", url: baseUrlRu + "karriere.html" },
+            { name: "Карьера", url: baseUrlRu + "karriere.php" },
             { name: "Загрузки", url: baseUrlRu + "downloads.html" },
             { name: "Контакт", url: baseUrlRu + "kontakt.html" },
             { name: "Портфолио услуг", url: baseUrlRu + "leistungsportfolio.html" },

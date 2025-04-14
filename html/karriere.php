@@ -69,81 +69,75 @@
               oder ganz „old school“ per Post. Ihr Ansprechpartner ist 
               <span style="font-weight: bold;">Herr Reiner W. Schulz.</span>
               <br><br>
-              <span style="font-style: italic; font-size: 1rem; line-height: 0.75rem;">
-                Aus technischen Gründen kann die Beantwortung Ihrer E-Mails nicht immer sofort erfolgen. Wir bitten dafür um Ihr Verständnis.
-              </span>
             </p>
+            <!-- BEGIN: Dynamisch gelisteter PDF-Bereich für Stellenausschreibungen -->
+                <div class="container downloads-grid" style="padding: 0 !important; grid-template-rows: 1fr; margin: 0 auto; margin-bottom: 2rem; width:80%;">
+                  <?php
+                  // 1) Pfad zum PDF-Ordner (von karriere.php aus: html -> .. -> assets/uploads/karriere/pdf)
+                  $dirPath = __DIR__ . '/../assets/uploads/karriere/';
+                  
+                  // Optional: Zum Debuggen
+                  // echo "<pre>Suche in: " . realpath($dirPath) . "</pre>";
+
+                  // 2) Prüfen, ob Ordner existiert
+                  if (!is_dir($dirPath)) {
+                    echo "<p>Kein Ordner für Stellenausschreibungen gefunden.</p>";
+                  } else {
+                    // 3) Dateien aus Ordner holen
+                    $files = scandir($dirPath);
+                    // 4) '.' und '..' entfernen
+                    $files = array_diff($files, ['.', '..']);
+                    // 5) Nur PDF-Dateien filtern
+                    $pdfFiles = [];
+                    foreach ($files as $file) {
+                      if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'pdf') {
+                        $pdfFiles[] = $file;
+                      }
+                    }
+
+                    // 6) Prüfen, ob PDF-Dateien da sind
+                    if (empty($pdfFiles)) {
+                      echo "<p>Derzeit keine Stellenausschreibungen vorhanden.</p>";
+                    } else {
+                      // 7) Ausgabe jeder PDF-Datei im Downloads-Layout
+                      foreach ($pdfFiles as $file) {
+                        // Dateiname ohne Endung (als Titel genutzt)
+                        $filenameOnly = pathinfo($file, PATHINFO_FILENAME);
+                        // Optional: Unterstriche durch Leerzeichen ersetzen
+                        $displayName  = str_replace('_', ' ', $filenameOnly);
+
+                        // Relativer Pfad zur PDF-Datei (von karriere.php aus: html -> .. -> assets/uploads/karriere/pdf)
+                        $pdfRelPath = "../assets/uploads/karriere/$file";
+
+                        echo "
+                        <div class='row'>
+                          <span>" . htmlspecialchars($displayName) . "</span>
+                          <div class='icons-cont'>
+                            <!-- Anzeigen -->
+                            <a href='{$pdfRelPath}' target='_blank'>
+                              <img src='../assets/icons/eye-icon.svg' alt='Anzeigen' title='Anzeigen'>
+                            </a>
+                            <!-- Download -->
+                            <a href='{$pdfRelPath}' download='" . htmlspecialchars($file) . "'>
+                              <img src='../assets/icons/download-icon.svg' alt='Herunterladen' title='Herunterladen'>
+                            </a>
+                          </div>
+                        </div>";
+                      }
+                    }
+                  }
+                  ?>
+            </div>
+            <!-- END: Dynamisch gelisteter PDF-Bereich -->
+             <p>
+              <span style="font-style: italic; font-size: 1rem; line-height: 0.75rem;">
+                  Aus technischen Gründen kann die Beantwortung Ihrer E-Mails nicht immer sofort erfolgen. Wir bitten dafür um Ihr Verständnis.
+                </span>
+             </p>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- BEGIN: Dynamisch gelisteter PDF-Bereich für Stellenausschreibungen -->
-    <div class="container text-section" style="margin-top: 2rem;">
-      <div class="sub-content">
-        <div class="title">
-          <h2>Unsere aktuellen Stellenausschreibungen</h2>
-        </div>
-        <div class="container downloads-grid">
-          <?php
-          // 1) Pfad zum PDF-Ordner (von karriere.php aus: html -> .. -> assets/uploads/karriere/pdf)
-          $dirPath = __DIR__ . '/../assets/uploads/karriere/';
-          
-          // Optional: Zum Debuggen
-          // echo "<pre>Suche in: " . realpath($dirPath) . "</pre>";
-
-          // 2) Prüfen, ob Ordner existiert
-          if (!is_dir($dirPath)) {
-            echo "<p>Kein Ordner für Stellenausschreibungen gefunden.</p>";
-          } else {
-            // 3) Dateien aus Ordner holen
-            $files = scandir($dirPath);
-            // 4) '.' und '..' entfernen
-            $files = array_diff($files, ['.', '..']);
-            // 5) Nur PDF-Dateien filtern
-            $pdfFiles = [];
-            foreach ($files as $file) {
-              if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'pdf') {
-                $pdfFiles[] = $file;
-              }
-            }
-
-            // 6) Prüfen, ob PDF-Dateien da sind
-            if (empty($pdfFiles)) {
-              echo "<p>Derzeit keine Stellenausschreibungen vorhanden.</p>";
-            } else {
-              // 7) Ausgabe jeder PDF-Datei im Downloads-Layout
-              foreach ($pdfFiles as $file) {
-                // Dateiname ohne Endung (als Titel genutzt)
-                $filenameOnly = pathinfo($file, PATHINFO_FILENAME);
-                // Optional: Unterstriche durch Leerzeichen ersetzen
-                $displayName  = str_replace('_', ' ', $filenameOnly);
-
-                // Relativer Pfad zur PDF-Datei (von karriere.php aus: html -> .. -> assets/uploads/karriere/pdf)
-                $pdfRelPath = "../assets/uploads/karriere/$file";
-
-                echo "
-                <div class='row'>
-                  <span>" . htmlspecialchars($displayName) . "</span>
-                  <div class='icons-cont'>
-                    <!-- Anzeigen -->
-                    <a href='{$pdfRelPath}' target='_blank'>
-                      <img src='../assets/icons/eye-icon.svg' alt='Anzeigen' title='Anzeigen'>
-                    </a>
-                    <!-- Download -->
-                    <a href='{$pdfRelPath}' download='" . htmlspecialchars($file) . "'>
-                      <img src='../assets/icons/download-icon.svg' alt='Herunterladen' title='Herunterladen'>
-                    </a>
-                  </div>
-                </div>";
-              }
-            }
-          }
-          ?>
-        </div>
-      </div>
-    </div>
-    <!-- END: Dynamisch gelisteter PDF-Bereich -->
 
     <!-- Scripts -->
     <script src="../js/script.js?v=1.1"></script>

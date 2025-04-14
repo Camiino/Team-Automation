@@ -16,7 +16,7 @@
           <!--   <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
 
           <a class="hide-mobile" href="https://bee-its.de/html/neuigkeit.php">Aktuelles</a>
-          <a class="hide-mobile" href="https://bee-its.de/html/karriere.html">Karriere</a>
+          <a class="hide-mobile" href="https://bee-its.de/html/karriere.php">Karriere</a>
           <a class="hide-mobile" href="https://bee-its.de/html/downloads.html">Downloads</a>
         </div>
         <a href="https://bee-its.de/index.html" class="logo">
@@ -134,7 +134,7 @@
           <p class="menu-content-box-title">Information</p>
           <a href="https://bee-its.de/html/aktuelles.html">Aktuelles</a>
           <a href="https://bee-its.de/html/unternehmen.html">Unternehmen</a>
-          <a href="https://bee-its.de/html/karriere.html">Karriere</a>
+          <a href="https://bee-its.de/html/karriere.php">Karriere</a>
           <a href="https://bee-its.de/html/impressum.html">Impressum</a>
           <a href="https://bee-its.de/html/downloads.html">Downloads</a>
           <a href="https://bee-its.de/html/kontakt.html">Kontakt</a>
@@ -169,7 +169,7 @@
           <p class="footer-col-title">Information</p>
           <a href="https://bee-its.de/html/neuigkeit.php">Aktuelles</a>
           <a href="https://bee-its.de/html/unternehmen.html">Unternehmen</a>
-          <a href="https://bee-its.de/html/karriere.html">Karriere</a>
+          <a href="https://bee-its.de/html/karriere.php">Karriere</a>
           <a href="https://bee-its.de/html/impressum.html">Impressum</a>
           <a href="https://bee-its.de/html/downloads.html">Downloads</a>
         </div>

@@ -16,7 +16,7 @@
             <!--   <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
 
             <a class="hide-mobile" href="https://bee-its.de/html_ru/neuigkeit.php">Новости</a>
-            <a class="hide-mobile" href="https://bee-its.de/html_ru/karriere.html">Карьера</a>
+            <a class="hide-mobile" href="https://bee-its.de/html_ru/karriere.php">Карьера</a>
             <a class="hide-mobile" href="https://bee-its.de/html_ru/downloads.html">Загрузки</a>
           </div>
           <a href="https://bee-its.de/index_ru.html" class="logo">
@@ -134,7 +134,7 @@
             <p class="menu-content-box-title">Информация</p>
             <a href="https://bee-its.de/html_ru/aktuelles.html">Новости</a>
             <a href="https://bee-its.de/html_ru/unternehmen.html">О компании</a>
-            <a href="https://bee-its.de/html_ru/karriere.html">Карьера</a>
+            <a href="https://bee-its.de/html_ru/karriere.php">Карьера</a>
             <a href="https://bee-its.de/html_ru/impressum.html">Импрессум</a>
             <a href="https://bee-its.de/html_ru/downloads.html">Загрузки</a>
             <a href="https://bee-its.de/html_ru/kontakt.html">Контакт</a>
@@ -169,7 +169,7 @@
             <p class="footer-col-title">Информация</p>
             <a href="https://bee-its.de/html_ru/neuigkeit.php">Новости</a>
             <a href="https://bee-its.de/html_ru/unternehmen.html">О компании</a>
-            <a href="https://bee-its.de/html_ru/karriere.html">Карьера</a>
+            <a href="https://bee-its.de/html_ru/karriere.php">Карьера</a>
             <a href="https://bee-its.de/html_ru/impressum.html">Импрессум</a>
             <a href="https://bee-its.de/html_ru/downloads.html">Загрузки</a>
           </div>

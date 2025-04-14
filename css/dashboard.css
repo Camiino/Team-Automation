@@ -34,7 +34,6 @@
 
 /* Titelzeile mit Label + Input nebeneinander */
 .lang-title {
-  display: flex;
   flex-wrap: nowrap;
   align-items: center;
   gap: 10px;

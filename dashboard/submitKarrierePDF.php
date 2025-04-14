@@ -10,7 +10,7 @@ if ($_FILES['pdf']['error'] === UPLOAD_ERR_OK) {
   $targetPath = $targetDir . $fileName;
 
   if (move_uploaded_file($fileTmpPath, $targetPath)) {
-    header("Location: karriereDashboard.php?success=1");
+    header("Location: dashboard.php?success=1");
     exit;
   } else {
     echo "Fehler beim Verschieben der Datei.";
