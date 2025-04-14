@@ -957,7 +957,6 @@ document.addEventListener('commonSectionsLoaded', function () {
         applyCookieSettings();
     });
 
-
     /*--------Fade--------*/
     (function () {
         // Get the current page filename
@@ -1040,9 +1039,6 @@ document.addEventListener('commonSectionsLoaded', function () {
             }
         });
     })();
-    
-    
-
 
     document.addEventListener("DOMContentLoaded", () => {
         const languageLinks = document.querySelectorAll(".language-dropdown a, .footer-languages a, .menu-content-box a");

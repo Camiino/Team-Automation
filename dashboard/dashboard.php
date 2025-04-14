@@ -219,9 +219,9 @@
                   // 3) Get files
                   $files = scandir($dirPath);
                   // 4) Remove '.' and '..'
-                  $files = array_diff($files, ['.', '..']);
+                  $files = array_diff($files, array('.', '..'));
                   // 5) Filter only PDF
-                  $pdfFiles = [];
+                  $pdfFiles = array();
                   foreach ($files as $file) {
                     if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'pdf') {
                       $pdfFiles[] = $file;
@@ -244,8 +244,8 @@
                           <a href='{$pdfRelPath}' target='_blank'>
                             <img src='../assets/icons/eye-icon.svg' alt='Anzeigen' title='Anzeigen'>
                           </a>
-                          <a href='{$pdfRelPath}' download='" . htmlspecialchars($file) . "'>
-                            <img src='../assets/icons/download-icon.svg' alt='Herunterladen' title='Herunterladen'>
+                          <a style='margin-left: 1rem' href='javascript:void(0);' onclick='deletePDF(\"" . htmlspecialchars($file) . "\")'>
+                               Löschen
                           </a>
                         </div>
                       </div>";
@@ -253,7 +253,8 @@
                   }
                 }
                 ?>
-              </div><!-- end .downloads-grid -->
+              </div>
+              <!-- end .downloads-grid -->
 
             </div><!-- end .content-grid -->
           </div><!-- end #karriereTab -->
@@ -262,6 +263,26 @@
       </div><!-- end container text-section -->
     </div><!-- end container-full bg-grey -->
     
+    <script>
+      async function deletePDF(filename) {
+        if (!confirm("Möchten Sie diese Stellenausschreibung wirklich löschen?")) return;
+        try {
+          const response = await fetch('deletePDF.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'file=' + encodeURIComponent(filename)
+          });
+          const result = await response.text();
+          alert(result);
+          // Reload the page or update the UI accordingly
+          location.reload();
+        } catch (error) {
+          console.error("Fehler beim Löschen der PDF:", error);
+        }
+      }
+    </script>
+
+
     <script>
       // Datumseingabe validieren (TT.MM.JJJJ)
       document.querySelector('form').addEventListener('submit', function(e) {
