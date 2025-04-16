@@ -98,8 +98,8 @@
             $query = "
               SELECT
                 id,
-                title_de AS title,
-                content_de AS content,
+                title_en AS title,
+                content_en AS content,
                 image_path,
                 date
               FROM news
