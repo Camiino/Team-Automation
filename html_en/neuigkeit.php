@@ -52,7 +52,7 @@
     </div>
 
     <div class="mini-nav">
-      <a href="#top" onclick="goPageOne(event)">News</a>
+      <a href="#top" onclick="goPageOne(event)">Latest</a>
       <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
     </div>
