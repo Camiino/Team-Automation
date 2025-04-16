@@ -53,7 +53,6 @@
 
     <div class="mini-nav">
       <a href="#top" onclick="goPageOne(event)">Aktualności</a>
-      <a href="#neuesP">Twój nowy projekt</a>
       <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
     </div>
@@ -164,7 +163,6 @@
               while ($row = $result->fetch_assoc()) {
                 // Output project separator
                 echo '<div class="project-separator">
-                        <p>Projekt ' . $projectIndex . '</p>
                         <hr />
                       </div>';
 
@@ -206,26 +204,6 @@
             echo '</div><hr /></div>';
           ?>
           <!-- DYNAMIC NEWS ENDS HERE -->
-        </div>
-
-        <!-- "Twój nowy projekt" section -->
-        <div class="project project-reverse">
-          <img
-            src="../assets/images/create.webp"
-            alt=""
-            class="project-img"
-          />
-          <div class="project-text" id="neuesP">
-            <h4>Dzisiaj</h4>
-            <h3>Twój nowy projekt</h3>
-            <p>
-              Wyobraź sobie, że Twój następny projekt staje się częścią naszej
-              historii sukcesu. Razem zautomatyzujemy Twoje procesy i
-              stworzymy innowacyjne rozwiązania dla Twoich linii produkcyjnych.
-              Pozwól nam urzeczywistnić Twoją wizję!
-            </p>
-            <a href="./kontakt.html" class="btn">Zacznij teraz</a>
-          </div>
         </div>
       </div>
     </div>

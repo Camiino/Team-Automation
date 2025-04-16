@@ -54,7 +54,6 @@
 
     <div class="mini-nav">
       <a href="#top" onclick="goPageOne(event)">Новости</a>
-      <a href="#neuesP">Ваш новый проект</a>
       <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
     </div>
@@ -148,7 +147,6 @@
                 // 1) Output the project separator
                 echo <<<HTML
                 <div class="project-separator">
-                  <p>Проект $projectIndex</p>
                   <hr />
                 </div>
                 HTML;
@@ -191,25 +189,6 @@
             echo '</div><hr /></div>';
           ?>
           <!-- DYNAMIC NEWS ENDS HERE -->
-        </div>
-
-        <!-- "Ваш новый проект" section -->
-        <div class="project project-reverse">
-          <img
-            src="../assets/images/create.webp"
-            alt=""
-            class="project-img"
-          />
-          <div class="project-text" id="neuesP">
-            <h4>Сегодня</h4>
-            <h3>Ваш новый проект</h3>
-            <p>
-              Представьте, что ваш следующий проект станет частью нашей истории успеха. Вместе мы
-              автоматизируем ваши процессы и создадим инновационные решения для ваших
-              производственных линий и цепочек. Давайте вместе воплотим вашу идею в реальность!
-            </p>
-            <a href="./kontakt.html" class="btn">Начнём прямо сейчас</a>
-          </div>
         </div>
       </div>
     </div>

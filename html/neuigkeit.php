@@ -54,7 +54,6 @@
 
     <div class="mini-nav">
       <a href="#top" onclick="goPageOne(event)">Aktuelles</a>
-      <a href="#neuesP">Ihr Neues Projekt</a>
       <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
     </div>
@@ -147,7 +146,6 @@
               while ($row = $result->fetch_assoc()) {
                 // Output the project separator
                 echo '<div class="project-separator">
-                        <p>Projekt ' . $projectIndex . '</p>
                         <hr />
                       </div>';
 
@@ -187,26 +185,6 @@
             echo '</div><hr /></div>';
           ?>
           <!-- DYNAMIC NEWS ENDS HERE -->
-        </div>
-
-        <!-- "Ihr Neues Projekt" section -->
-        <div class="project project-reverse">
-          <img
-            src="../assets/images/create.webp"
-            alt=""
-            class="project-img"
-          />
-          <div class="project-text" id="neuesP">
-            <h4>Heute</h4>
-            <h3>Ihr Neues Projekt</h3>
-            <p>
-              Stellen Sie sich vor, Ihr nächstes Projekt wird Teil unserer
-              Erfolgsgeschichte. Gemeinsam automatisieren wir Ihre Prozesse und
-              schaffen innovative Lösungen für Ihre Fertigungsanlagen und
-              -ketten. Lassen Sie uns Ihre Vision Realität werden lassen!
-            </p>
-            <a href="./kontakt.html" class="btn">Jetzt Starten</a>
-          </div>
         </div>
       </div>
     </div>
