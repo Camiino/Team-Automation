@@ -6,9 +6,11 @@
     <title>News</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
-
-    <!-- If you have a dynamic_insert_en.js for header/footer in English -->
+    <link
+      rel="shortcut icon"
+      href="../assets/icons/logoAlt.ico"
+      type="image/x-icon"
+    />
     <script src="../js/dynamic_insert_en.js"></script>
 
     <style>
@@ -16,10 +18,12 @@
         font-family: "Lexend Deca";
         src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
       }
+
       @font-face {
         font-family: "Lexend LexendDeca-Bold";
         src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
       }
+
       @font-face {
         font-family: "Mukta_Mahee";
         src: url(../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
@@ -34,56 +38,48 @@
         letter-spacing: 1.5px;
       }
     </style>
-
     <link rel="stylesheet" href="../css/subpage.css" />
   </head>
   <body>
-
     <div class="container-full subpage-top">
       <div class="container">
         <div class="breadcrumb">
-          <a href="../index_en.html">Home</a> > <a href="#">News</a>
+          <a href="../index_en.html">Home</a> > <a href="">News</a>
         </div>
 
-        <img
-          class="subpage-top-img"
-          src="../assets/images/news.webp"
-          alt="TEAM Automation Berlin - News"
-        />
+        <img class="subpage-top-img" src="../assets/images/news.webp" alt="" />
       </div>
     </div>
 
     <div class="mini-nav">
       <a href="#top" onclick="goPageOne(event)">News</a>
-      <a href="#newProject">Your New Project</a>
+      <a href="#neuesP">Your New Project</a>
       <img class="mini-nav-scroll" src="../assets/icons/arrow-top.svg" alt="" />
       <img class="mini-nav-menu" src="../assets/icons/arrow-top.svg" alt="" />
     </div>
 
-    <!-- Container for dynamic projects/news -->
     <div class="container-full" id="project-container">
       <div class="container">
-        <!-- PAGE 1 (active by default) -->
         <div class="project-page project-page-active" id="project-page-1">
-
           <!-- DYNAMIC NEWS STARTS HERE -->
           <?php
-            // === CONFIG ===
+
             if (file_exists('../config.php')) {
               require_once '../config.php';
             } else {
-                // Falls keine config.php vorhanden ist, hier die Standardwerte anpassen:
+                // If no config.php is found, adjust these default values:
                 $host     = 'localhost';
-                $dbname   = 'news_db';      // DB-Name anpassen!
-                $username = 'news_user';    // Benutzername anpassen!
-                $password = 'news_pass';    // Passwort anpassen!
+                $dbname   = 'news_db';      // Adjust DB name
+                $username = 'news_user';    // Adjust username
+                $password = 'news_pass';    // Adjust password
             }
+
             $projectsPerPage = 3;
 
             // === CONNECT ===
             $conn = new mysqli($host, $username, $password, $dbname);
             if ($conn->connect_error) {
-              die("Database connection failed: " . $conn->connect_error);
+              die("DB connection failed: " . $conn->connect_error);
             }
 
             // === GET CURRENT PAGE ===
@@ -99,12 +95,12 @@
             // === OFFSET ===
             $offset = ($page - 1) * $projectsPerPage;
 
-            // === FETCH ENGLISH COLUMNS ===
+            // === FETCH ENGLISH COLUMNS ONLY ===
             $query = "
               SELECT
                 id,
-                title_en AS title,
-                content_en AS content,
+                title_de AS title,
+                content_de AS content,
                 image_path,
                 date
               FROM news
@@ -115,43 +111,68 @@
 
             $projectIndex = $offset + 1;
 
+            // === MANUAL DATE FORMATTER (GERMAN MONTHS) OR ADAPT AS NEEDED ===
+            function formatGermanDate($dateString) {
+              $months = [
+                '01' => 'January',
+                '02' => 'February',
+                '03' => 'March',
+                '04' => 'April',
+                '05' => 'May',
+                '06' => 'June',
+                '07' => 'July',
+                '08' => 'August',
+                '09' => 'September',
+                '10' => 'October',
+                '11' => 'November',
+                '12' => 'December'
+              ];
+
+              $dateObj = DateTime::createFromFormat('Y-m-d', $dateString);
+              if (!$dateObj) {
+                return htmlspecialchars($dateString);
+              }
+
+              $day = $dateObj->format('d');
+              $month = $dateObj->format('m');
+              $year = $dateObj->format('Y');
+
+              // e.g. "08. April 2025"
+              return "$day. {$months[$month]} $year";
+            }
+
             if ($result && $result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
-                // Project separator
                 echo '<div class="project-separator">
                         <p>Project ' . $projectIndex . '</p>
                         <hr />
                       </div>';
 
-                // Decide layout (reverse or normal)
+                // Decide normal or reverse layout
                 $cssClass = ($projectIndex % 2 === 0) ? "project project-reverse" : "project";
 
-                setlocale(LC_TIME, 'ru_RU.UTF-8');
-                $timestamp = $dateObj->getTimestamp();
+                // Format date
+                $formattedDate = formatGermanDate($row["date"]);
 
-                // 3) Use strftime with a format that includes month names, etc.
-                $formattedDate = strftime('%d %B %Y', $timestamp);
-
-                // Sanitize content
+                // Sanitize
                 $title = htmlspecialchars($row["title"]);
                 $content = nl2br(htmlspecialchars($row["content"]));
                 $imagePath = htmlspecialchars($row["image_path"]);
 
-                echo '
-                  <div class="' . $cssClass . '" id="projekt-' . $projectIndex . '">
-                    <img src="' . $imagePath . '" alt="News Image" class="project-img"/>
-                    <div class="project-text">
-                      <h4>' . $formattedDate . '</h4>
-                      <h3>' . $title . '</h3>
-                      <p>' . $content . '</p>
-                    </div>
-                  </div>
-                ';
+                // Output the project
+                echo '<div class="' . $cssClass . '" id="projekt-' . $projectIndex . '">
+                        <img src="' . $imagePath . '" alt="" class="project-img"/>
+                        <div class="project-text">
+                          <h4>' . $formattedDate . '</h4>
+                          <h3>' . $title . '</h3>
+                          <p>' . $content . '</p>
+                        </div>
+                      </div>';
 
                 $projectIndex++;
               }
             } else {
-              echo "<p>No news at the moment.</p>";
+              echo "<p>No news found.</p>";
             }
 
             // === PAGINATION ===
@@ -169,17 +190,17 @@
         <div class="project project-reverse">
           <img
             src="../assets/images/create.webp"
-            alt="Start your new project"
+            alt=""
             class="project-img"
           />
-          <div class="project-text" id="newProject">
+          <div class="project-text" id="neuesP">
             <h4>Today</h4>
             <h3>Your New Project</h3>
             <p>
-              Imagine your next project becoming part of our success story. 
-              Together, we will automate your processes and develop innovative 
-              solutions for your production lines. Let us bring your vision 
-              to life!
+              Imagine your next project becoming part of our success story.
+              Together, we automate your processes and create innovative solutions
+              for your manufacturing plants and production lines. Let’s bring your
+              vision to life!
             </p>
             <a href="./kontakt.html" class="btn">Get Started</a>
           </div>
@@ -223,9 +244,7 @@
           const targetPage = document.getElementById(pageId);
 
           if (targetPage) {
-            document.querySelectorAll(".project-page").forEach((el) => {
-              el.classList.remove("project-page-active");
-            });
+            document.querySelectorAll(".project-page").forEach((el) => el.classList.remove("project-page-active"));
             targetPage.classList.add("project-page-active");
 
             document.querySelectorAll(".project-pagination-pages a").forEach((el) => {
@@ -253,6 +272,5 @@
         }
       });
     </script>
-
   </body>
 </html>
