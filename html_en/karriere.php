@@ -13,7 +13,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
-    <script src="../js/dynamic_insert.js"></script>
+    <script src="../js/dynamic_insert_en.js"></script>
 
     <style>
       @font-face {
@@ -49,7 +49,7 @@
       <div class="container text-section">
         <!-- Breadcrumb -->
         <div class="breadcrumb">
-          <a href="../index.html">Home</a> > <a href="">Career</a>
+          <a href="../index_en.html">Home</a> > <a href="">Career</a>
         </div>
 
         <!-- Main Content -->

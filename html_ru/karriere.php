@@ -13,7 +13,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
-    <script src="../js/dynamic_insert.js"></script>
+    <script src="../js/dynamic_insert_ru.js"></script>
 
     <style>
       @font-face {
@@ -49,7 +49,7 @@
       <div class="container text-section">
         <!-- Хлебные крошки (Breadcrumb) -->
         <div class="breadcrumb">
-          <a href="../index.html">Главная страница</a> > <a href="">Карьера</a>
+          <a href="../index_ru.html">Главная страница</a> > <a href="">Карьера</a>
         </div>
 
         <!-- Основной контент -->
