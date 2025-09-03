@@ -22,6 +22,12 @@ services:
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     env_file:
       - .env
+    environment:
+      # MariaDB 12+ requires MARIADB_* variables; map from existing MYSQL_* in .env
+      - MARIADB_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MARIADB_DATABASE=${MYSQL_DATABASE}
+      - MARIADB_USER=${MYSQL_USER}
+      - MARIADB_PASSWORD=${MYSQL_PASSWORD}
 
 volumes:
   mariadb_data:

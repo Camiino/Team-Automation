@@ -1,3 +1,6 @@
+-- Initialize database and table
+SET NAMES utf8mb4;
+
 CREATE DATABASE IF NOT EXISTS newsdb;
 USE newsdb;
 
@@ -20,6 +23,7 @@ CREATE TABLE IF NOT EXISTS news (
     date DATE NOT NULL
 );
 
+-- Seed sample data (ASCII-safe to avoid encoding/quote issues)
 INSERT INTO news (
     title_de, content_de,
     title_en, content_en,
@@ -30,14 +34,15 @@ INSERT INTO news (
 (
     'Erster Artikel', 'Dies ist der Inhalt des ersten Artikels.',
     'First Article', 'This is the content of the first article.',
-    'Pierwszy artykuł', 'To jest treść pierwszego artykułu.',
-    'Первая статья', 'Это содержание первой статьи.',
+    'Pierwszy artykul', 'To jest tresc pierwszego artykulu.',
+    'Pervaya statya', 'Eto soderzhanie pervoy statyi.',
     '/assets/images/anlagen.webp', CURDATE()
 ),
 (
     'Zweiter Artikel', 'Dies ist der Inhalt des zweiten Artikels.',
     'Second Article', 'This is the content of the second article.',
-    'Drugi artykuł', 'To jest treść drugiego artykułu.',
-    'Вторая статья', 'Это содержание второй статьи.',
+    'Drugi artykul', 'To jest tresc drugiego artykulu.',
+    'Vtoraya statya', 'Eto soderzhanie vtoroy statyi.',
     '/assets/images/karriere.webp', CURDATE()
 );
+
