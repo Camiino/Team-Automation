@@ -222,6 +222,7 @@ header a,
   transition: 0.3s;
   z-index: -10;
   opacity: 0;
+  display: none;
 }
 .language-dropdown a {
   padding: 5px 10px;
@@ -231,6 +232,7 @@ header a,
 .language-dropdown.active {
   z-index: 10;
   opacity: 1;
+  display: initial;
 }
 
 /* ------------------  Search ---------------- */

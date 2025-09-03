@@ -66,7 +66,7 @@
               <a href="mailto:job@team-automation-berlin.de">
                 <span class="email">job@team-automation-berlin.de</span>
               </a>
-              lub tradycyjną pocztą. Osobą kontaktową jest
+              . Osobą kontaktową jest
               <span style="font-weight: bold;">pan Reiner W. Schulz.</span>
               <br><br>
             </p>
@@ -130,9 +130,6 @@
             <!-- Koniec: dynamiczny obszar PDF -->
 
             <p>
-              <span style="font-style: italic; font-size: 1rem; line-height: 0.75rem;">
-                Z przyczyn technicznych nie zawsze możemy odpowiedzieć na Państwa e-maile natychmiast. Prosimy o wyrozumiałość.
-              </span>
             </p>
           </div>
         </div>

@@ -66,7 +66,7 @@
               <a href="mailto:job@team-automation-berlin.de">
                 <span class="email">job@team-automation-berlin.de</span>
               </a> 
-              oder ganz „old school“ per Post. Ihr Ansprechpartner ist 
+              . Ihr Ansprechpartner ist 
               <span style="font-weight: bold;">Herr Reiner W. Schulz.</span>
               <br><br>
             </p>
@@ -130,9 +130,6 @@
             </div>
             <!-- END: Dynamisch gelisteter PDF-Bereich -->
              <p>
-              <span style="font-style: italic; font-size: 1rem; line-height: 0.75rem;">
-                  Aus technischen Gründen kann die Beantwortung Ihrer E-Mails nicht immer sofort erfolgen. Wir bitten dafür um Ihr Verständnis.
-                </span>
              </p>
           </div>
         </div>

@@ -66,7 +66,7 @@
               <a href="mailto:job@team-automation-berlin.de">
                 <span class="email">job@team-automation-berlin.de</span>
               </a>
-              or by traditional mail. Your contact person is 
+              . Your contact person is 
               <span style="font-weight: bold;">Mr. Reiner W. Schulz.</span>
               <br><br>
             </p>
@@ -129,9 +129,6 @@
             <!-- End dynamic PDFs -->
 
             <p>
-              <span style="font-style: italic; font-size: 1rem; line-height: 0.75rem;">
-                For technical reasons, we may not always respond to your emails immediately. Thank you for your understanding.
-              </span>
             </p>
           </div>
         </div>

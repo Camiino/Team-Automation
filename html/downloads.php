@@ -46,7 +46,7 @@
             </p>
           </div>
 
-          <div class="container downloads-grid" style="padding: 0 !important; grid-template-rows: 1fr; margin: 0 auto; margin-bottom: 2rem; width:80%;">
+          <div class="container downloads-grid" style="padding: 0 !important; grid-template-rows: 1fr; margin: 2rem auto; margin-bottom: 2rem; width:80%;">
             <?php
               $dirPath = __DIR__ . '/../assets/uploads/downloads/';
               if (!is_dir($dirPath)) {

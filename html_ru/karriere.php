@@ -67,7 +67,7 @@
               <a href="mailto:job@team-automation-berlin.de">
                 <span class="email">job@team-automation-berlin.de</span>
               </a> 
-              или «по-старинке» по почте. Ваш контактное лицо —
+              . Ваш контактное лицо —
               <span style="font-weight: bold;">г-н Райнер В. Шульц.</span>
               <br><br>
             </p>
@@ -131,9 +131,6 @@
             <!-- Конец динамического раздела PDF -->
 
             <p>
-              <span style="font-style: italic; font-size: 1rem; line-height: 0.75rem;">
-                По техническим причинам мы не всегда можем ответить на Ваши электронные письма незамедлительно. Благодарим за понимание.
-              </span>
             </p>
           </div>
         </div>
