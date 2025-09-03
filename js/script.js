@@ -206,12 +206,18 @@ document.addEventListener('commonSectionsLoaded', function () {
     });
 
 
-    /*---------------Search----------*/
+    /*---------------Search Suggestions (wait for header)----------*/
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const searchInput = document.querySelector(".search-container input");
+    // Run after dynamic_insert injected header/footer to ensure .search-container exists
+    document.addEventListener("commonSectionsLoaded", function () {
         const searchContainer = document.querySelector(".search-container");
+        const searchInput = document.querySelector(".search-container input");
         const searchTrigger = document.querySelector(".search-box"); // The button/icon that opens search
+
+        // Guard: if header/search UI isn't present, skip wiring suggestions
+        if (!searchContainer || !searchInput || !searchTrigger) {
+            return;
+        }
     
         // 1) Detect language by URL
         const isPolish  = window.location.href.includes("/html_pl/") || window.location.href.includes("/index_pl.html");
@@ -663,6 +669,7 @@ document.addEventListener('commonSectionsLoaded', function () {
         // Create a suggestions container dynamically
         const suggestionsBox = document.createElement("ul");
         suggestionsBox.classList.add("search-suggestions");
+        // searchContainer is ensured non-null above
         searchContainer.appendChild(suggestionsBox);
     
         // Basic styling for the suggestions box

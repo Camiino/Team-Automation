@@ -395,11 +395,27 @@
         try {
           // Erwartet werden Felder: title_de, content_de, title_en, content_en, title_pl, content_pl, title_ru, content_ru, date, image_path, id
           const response = await fetch('../getNews.php');
-          const news = await response.json();
           const container = document.getElementById('newsContainer');
           container.innerHTML = '';
 
-          if (!news || news.length === 0) {
+          let payload;
+          try {
+            payload = await response.json();
+          } catch (e) {
+            container.innerHTML = '<p>Fehler beim Laden der Neuigkeiten (ungültige Antwort).</p>';
+            console.error('Antwort ist kein gültiges JSON:', e);
+            return;
+          }
+
+          if (!response.ok) {
+            const msg = (payload && payload.error) ? payload.error : ('HTTP ' + response.status);
+            container.innerHTML = '<p>Fehler beim Laden: ' + escapeHTML(String(msg)) + '</p>';
+            return;
+          }
+
+          const news = payload;
+
+          if (!Array.isArray(news) || news.length === 0) {
             container.innerHTML = '<p>Keine Neuigkeiten vorhanden.</p>';
             return;
           }

@@ -21,8 +21,9 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
+    header('Content-Type: application/json');
     http_response_code(500);
-    echo json_encode(["error" => "Datenbankverbindung fehlgeschlagen."]);
+    echo json_encode(["error" => "Datenbankverbindung fehlgeschlagen.", "details" => $e->getMessage()]);
     exit;
 }
 
@@ -78,7 +79,9 @@ try {
 } catch (PDOException $e) {
     // Fehlerbehandlung, z.B. error_log oder entsprechende JSON-Ausgabe
     error_log($e->getMessage());
-    echo json_encode(["error" => "Daten konnten nicht geladen werden."]);
+    header('Content-Type: application/json');
+    http_response_code(500);
+    echo json_encode(["error" => "Daten konnten nicht geladen werden.", "details" => $e->getMessage()]);
 }
 
 ?>
