@@ -1,3 +1,9 @@
+<?php
+// Opcjonalnie: debugowanie
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -7,33 +13,14 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
-    <script src="../js/config.js.php"></script>
     <script src="../js/dynamic_insert_pl.js"></script>
 
     <style>
-      @font-face {
-        font-family: "Lexend Deca";
-        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
-      }
-
-      @font-face {
-        font-family: "Lexend LexendDeca-Bold";
-        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
-      }
-
-      @font-face {
-        font-family: "Mukta_Mahee";
-        src: url(../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
-      }
-
-      body {
-        font-family: "Lexend Deca";
-      }
-
-      .neuigkeiten .neuigkeit-text {
-        font-family: "Mukta_Mahee";
-        letter-spacing: 1.5px;
-      }
+      @font-face { font-family: "Lexend Deca"; src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf); }
+      @font-face { font-family: "Lexend LexendDeca-Bold"; src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf); }
+      @font-face { font-family: "Mukta_Mahee"; src: url(../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf); }
+      body { font-family: "Lexend Deca"; }
+      .neuigkeiten .neuigkeit-text { font-family: "Mukta_Mahee"; letter-spacing: 1.5px; }
     </style>
     <link rel="stylesheet" href="../css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../css/subpage.css" />
@@ -42,7 +29,6 @@
   <body>
 
     <div class="container-full bg-grey">
-
       <div class="container text-section">
           <div class="breadcrumb">
             <a href="../index_pl.html">Strona główna</a> > <a href=""> Pliki do pobrania </a>
@@ -51,49 +37,21 @@
               <div class="title">
                 <h2>Strefa pobierania</h2>
               </div>
-      
               <div class="text">
                 <p>
                   W tej sekcji znajdziesz dokumenty i certyfikaty dostępne do bezpłatnego pobrania w celach informacyjnych.
-                  Jeśli chcesz wykorzystać materiały w publikacjach prasowych lub innych formach,
+                  Jeżeli chcesz wykorzystać materiały w publikacjach prasowych lub innych formach,
                   prosimy o kontakt w celu uzyskania zgody pod adresem 
                   <a href="mailto:marketing@team-automation-berlin.de"><span class="email">marketing@team-automation-berlin.de</span></a>.
                 </p>
               </div>
-              <div class="container downloads-grid">
-                <div class="row">
-                  <span>Ulotka promocyjna</span>
-                  <div class="icons-cont">
-                    <a href="./../assets/downloadables/promoflyer_team_automation_berlin.pdf"><img src="./../assets/icons/eye-icon.svg" alt="" title="Zobacz"></a>
-                    <a href="./../assets/downloadables/promoflyer_team_automation_berlin.pdf" download="promoflyer_team_automation_berlin.pdf"><img src="./../assets/icons/download-icon.svg" alt="" title="Pobierz"></a>  
-                  </div>
-                </div>
-                <div class="row">
-                  <span>Ogólne warunki handlowe</span>
-                  <div class="icons-cont">
-                    <a href="./../assets/downloadables/team_-_agb.pdf"><img src="./../assets/icons/eye-icon.svg" alt="" title="Zobacz"></a>
-                    <a href="./../assets/downloadables/team_-_agb.pdf" download="team_-_agb.pdf">
-                      <img src="./../assets/icons/download-icon.svg" alt="Pobierz PDF" title="Pobierz">
-                    </a>
-                  </div>
-                </div>
-                <div class="row">
-                  <span>Certyfikat TÜV ISO 9001:2015 - Niemiecki</span>
-                  <div class="icons-cont">
-                    <a href="./../assets/downloadables/31569ms_de.pdf"><img src="./../assets/icons/eye-icon.svg" alt="" title="Zobacz"></a>
-                    <a href="./../assets/downloadables/31569ms_de.pdf" download="31569ms_de.pdf"><img src="./../assets/icons/download-icon.svg" alt="" title="Pobierz"></a>  
-                  </div>
-                </div>
-                <div class="row">
-                  <span>Certyfikat TÜV ISO 9001:2015 - Angielski</span>
-                  <div class="icons-cont">
-                    <a href="./../assets/downloadables/31569ms_en.pdf"><img src="./../assets/icons/eye-icon.svg" alt="" title="Zobacz"></a>
-                    <a href="./../assets/downloadables/31569ms_en.pdf" download="31569ms_en.pdf"><img src="./../assets/icons/download-icon.svg" alt="" title="Pobierz"></a>  
-                  </div>
-                </div>
+
+              <div class="container downloads-grid" style="padding: 0 !important; grid-template-rows: 1fr; margin: 0 auto; margin-bottom: 2rem; width:80%;">
                 <?php
                   $dirPath = __DIR__ . '/../assets/uploads/downloads/';
-                  if (is_dir($dirPath)) {
+                  if (!is_dir($dirPath)) {
+                    echo "<p>Nie znaleziono folderu z plikami do pobrania.</p>";
+                  } else {
                     $files = scandir($dirPath);
                     $files = array_diff($files, ['.', '..']);
                     $pdfFiles = [];
@@ -102,22 +60,26 @@
                         $pdfFiles[] = $file;
                       }
                     }
-                    foreach ($pdfFiles as $file) {
-                      $filenameOnly = pathinfo($file, PATHINFO_FILENAME);
-                      $displayName  = str_replace('_', ' ', $filenameOnly);
-                      $pdfRelPath   = "../assets/uploads/downloads/$file";
-                      echo "
-                      <div class='row'>
-                        <span>" . htmlspecialchars($displayName) . "</span>
-                        <div class='icons-cont'>
-                          <a href='{$pdfRelPath}' target='_blank'>
-                            <img src='../assets/icons/eye-icon.svg' alt='Podgląd' title='Podgląd'>
-                          </a>
-                          <a href='{$pdfRelPath}' download='" . htmlspecialchars($file) . "'>
-                            <img src='../assets/icons/download-icon.svg' alt='Pobierz' title='Pobierz'>
-                          </a>
-                        </div>
-                      </div>";
+                    if (empty($pdfFiles)) {
+                      echo "<p>Obecnie brak dostępnych plików do pobrania.</p>";
+                    } else {
+                      foreach ($pdfFiles as $file) {
+                        $filenameOnly = pathinfo($file, PATHINFO_FILENAME);
+                        $displayName  = str_replace('_', ' ', $filenameOnly);
+                        $pdfRelPath   = "../assets/uploads/downloads/$file";
+                        echo "
+                          <div class='row'>
+                            <span>" . htmlspecialchars($displayName) . "</span>
+                            <div class='icons-cont'>
+                              <a href='{$pdfRelPath}' target='_blank'>
+                                <img src='../assets/icons/eye-icon.svg' alt='Zobacz' title='Zobacz'>
+                              </a>
+                              <a href='{$pdfRelPath}' download='" . htmlspecialchars($file) . "'>
+                                <img src='../assets/icons/download-icon.svg' alt='Pobierz' title='Pobierz'>
+                              </a>
+                            </div>
+                          </div>";
+                      }
                     }
                   }
                 ?>
@@ -128,19 +90,13 @@
 
     <script src="../js/script.js?v=1.1"></script>
     <script src="../js/swiper-bundle.min.js?v=1.1"></script>
-
     <script>
       var swiper = new Swiper(".imgSwiper", {
         loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          type: "fraction",
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
+        pagination: { el: ".swiper-pagination", type: "fraction" },
+        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
       });
     </script>
   </body>
 </html>
+

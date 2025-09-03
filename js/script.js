@@ -218,12 +218,11 @@ document.addEventListener('commonSectionsLoaded', function () {
         const isEnglish = window.location.href.includes("/html_en/") || window.location.href.includes("/index_en.html");
         const isRussian = window.location.href.includes("/html_ru/") || window.location.href.includes("/index_ru.html");
     
-        // 2) Base URLs for each language version  
-        const BASE_URL = window.BASE_URL || 'https://bee-its.de';
-        const baseUrlDe = `${BASE_URL}/html/`;
-        const baseUrlPl = `${BASE_URL}/html_pl/`;
-        const baseUrlEn = `${BASE_URL}/html_en/`;
-        const baseUrlRu = `${BASE_URL}/html_ru/`;
+        // 2) Base URLs for each language version
+        const baseUrlDe = "https://bee-its.de/html/";
+        const baseUrlPl = "https://bee-its.de/html_pl/";
+        const baseUrlEn = "https://bee-its.de/html_en/";
+        const baseUrlRu = "https://bee-its.de/html_ru/";
     
         // -------------------------------------------------------------------------------------
         // 3) GERMAN suggestions (full set)
@@ -746,9 +745,6 @@ document.addEventListener('commonSectionsLoaded', function () {
     /*------------Cookies-------------*/
 
     document.addEventListener("DOMContentLoaded", async function () {
-        // Define BASE_URL
-        const BASE_URL = window.BASE_URL || 'https://bee-its.de';
-        
         // 1) Detect language from URL or by other rules
         const isPolish = window.location.href.includes("/html_pl/") || window.location.href.includes("index_pl.html");
         const isRussian = window.location.href.includes("/html_ru/") || window.location.href.includes("index_ru.html");
@@ -757,7 +753,7 @@ document.addEventListener('commonSectionsLoaded', function () {
         // 2) Prepare text for each language
         const texts = {
           de: {
-            message: `Auf dieser Website nutzen wir Cookies zur Verarbeitung von Endgeräteinformationen. Die Verarbeitung dient der Gewährleistung grundlegender Funktionen und der Einbindung externer Inhalte und Dienste Dritter (YouTube, Google Maps). Je nach Funktion können dabei Daten an Dritte weitergegeben und dort verarbeitet werden. Mehr Informationen hierzu finden Sie im <a href="${BASE_URL}/html/impressum.html" style="color: #e5e5e5;">Impressum</a>.<br><br>Sie können Ihre Zustimmung jederzeit ändern oder widerrufen.`,
+            message: `Auf dieser Website nutzen wir Cookies zur Verarbeitung von Endgeräteinformationen. Die Verarbeitung dient der Gewährleistung grundlegender Funktionen und der Einbindung externer Inhalte und Dienste Dritter (YouTube, Google Maps). Je nach Funktion können dabei Daten an Dritte weitergegeben und dort verarbeitet werden. Mehr Informationen hierzu finden Sie im <a href="https://bee-its.de/html/impressum.html" style="color: #e5e5e5;">Impressum</a>.<br><br>Sie können Ihre Zustimmung jederzeit ändern oder widerrufen.`,
             essentialLabel: "Essenziell",
             marketingLabel: "Marketing",
             marketingTooltip: "YouTube, Google Maps",
@@ -767,7 +763,7 @@ document.addEventListener('commonSectionsLoaded', function () {
             cookieSvgColor: "#e5e5e5"
           },
           pl: {
-            message: `Na tej stronie używamy plików cookie do przetwarzania informacji na temat urządzeń końcowych. Przetwarzanie służy zapewnieniu podstawowych funkcji oraz integracji zewnętrznych treści i usług firm trzecich (YouTube, Google Maps). W zależności od funkcji, dane mogą być przekazywane osobom trzecim i tam przetwarzane. Więcej informacji znajdziesz w <a href="${BASE_URL}/html_pl/impressum.html" style="color: #e5e5e5;">Impressum</a>.<br><br>Możesz w każdej chwili zmienić lub wycofać swoją zgodę.`,
+            message: `Na tej stronie używamy plików cookie do przetwarzania informacji na temat urządzeń końcowych. Przetwarzanie służy zapewnieniu podstawowych funkcji oraz integracji zewnętrznych treści i usług firm trzecich (YouTube, Google Maps). W zależności od funkcji, dane mogą być przekazywane osobom trzecim i tam przetwarzane. Więcej informacji znajdziesz w <a href="https://bee-its.de/html_pl/impressum.html" style="color: #e5e5e5;">Impressum</a>.<br><br>Możesz w każdej chwili zmienić lub wycofać swoją zgodę.`,
             essentialLabel: "Niezbędne",
             marketingLabel: "Marketing",
             marketingTooltip: "YouTube, Google Maps",
@@ -777,7 +773,7 @@ document.addEventListener('commonSectionsLoaded', function () {
             cookieSvgColor: "#e5e5e5"
           },
           en: {
-            message: `We use cookies on this website to process device information. The processing is intended to ensure basic functions and the integration of external content and third-party services (YouTube, Google Maps). Depending on the function, data may be passed on to third parties and processed there. You can find more information in our <a href="${BASE_URL}/html_en/impressum.html" style="color: #e5e5e5;">imprint</a>.<br><br>You can change or revoke your consent at any time.`,
+            message: `We use cookies on this website to process device information. The processing is intended to ensure basic functions and the integration of external content and third-party services (YouTube, Google Maps). Depending on the function, data may be passed on to third parties and processed there. You can find more information in our <a href="https://bee-its.de/html_en/impressum.html" style="color: #e5e5e5;">imprint</a>.<br><br>You can change or revoke your consent at any time.`,
             essentialLabel: "Essential",
             marketingLabel: "Marketing",
             marketingTooltip: "YouTube, Google Maps",
@@ -787,7 +783,7 @@ document.addEventListener('commonSectionsLoaded', function () {
             cookieSvgColor: "#e5e5e5"
           },
           ru: {
-            message: `На этом сайте мы используем файлы cookie для обработки информации об устройствах. Это необходимо для обеспечения основных функций, а также для встраивания внешнего контента и сервисов третьих сторон (например, YouTube, Google Maps). В зависимости от функциональности, данные могут передаваться третьим лицам и обрабатываться ими. Более подробную информацию вы можете найти в <a href="${BASE_URL}/html_ru/impressum.html" style="color: #e5e5e5;">импрессуме</a>.<br><br>Вы можете в любой момент изменить или отозвать свое согласие.`,
+            message: `На этом сайте мы используем файлы cookie для обработки информации об устройствах. Это необходимо для обеспечения основных функций, а также для встраивания внешнего контента и сервисов третьих сторон (например, YouTube, Google Maps). В зависимости от функциональности, данные могут передаваться третьим лицам и обрабатываться ими. Более подробную информацию вы можете найти в <a href="https://bee-its.de/html_ru/impressum.html" style="color: #e5e5e5;">импрессуме</a>.<br><br>Вы можете в любой момент изменить или отозвать свое согласие.`,
             essentialLabel: "Основные",
             marketingLabel: "Маркетинг",
             marketingTooltip: "YouTube, Google Maps",

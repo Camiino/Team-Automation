@@ -1,3 +1,9 @@
+<?php
+// По желанию: включить отображение ошибок для отладки
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -7,33 +13,14 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
-    <script src="../js/config.js.php"></script>
     <script src="../js/dynamic_insert_ru.js"></script>
 
     <style>
-      @font-face {
-        font-family: "Lexend Deca";
-        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf);
-      }
-
-      @font-face {
-        font-family: "Lexend LexendDeca-Bold";
-        src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf);
-      }
-
-      @font-face {
-        font-family: "Mukta_Mahee";
-        src: url(../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf);
-      }
-
-      body {
-        font-family: "Lexend Deca";
-      }
-
-      .neuigkeiten .neuigkeit-text {
-        font-family: "Mukta_Mahee";
-        letter-spacing: 1.5px;
-      }
+      @font-face { font-family: "Lexend Deca"; src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Regular.ttf); }
+      @font-face { font-family: "Lexend LexendDeca-Bold"; src: url(../assets/fonts/Lexend_Deca/static/LexendDeca-Bold.ttf); }
+      @font-face { font-family: "Mukta_Mahee"; src: url(../assets/fonts/Mukta_Mahee/MuktaMahee-Regular.ttf); }
+      body { font-family: "Lexend Deca"; }
+      .neuigkeiten .neuigkeit-text { font-family: "Mukta_Mahee"; letter-spacing: 1.5px; }
     </style>
     <link rel="stylesheet" href="../css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../css/subpage.css" />
@@ -48,49 +35,24 @@
         </div>
         <div class="sub-content">
           <div class="title">
-            <h2>Раздел загрузок</h2>
+            <h2>Файлы для загрузки</h2>
           </div>
 
           <div class="text">
             <p>
-              В этом разделе вы можете свободно загрузить документы и сертификаты для информационного использования. Если вы хотите использовать материалы в прессе или других формах публикации, пожалуйста, свяжитесь с нами для подтверждения по адресу <a href="mailto:marketing@team-automation-berlin.de"><span class="email">marketing@team-automation-berlin.de</span></a>.
+              В этом разделе вы найдёте документы и сертификаты для ознакомления, доступные для бесплатной загрузки. 
+              Если вы хотите использовать материалы в пресс-релизах или других публикациях, 
+              пожалуйста, свяжитесь с нами для получения разрешения по адресу 
+              <a href="mailto:marketing@team-automation-berlin.de"><span class="email">marketing@team-automation-berlin.de</span></a>.
             </p>
           </div>
 
-          <div class="container downloads-grid">
-            <div class="row">
-              <span>Промо-флаер</span>
-              <div class="icons-cont">
-                <a href="./../assets/downloadables/promoflyer_team_automation_berlin.pdf"><img src="./../assets/icons/eye-icon.svg" alt="" title="Просмотр"></a>
-                <a href="./../assets/downloadables/promoflyer_team_automation_berlin.pdf" download="promoflyer_team_automation_berlin.pdf"><img src="./../assets/icons/download-icon.svg" alt="" title="Скачать"></a>  
-              </div>
-            </div>
-            <div class="row">
-              <span>Общие условия и положения</span>
-              <div class="icons-cont">
-                <a href="./../assets/downloadables/team_-_agb.pdf"><img src="./../assets/icons/eye-icon.svg" alt="" title="Просмотр"></a>
-                <a href="./../assets/downloadables/team_-_agb.pdf" download="team_-_agb.pdf">
-                  <img src="./../assets/icons/download-icon.svg" alt="Скачать PDF" title="Скачать">
-                </a>
-              </div>
-            </div>
-            <div class="row">
-              <span>Сертификат TÜV ISO 9001:2015 - Немецкий</span>
-              <div class="icons-cont">
-                <a href="./../assets/downloadables/31569ms_de.pdf"><img src="./../assets/icons/eye-icon.svg" alt="" title="Просмотр"></a>
-                <a href="./../assets/downloadables/31569ms_de.pdf" download="31569ms_de.pdf"><img src="./../assets/icons/download-icon.svg" alt="" title="Скачать"></a>  
-              </div>
-            </div>
-            <div class="row">
-              <span>Сертификат TÜV ISO 9001:2015 - Английский</span>
-              <div class="icons-cont">
-                <a href="./../assets/downloadables/31569ms_en.pdf"><img src="./../assets/icons/eye-icon.svg" alt="" title="Просмотр"></a>
-                <a href="./../assets/downloadables/31569ms_en.pdf" download="31569ms_de.pdf"><img src="./../assets/icons/download-icon.svg" alt="" title="Скачать"></a>  
-              </div>
-            </div>
+          <div class="container downloads-grid" style="padding: 0 !important; grid-template-rows: 1fr; margin: 0 auto; margin-bottom: 2rem; width:80%;">
             <?php
               $dirPath = __DIR__ . '/../assets/uploads/downloads/';
-              if (is_dir($dirPath)) {
+              if (!is_dir($dirPath)) {
+                echo "<p>Папка для загрузок не найдена.</p>";
+              } else {
                 $files = scandir($dirPath);
                 $files = array_diff($files, ['.', '..']);
                 $pdfFiles = [];
@@ -99,22 +61,26 @@
                     $pdfFiles[] = $file;
                   }
                 }
-                foreach ($pdfFiles as $file) {
-                  $filenameOnly = pathinfo($file, PATHINFO_FILENAME);
-                  $displayName  = str_replace('_', ' ', $filenameOnly);
-                  $pdfRelPath   = "../assets/uploads/downloads/$file";
-                  echo "
-                  <div class='row'>
-                    <span>" . htmlspecialchars($displayName) . "</span>
-                    <div class='icons-cont'>
-                      <a href='{$pdfRelPath}' target='_blank'>
-                        <img src='../assets/icons/eye-icon.svg' alt='Просмотр' title='Просмотр'>
-                      </a>
-                      <a href='{$pdfRelPath}' download='" . htmlspecialchars($file) . "'>
-                        <img src='../assets/icons/download-icon.svg' alt='Скачать' title='Скачать'>
-                      </a>
-                    </div>
-                  </div>";
+                if (empty($pdfFiles)) {
+                  echo "<p>На данный момент нет доступных файлов.</p>";
+                } else {
+                  foreach ($pdfFiles as $file) {
+                    $filenameOnly = pathinfo($file, PATHINFO_FILENAME);
+                    $displayName  = str_replace('_', ' ', $filenameOnly);
+                    $pdfRelPath   = "../assets/uploads/downloads/$file";
+                    echo "
+                      <div class='row'>
+                        <span>" . htmlspecialchars($displayName) . "</span>
+                        <div class='icons-cont'>
+                          <a href='{$pdfRelPath}' target='_blank'>
+                            <img src='../assets/icons/eye-icon.svg' alt='Открыть' title='Открыть'>
+                          </a>
+                          <a href='{$pdfRelPath}' download='" . htmlspecialchars($file) . "'>
+                            <img src='../assets/icons/download-icon.svg' alt='Скачать' title='Скачать'>
+                          </a>
+                        </div>
+                      </div>";
+                  }
                 }
               }
             ?>
@@ -125,19 +91,13 @@
 
     <script src="../js/script.js?v=1.1"></script>
     <script src="../js/swiper-bundle.min.js?v=1.1"></script>
-
     <script>
       var swiper = new Swiper(".imgSwiper", {
         loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          type: "fraction",
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
+        pagination: { el: ".swiper-pagination", type: "fraction" },
+        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
       });
     </script>
   </body>
-</html>
+  </html>
+

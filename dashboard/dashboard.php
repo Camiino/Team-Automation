@@ -109,6 +109,7 @@
           <ul class="dashboard-tabs">
             <li class="tab active" data-target="#newsTab">Neuigkeiten</li>
             <li class="tab" data-target="#karriereTab">Karriere</li>
+            <li class="tab" data-target="#downloadsTab">Downloads</li>
           </ul>
 
           <!-- TAB 1: Original News Dashboard (unchanged) -->
@@ -259,6 +260,77 @@
             </div><!-- end .content-grid -->
           </div><!-- end #karriereTab -->
 
+          <!-- TAB 3: Downloads -->
+          <div id="downloadsTab" class="tab-content">
+            <div class="content-grid" style="grid-template-columns: initial!important;">
+
+              <!-- Upload form for general Downloads PDFs -->
+              <div class="form-container" style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; margin: 0 auto;">
+                <form class="contact-form" id="downloadsForm" enctype="multipart/form-data" method="POST" action="submitDownloadsPDF.php" style="width: 100%; max-width: 600px;">
+                  <div style="width: 100%;">
+                    <div style="width: 100%;">
+                      <label for="download_pdf">PDF Hochladen (Downloads):</label>
+                      <input
+                        type="file"
+                        id="download_pdf"
+                        name="pdf"
+                        accept="application/pdf"
+                        required
+                        style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;"
+                      />
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    style="margin-top: 1rem; width: 100%; max-width: 100%; padding: 1rem; font-weight: bold; background-color: #0055aa; color: white; border: none; border-radius: 6px;">
+                    Download-PDF hochladen
+                  </button>
+                </form>
+              </div>
+
+              <h3>Bestehende Downloads</h3>
+              <div class="container downloads-grid" style="padding: 0 !important; grid-template-rows: 1fr; margin: 0 auto; margin-bottom: 2rem; width:80%;">
+                <?php
+                $dlDirPath = __DIR__ . '/../assets/uploads/downloads/';
+                if (!is_dir($dlDirPath)) {
+                  echo "<p>Kein Ordner für Downloads gefunden.</p>";
+                } else {
+                  $files = scandir($dlDirPath);
+                  $files = array_diff($files, array('.', '..'));
+                  $pdfFiles = array();
+                  foreach ($files as $file) {
+                    if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'pdf') {
+                      $pdfFiles[] = $file;
+                    }
+                  }
+                  if (empty($pdfFiles)) {
+                    echo "<p>Derzeit keine Downloads vorhanden.</p>";
+                  } else {
+                    foreach ($pdfFiles as $file) {
+                      $filenameOnly = pathinfo($file, PATHINFO_FILENAME);
+                      $displayName  = str_replace('_', ' ', $filenameOnly);
+                      $pdfRelPath   = "../assets/uploads/downloads/$file";
+                      echo "
+                      <div class='row'>
+                        <span>" . htmlspecialchars($displayName) . "</span>
+                        <div class='icons-cont'>
+                          <a href='{$pdfRelPath}' target='_blank'>
+                            <img src='../assets/icons/eye-icon.svg' alt='Anzeigen' title='Anzeigen'>
+                          </a>
+                          <a style='margin-left: 1rem' href='javascript:void(0);' onclick='deleteDownload(\"" . htmlspecialchars($file) . "\")'>
+                               Löschen
+                          </a>
+                        </div>
+                      </div>";
+                    }
+                  }
+                }
+                ?>
+              </div>
+
+            </div><!-- end .content-grid -->
+          </div><!-- end #downloadsTab -->
+
         </div><!-- end .sub-content -->
       </div><!-- end container text-section -->
     </div><!-- end container-full bg-grey -->
@@ -284,6 +356,22 @@
 
 
     <script>
+      async function deleteDownload(filename) {
+        if (!confirm("Möchten Sie diesen Download wirklich löschen?")) return;
+        try {
+          const response = await fetch('deleteDownload.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'file=' + encodeURIComponent(filename)
+          });
+          const result = await response.text();
+          alert(result);
+          location.reload();
+        } catch (error) {
+          console.error("Fehler beim Löschen der PDF:", error);
+        }
+      }
+
       // Datumseingabe validieren (TT.MM.JJJJ)
       document.querySelector('form').addEventListener('submit', function(e) {
         const dateInput = document.getElementById('date');
