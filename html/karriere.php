@@ -13,6 +13,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <script src="../js/config.js.php"></script>
     <script src="../js/dynamic_insert.js"></script>
 
     <style>

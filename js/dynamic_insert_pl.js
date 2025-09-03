@@ -8,6 +8,9 @@
   
   (function () {
       function loadCommonSections() {
+      // Get BASE_URL from environment or use default
+      const BASE_URL = window.BASE_URL || 'https://bee-its.de';
+      
       // Tutaj definiujemy kod nagłówka (header) – pełny HTML nagłówka/menu/hero
       const headerHTML = `
       <header>
@@ -15,11 +18,11 @@
           <div class="header-links left">
             <!--   <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
   
-            <a class="hide-mobile" href="https://bee-its.de/html_pl/neuigkeit.php">Aktualności</a>
-            <a class="hide-mobile" href="https://bee-its.de/html_pl/karriere.php">Kariera</a>
-            <a class="hide-mobile" href="https://bee-its.de/html_pl/downloads.html">Do pobrania</a>
+            <a class="hide-mobile" href="${BASE_URL}/html_pl/neuigkeit.php">Aktualności</a>
+            <a class="hide-mobile" href="${BASE_URL}/html_pl/karriere.php">Kariera</a>
+            <a class="hide-mobile" href="${BASE_URL}/html_pl/downloads.php">Do pobrania</a>
           </div>
-          <a href="https://bee-its.de/index_pl.html" class="logo">
+          <a href="${BASE_URL}/index_pl.html" class="logo">
             <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_d_170_1245)">
               <path id="changer2" class="changer2" d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>
@@ -56,7 +59,7 @@
           <div class="header-links right">
             <div class="hide-mobile language-box">
               <div class="language">
-                <img src="https://bee-its.de/assets/icons/language.svg" alt="" />
+                <img src="${BASE_URL}/assets/icons/language.svg" alt="" />
                 <span>Język</span>
               </div>
   
@@ -67,11 +70,11 @@
                 <a href="" class="active-language">Polski (PL)</a>
               </div>
             </div>
-            <a class="hide-mobile" href="https://bee-its.de/html_pl/kontakt.html">
-              <img src="https://bee-its.de/assets/icons/contact.svg" alt="" /> Kontakt
+            <a class="hide-mobile" href="${BASE_URL}/html_pl/kontakt.html">
+              <img src="${BASE_URL}/assets/icons/contact.svg" alt="" /> Kontakt
             </a>
             <div class="search-box">
-              <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
+              <img src="${BASE_URL}/assets/icons/search.svg" alt="" />
               <span class="hide-mobile">Szukaj</span>
             </div>
           </div>
@@ -92,7 +95,7 @@
       <div class="search-container">
         <div class="search">
           <input type="text" placeholder="Szukaj" />
-          <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
+          <img src="${BASE_URL}/assets/icons/search.svg" alt="" />
         </div>
       </div>
   
@@ -101,7 +104,7 @@
           <div class="menu-content-box quick-actions">
             <div class="language-box menu-content-item">
               <div class="language">
-                <img src="https://bee-its.de/assets/icons/language.svg" alt="" />
+                <img src="${BASE_URL}/assets/icons/language.svg" alt="" />
                 <span>Język</span>
               </div>
   
@@ -114,30 +117,30 @@
             </div>
   
             <div class="search-box">
-              <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
+              <img src="${BASE_URL}/assets/icons/search.svg" alt="" />
               <span>Szukaj</span>
             </div>
           </div>
   
           <div class="menu-content-box">
             <p class="menu-content-box-title">Nawigacja</p>
-            <a href="https://bee-its.de/index_pl.html">Strona główna</a>
-            <a href="https://bee-its.de/html_pl/leistungsportfolio.html">Usługi</a>
-            <a href="https://bee-its.de/html_pl/anlagen.html">Instalacje</a>
-            <a href="https://bee-its.de/html_pl/prozesse.html">Procesy</a>
-            <a href="https://bee-its.de/html_pl/branchen.html">Branże</a>
-            <a href="https://bee-its.de/html_pl/anlagen/vollautomatisch.html">Przykłady</a>
-            <a href="https://bee-its.de/html_pl/partner.html">Partnerzy</a>
+            <a href="${BASE_URL}/index_pl.html">Strona główna</a>
+            <a href="${BASE_URL}/html_pl/leistungsportfolio.html">Usługi</a>
+            <a href="${BASE_URL}/html_pl/anlagen.html">Instalacje</a>
+            <a href="${BASE_URL}/html_pl/prozesse.html">Procesy</a>
+            <a href="${BASE_URL}/html_pl/branchen.html">Branże</a>
+            <a href="${BASE_URL}/html_pl/anlagen/vollautomatisch.html">Przykłady</a>
+            <a href="${BASE_URL}/html_pl/partner.html">Partnerzy</a>
           </div>
   
           <div class="menu-content-box">
             <p class="menu-content-box-title">Informacje</p>
-            <a href="https://bee-its.de/html_pl/aktuelles.html">Aktualności</a>
-            <a href="https://bee-its.de/html_pl/unternehmen.html">Firma</a>
-            <a href="https://bee-its.de/html_pl/karriere.php">Kariera</a>
-            <a href="https://bee-its.de/html_pl/impressum.html">Impressum</a>
-            <a href="https://bee-its.de/html_pl/downloads.html">Do pobrania</a>
-            <a href="https://bee-its.de/html_pl/kontakt.html">Kontakt</a>
+            <a href="${BASE_URL}/html_pl/aktuelles.html">Aktualności</a>
+            <a href="${BASE_URL}/html_pl/unternehmen.html">Firma</a>
+            <a href="${BASE_URL}/html_pl/karriere.php">Kariera</a>
+            <a href="${BASE_URL}/html_pl/impressum.html">Impressum</a>
+            <a href="${BASE_URL}/html_pl/downloads.php">Do pobrania</a>
+            <a href="${BASE_URL}/html_pl/kontakt.html">Kontakt</a>
           </div>
   
           <div class="menu-content-box">
@@ -157,21 +160,21 @@
         <div class="footer-content footer-cols">
           <div class="footer-col">
             <p class="footer-col-title">Nawigacja</p>
-            <a href="https://bee-its.de/html_pl/leistungsportfolio.html">Usługi</a>
-            <a href="https://bee-its.de/html_pl/anlagen.html">Instalacje</a>
-            <a href="https://bee-its.de/html_pl/prozesse.html">Procesy</a>
-            <a href="https://bee-its.de/html_pl/branchen.html">Branże</a>
-            <a href="https://bee-its.de/html_pl/anlagen/vollautomatisch.html">Przykłady</a>
-            <a href="https://bee-its.de/html_pl/partner.html">Partnerzy</a>
+            <a href="${BASE_URL}/html_pl/leistungsportfolio.html">Usługi</a>
+            <a href="${BASE_URL}/html_pl/anlagen.html">Instalacje</a>
+            <a href="${BASE_URL}/html_pl/prozesse.html">Procesy</a>
+            <a href="${BASE_URL}/html_pl/branchen.html">Branże</a>
+            <a href="${BASE_URL}/html_pl/anlagen/vollautomatisch.html">Przykłady</a>
+            <a href="${BASE_URL}/html_pl/partner.html">Partnerzy</a>
           </div>
   
           <div class="footer-col">
             <p class="footer-col-title">Informacje</p>
-            <a href="https://bee-its.de/html_pl/neuigkeit.php">Aktualności</a>
-            <a href="https://bee-its.de/html_pl/unternehmen.html">Firma</a>
-            <a href="https://bee-its.de/html_pl/karriere.php">Kariera</a>
-            <a href="https://bee-its.de/html_pl/impressum.html">Impressum</a>
-            <a href="https://bee-its.de/html_pl/downloads.html">Do pobrania</a>
+            <a href="${BASE_URL}/html_pl/neuigkeit.php">Aktualności</a>
+            <a href="${BASE_URL}/html_pl/unternehmen.html">Firma</a>
+            <a href="${BASE_URL}/html_pl/karriere.php">Kariera</a>
+            <a href="${BASE_URL}/html_pl/impressum.html">Impressum</a>
+            <a href="${BASE_URL}/html_pl/downloads.php">Do pobrania</a>
           </div>
   
           <div class="footer-col">
@@ -179,7 +182,7 @@
             <a href="">Telefon +49 30 / 60 90 294 - 0</a>
             <a href="">Faks +49 30 / 60 90 294 - 09</a>
             <a href="mailto:info@team-automation-berlin.de" class="email">info@team-automation-berlin.de</a>
-            <a href="https://bee-its.de/html_pl/kontakt.html" class="contact-footer">Kontakt</a>
+            <a href="${BASE_URL}/html_pl/kontakt.html" class="contact-footer">Kontakt</a>
           </div>
   
         </div>
@@ -191,7 +194,7 @@
              Alboinstrasse 11, D-12103 Berlin
           </p>
   
-          <a class="footer-logo" href="https://bee-its.de/index_pl.html">
+          <a class="footer-logo" href="${BASE_URL}/index_pl.html">
             <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_d_170_1245)">
               <path d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>

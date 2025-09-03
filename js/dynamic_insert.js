@@ -8,6 +8,9 @@
 
 (function () {
     function loadCommonSections() {
+    // Get BASE_URL from environment or use default
+    const BASE_URL = window.BASE_URL || 'https://bee-its.de';
+    
     // Define the header HTML (you can paste your full header/menu/hero markup here)
     const headerHTML = `
  <header>
@@ -15,11 +18,11 @@
         <div class="header-links left">
           <!--   <img id="hamburger" src="assets/icons/menu.svg" alt="" /> -->
 
-          <a class="hide-mobile" href="https://bee-its.de/html/neuigkeit.php">Aktuelles</a>
-          <a class="hide-mobile" href="https://bee-its.de/html/karriere.php">Karriere</a>
-          <a class="hide-mobile" href="https://bee-its.de/html/downloads.html">Downloads</a>
+          <a class="hide-mobile" href="${BASE_URL}/html/neuigkeit.php">Aktuelles</a>
+          <a class="hide-mobile" href="${BASE_URL}/html/karriere.php">Karriere</a>
+          <a class="hide-mobile" href="${BASE_URL}/html/downloads.php">Downloads</a>
         </div>
-        <a href="https://bee-its.de/index.html" class="logo">
+        <a href="${BASE_URL}/index.html" class="logo">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_170_1245)">
             <path id="changer2" class="changer2" d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>
@@ -56,7 +59,7 @@
         <div class="header-links right">
           <div class="hide-mobile language-box">
             <div class="language">
-              <img src="https://bee-its.de/assets/icons/language.svg" alt="" />
+              <img src="${BASE_URL}/assets/icons/language.svg" alt="" />
               <span>Sprache</span>
             </div>
 
@@ -67,11 +70,11 @@
               <a href="">Polski (PL)</a>
             </div>
           </div>
-          <a class="hide-mobile" href="https://bee-its.de/html/kontakt.html">
-            <img src="https://bee-its.de/assets/icons/contact.svg" alt="" /> Kontakt</a
+          <a class="hide-mobile" href="${BASE_URL}/html/kontakt.html">
+            <img src="${BASE_URL}/assets/icons/contact.svg" alt="" /> Kontakt</a
           >
           <div class="search-box">
-            <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
+            <img src="${BASE_URL}/assets/icons/search.svg" alt="" />
             <span class="hide-mobile">Suche</span>
           </div>
         </div>
@@ -92,7 +95,7 @@
     <div class="search-container">
       <div class="search">
         <input type="text" placeholder="Suchen" />
-        <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
+        <img src="${BASE_URL}/assets/icons/search.svg" alt="" />
       </div>
     </div>
 
@@ -101,7 +104,7 @@
         <div class="menu-content-box quick-actions">
           <div class="language-box menu-content-item">
             <div class="language">
-              <img src="https://bee-its.de/assets/icons/language.svg" alt="" />
+              <img src="${BASE_URL}/assets/icons/language.svg" alt="" />
               <span>Sprache</span>
             </div>
 
@@ -114,30 +117,30 @@
           </div>
 
           <div class="search-box">
-            <img src="https://bee-its.de/assets/icons/search.svg" alt="" />
+            <img src="${BASE_URL}/assets/icons/search.svg" alt="" />
             <span>Suche</span>
           </div>
         </div>
 
         <div class="menu-content-box">
           <p class="menu-content-box-title">Navigation</p>
-          <a href="https://bee-its.de/index.html">Startseite</a>
-          <a href="https://bee-its.de/html/leistungsportfolio.html">Leistungen</a>
-          <a href="https://bee-its.de/html/anlagen.html">Anlagen</a>
-          <a href="https://bee-its.de/html/prozesse.html">Prozesse</a>
-          <a href="https://bee-its.de/html/branchen.html">Branchen</a>
-          <a href="https://bee-its.de/html/anlagen/vollautomatisch.html">Beispiele</a>
-          <a href="https://bee-its.de/html/partner.html">Partner</a>
+          <a href="${BASE_URL}/index.html">Startseite</a>
+          <a href="${BASE_URL}/html/leistungsportfolio.html">Leistungen</a>
+          <a href="${BASE_URL}/html/anlagen.html">Anlagen</a>
+          <a href="${BASE_URL}/html/prozesse.html">Prozesse</a>
+          <a href="${BASE_URL}/html/branchen.html">Branchen</a>
+          <a href="${BASE_URL}/html/anlagen/vollautomatisch.html">Beispiele</a>
+          <a href="${BASE_URL}/html/partner.html">Partner</a>
         </div>
 
         <div class="menu-content-box">
           <p class="menu-content-box-title">Information</p>
-          <a href="https://bee-its.de/html/aktuelles.html">Aktuelles</a>
-          <a href="https://bee-its.de/html/unternehmen.html">Unternehmen</a>
-          <a href="https://bee-its.de/html/karriere.php">Karriere</a>
-          <a href="https://bee-its.de/html/impressum.html">Impressum</a>
-          <a href="https://bee-its.de/html/downloads.html">Downloads</a>
-          <a href="https://bee-its.de/html/kontakt.html">Kontakt</a>
+          <a href="${BASE_URL}/html/aktuelles.html">Aktuelles</a>
+          <a href="${BASE_URL}/html/unternehmen.html">Unternehmen</a>
+          <a href="${BASE_URL}/html/karriere.php">Karriere</a>
+          <a href="${BASE_URL}/html/impressum.html">Impressum</a>
+          <a href="${BASE_URL}/html/downloads.php">Downloads</a>
+          <a href="${BASE_URL}/html/kontakt.html">Kontakt</a>
         </div>
 
         <div class="menu-content-box">
@@ -157,21 +160,21 @@
       <div class="footer-content footer-cols">
         <div class="footer-col">
           <p class="footer-col-title">Navigation</p>
-          <a href="https://bee-its.de/html/leistungsportfolio.html">Leistungen</a>
-          <a href="https://bee-its.de/html/anlagen.html">Anlagen</a>
-          <a href="https://bee-its.de/html/prozesse.html">Prozesse</a>
-          <a href="https://bee-its.de/html/branchen.html">Branchen</a>
-          <a href="https://bee-its.de/html/anlagen/vollautomatisch.html">Beispiele</a>
-          <a href="https://bee-its.de/html/partner.html">Partner</a>
+          <a href="${BASE_URL}/html/leistungsportfolio.html">Leistungen</a>
+          <a href="${BASE_URL}/html/anlagen.html">Anlagen</a>
+          <a href="${BASE_URL}/html/prozesse.html">Prozesse</a>
+          <a href="${BASE_URL}/html/branchen.html">Branchen</a>
+          <a href="${BASE_URL}/html/anlagen/vollautomatisch.html">Beispiele</a>
+          <a href="${BASE_URL}/html/partner.html">Partner</a>
         </div>
 
         <div class="footer-col">
           <p class="footer-col-title">Information</p>
-          <a href="https://bee-its.de/html/neuigkeit.php">Aktuelles</a>
-          <a href="https://bee-its.de/html/unternehmen.html">Unternehmen</a>
-          <a href="https://bee-its.de/html/karriere.php">Karriere</a>
-          <a href="https://bee-its.de/html/impressum.html">Impressum</a>
-          <a href="https://bee-its.de/html/downloads.html">Downloads</a>
+          <a href="${BASE_URL}/html/neuigkeit.php">Aktuelles</a>
+          <a href="${BASE_URL}/html/unternehmen.html">Unternehmen</a>
+          <a href="${BASE_URL}/html/karriere.php">Karriere</a>
+          <a href="${BASE_URL}/html/impressum.html">Impressum</a>
+          <a href="${BASE_URL}/html/downloads.php">Downloads</a>
         </div>
 
         <div class="footer-col">
@@ -179,7 +182,7 @@
           <a href="">Telefon +49 30 / 60 90 294 - 0</a>
           <a href="">Fax +49 30 / 60 90 294 - 09</a>
           <a href="mailto:info@team-automation-berlin.de" class="email">info@team-automation-berlin.de</a>
-          <a href="https://bee-its.de/html/kontakt.html" class="contact-footer">Kontakt aufnehmen</a>
+          <a href="${BASE_URL}/html/kontakt.html" class="contact-footer">Kontakt aufnehmen</a>
         </div>
 
       </div>
@@ -191,7 +194,7 @@
            Alboinstrasse 11, D-12103 Berlin
         </p>
 
-        <a class="footer-logo" href="https://bee-its.de/index.html">
+        <a class="footer-logo" href="${BASE_URL}/index.html">
           <svg width="158" height="56" viewBox="0 0 158 56" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_170_1245)">
             <path d="M16 10V13.5659H24.6226V30.6825H31.8081V13.5659H39.7122V10H16Z" fill="#01509F"/>

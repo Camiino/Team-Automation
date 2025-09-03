@@ -11,6 +11,9 @@ services:
       - db
     env_file:
       - .env
+    volumes:
+      # Persist uploaded news images
+      - ./assets/uploads:/var/www/localhost/htdocs/assets/uploads
 
   db:
     image: mariadb:latest

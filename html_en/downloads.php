@@ -7,6 +7,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="shortcut icon" href="../assets/icons/logoAlt.ico" type="image/x-icon" />
+    <script src="../js/config.js.php"></script>
     <script src="../js/dynamic_insert_en.js"></script>
 
     <style>
@@ -104,6 +105,36 @@
                     </a>  
                   </div>
                 </div>
+                <?php
+                  $dirPath = __DIR__ . '/../assets/uploads/downloads/';
+                  if (is_dir($dirPath)) {
+                    $files = scandir($dirPath);
+                    $files = array_diff($files, ['.', '..']);
+                    $pdfFiles = [];
+                    foreach ($files as $file) {
+                      if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) === 'pdf') {
+                        $pdfFiles[] = $file;
+                      }
+                    }
+                    foreach ($pdfFiles as $file) {
+                      $filenameOnly = pathinfo($file, PATHINFO_FILENAME);
+                      $displayName  = str_replace('_', ' ', $filenameOnly);
+                      $pdfRelPath   = "../assets/uploads/downloads/$file";
+                      echo "
+                      <div class='row'>
+                        <span>" . htmlspecialchars($displayName) . "</span>
+                        <div class='icons-cont'>
+                          <a href='{$pdfRelPath}' target='_blank'>
+                            <img src='../assets/icons/eye-icon.svg' alt='View' title='View'>
+                          </a>
+                          <a href='{$pdfRelPath}' download='" . htmlspecialchars($file) . "'>
+                            <img src='../assets/icons/download-icon.svg' alt='Download' title='Download'>
+                          </a>
+                        </div>
+                      </div>";
+                    }
+                  }
+                ?>
               </div>
           </div>
       </div>
